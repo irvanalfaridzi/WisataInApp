@@ -9,7 +9,7 @@
     <ImageView
         android:id="@+id/bgTiketAtas"
         android:layout_width="match_parent"
-        android:layout_height="96dp"
+        android:layout_height="114dp"
         android:background="@color/colorbgTiketAtas"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -17,8 +17,8 @@
 
     <ImageView
         android:id="@+id/imgTiket"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
+        android:layout_width="56dp"
+        android:layout_height="56dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:layout_marginBottom="16dp"
