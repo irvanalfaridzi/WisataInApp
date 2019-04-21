@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Activities.Login.BuatAkunActivity">
-    
+
     <android.support.v4.widget.NestedScrollView
         android:id="@+id/baScrollView01"
         android:layout_width="match_parent"
@@ -16,103 +16,263 @@
             android:layout_height="match_parent">
 
             <TextView
+                android:id="@+id/tvDaftar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/batNamaLengkap"
-                android:text="Nama Lengkap :"
-                android:textColor="#000000"
-                android:layout_marginTop="32dp"
                 android:layout_marginStart="16dp"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintStart_toStartOf="parent"/>
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="24dp"
+                android:text="Daftar"
+                android:textColor="#de000000"
+                android:textSize="20sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/logoUser"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp"
+                android:background="@drawable/ic_username"
+                app:layout_constraintBottom_toBottomOf="@id/tvNama"
+                app:layout_constraintStart_toStartOf="@id/tvNama"
+                app:layout_constraintTop_toTopOf="@id/tvNama" />
+
+            <TextView
+                android:id="@+id/tvNama"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="32dp"
+                android:layout_marginEnd="16dp"
+                android:background="@drawable/bgtext"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvDaftar" />
 
             <EditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
                 android:id="@+id/baetNamaLengkap"
-                android:hint="masukan nama lengkap anda"
-                android:layout_margin="16dp"
-                app:layout_constraintTop_toBottomOf="@id/batNamaLengkap"
-                app:layout_constraintStart_toStartOf="parent"/>
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="0dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="0dp"
+                android:background="@android:color/transparent"
+                android:hint="Username"
+                android:paddingTop="16dp"
+                android:paddingBottom="16dp"
+                app:layout_constraintBottom_toBottomOf="@id/tvNama"
+                app:layout_constraintEnd_toEndOf="@id/tvNama"
+                app:layout_constraintStart_toEndOf="@id/logoUser"
+                app:layout_constraintTop_toTopOf="@id/tvNama" />
 
             <TextView
+                android:id="@+id/tvEmail"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="32dp"
+                android:layout_marginEnd="16dp"
+                android:background="@drawable/bgtext"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvNama" />
+
+            <ImageView
+                android:id="@+id/logoEmail"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/batEmail"
-                android:text="Email :"
-                android:textColor="#000000"
-                android:layout_margin="16dp"
-                app:layout_constraintTop_toBottomOf="@id/baetNamaLengkap"
-                app:layout_constraintStart_toStartOf="parent"/>
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp"
+                android:background="@drawable/ic_email"
+                app:layout_constraintBottom_toBottomOf="@id/tvEmail"
+                app:layout_constraintStart_toStartOf="@id/tvEmail"
+                app:layout_constraintTop_toTopOf="@id/tvEmail" />
 
             <EditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
                 android:id="@+id/baetEmail"
-                android:hint="masukan nama lengkap anda"
-                android:layout_margin="16dp"
-                app:layout_constraintTop_toBottomOf="@id/batEmail"
-                app:layout_constraintStart_toStartOf="parent"/>
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="0dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="0dp"
+                android:background="@android:color/transparent"
+                android:hint="Email"
+                android:paddingTop="16dp"
+                android:paddingBottom="16dp"
+                app:layout_constraintBottom_toBottomOf="@id/tvEmail"
+                app:layout_constraintEnd_toEndOf="@id/tvEmail"
+                app:layout_constraintStart_toEndOf="@id/logoEmail"
+                app:layout_constraintTop_toTopOf="@id/tvEmail" />
 
             <TextView
+                android:id="@+id/tvPass"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="32dp"
+                android:layout_marginEnd="16dp"
+                android:background="@drawable/bgtext"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvEmail" />
+
+            <ImageView
+                android:id="@+id/logoPassword"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/batKataSandi"
-                android:text="Kata Sandi :"
-                android:textColor="#000000"
-                android:layout_margin="16dp"
-                app:layout_constraintTop_toBottomOf="@id/baetEmail"
-                app:layout_constraintStart_toStartOf="parent"/>
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp"
+                android:background="@drawable/ic_pass"
+                app:layout_constraintBottom_toBottomOf="@id/tvPass"
+                app:layout_constraintStart_toStartOf="@id/tvPass"
+                app:layout_constraintTop_toTopOf="@id/tvPass" />
 
             <EditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
                 android:id="@+id/baetKataSandi"
-                android:hint="masukan alamat rumah anda"
-                android:layout_margin="16dp"
-                app:layout_constraintTop_toBottomOf="@id/batKataSandi"
-                app:layout_constraintStart_toStartOf="parent"/>
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="0dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="0dp"
+                android:background="@android:color/transparent"
+                android:hint="Password"
+                android:paddingTop="16dp"
+                android:paddingBottom="16dp"
+                app:layout_constraintBottom_toBottomOf="@id/tvPass"
+                app:layout_constraintEnd_toEndOf="@id/tvPass"
+                app:layout_constraintStart_toEndOf="@id/logoPassword"
+                app:layout_constraintTop_toTopOf="@id/tvPass" />
 
             <TextView
+                android:id="@+id/tvPassKonfir"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="32dp"
+                android:layout_marginEnd="16dp"
+                android:background="@drawable/bgtext"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvPass" />
+
+            <ImageView
+                android:id="@+id/logoKonPass"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/batKonfirmasiSandi"
-                android:text="Konfirmasi Sandi :"
-                android:textColor="#000000"
-                android:layout_margin="16dp"
-                app:layout_constraintTop_toBottomOf="@id/baetKataSandi"
-                app:layout_constraintStart_toStartOf="parent"/>
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp"
+                android:background="@drawable/ic_pass"
+                app:layout_constraintBottom_toBottomOf="@id/tvPassKonfir"
+                app:layout_constraintStart_toStartOf="@id/tvPassKonfir"
+                app:layout_constraintTop_toTopOf="@id/tvPassKonfir" />
 
             <EditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
                 android:id="@+id/baetKonfirmasiSandi"
-                android:hint="masukan alamat rumah anda"
-                android:layout_margin="16dp"
-                app:layout_constraintTop_toBottomOf="@id/batKonfirmasiSandi"
-                app:layout_constraintStart_toStartOf="parent"/>
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="0dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="0dp"
+                android:background="@android:color/transparent"
+                android:hint="Konfirmasi Password"
+                android:paddingTop="16dp"
+                android:paddingBottom="16dp"
+                app:layout_constraintBottom_toBottomOf="@id/tvPassKonfir"
+                app:layout_constraintEnd_toEndOf="@id/tvPassKonfir"
+                app:layout_constraintStart_toEndOf="@id/logoKonPass"
+                app:layout_constraintTop_toTopOf="@id/tvPassKonfir" />
 
             <Button
+                android:id="@+id/babtnBuatAkun"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="32dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="16dp"
+                android:background="@drawable/bgmasuk"
+                android:text="Lanjut"
+                android:textColor="@color/colorPutih"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvPassKonfir" />
+
+            <TextView
+                android:id="@+id/tvDengan"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/babtnBuatAkun"
-                android:text="Buat Akun"
-                android:layout_marginTop="16dp"
-                app:layout_constraintTop_toBottomOf="@id/baetKonfirmasiSandi"
-                app:layout_constraintEnd_toEndOf="@id/baetKonfirmasiSandi"/>
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="32dp"
+                android:layout_marginEnd="16dp"
+                android:text="Dengan mendaftar, saya menyetujui"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/babtnBuatAkun" />
+
+            <TextView
+                android:id="@+id/tvSyarat"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="64dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginRight="0dp"
+                android:text="Syarat dan Ketentuan "
+                android:textColor="@color/colorPrimary"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toStartOf="@id/tvSerta"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvDengan" />
+
+            <TextView
+                android:id="@+id/tvSerta"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="0dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginRight="0dp"
+                android:text="serta "
+                android:textSize="14sp"
+                app:layout_constraintEnd_toStartOf="@id/tvKebijakan"
+                app:layout_constraintStart_toEndOf="@id/tvSyarat"
+                app:layout_constraintTop_toBottomOf="@id/tvDengan" />
+
+            <TextView
+                android:id="@+id/tvKebijakan"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="0dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginRight="64dp"
+                android:text="Kebijakan Privasi"
+                android:textColor="@color/colorPrimary"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/tvSerta"
+                app:layout_constraintTop_toBottomOf="@id/tvDengan" />
 
         </android.support.constraint.ConstraintLayout>
 
     </android.support.v4.widget.NestedScrollView>
 
     <ProgressBar
+        android:id="@+id/baProgressBar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/baProgressBar"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
-        android:visibility="gone"/>
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </android.support.constraint.ConstraintLayout>
