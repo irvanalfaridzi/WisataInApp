@@ -63,6 +63,71 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tvDaftarTiket" />
 
+            <!-- Card 1 -->
+
+            <android.support.v7.widget.CardView
+                android:id="@+id/cardPedesaan"
+                android:layout_width="156dp"
+                android:layout_height="96dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="32dp"
+                android:layout_marginEnd="16dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:clickable="true"
+                app:cardBackgroundColor="#ffffff"
+                app:cardCornerRadius="8dp"
+                app:layout_constraintEnd_toStartOf="@id/cardPantai"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/mtRecyclerView">
+
+                <android.support.constraint.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+
+                    >
+
+                    <ImageView
+                        android:id="@+id/imgPedesaan"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:layout_marginLeft="16dp"
+                        android:layout_marginTop="24dp"
+                        android:layout_marginBottom="24dp"
+                        android:background="@drawable/ic_pedesaan"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="8dp"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginBottom="16dp"
+                        android:lineHeight="17sp"
+                        android:text="Pedesaan"
+                        android:textColor="#99000000"
+                        android:textSize="14sp"
+                        app:layout_constraintBottom_toBottomOf="@id/imgPedesaan"
+                        app:layout_constraintStart_toEndOf="@id/imgPedesaan"
+                        app:layout_constraintTop_toTopOf="@id/imgPedesaan" />
+
+                    <TextView
+                        android:id="@+id/stipPedesaan"
+                        android:layout_width="8dp"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/strippedesaan"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                </android.support.constraint.ConstraintLayout>
+
+            </android.support.v7.widget.CardView>
+
+            <!-- //Card 1-->
+
             <TextView
                 android:id="@+id/tvRiwayat"
                 android:layout_width="0dp"
