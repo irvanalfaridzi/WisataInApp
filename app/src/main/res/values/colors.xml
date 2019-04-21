@@ -1,6 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#008577</color>
-    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorPrimary">#2979ff</color>
+    <color name="colorPrimaryDark">#2979ff</color>
     <color name="colorAccent">#D81B60</color>
+    <color name="colorBeli">#fbc02d</color>
+    <color name="colorButton">#2979ff</color>
+    <color name="colorGelap">#000000</color>
+    <color name="colorPutih">#ffffff</color>
+    <color name="colorPutih2">#50ffffff</color>
+    <color name="colorbgTiketAtas">#75a7ff</color>
+    <color name="colorbgjmlTiket">#ffd782</color>
 </resources>

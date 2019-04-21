@@ -15,131 +15,240 @@
             android:layout_height="match_parent">
 
             <TextView
-                android:id="@+id/biatNamaLengkap"
+                android:id="@+id/tvBioAkun"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
-                android:layout_marginTop="32dp"
-                android:text="Nama lengkap :"
-                android:textColor="#000000"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="24dp"
+                android:text="Biodata Akun"
+                android:textColor="#de000000"
+                android:textSize="20sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <EditText
-                android:id="@+id/biaetNamaLengkap"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="16dp"
-                android:hint="masukan nama lengkap anda"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/biatNamaLengkap" />
-
             <TextView
-                android:id="@+id/biatNomorPonsel"
+                android:id="@+id/tvNamaLengkap"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="32dp"
+                android:layout_marginEnd="16dp"
+                android:background="@drawable/bgtext"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvBioAkun" />
+
+            <ImageView
+                android:id="@+id/logoUser"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="16dp"
-                android:text="Nomor Ponsel :"
-                android:textColor="#000000"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp"
+                android:background="@drawable/ic_username"
+                app:layout_constraintBottom_toBottomOf="@id/tvNamaLengkap"
+                app:layout_constraintStart_toStartOf="@id/tvNamaLengkap"
+                app:layout_constraintTop_toTopOf="@id/tvNamaLengkap" />
+
+            <EditText
+                android:id="@+id/biaetNamaLengkap"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="0dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="0dp"
+                android:background="@android:color/transparent"
+                android:hint="Nama Pengguna"
+                android:paddingTop="16dp"
+                android:paddingBottom="16dp"
+                app:layout_constraintBottom_toBottomOf="@id/tvNamaLengkap"
+                app:layout_constraintEnd_toEndOf="@id/tvNamaLengkap"
+                app:layout_constraintStart_toEndOf="@id/logoUser"
+                app:layout_constraintTop_toTopOf="@id/tvNamaLengkap" />
+
+            <TextView
+                android:id="@+id/tvTelepon"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="32dp"
+                android:layout_marginEnd="16dp"
+                android:background="@drawable/bgtext"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/biaetNamaLengkap" />
+                app:layout_constraintTop_toBottomOf="@id/tvNamaLengkap" />
+
+            <ImageView
+                android:id="@+id/logoTelepon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp"
+                android:background="@drawable/ic_telepon"
+                app:layout_constraintBottom_toBottomOf="@id/tvTelepon"
+                app:layout_constraintStart_toStartOf="@id/tvTelepon"
+                app:layout_constraintTop_toTopOf="@id/tvTelepon" />
 
             <EditText
                 android:id="@+id/biaetNomorPonsel"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_margin="16dp"
-                android:hint="masukan nomor ponsel anda"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="0dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="0dp"
+                android:background="@android:color/transparent"
+                android:hint="Nomor Ponsel"
                 android:inputType="phone"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/biatNomorPonsel" />
+                android:paddingTop="16dp"
+                android:paddingBottom="16dp"
+                app:layout_constraintBottom_toBottomOf="@id/tvTelepon"
+                app:layout_constraintEnd_toEndOf="@id/tvTelepon"
+                app:layout_constraintStart_toEndOf="@id/logoTelepon"
+                app:layout_constraintTop_toTopOf="@id/tvTelepon" />
 
             <TextView
-                android:id="@+id/biatTanggalLahir"
+                android:id="@+id/tvTtl"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="32dp"
+                android:layout_marginEnd="16dp"
+                android:background="@drawable/bgtext"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvTelepon" />
+
+            <ImageView
+                android:id="@+id/logoTtl"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="16dp"
-                android:text="Tanggal lahir :"
-                android:textColor="#000000"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/biaetNomorPonsel" />
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp"
+                android:background="@drawable/ic_cake"
+                app:layout_constraintBottom_toBottomOf="@id/tvTtl"
+                app:layout_constraintStart_toStartOf="@id/tvTtl"
+                app:layout_constraintTop_toTopOf="@id/tvTtl" />
 
             <EditText
                 android:id="@+id/biaetTanggalLahir"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_margin="16dp"
-                android:hint="masukan tanggal lahir anda"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="0dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="0dp"
+                android:background="@android:color/transparent"
+                android:hint="Tanggal Lahir"
+                android:paddingTop="16dp"
+                android:paddingBottom="16dp"
+                app:layout_constraintBottom_toBottomOf="@id/tvTtl"
                 app:layout_constraintEnd_toStartOf="@id/biaBtnTanggalLahir"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/biatTanggalLahir" />
+                app:layout_constraintStart_toEndOf="@id/logoTtl"
+                app:layout_constraintTop_toTopOf="@id/tvTtl" />
 
             <Button
                 android:id="@+id/biaBtnTanggalLahir"
                 android:layout_width="45dp"
                 android:layout_height="45dp"
+                android:layout_marginStart="0dp"
+                android:layout_marginTop="16dp"
                 android:layout_marginEnd="16dp"
+                android:layout_marginBottom="16dp"
                 android:text="..."
-                app:layout_constraintBottom_toBottomOf="@+id/biaetTanggalLahir"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/biaetTanggalLahir" />
+                app:layout_constraintBottom_toBottomOf="@+id/tvTtl"
+                app:layout_constraintEnd_toEndOf="@id/tvTtl"
+                app:layout_constraintTop_toTopOf="@+id/tvTtl" />
 
             <TextView
-                android:id="@+id/biatAlamat"
+                android:id="@+id/tvAlamat"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="32dp"
+                android:layout_marginEnd="16dp"
+                android:background="@drawable/bgtext"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvTtl" />
+
+            <ImageView
+                android:id="@+id/logoAlamat"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="16dp"
-                android:text="Alamat :"
-                android:textColor="#000000"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/biaetTanggalLahir" />
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp"
+                android:background="@drawable/ic_location"
+                app:layout_constraintBottom_toBottomOf="@id/tvAlamat"
+                app:layout_constraintStart_toStartOf="@id/tvAlamat"
+                app:layout_constraintTop_toTopOf="@id/tvAlamat" />
 
             <EditText
                 android:id="@+id/biaetAlamat"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_margin="16dp"
-                android:hint="masukan alamat anda"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/biatAlamat" />
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="0dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="0dp"
+                android:background="@android:color/transparent"
+                android:hint="Alamat"
+                android:paddingTop="16dp"
+                android:paddingBottom="16dp"
+                app:layout_constraintBottom_toBottomOf="@id/tvAlamat"
+                app:layout_constraintEnd_toEndOf="@id/tvAlamat"
+                app:layout_constraintStart_toEndOf="@id/logoAlamat"
+                app:layout_constraintTop_toTopOf="@id/tvAlamat" />
 
             <TextView
                 android:id="@+id/biatFotoProfil"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="16dp"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="32dp"
                 android:text="Foto Profil :"
                 android:textColor="#000000"
+                android:textSize="20sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/biaetAlamat" />
 
             <ImageView
                 android:id="@+id/biaiFotoProfil"
-                android:layout_width="168dp"
-                android:layout_height="168dp"
-                android:layout_margin="16dp"
-                android:background="@drawable/ic_account_box_black_600dp"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/profile_user"
                 android:scaleType="centerCrop"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/biatFotoProfil" />
+                app:layout_constraintStart_toStartOf="@id/biatFotoProfil"
+                app:layout_constraintTop_toBottomOf="@id/biatFotoProfil" />
 
             <TextView
                 android:id="@+id/biatKeterangangambar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
                 android:text="Klik gambar diatas untuk memilih foto profil"
-                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintStart_toStartOf="@id/biatFotoProfil"
                 app:layout_constraintTop_toBottomOf="@+id/biaiFotoProfil" />
 
             <Button
                 android:id="@+id/biabtnBuatAkun"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="32dp"
                 android:layout_marginEnd="16dp"
-                android:layout_marginBottom="48dp"
+                android:layout_marginBottom="32dp"
+                android:background="@drawable/bgmasuk"
                 android:text="Buat Akun"
+                android:textColor="@color/colorPutih"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/biatKeterangangambar" />
