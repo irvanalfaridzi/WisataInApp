@@ -12,17 +12,17 @@ import com.example.wisatain.R;
 
 public class MainTiketAdapter extends RecyclerView.ViewHolder implements View.OnClickListener{
 
-    public TextView namaWisata, wilayahWisata, tanggalKunjungan, jumlahTiket, totalHarga;
+    public TextView namaWisata, tanggalKunjungan, jumlahTiket;
     public String tiketKey;
 
     public MainTiketAdapter(@NonNull View itemView) {
         super(itemView);
 
         namaWisata = itemView.findViewById(R.id.ittNamaWisata);
-        wilayahWisata = itemView.findViewById(R.id.ittWilayahWisata);
+//        wilayahWisata = itemView.findViewById(R.id.ittWilayahWisata);
         tanggalKunjungan = itemView.findViewById(R.id.ittTanggalKunjungan);
         jumlahTiket = itemView.findViewById(R.id.ittJumlahTiket);
-        totalHarga = itemView.findViewById(R.id.ittTotalHarga);
+//        totalHarga = itemView.findViewById(R.id.ittTotalHarga);
 
         itemView.setOnClickListener(this);
     }

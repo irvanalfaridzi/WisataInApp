@@ -157,14 +157,14 @@ public class MainTiketFragment extends Fragment {
             @Override
             protected void onBindViewHolder(@NonNull MainTiketAdapter holder, int position, @NonNull Tiket model) {
                 holder.namaWisata.setText(arrayNamaWisata.get(position));
-                holder.wilayahWisata.setText(arrayWilayahWisata.get(position));
-                holder.totalHarga.setText(arrayTotalHarga.get(position));
+//                holder.wilayahWisata.setText(arrayWilayahWisata.get(position));
+//                holder.totalHarga.setText(arrayTotalHarga.get(position));
                 holder.jumlahTiket.setText(arrayJumlahTiket.get(position));
                 holder.tanggalKunjungan.setText(arrayTanggalKunjungan.get(position));
                 holder.tiketKey = arrayTiketKey.get(position);
             }
         };
-        GridLayoutManager gridLayoutManager = new GridLayoutManager(context, 2);
+        GridLayoutManager gridLayoutManager = new GridLayoutManager(context, 1  );
         recyclerView.setLayoutManager(gridLayoutManager);
         adapter.startListening();
         recyclerView.setAdapter(adapter);
