@@ -164,7 +164,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/lbtnLogin"
-            tools:text="Belum memiliki akun ?" />
+            android:text="Belum memiliki akun ?" />
 
         <TextView
             android:id="@+id/lbtnCrtAccount"
@@ -183,7 +183,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/txtblm"
-            tools:text="Daftar Sekarang" />
+            android:text="Daftar Sekarang" />
 
         <ProgressBar
             android:id="@+id/lProgressBar"
