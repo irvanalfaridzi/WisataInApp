@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activities.Main.PesanTiketActivity">
+
+    <ImageView
+        android:layout_width="160dp"
+        android:layout_height="160dp"
+        android:id="@+id/ptiGambarWisata"
+        android:background="@drawable/ic_add_a_photo_black_128dp"
+        android:scaleType="centerCrop"
+        android:layout_marginVertical="16dp"
+        android:layout_marginHorizontal="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/pttHargaTiket"
+        android:text="Harga Tiket"
+        android:textColor="#000000"
+        android:textSize="16dp"
+        android:layout_marginHorizontal="16dp"
+        app:layout_constraintStart_toEndOf="@id/ptiGambarWisata"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/ptiGambarWisata"
+        app:layout_constraintBottom_toBottomOf="@id/ptiGambarWisata"/>
+
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/pttHargaTiketKeterangan"
+        android:text="Rp100000"
+        android:textSize="20dp"
+        android:layout_marginHorizontal="16dp"
+        app:layout_constraintStart_toEndOf="@id/ptiGambarWisata"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/pttHargaTiket"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/pttNamadanKotaWisata"
+        android:text="Stikom Surabaya, Surabaya"
+        android:textSize="24dp"
+        android:textColor="#000000"
+        android:layout_marginVertical="8dp"
+        android:layout_marginHorizontal="16dp"
+        app:layout_constraintTop_toBottomOf="@id/ptiGambarWisata" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/pttJumlahTiket"
+        android:text="Jumlah Tiket"
+        android:textSize="16dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginHorizontal="16dp"
+        app:layout_constraintTop_toBottomOf="@+id/pttNamadanKotaWisata"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/ptetJumlahTiket"
+        android:hint="Masukan Jumlah Tiket"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="4dp"
+        app:layout_constraintTop_toBottomOf="@id/pttJumlahTiket"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/ptBtnBeliTiket"
+        android:text="Beli Tiket"
+        android:textColor="#ffffff"
+        android:background="@color/colorPrimary"
+        android:layout_margin="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+    <TextView
+        android:id="@+id/pttTanggalPesan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:text="Tanggal lahir :"
+        android:textColor="#000000"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ptetJumlahTiket" />
+
+    <EditText
+        android:id="@+id/ptetTanggalPesan"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:hint="masukan tanggal lahir anda"
+        app:layout_constraintEnd_toStartOf="@id/ptBtnTanggalPesan"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/pttTanggalPesan" />
+
+    <Button
+        android:id="@+id/ptBtnTanggalPesan"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_marginEnd="16dp"
+        android:text="..."
+        app:layout_constraintBottom_toBottomOf="@+id/ptetTanggalPesan"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/ptetTanggalPesan" />
+
+</android.support.constraint.ConstraintLayout>

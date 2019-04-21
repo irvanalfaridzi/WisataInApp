@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/homeNav"
+        android:title="HOME" />
+
+    <item
+        android:id="@+id/favoriteNav"
+        android:title="FAVORITE" />
+
+    <item
+        android:id="@+id/cariNav"
+        android:title="CARI" />
+
+    <item
+        android:id="@+id/tiketNav"
+        android:title="TIKET" />
+
+    <item
+        android:id="@+id/akunNav"
+        android:title="AKUN" />
+
+</menu>

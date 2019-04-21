@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "476703665595",
+    "firebase_url": "https://wisatain.firebaseio.com",
+    "project_id": "wisatain",
+    "storage_bucket": "wisatain.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:476703665595:android:c3ae57439d1021c6",
+        "android_client_info": {
+          "package_name": "com.example.wisatain"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "476703665595-all4hklumolcugjsspc44cqpj747621h.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.wisatain",
+            "certificate_hash": "00a7783d8732e6ec112c714e0d2d08daf4bac8ca"
+          }
+        },
+        {
+          "client_id": "476703665595-d12f1l0q4rblsj7mansleefb977qabtq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDDKvI0hd738XSaee-ooSgY50BC7iA9Cc8"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "476703665595-d12f1l0q4rblsj7mansleefb977qabtq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activities.Main.BiodataWisataActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:layout_width="128dp"
+                android:layout_height="128dp"
+                android:id="@+id/bwiGambarWisata"
+                android:layout_margin="16dp"
+                android:scaleType="centerCrop"
+                android:background="@drawable/ic_add_a_photo_black_128dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"/>
+
+            <ProgressBar
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/bwProgressBar"
+                android:visibility="gone"
+                app:layout_constraintStart_toStartOf="@id/bwiGambarWisata"
+                app:layout_constraintEnd_toEndOf="@id/bwiGambarWisata"
+                app:layout_constraintTop_toTopOf="@id/bwiGambarWisata"
+                app:layout_constraintBottom_toBottomOf="@id/bwiGambarWisata"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/bwtKeteranganGambar"
+                android:text="Masukan Gmabar wisata dengan mengklik gambar diatas"
+                android:layout_marginStart="16dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/bwiGambarWisata"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/bwtNamaWisata"
+                android:text="Nama Wisata : "
+                android:textColor="#000000"
+                android:textSize="18dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="32dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/bwtKeteranganGambar"/>
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/bwetNamaWisata"
+                android:hint="Masukan Nama Wisata"
+                android:layout_margin="16dp"
+                app:layout_constraintTop_toBottomOf="@+id/bwtNamaWisata"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/bwtKategori"
+                android:text="Kategori : "
+                android:textColor="#000000"
+                android:textSize="18dp"
+                android:layout_margin="16dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/bwetNamaWisata"/>
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/bwetKategori"
+                android:hint="Masukan Kategori Wisata"
+                android:layout_margin="16dp"
+                app:layout_constraintTop_toBottomOf="@+id/bwtKategori"
+                app:layout_constraintStart_toStartOf="parent"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/bwtLokasi"
+                android:text="Lokasi : "
+                android:textColor="#000000"
+                android:textSize="18dp"
+                android:layout_margin="16dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/bwetKategori"/>
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/bwetLokasi"
+                android:hint="Masukan Lokasi Wisata"
+                android:layout_margin="16dp"
+                app:layout_constraintTop_toBottomOf="@+id/bwtLokasi"
+                app:layout_constraintStart_toStartOf="parent"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/bwtKota"
+                android:text="Kota : "
+                android:textColor="#000000"
+                android:textSize="18dp"
+                android:layout_margin="16dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/bwetLokasi"/>
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/bwetKota"
+                android:hint="Masukan Kota Wisata"
+                android:layout_margin="16dp"
+                app:layout_constraintTop_toBottomOf="@+id/bwtKota"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/bwtNomorTelepon"
+                android:text="Nomor Telepon : "
+                android:textColor="#000000"
+                android:textSize="18dp"
+                android:layout_margin="16dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/bwetKota"/>
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/bwetNomorTelepon"
+                android:hint="Masukan Nomor Telepon"
+                android:layout_margin="16dp"
+                app:layout_constraintTop_toBottomOf="@+id/bwtNomorTelepon"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/bwtJamOperasional"
+                android:text="Jam Operasional : "
+                android:textColor="#000000"
+                android:textSize="18dp"
+                android:layout_margin="16dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/bwetNomorTelepon"/>
+
+            <EditText
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/bwetJamOperasionalBuka"
+                android:hint="Jam Buka"
+                android:layout_margin="16dp"
+                app:layout_constraintEnd_toStartOf="@id/bwtHingga"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/bwtJamOperasional"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/bwtHingga"
+                android:text=" - "
+                android:textSize="32dp"
+                android:textColor="#000000"
+                android:layout_marginHorizontal="16dp"
+                app:layout_constraintTop_toTopOf="@+id/bwetJamOperasionalBuka"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toBottomOf="@id/bwetJamOperasionalBuka"/>
+
+            <EditText
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/bwetJamOperasionalTutup"
+                android:hint="Jam Tutup"
+                android:layout_margin="16dp"
+                app:layout_constraintStart_toEndOf="@id/bwtHingga"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/bwtJamOperasional"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/bwtHarga"
+                android:text="Harga : "
+                android:textColor="#000000"
+                android:textSize="18dp"
+                android:layout_margin="16dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/bwetJamOperasionalBuka"/>
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/bwetHarga"
+                android:hint="Masukan Harga Masuk Wisata"
+                android:layout_margin="16dp"
+                app:layout_constraintTop_toBottomOf="@+id/bwtHarga"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/bwtDeskripsi"
+                android:text="Deskripsi Wisata Anda : "
+                android:textColor="#000000"
+                android:textSize="18dp"
+                android:layout_margin="16dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/bwetHarga"/>
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/bwetDeskripsi"
+                android:hint="Masukan Harga Masuk Wisata"
+                android:layout_margin="16dp"
+                app:layout_constraintTop_toBottomOf="@+id/bwtDeskripsi"/>
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/bwBtnSave"
+                android:text="Save"
+                android:layout_marginTop="64dp"
+                android:layout_marginBottom="16dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/bwetDeskripsi"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+
+        </android.support.constraint.ConstraintLayout>
+
+    </ScrollView>
+
+</android.support.constraint.ConstraintLayout>
