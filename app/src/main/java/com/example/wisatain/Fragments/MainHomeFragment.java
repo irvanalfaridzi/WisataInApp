@@ -1,14 +1,18 @@
 package com.example.wisatain.Fragments;
 
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.DisplayMetrics;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.GridView;
+import android.widget.ListAdapter;
 
 import com.bumptech.glide.Glide;
 import com.example.wisatain.Adapters.MainHomeAdapter;
@@ -31,6 +35,7 @@ import butterknife.ButterKnife;
  * A simple {@link Fragment} subclass.
  */
 public class MainHomeFragment extends Fragment {
+
 
     @BindView(R.id.mhRecyclerView)
     RecyclerView recyclerView;
@@ -116,7 +121,9 @@ public class MainHomeFragment extends Fragment {
             }
         };
 
+
         GridLayoutManager gridLayoutManager = new GridLayoutManager(getContext(), 2);
+
         recyclerView.setLayoutManager(gridLayoutManager);
         adapter.startListening();
         recyclerView.setAdapter(adapter);
@@ -149,4 +156,5 @@ public class MainHomeFragment extends Fragment {
             adapter.stopListening();
         }
     }
+
 }
