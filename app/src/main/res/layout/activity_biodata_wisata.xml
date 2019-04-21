@@ -15,225 +15,432 @@
             android:layout_height="match_parent">
 
             <ImageView
+                android:id="@+id/bwiGambarWisata"
                 android:layout_width="128dp"
                 android:layout_height="128dp"
-                android:id="@+id/bwiGambarWisata"
-                android:layout_margin="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginEnd="16dp"
+                android:background="@drawable/wisata_user"
                 android:scaleType="centerCrop"
-                android:background="@drawable/ic_add_a_photo_black_128dp"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"/>
+                app:layout_constraintTop_toTopOf="parent" />
 
             <ProgressBar
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
                 android:id="@+id/bwProgressBar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:visibility="gone"
-                app:layout_constraintStart_toStartOf="@id/bwiGambarWisata"
+                app:layout_constraintBottom_toBottomOf="@id/bwiGambarWisata"
                 app:layout_constraintEnd_toEndOf="@id/bwiGambarWisata"
-                app:layout_constraintTop_toTopOf="@id/bwiGambarWisata"
-                app:layout_constraintBottom_toBottomOf="@id/bwiGambarWisata"/>
+                app:layout_constraintStart_toStartOf="@id/bwiGambarWisata"
+                app:layout_constraintTop_toTopOf="@id/bwiGambarWisata" />
 
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
                 android:id="@+id/bwtKeteranganGambar"
-                android:text="Masukan Gmabar wisata dengan mengklik gambar diatas"
-                android:layout_marginStart="16dp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/bwiGambarWisata"/>
-
-            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/bwtNamaWisata"
-                android:text="Nama Wisata : "
-                android:textColor="#000000"
-                android:textSize="18dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:text="Masukan Gambar wisata dengan mengklik gambar diatas"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/bwiGambarWisata" />
+
+            <TextView
+                android:id="@+id/tvBatas"
+                android:layout_width="match_parent"
+                android:layout_height="16dp"
+                android:layout_marginStart="0dp"
+                android:layout_marginTop="32dp"
+                android:layout_marginEnd="0dp"
+                android:background="#f5f5f5"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/bwtKeteranganGambar" />
+
+            <TextView
+                android:id="@+id/tvNamaWisata"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="32dp"
+                android:layout_marginEnd="16dp"
+                android:background="@drawable/bgtext"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/bwtKeteranganGambar"/>
+                app:layout_constraintTop_toBottomOf="@id/tvBatas" />
+
+            <ImageView
+                android:id="@+id/logoNamaWisata"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp"
+                android:background="@drawable/ic_username"
+                app:layout_constraintBottom_toBottomOf="@id/tvNamaWisata"
+                app:layout_constraintStart_toStartOf="@id/tvNamaWisata"
+                app:layout_constraintTop_toTopOf="@id/tvNamaWisata" />
 
             <EditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
                 android:id="@+id/bwetNamaWisata"
-                android:hint="Masukan Nama Wisata"
-                android:layout_margin="16dp"
-                app:layout_constraintTop_toBottomOf="@+id/bwtNamaWisata"/>
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="0dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="0dp"
+                android:background="@android:color/transparent"
+                android:hint="Nama Wisata"
+                android:paddingTop="16dp"
+                android:paddingBottom="16dp"
+                app:layout_constraintEnd_toEndOf="@id/tvNamaWisata"
+                app:layout_constraintStart_toEndOf="@id/logoNamaWisata"
+                app:layout_constraintTop_toTopOf="@id/tvNamaWisata" />
 
             <TextView
+                android:id="@+id/tvKategori"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="32dp"
+                android:layout_marginEnd="16dp"
+                android:background="@drawable/bgtext"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvNamaWisata" />
+
+            <ImageView
+                android:id="@+id/logoKategori"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/bwtKategori"
-                android:text="Kategori : "
-                android:textColor="#000000"
-                android:textSize="18dp"
-                android:layout_margin="16dp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/bwetNamaWisata"/>
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp"
+                android:background="@drawable/ic_category"
+                app:layout_constraintBottom_toBottomOf="@id/tvKategori"
+                app:layout_constraintStart_toStartOf="@id/tvKategori"
+                app:layout_constraintTop_toTopOf="@id/tvKategori" />
 
             <EditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
                 android:id="@+id/bwetKategori"
-                android:hint="Masukan Kategori Wisata"
-                android:layout_margin="16dp"
-                app:layout_constraintTop_toBottomOf="@+id/bwtKategori"
-                app:layout_constraintStart_toStartOf="parent"/>
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="0dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="0dp"
+                android:background="@android:color/transparent"
+                android:hint="Kategori Wisata"
+                android:paddingTop="16dp"
+                android:paddingBottom="16dp"
+                app:layout_constraintBottom_toBottomOf="@id/tvKategori"
+                app:layout_constraintEnd_toEndOf="@id/tvKategori"
+                app:layout_constraintStart_toEndOf="@id/logoKategori"
+                app:layout_constraintTop_toTopOf="@id/tvKategori" />
 
             <TextView
+                android:id="@+id/tvLokasi"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="32dp"
+                android:layout_marginEnd="16dp"
+                android:background="@drawable/bgtext"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvKategori" />
+
+            <ImageView
+                android:id="@+id/logoLokasi"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/bwtLokasi"
-                android:text="Lokasi : "
-                android:textColor="#000000"
-                android:textSize="18dp"
-                android:layout_margin="16dp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/bwetKategori"/>
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp"
+                android:background="@drawable/ic_location"
+                app:layout_constraintBottom_toBottomOf="@id/tvLokasi"
+                app:layout_constraintStart_toStartOf="@id/tvLokasi"
+                app:layout_constraintTop_toTopOf="@id/tvLokasi" />
 
             <EditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
                 android:id="@+id/bwetLokasi"
-                android:hint="Masukan Lokasi Wisata"
-                android:layout_margin="16dp"
-                app:layout_constraintTop_toBottomOf="@+id/bwtLokasi"
-                app:layout_constraintStart_toStartOf="parent"/>
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="0dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="0dp"
+                android:background="@android:color/transparent"
+                android:hint="Lokasi Wisata"
+                android:paddingTop="16dp"
+                android:paddingBottom="16dp"
+                app:layout_constraintBottom_toBottomOf="@id/tvLokasi"
+                app:layout_constraintEnd_toEndOf="@id/tvLokasi"
+                app:layout_constraintStart_toEndOf="@id/logoLokasi"
+                app:layout_constraintTop_toTopOf="@id/tvLokasi" />
 
             <TextView
+                android:id="@+id/tvKota"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="32dp"
+                android:layout_marginEnd="16dp"
+                android:background="@drawable/bgtext"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvLokasi" />
+
+            <ImageView
+                android:id="@+id/logoKota"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/bwtKota"
-                android:text="Kota : "
-                android:textColor="#000000"
-                android:textSize="18dp"
-                android:layout_margin="16dp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/bwetLokasi"/>
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp"
+                android:background="@drawable/ic_location_city"
+                app:layout_constraintBottom_toBottomOf="@id/tvKota"
+                app:layout_constraintStart_toStartOf="@id/tvKota"
+                app:layout_constraintTop_toTopOf="@id/tvKota" />
 
             <EditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
                 android:id="@+id/bwetKota"
-                android:hint="Masukan Kota Wisata"
-                android:layout_margin="16dp"
-                app:layout_constraintTop_toBottomOf="@+id/bwtKota"/>
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="0dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="0dp"
+                android:background="@android:color/transparent"
+                android:hint="Kota Wisata"
+                android:paddingTop="16dp"
+                android:paddingBottom="16dp"
+                app:layout_constraintBottom_toBottomOf="@id/tvKota"
+                app:layout_constraintEnd_toEndOf="@id/tvKota"
+                app:layout_constraintStart_toEndOf="@id/logoKota"
+                app:layout_constraintTop_toTopOf="@id/tvKota" />
 
             <TextView
+                android:id="@+id/tvTelepon"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="32dp"
+                android:layout_marginEnd="16dp"
+                android:background="@drawable/bgtext"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvKota" />
+
+            <ImageView
+                android:id="@+id/logoTelepon"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/bwtNomorTelepon"
-                android:text="Nomor Telepon : "
-                android:textColor="#000000"
-                android:textSize="18dp"
-                android:layout_margin="16dp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/bwetKota"/>
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp"
+                android:background="@drawable/ic_telepon"
+                app:layout_constraintBottom_toBottomOf="@id/tvTelepon"
+                app:layout_constraintStart_toStartOf="@id/tvTelepon"
+                app:layout_constraintTop_toTopOf="@id/tvTelepon" />
 
             <EditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
                 android:id="@+id/bwetNomorTelepon"
-                android:hint="Masukan Nomor Telepon"
-                android:layout_margin="16dp"
-                app:layout_constraintTop_toBottomOf="@+id/bwtNomorTelepon"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/bwtJamOperasional"
-                android:text="Jam Operasional : "
-                android:textColor="#000000"
-                android:textSize="18dp"
-                android:layout_margin="16dp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/bwetNomorTelepon"/>
-
-            <EditText
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="0dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="0dp"
+                android:background="@android:color/transparent"
+                android:hint="Nomor Telepon"
+                android:paddingTop="16dp"
+                android:paddingBottom="16dp"
+                app:layout_constraintBottom_toBottomOf="@id/tvTelepon"
+                app:layout_constraintEnd_toEndOf="@id/tvTelepon"
+                app:layout_constraintStart_toEndOf="@id/logoTelepon"
+                app:layout_constraintTop_toTopOf="@id/tvTelepon" />
+
+            <TextView
+                android:id="@+id/tvJamBuka"
+                android:layout_width="0dp"
+                android:layout_height="56dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="32dp"
+                android:layout_marginEnd="8dp"
+                android:background="@drawable/bgtext"
+                app:layout_constraintEnd_toStartOf="@id/tvJamTutup"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvTelepon" />
+
+            <ImageView
+                android:id="@+id/logoJamBuka"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp"
+                android:background="@drawable/ic_time"
+                app:layout_constraintBottom_toBottomOf="@id/tvJamBuka"
+                app:layout_constraintStart_toStartOf="@id/tvJamBuka"
+                app:layout_constraintTop_toTopOf="@id/tvJamBuka" />
+
+            <EditText
                 android:id="@+id/bwetJamOperasionalBuka"
-                android:hint="Jam Buka"
-                android:layout_margin="16dp"
-                app:layout_constraintEnd_toStartOf="@id/bwtHingga"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/bwtJamOperasional"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/bwtHingga"
-                android:text=" - "
-                android:textSize="32dp"
-                android:textColor="#000000"
-                android:layout_marginHorizontal="16dp"
-                app:layout_constraintTop_toTopOf="@+id/bwetJamOperasionalBuka"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintBottom_toBottomOf="@id/bwetJamOperasionalBuka"/>
-
-            <EditText
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:id="@+id/bwetJamOperasionalTutup"
-                android:hint="Jam Tutup"
-                android:layout_margin="16dp"
-                app:layout_constraintStart_toEndOf="@id/bwtHingga"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="0dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="0dp"
+                android:background="@android:color/transparent"
+                android:hint="Jam Buka"
+                android:paddingTop="16dp"
+                android:paddingBottom="16dp"
+                app:layout_constraintEnd_toEndOf="@id/tvJamBuka"
+                app:layout_constraintStart_toEndOf="@id/logoJamBuka"
+                app:layout_constraintTop_toTopOf="@id/tvJamBuka" />
+
+            <TextView
+                android:id="@+id/tvJamTutup"
+                android:layout_width="0dp"
+                android:layout_height="56dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="32dp"
+                android:layout_marginEnd="16dp"
+                android:background="@drawable/bgtext"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/bwtJamOperasional"/>
+                app:layout_constraintStart_toEndOf="@id/tvJamBuka"
+                app:layout_constraintTop_toBottomOf="@id/tvTelepon" />
 
-            <TextView
+            <ImageView
+                android:id="@+id/logoJamTutup"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/bwtHarga"
-                android:text="Harga : "
-                android:textColor="#000000"
-                android:textSize="18dp"
-                android:layout_margin="16dp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/bwetJamOperasionalBuka"/>
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp"
+                android:background="@drawable/ic_time"
+                app:layout_constraintBottom_toBottomOf="@id/tvJamTutup"
+                app:layout_constraintStart_toStartOf="@id/tvJamTutup"
+                app:layout_constraintTop_toTopOf="@id/tvJamTutup" />
 
             <EditText
-                android:layout_width="match_parent"
+                android:id="@+id/bwetJamOperasionalTutup"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="0dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="0dp"
+                android:background="@android:color/transparent"
+                android:hint="Jam Tutup"
+                android:paddingTop="16dp"
+                android:paddingBottom="16dp"
+                app:layout_constraintBottom_toBottomOf="@id/tvJamTutup"
+                app:layout_constraintEnd_toEndOf="@id/tvJamTutup"
+                app:layout_constraintStart_toEndOf="@id/logoJamTutup"
+                app:layout_constraintTop_toTopOf="@id/tvJamTutup" />
+
+            <TextView
+                android:id="@+id/tvHarga"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="32dp"
+                android:layout_marginEnd="16dp"
+                android:background="@drawable/bgtext"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvJamBuka" />
+
+            <ImageView
+                android:id="@+id/logoHarga"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp"
+                android:background="@drawable/ic_harga"
+                app:layout_constraintBottom_toBottomOf="@id/tvHarga"
+                app:layout_constraintStart_toStartOf="@id/tvHarga"
+                app:layout_constraintTop_toTopOf="@id/tvHarga" />
+
+            <EditText
                 android:id="@+id/bwetHarga"
-                android:hint="Masukan Harga Masuk Wisata"
-                android:layout_margin="16dp"
-                app:layout_constraintTop_toBottomOf="@+id/bwtHarga"/>
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="0dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="0dp"
+                android:background="@android:color/transparent"
+                android:hint="Harga Masuk Wisata"
+                android:paddingTop="16dp"
+                android:paddingBottom="16dp"
+                app:layout_constraintBottom_toBottomOf="@id/tvHarga"
+                app:layout_constraintEnd_toEndOf="@id/tvHarga"
+                app:layout_constraintStart_toEndOf="@id/logoHarga"
+                app:layout_constraintTop_toTopOf="@id/tvHarga" />
 
             <TextView
+                android:id="@+id/tvDeskripsi"
+                android:layout_width="match_parent"
+                android:layout_height="112dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="32dp"
+                android:layout_marginEnd="16dp"
+                android:background="@drawable/bgtext"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvHarga" />
+
+            <ImageView
+                android:id="@+id/logoDeskripsi"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/bwtDeskripsi"
-                android:text="Deskripsi Wisata Anda : "
-                android:textColor="#000000"
-                android:textSize="18dp"
-                android:layout_margin="16dp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/bwetHarga"/>
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp"
+                android:background="@drawable/ic_description"
+                app:layout_constraintStart_toStartOf="@id/tvDeskripsi"
+                app:layout_constraintTop_toTopOf="@id/tvDeskripsi" />
 
             <EditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
                 android:id="@+id/bwetDeskripsi"
-                android:hint="Masukan Harga Masuk Wisata"
-                android:layout_margin="16dp"
-                app:layout_constraintTop_toBottomOf="@+id/bwtDeskripsi"/>
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="0dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="0dp"
+                android:background="@android:color/transparent"
+                android:hint="Deskripsi"
+                android:paddingTop="16dp"
+                android:paddingBottom="16dp"
+                app:layout_constraintEnd_toEndOf="@id/tvDeskripsi"
+                app:layout_constraintStart_toEndOf="@id/logoDeskripsi"
+                app:layout_constraintTop_toTopOf="@id/tvDeskripsi" />
 
             <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
                 android:id="@+id/bwBtnSave"
-                android:text="Save"
-                android:layout_marginTop="64dp"
-                android:layout_marginBottom="16dp"
-                app:layout_constraintStart_toStartOf="parent"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="32dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="32dp"
+                android:background="@drawable/bgmasuk"
+                android:text="Simpan"
+                android:textColor="@color/colorPutih"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/bwetDeskripsi"
-                app:layout_constraintBottom_toBottomOf="parent"/>
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvDeskripsi" />
 
         </android.support.constraint.ConstraintLayout>
 
