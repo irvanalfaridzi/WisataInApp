@@ -11,9 +11,11 @@
         android:layout_height="wrap_content"
         android:id="@+id/tttPilih"
         android:text="Pilih Pembayaran"
-        android:textSize="16dp"
-        android:textColor="#000"
-        android:layout_margin="16dp"
+        android:textSize="20sp"
+        android:textColor="#000000"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"/>
 
@@ -21,7 +23,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/cvIndomaret"
-        android:layout_margin="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
         app:layout_constraintTop_toBottomOf="@id/tttPilih">
 
         <android.support.constraint.ConstraintLayout
