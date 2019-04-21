@@ -6,35 +6,70 @@
     android:layout_height="match_parent"
     tools:context=".Activities.Main.ProfilWisataNullActivity">
 
-    <TextView
+
+    <ImageView
+        android:id="@+id/imgnull"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/pwnTanda"
-        android:text="Fragment Daftar Wisata"
-        android:textSize="32dp"
-        android:textColor="#000000"
-        android:textAlignment="center"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"/>
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="16dp"
+        android:src="@drawable/undraw_not_found_60_pq"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:layout_width="match_parent"
+        android:id="@+id/hnull"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:id="@+id/pwnMaaf"
-        android:text="Maaf anda tidak memiliki wisata"
-        android:textSize="24dp"
+        android:layout_marginStart="112dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="112dp"
+        android:fontFamily="sans-serif-medium"
+        android:gravity="center_horizontal"
+        android:letterSpacing="0.01"
+        android:lineSpacingExtra="4sp"
         android:textColor="#000000"
-        android:textAlignment="center"
-        app:layout_constraintTop_toBottomOf="@+id/pwnTanda"/>
+        android:textSize="20sp"
+        android:textStyle="normal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imgnull"
+        tools:text="Belum memiliki tempat wisata" />
+
+    <TextView
+        android:id="@+id/pnull"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="72dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="72dp"
+        android:fontFamily="sans-serif-medium"
+        android:gravity="center_horizontal"
+        android:letterSpacing="0.01"
+        android:lineSpacingExtra="3sp"
+        android:textColor="#99000000"
+        android:textSize="14sp"
+        android:textStyle="normal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/hnull"
+        tools:text="Tambahkan tempat wisata anda untuk bergabung dengan WisataIn" />
 
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:id="@+id/pwnBtnDaftarWisata"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/bgmasuk"
         android:text="Daftar Wisata"
-        app:layout_constraintStart_toStartOf="parent"
+        android:textColor="@color/colorPutih"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/pwnMaaf"
-        app:layout_constraintBottom_toBottomOf="parent"/>
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/pnull" />
+
 
 </android.support.constraint.ConstraintLayout>
