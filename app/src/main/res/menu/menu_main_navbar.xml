@@ -3,22 +3,33 @@
 
     <item
         android:id="@+id/homeNav"
-        android:title="HOME" />
-
-    <item
-        android:id="@+id/favoriteNav"
-        android:title="FAVORITE" />
+        android:title="Beranda"
+        android:icon="@drawable/ic_home"
+        />
 
     <item
         android:id="@+id/cariNav"
-        android:title="CARI" />
+        android:title="Kategori"
+        android:icon="@drawable/ic_category_24_px"
+
+        />
 
     <item
         android:id="@+id/tiketNav"
-        android:title="TIKET" />
+        android:title="Tiket"
+        android:icon="@drawable/ic_ticket"
+        />
+
+    <item
+        android:id="@+id/favoriteNav"
+        android:title="Favorit"
+        android:icon="@drawable/ic_favorite"
+        />
 
     <item
         android:id="@+id/akunNav"
-        android:title="AKUN" />
+        android:title="Profil"
+        android:icon="@drawable/ic_account"
+        />
 
 </menu>
