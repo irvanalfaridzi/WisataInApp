@@ -6,378 +6,365 @@
     android:layout_height="match_parent"
     tools:context=".Fragments.MainCariFragment">
 
-    <android.support.constraint.ConstraintLayout
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <!-- Provinsi -->
-        <TextView
-            android:id="@+id/tvProvinsi"
-            android:layout_width="wrap_content"
-            android:layout_height="0dp"
-            android:layout_marginLeft="16dp"
-            android:layout_marginTop="32dp"
-            android:lineHeight="19sp"
-            android:text="Provinsi"
-            android:textSize="16sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <ImageView
-            android:id="@+id/bgProvinsi"
-            android:layout_width="0dp"
-            android:layout_height="56dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="16dp"
-            android:background="@drawable/bgtext"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvProvinsi" />
-
-        <Spinner
-            android:id="@+id/ListProvinsi"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginEnd="8dp"
-            android:entries="@array/list_provinsi"
-            app:layout_constraintBottom_toBottomOf="@id/bgProvinsi"
-            app:layout_constraintEnd_toEndOf="@id/bgProvinsi"
-            app:layout_constraintStart_toStartOf="@id/bgProvinsi"
-            app:layout_constraintTop_toTopOf="@id/bgProvinsi" />
-        <!-- //Provinsi -->
-
-        <!-- Kota-->
-
-        <TextView
-            android:id="@+id/tvKota"
-            android:layout_width="wrap_content"
-            android:layout_height="0dp"
-            android:layout_marginLeft="16dp"
-            android:layout_marginTop="16dp"
-            android:lineHeight="19sp"
-            android:text="Provinsi"
-            android:textSize="16sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/bgProvinsi"/>
-
-        <ImageView
-            android:id="@+id/bgKota"
-            android:layout_width="0dp"
-            android:layout_height="56dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="16dp"
-            android:background="@drawable/bgtext"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvKota" />
-
-        <Spinner
-            android:id="@+id/ListKota"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginEnd="8dp"
-            android:entries="@array/list_kota"
-            app:layout_constraintBottom_toBottomOf="@id/bgKota"
-            app:layout_constraintEnd_toEndOf="@id/bgKota"
-            app:layout_constraintStart_toStartOf="@id/bgKota"
-            app:layout_constraintTop_toTopOf="@id/bgKota" />
-        <!-- //Kota-->
-
-        <TextView
+        <android.support.constraint.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="16dp"
-            android:id="@+id/tvBatas"
-            android:background="#f5f5f5"
-            android:layout_marginStart="0dp"
-            android:layout_marginEnd="0dp"
-            android:layout_marginTop="32dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/bgKota"
-            app:layout_constraintEnd_toEndOf="parent"
-            />
+            android:layout_height="match_parent">
 
-        <!-- Card 1 -->
+            <!-- Provinsi -->
+            <TextView
+                android:id="@+id/tvProvinsi"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="32dp"
+                android:lineHeight="19sp"
+                android:text="Provinsi"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-        <android.support.v7.widget.CardView
-            android:id="@+id/cardPedesaan"
-            android:layout_width="156dp"
-            android:layout_height="96dp"
-            android:layout_marginTop="32dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp"
-            android:clickable="true"
-            android:background="?attr/selectableItemBackgroundBorderless"
-            app:layout_constraintTop_toBottomOf="@id/tvBatas"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toStartOf="@id/cardPantai"
-            app:cardBackgroundColor="#ffffff"
-            app:cardCornerRadius="8dp"
-            >
+            <ImageView
+                android:id="@+id/bgProvinsi"
+                android:layout_width="0dp"
+                android:layout_height="56dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
+                android:background="@drawable/bgtext"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvProvinsi" />
 
-            <android.support.constraint.ConstraintLayout
+            <Spinner
+                android:id="@+id/ListProvinsi"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:entries="@array/list_provinsi"
+                app:layout_constraintBottom_toBottomOf="@id/bgProvinsi"
+                app:layout_constraintEnd_toEndOf="@id/bgProvinsi"
+                app:layout_constraintStart_toStartOf="@id/bgProvinsi"
+                app:layout_constraintTop_toTopOf="@id/bgProvinsi" />
+            <!-- //Provinsi -->
+
+            <!-- Kota-->
+
+            <TextView
+                android:id="@+id/tvKota"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="16dp"
+                android:lineHeight="19sp"
+                android:text="Provinsi"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/bgProvinsi" />
+
+            <ImageView
+                android:id="@+id/bgKota"
+                android:layout_width="0dp"
+                android:layout_height="56dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
+                android:background="@drawable/bgtext"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvKota" />
+
+            <Spinner
+                android:id="@+id/ListKota"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:entries="@array/list_kota"
+                app:layout_constraintBottom_toBottomOf="@id/bgKota"
+                app:layout_constraintEnd_toEndOf="@id/bgKota"
+                app:layout_constraintStart_toStartOf="@id/bgKota"
+                app:layout_constraintTop_toTopOf="@id/bgKota" />
+            <!-- //Kota-->
+
+            <TextView
+                android:id="@+id/tvBatas"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="16dp"
+                android:layout_marginStart="0dp"
+                android:layout_marginTop="32dp"
+                android:layout_marginEnd="0dp"
+                android:background="#f5f5f5"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/bgKota" />
+
+            <!-- Card 1 -->
+
+            <android.support.v7.widget.CardView
+                android:id="@+id/cardPedesaan"
+                android:layout_width="156dp"
+                android:layout_height="96dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="32dp"
+                android:layout_marginEnd="16dp"
                 android:background="?attr/selectableItemBackgroundBorderless"
+                android:clickable="true"
+                app:cardBackgroundColor="#ffffff"
+                app:cardCornerRadius="8dp"
+                app:layout_constraintEnd_toStartOf="@id/cardPantai"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvBatas">
 
-                >
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/imgPedesaan"
-                    android:background="@drawable/ic_pedesaan"
-                    android:layout_marginLeft="16dp"
-                    android:layout_marginTop="24dp"
-                    android:layout_marginBottom="24dp"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Pedesaan"
-                    android:textColor="#99000000"
-                    android:lineHeight="17sp"
-                    android:textSize="14sp"
-                    android:layout_marginLeft="8dp"
-                    android:layout_marginTop="16dp"
-                    android:layout_marginBottom="16dp"
-                    app:layout_constraintStart_toEndOf="@id/imgPedesaan"
-                    app:layout_constraintTop_toTopOf="@id/imgPedesaan"
-                    app:layout_constraintBottom_toBottomOf="@id/imgPedesaan"
-                    />
-
-                <TextView
-                    android:layout_width="8dp"
+                <android.support.constraint.ConstraintLayout
+                    android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:id="@+id/stipPedesaan"
-                    android:background="@drawable/strippedesaan"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    />
+                    android:background="?attr/selectableItemBackgroundBorderless"
 
-            </android.support.constraint.ConstraintLayout>
+                    >
 
-        </android.support.v7.widget.CardView>
+                    <ImageView
+                        android:id="@+id/imgPedesaan"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="16dp"
+                        android:layout_marginTop="24dp"
+                        android:layout_marginBottom="24dp"
+                        android:background="@drawable/ic_pedesaan"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
 
-        <!-- //Card 1-->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="8dp"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginBottom="16dp"
+                        android:lineHeight="17sp"
+                        android:text="Pedesaan"
+                        android:textColor="#99000000"
+                        android:textSize="14sp"
+                        app:layout_constraintBottom_toBottomOf="@id/imgPedesaan"
+                        app:layout_constraintStart_toEndOf="@id/imgPedesaan"
+                        app:layout_constraintTop_toTopOf="@id/imgPedesaan" />
 
-        <!-- Card 2 -->
+                    <TextView
+                        android:id="@+id/stipPedesaan"
+                        android:layout_width="8dp"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/strippedesaan"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
 
-        <android.support.v7.widget.CardView
-            android:id="@+id/cardPantai"
-            android:layout_width="156dp"
-            android:layout_height="96dp"
-            android:layout_marginTop="32dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp"
-            app:layout_constraintTop_toBottomOf="@id/tvBatas"
-            app:layout_constraintStart_toEndOf="@id/cardPedesaan"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:cardBackgroundColor="#ffffff"
-            app:cardCornerRadius="8dp"
-            >
+                </android.support.constraint.ConstraintLayout>
 
-            <android.support.constraint.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                >
+            </android.support.v7.widget.CardView>
 
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/imgPantai"
-                    android:background="@drawable/ic_pantai"
-                    android:layout_marginLeft="16dp"
-                    android:layout_marginTop="24dp"
-                    android:layout_marginBottom="24dp"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    />
+            <!-- //Card 1-->
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Pantai"
-                    android:textColor="#99000000"
-                    android:lineHeight="17sp"
-                    android:textSize="14sp"
-                    android:layout_marginLeft="8dp"
-                    android:layout_marginTop="16dp"
-                    android:layout_marginBottom="16dp"
-                    app:layout_constraintStart_toEndOf="@id/imgPantai"
-                    app:layout_constraintTop_toTopOf="@id/imgPantai"
-                    app:layout_constraintBottom_toBottomOf="@id/imgPantai"
-                    />
+            <!-- Card 2 -->
 
-                <TextView
-                    android:layout_width="8dp"
-                    android:layout_height="match_parent"
-                    android:id="@+id/stipPantai"
-                    android:background="@drawable/strippantai"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    />
+            <android.support.v7.widget.CardView
+                android:id="@+id/cardPantai"
+                android:layout_width="156dp"
+                android:layout_height="96dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="32dp"
+                android:layout_marginEnd="16dp"
+                app:cardBackgroundColor="#ffffff"
+                app:cardCornerRadius="8dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/cardPedesaan"
+                app:layout_constraintTop_toBottomOf="@id/tvBatas">
 
-            </android.support.constraint.ConstraintLayout>
+                <android.support.constraint.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
 
-        </android.support.v7.widget.CardView>
+                    <ImageView
+                        android:id="@+id/imgPantai"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="16dp"
+                        android:layout_marginTop="24dp"
+                        android:layout_marginBottom="24dp"
+                        android:background="@drawable/ic_pantai"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
 
-        <!-- //Card 2-->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="8dp"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginBottom="16dp"
+                        android:lineHeight="17sp"
+                        android:text="Pantai"
+                        android:textColor="#99000000"
+                        android:textSize="14sp"
+                        app:layout_constraintBottom_toBottomOf="@id/imgPantai"
+                        app:layout_constraintStart_toEndOf="@id/imgPantai"
+                        app:layout_constraintTop_toTopOf="@id/imgPantai" />
 
-        <!-- Card 3 -->
+                    <TextView
+                        android:id="@+id/stipPantai"
+                        android:layout_width="8dp"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/strippantai"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
 
-        <android.support.v7.widget.CardView
-            android:id="@+id/cardKuliner"
-            android:layout_width="156dp"
-            android:layout_height="96dp"
-            android:layout_marginTop="32dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp"
-            app:layout_constraintTop_toBottomOf="@id/cardPedesaan"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toStartOf="@id/cardPerkebunan"
-            app:cardBackgroundColor="#ffffff"
-            app:cardCornerRadius="8dp"
-            >
+                </android.support.constraint.ConstraintLayout>
 
-            <android.support.constraint.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                >
+            </android.support.v7.widget.CardView>
 
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/imgKuliner"
-                    android:background="@drawable/ic_kuliner"
-                    android:layout_marginLeft="16dp"
-                    android:layout_marginTop="24dp"
-                    android:layout_marginBottom="24dp"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    />
+            <!-- //Card 2-->
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Kuliner"
-                    android:textColor="#99000000"
-                    android:lineHeight="17sp"
-                    android:textSize="14sp"
-                    android:layout_marginLeft="8dp"
-                    android:layout_marginTop="16dp"
-                    android:layout_marginBottom="16dp"
-                    app:layout_constraintStart_toEndOf="@id/imgKuliner"
-                    app:layout_constraintTop_toTopOf="@id/imgKuliner"
-                    app:layout_constraintBottom_toBottomOf="@id/imgKuliner"
-                    />
+            <!-- Card 3 -->
 
-                <TextView
-                    android:layout_width="8dp"
-                    android:layout_height="match_parent"
-                    android:id="@+id/stripKUliner"
-                    android:background="@drawable/stripkuliner"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    />
+            <android.support.v7.widget.CardView
+                android:id="@+id/cardKuliner"
+                android:layout_width="156dp"
+                android:layout_height="96dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="32dp"
+                android:layout_marginEnd="16dp"
+                app:cardBackgroundColor="#ffffff"
+                app:cardCornerRadius="8dp"
+                app:layout_constraintEnd_toStartOf="@id/cardPerkebunan"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/cardPedesaan">
 
-            </android.support.constraint.ConstraintLayout>
+                <android.support.constraint.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
 
-        </android.support.v7.widget.CardView>
+                    <ImageView
+                        android:id="@+id/imgKuliner"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="16dp"
+                        android:layout_marginTop="24dp"
+                        android:layout_marginBottom="24dp"
+                        android:background="@drawable/ic_kuliner"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
 
-        <!-- //Card 3 -->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="8dp"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginBottom="16dp"
+                        android:lineHeight="17sp"
+                        android:text="Kuliner"
+                        android:textColor="#99000000"
+                        android:textSize="14sp"
+                        app:layout_constraintBottom_toBottomOf="@id/imgKuliner"
+                        app:layout_constraintStart_toEndOf="@id/imgKuliner"
+                        app:layout_constraintTop_toTopOf="@id/imgKuliner" />
 
-        <!-- Card 4 -->
+                    <TextView
+                        android:id="@+id/stripKUliner"
+                        android:layout_width="8dp"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/stripkuliner"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
 
-        <android.support.v7.widget.CardView
-            android:id="@+id/cardPerkebunan"
-            android:layout_width="156dp"
-            android:layout_height="96dp"
-            android:layout_marginTop="32dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp"
-            app:layout_constraintTop_toBottomOf="@id/cardPantai"
-            app:layout_constraintStart_toEndOf="@id/cardKuliner"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:cardBackgroundColor="#ffffff"
-            app:cardCornerRadius="8dp"
-            >
+                </android.support.constraint.ConstraintLayout>
 
-            <android.support.constraint.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                >
+            </android.support.v7.widget.CardView>
 
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/imgPerkebunan"
-                    android:background="@drawable/ic_perkebunan"
-                    android:layout_marginLeft="16dp"
-                    android:layout_marginTop="24dp"
-                    android:layout_marginBottom="24dp"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    />
+            <!-- //Card 3 -->
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Perkebunan"
-                    android:textColor="#99000000"
-                    android:lineHeight="17sp"
-                    android:textSize="14sp"
-                    android:layout_marginLeft="8dp"
-                    android:layout_marginTop="16dp"
-                    android:layout_marginBottom="16dp"
-                    app:layout_constraintStart_toEndOf="@id/imgPerkebunan"
-                    app:layout_constraintTop_toTopOf="@id/imgPerkebunan"
-                    app:layout_constraintBottom_toBottomOf="@id/imgPerkebunan"
-                    />
+            <!-- Card 4 -->
 
-                <TextView
-                    android:layout_width="8dp"
-                    android:layout_height="match_parent"
-                    android:id="@+id/stipPerkebunan"
-                    android:background="@drawable/stripperkebunan"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    />
+            <android.support.v7.widget.CardView
+                android:id="@+id/cardPerkebunan"
+                android:layout_width="156dp"
+                android:layout_height="96dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="32dp"
+                android:layout_marginEnd="16dp"
+                app:cardBackgroundColor="#ffffff"
+                app:cardCornerRadius="8dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/cardKuliner"
+                app:layout_constraintTop_toBottomOf="@id/cardPantai">
 
-            </android.support.constraint.ConstraintLayout>
+                <android.support.constraint.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
 
-        </android.support.v7.widget.CardView>
+                    <ImageView
+                        android:id="@+id/imgPerkebunan"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="16dp"
+                        android:layout_marginTop="24dp"
+                        android:layout_marginBottom="24dp"
+                        android:background="@drawable/ic_perkebunan"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
 
-        <!-- //Card 4-->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="8dp"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginBottom="16dp"
+                        android:lineHeight="17sp"
+                        android:text="Perkebunan"
+                        android:textColor="#99000000"
+                        android:textSize="14sp"
+                        app:layout_constraintBottom_toBottomOf="@id/imgPerkebunan"
+                        app:layout_constraintStart_toEndOf="@id/imgPerkebunan"
+                        app:layout_constraintTop_toTopOf="@id/imgPerkebunan" />
 
-        <Button
-            android:id="@+id/mfBtnMaps"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="32dp"
-            android:layout_marginEnd="16dp"
-            android:background="@drawable/bgmasuk"
-            android:textColor="@color/colorPutih"
-            android:text="MAPS"
-            app:layout_constraintTop_toBottomOf="@id/cardKuliner"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+                    <TextView
+                        android:id="@+id/stipPerkebunan"
+                        android:layout_width="8dp"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/stripperkebunan"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
 
-    </android.support.constraint.ConstraintLayout>
+                </android.support.constraint.ConstraintLayout>
 
+            </android.support.v7.widget.CardView>
+
+            <!-- //Card 4-->
+
+            <Button
+                android:id="@+id/mfBtnMaps"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="32dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="16dp"
+                android:background="@drawable/bgmasuk"
+                android:text="MAPS"
+                android:textColor="@color/colorPutih"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/cardKuliner"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+
+        </android.support.constraint.ConstraintLayout>
+
+    </ScrollView>
 </FrameLayout>
