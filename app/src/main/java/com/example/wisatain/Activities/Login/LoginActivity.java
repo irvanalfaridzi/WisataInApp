@@ -121,10 +121,10 @@ public class LoginActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    @OnClick(R.id.ltLupPassword)
-    public void lupaPassword() {
-        Intent intent = new Intent(LoginActivity.this, LupaPasswordActivity.class);
-        startActivity(intent);
-    }
+//    @OnClick(R.id.ltLupPassword)
+//    public void lupaPassword() {
+//        Intent intent = new Intent(LoginActivity.this, LupaPasswordActivity.class);
+//        startActivity(intent);
+//    }
 
 }
