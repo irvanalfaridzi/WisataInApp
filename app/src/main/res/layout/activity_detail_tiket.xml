@@ -6,187 +6,260 @@
     android:layout_height="match_parent"
     tools:context=".Activities.Main.DetailTiketActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/dttDetailTiket"
-        android:text="Detail Tiket"
-        android:textColor="#000"
-        android:textSize="32dp"
-        android:textStyle="bold"
-        android:layout_margin="16dp"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
-
     <ImageView
-        android:layout_width="200dp"
-        android:layout_height="200dp"
-        android:id="@+id/dtiGambarQRCode"
-        android:layout_marginVertical="24dp"
-        app:layout_constraintTop_toBottomOf="@id/dttDetailTiket"
+        android:layout_width="match_parent"
+        android:layout_height="328dp"
+        android:id="@+id/bgTiketAtas"
+        android:background="@color/colorButton"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/dttRefTransaksi"
-        android:text="Ref. Transaksi : "
-        android:textColor="#000"
-        android:textSize="16dp"
-        android:textStyle="bold"
-        android:layout_marginVertical="32dp"
-        android:layout_marginHorizontal="16dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/dtiGambarQRCode"/>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/dttRefTransaksiKeterangan"
-        android:text="My Ref"
-        android:textColor="#000"
-        android:textSize="16dp"
-        app:layout_constraintStart_toEndOf="@id/dttRefTransaksi"
-        app:layout_constraintTop_toTopOf="@id/dttRefTransaksi"/>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/dttTanggalTransaksi"
-        android:text="Tanggal Transaksi : "
-        android:textColor="#000"
-        android:textSize="16dp"
-        android:textStyle="bold"
-        android:layout_marginVertical="4dp"
-        android:layout_marginHorizontal="16dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/dttRefTransaksiKeterangan"/>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/dttTanggalTransaksiKeterangan"
-        android:text="Waktu Beli"
-        android:textColor="#000"
-        android:textSize="16dp"
-        app:layout_constraintStart_toEndOf="@id/dttTanggalTransaksi"
-        app:layout_constraintTop_toTopOf="@id/dttTanggalTransaksi"/>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/dttNamaWisata"
-        android:text="Nama Wisata : "
-        android:textColor="#000"
-        android:textSize="16dp"
-        android:textStyle="bold"
-        android:layout_marginVertical="4dp"
-        android:layout_marginHorizontal="16dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/dttTanggalTransaksiKeterangan"/>
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/dttNamaWisataKeterangan"
         android:text="Wisataku"
-        android:textColor="#000"
-        android:textSize="16dp"
-        app:layout_constraintStart_toEndOf="@id/dttNamaWisata"
-        app:layout_constraintTop_toTopOf="@id/dttNamaWisata"/>
+        android:textColor="@color/colorPutih"
+        android:textSize="20sp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/bgTiketAtas"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <ImageView
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:id="@+id/dtiGambarQRCode"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="24sp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/qr_code"
+        app:layout_constraintTop_toBottomOf="@id/dttLokasiWisataKeterangan"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/dttLokasiWisata"
-        android:text="Lokasi Wisata : "
-        android:textColor="#000"
-        android:textSize="16dp"
-        android:textStyle="bold"
-        android:layout_marginVertical="4dp"
-        android:layout_marginHorizontal="16dp"
+        android:id="@+id/tvDetail"
+        android:text="Detail"
+        android:textSize="20sp"
+        android:lineHeight="24sp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:textColor="@color/colorGelap"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/dttNamaWisataKeterangan"/>
+        app:layout_constraintTop_toBottomOf="@id/bgTiketAtas"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/dttRefTransaksi"
+        android:text="No Transaksi"
+        android:textColor="#99000000"
+        android:textSize="14sp"
+        android:textStyle="normal"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvDetail"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/dttRefTransaksiKeterangan"
+        android:text="My Ref"
+        android:textColor="#99000000"
+        android:textSize="14sp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvDetail"/>
+
+    <TextView
+        android:id="@+id/tvGarisNo"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="0dp"
+        android:layout_marginBottom="0dp"
+        android:background="#f5f5f5"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/dttRefTransaksiKeterangan" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/dttTanggalTransaksi"
+        android:text="Tanggal Transaksi"
+        android:textColor="#99000000"
+        android:textSize="14sp"
+        android:textStyle="normal"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvGarisNo"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/dttTanggalTransaksiKeterangan"
+        android:text="Waktu Beli"
+        android:textColor="#99000000"
+        android:textSize="14dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvGarisNo"/>
+
+    <TextView
+        android:id="@+id/tvGarisTgl"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="0dp"
+        android:layout_marginBottom="0dp"
+        android:background="#f5f5f5"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/dttTanggalTransaksi" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/dttLokasiWisataKeterangan"
         android:text="Surabaya"
-        android:textColor="#000"
-        android:textSize="16dp"
-        app:layout_constraintStart_toEndOf="@id/dttLokasiWisata"
-        app:layout_constraintTop_toTopOf="@id/dttLokasiWisata"/>
+        android:textColor="@color/colorPutih"
+        android:textSize="14sp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/dttNamaWisataKeterangan"
+        app:layout_constraintEnd_toEndOf="parent"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/dttJumlahTiket"
-        android:text="Jumlah Tiket : "
-        android:textColor="#000"
-        android:textSize="16dp"
-        android:textStyle="bold"
-        android:layout_marginVertical="4dp"
-        android:layout_marginHorizontal="16dp"
+        android:text="Jumlah Tiket"
+        android:textColor="#99000000"
+        android:textSize="14sp"
+        android:textStyle="normal"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/dttLokasiWisataKeterangan"/>
+        app:layout_constraintTop_toBottomOf="@+id/tvGarisTgl"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/dttJumlahTiketKeterangan"
         android:text="100"
-        android:textColor="#000"
-        android:textSize="16dp"
-        app:layout_constraintStart_toEndOf="@id/dttJumlahTiket"
-        app:layout_constraintTop_toTopOf="@id/dttJumlahTiket"/>
+        android:textColor="#99000000"
+        android:textSize="14sp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/tvGarisTgl"/>
+
+    <TextView
+        android:id="@+id/tvGarisJml"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="0dp"
+        android:layout_marginBottom="0dp"
+        android:background="#f5f5f5"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/dttJumlahTiketKeterangan" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/dttTanggalPenggunaan"
-        android:text="Tanggal Penggunaan : "
-        android:textColor="#000"
-        android:textSize="16dp"
-        android:textStyle="bold"
-        android:layout_marginVertical="4dp"
-        android:layout_marginHorizontal="16dp"
+        android:text="Tanggal Penggunaan"
+        android:textColor="#99000000"
+        android:textSize="14sp"
+        android:textStyle="normal"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/dttJumlahTiket"/>
+        app:layout_constraintTop_toBottomOf="@+id/tvGarisJml"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/dttTanggalPenggunaanKeterangan"
         android:text="Tanggal Tiket"
-        android:textColor="#000"
-        android:textSize="16dp"
-        app:layout_constraintStart_toEndOf="@id/dttTanggalPenggunaan"
-        app:layout_constraintTop_toTopOf="@id/dttTanggalPenggunaan"/>
+        android:textColor="#99000000"
+        android:textSize="14sp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvGarisJml"
+        />
+
+    <TextView
+        android:id="@+id/tvGarisTglPenggunaan"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="0dp"
+        android:layout_marginBottom="0dp"
+        android:background="#f5f5f5"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/dttTanggalPenggunaan" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/dttTotalharga"
         android:text="Total Harga : "
-        android:textColor="#000"
-        android:textSize="16dp"
-        android:textStyle="bold"
-        android:layout_marginVertical="4dp"
-        android:layout_marginHorizontal="16dp"
+        android:textColor="#99000000"
+        android:textSize="14sp"
+        android:textStyle="normal"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/dttTanggalPenggunaanKeterangan"/>
+        app:layout_constraintTop_toBottomOf="@+id/tvGarisTglPenggunaan"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/dttTotalhargaKeterangan"
-        android:text="Rp100000"
-        android:textColor="#000"
-        android:textSize="16dp"
-        app:layout_constraintStart_toEndOf="@id/dttTotalharga"
-        app:layout_constraintTop_toTopOf="@id/dttTotalharga"/>
+        android:text="Rp 100000"
+        android:textColor="#99000000"
+        android:textSize="14sp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvGarisTglPenggunaan"/>
+
+    <TextView
+        android:id="@+id/tvGarisTotal"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="0dp"
+        android:layout_marginBottom="0dp"
+        android:background="#f5f5f5"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/dttTotalharga" />
 
 </android.support.constraint.ConstraintLayout>
