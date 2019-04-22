@@ -13,6 +13,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.wisatain.Activities.Main.MainActivity;
 import com.example.wisatain.Adapters.MainTiketAdapter;
 import com.example.wisatain.Items.Tiket;
 import com.example.wisatain.R;
@@ -81,6 +82,10 @@ public class MainTiketFragment extends Fragment {
         Objects.requireNonNull(getActivity()).setTitle("Tiket");
 
         ButterKnife.bind(this, view);
+
+
+        ((MainActivity) getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(false);
+        ((MainActivity) getActivity()).getSupportActionBar().setDisplayShowHomeEnabled(false);
 
         mAuth = FirebaseAuth.getInstance();
         mUser = mAuth.getCurrentUser();

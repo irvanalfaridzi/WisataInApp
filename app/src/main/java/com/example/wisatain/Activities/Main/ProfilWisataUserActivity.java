@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -77,6 +78,12 @@ public class ProfilWisataUserActivity extends AppCompatActivity {
         setContentView(R.layout.activity_profil_wisata_user);
         ButterKnife.bind(this);
 
+
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+
         Intent intent = getIntent();
         intentKey = intent.getStringExtra("intent");
         Log.d("getKey", "onCreate: " + intentKey);
@@ -135,6 +142,7 @@ public class ProfilWisataUserActivity extends AppCompatActivity {
         });
 
     }
+
 
     public void loadDataFav() {
 
@@ -196,4 +204,11 @@ public class ProfilWisataUserActivity extends AppCompatActivity {
             buttonFavorite.setBackgroundDrawable(ContextCompat.getDrawable(getApplicationContext(), R.drawable.ic_favorite_border_red_100dp));
         }
     }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
+    }
+
 }

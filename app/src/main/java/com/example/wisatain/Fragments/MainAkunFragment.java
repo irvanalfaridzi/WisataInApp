@@ -16,6 +16,7 @@ import android.widget.Toast;
 import com.bumptech.glide.Glide;
 import com.example.wisatain.Activities.Login.LoginActivity;
 import com.example.wisatain.Activities.Main.EditProfileActivity;
+import com.example.wisatain.Activities.Main.MainActivity;
 import com.example.wisatain.Activities.Main.ProfilWisataNullActivity;
 import com.example.wisatain.Activities.Main.ProfilWisataOwnerActivity;
 import com.example.wisatain.R;
@@ -65,6 +66,9 @@ public class MainAkunFragment extends Fragment {
         Objects.requireNonNull(getActivity()).setTitle("Profil");
 
         ButterKnife.bind(this, view);
+
+        ((MainActivity) getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(false);
+        ((MainActivity) getActivity()).getSupportActionBar().setDisplayShowHomeEnabled(false);
 
         mAuth = FirebaseAuth.getInstance();
         mUser = mAuth.getCurrentUser();

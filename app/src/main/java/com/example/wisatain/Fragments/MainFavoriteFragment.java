@@ -12,6 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.bumptech.glide.Glide;
+import com.example.wisatain.Activities.Main.MainActivity;
 import com.example.wisatain.Adapters.MainFavoriteAdapter;
 import com.example.wisatain.Items.Wisata;
 import com.example.wisatain.R;
@@ -73,6 +74,9 @@ public class MainFavoriteFragment extends Fragment {
 
         // Inflate the layout for this fragment
         ButterKnife.bind(this, view);
+
+        ((MainActivity) getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(false);
+        ((MainActivity) getActivity()).getSupportActionBar().setDisplayShowHomeEnabled(false);
 
         mAuth = FirebaseAuth.getInstance();
         mDatabase = FirebaseDatabase.getInstance();

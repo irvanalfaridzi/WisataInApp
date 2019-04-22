@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.wisatain.Activities.Main.MainActivity;
 import com.example.wisatain.Activities.Main.WisataMapsActivity;
 import com.example.wisatain.R;
 
@@ -36,6 +37,10 @@ public class MainCariFragment extends Fragment {
         Objects.requireNonNull(getActivity()).setTitle("Kategori");
 
         ButterKnife.bind(this, view);
+
+        ((MainActivity) getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(false);
+        ((MainActivity) getActivity()).getSupportActionBar().setDisplayShowHomeEnabled(false);
+
         return view;
     }
 
