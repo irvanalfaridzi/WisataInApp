@@ -89,6 +89,7 @@ import android.support.v7.widget.CardView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 
 import com.example.wisatain.Activities.Main.MainActivity;
 import com.example.wisatain.Activities.Main.TiketBelumDigunakanActivity;
@@ -109,13 +110,13 @@ public class MainTiketFragment extends Fragment {
     Context context;
 
     @BindView(R.id.mtcvTiketMenungguKonfirmasi)
-    CardView cvMenungguKonfirmasi;
+    ImageView cvMenungguKonfirmasi;
 
     @BindView(R.id.mtcvTiketBelumDigunakan)
-    CardView cvBelumDigunakan;
+    ImageView cvBelumDigunakan;
 
     @BindView(R.id.mtcvTiketSudahDigunakan)
-    CardView cvSudahDigunakan;
+    ImageView cvSudahDigunakan;
 
     @SuppressLint("ValidFragment")
     public MainTiketFragment(Context context) {
