@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".Fragments.MainTiketFragment">
 
     <ScrollView
@@ -14,72 +14,37 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <!-- Card 1 -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="TIKET FRAGMENT"
+                android:textColor="@color/colorPrimary"
+                android:textSize="32dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"/>
 
             <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
                 android:id="@+id/mtcvTiketMenungguKonfirmasi"
-                android:layout_width="0dp"
-                android:layout_height="96dp"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="32dp"
-                android:layout_marginEnd="16dp"
-                android:background="?attr/selectableItemBackgroundBorderless"
-                android:clickable="true"
-                app:cardBackgroundColor="#ffffff"
-                app:cardCornerRadius="8dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
+                app:cardBackgroundColor="@color/colorbgjmlTiket"
                 app:layout_constraintTop_toTopOf="parent">
 
                 <android.support.constraint.ConstraintLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="?attr/selectableItemBackgroundBorderless">
-
-                    <ImageView
-                        android:id="@+id/imgTunggu"
-                        android:layout_width="48dp"
-                        android:layout_height="48dp"
-                        android:layout_marginStart="16dp"
-                        android:layout_marginTop="24dp"
-                        android:layout_marginBottom="24dp"
-                        android:background="@drawable/ic_payment"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
+                    android:layout_height="match_parent">
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="16dp"
-                        android:layout_marginTop="16dp"
-                        android:layout_marginBottom="16dp"
-                        android:lineHeight="17sp"
-                        android:text="Menunggu Konfirmasi"
-                        android:textColor="#99000000"
-                        android:textSize="14sp"
-                        app:layout_constraintBottom_toBottomOf="@id/imgTunggu"
-                        app:layout_constraintStart_toEndOf="@id/imgTunggu"
-                        app:layout_constraintTop_toTopOf="@id/imgTunggu" />
-
-                    <ImageView
-                        android:id="@+id/stipTunggu"
-                        android:layout_width="8dp"
-                        android:layout_height="match_parent"
-                        android:background="@drawable/bgtunggukonfirmasi"
-                        app:layout_constraintBottom_toBottomOf="parent"
+                        android:id="@+id/mttTiketMenungguKonfirmasi"
+                        android:text="Tiket Menunggu Konfirmasi"
+                        android:textColor="#FFF"
+                        android:textSize="24dp"
+                        android:layout_margin="16dp"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
-
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/kananTunggu"
-                        android:background="@drawable/ic_keyboard_arrow_right_black_24dp"
-                        android:layout_marginEnd="16dp"
-                        android:layout_marginTop="16dp"
-                        android:layout_marginBottom="16dp"
-                        app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
                         app:layout_constraintBottom_toBottomOf="parent"/>
 
@@ -87,74 +52,26 @@
 
             </android.support.v7.widget.CardView>
 
-            <!-- //Card 1-->
-
-            <!-- Card 2 -->
-
             <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
                 android:id="@+id/mtcvTiketBelumDigunakan"
-                android:layout_width="0dp"
-                android:layout_height="96dp"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="32dp"
-                android:layout_marginEnd="16dp"
-                android:background="?attr/selectableItemBackgroundBorderless"
-                android:clickable="true"
-                app:cardBackgroundColor="#ffffff"
-                app:cardCornerRadius="8dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
+                app:cardBackgroundColor="@color/colorAccent"
                 app:layout_constraintTop_toBottomOf="@id/mtcvTiketMenungguKonfirmasi">
 
                 <android.support.constraint.ConstraintLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="?attr/selectableItemBackgroundBorderless">
-
-                    <ImageView
-                        android:id="@+id/imgBelumdigunakan"
-                        android:layout_width="48dp"
-                        android:layout_height="48dp"
-                        android:layout_marginStart="16dp"
-                        android:layout_marginTop="24dp"
-                        android:layout_marginBottom="24dp"
-                        android:background="@drawable/tikets_img"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
+                    android:layout_height="match_parent">
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="16dp"
-                        android:layout_marginTop="16dp"
-                        android:layout_marginBottom="16dp"
-                        android:lineHeight="17sp"
-                        android:text="Belum Digunakan"
-                        android:textColor="#99000000"
-                        android:textSize="14sp"
-                        app:layout_constraintBottom_toBottomOf="@id/imgBelumdigunakan"
-                        app:layout_constraintStart_toEndOf="@id/imgBelumdigunakan"
-                        app:layout_constraintTop_toTopOf="@id/imgBelumdigunakan" />
-
-                    <ImageView
-                        android:id="@+id/stipBelumdigunakan"
-                        android:layout_width="8dp"
-                        android:layout_height="match_parent"
-                        android:background="@drawable/bgbelumdigunakan"
-                        app:layout_constraintBottom_toBottomOf="parent"
+                        android:id="@+id/mttTiketBelumDigunakan"
+                        android:text="Tiket Belum Digunakan"
+                        android:textColor="#FFF"
+                        android:textSize="24dp"
+                        android:layout_margin="16dp"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
-
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/kananbelum"
-                        android:background="@drawable/ic_keyboard_arrow_right_black_24dp"
-                        android:layout_marginEnd="16dp"
-                        android:layout_marginTop="16dp"
-                        android:layout_marginBottom="16dp"
-                        app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
                         app:layout_constraintBottom_toBottomOf="parent"/>
 
@@ -162,75 +79,26 @@
 
             </android.support.v7.widget.CardView>
 
-            <!-- //Card 2-->
-
-            <!-- Card 3 -->
-
             <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
                 android:id="@+id/mtcvTiketSudahDigunakan"
-                android:layout_width="0dp"
-                android:layout_height="96dp"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="32dp"
-                android:layout_marginEnd="16dp"
-                android:layout_marginBottom="16dp"
-                android:background="?attr/selectableItemBackgroundBorderless"
-                android:clickable="true"
-                app:cardBackgroundColor="#ffffff"
-                app:cardCornerRadius="8dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
+                app:cardBackgroundColor="@color/colorPrimaryDark"
                 app:layout_constraintTop_toBottomOf="@id/mtcvTiketBelumDigunakan">
 
                 <android.support.constraint.ConstraintLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="?attr/selectableItemBackgroundBorderless">
-
-                    <ImageView
-                        android:id="@+id/imgTelahDigunakan"
-                        android:layout_width="48dp"
-                        android:layout_height="48dp"
-                        android:layout_marginStart="16dp"
-                        android:layout_marginTop="24dp"
-                        android:layout_marginBottom="24dp"
-                        android:background="@drawable/ic_telah_digunakan"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
+                    android:layout_height="match_parent">
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="16dp"
-                        android:layout_marginTop="16dp"
-                        android:layout_marginBottom="16dp"
-                        android:lineHeight="17sp"
-                        android:text="Telah Digunakan"
-                        android:textColor="#99000000"
-                        android:textSize="14sp"
-                        app:layout_constraintBottom_toBottomOf="@id/imgTelahDigunakan"
-                        app:layout_constraintStart_toEndOf="@id/imgTelahDigunakan"
-                        app:layout_constraintTop_toTopOf="@id/imgTelahDigunakan" />
-
-                    <ImageView
-                        android:id="@+id/stipTelahDigunakan"
-                        android:layout_width="8dp"
-                        android:layout_height="match_parent"
-                        android:background="@drawable/bgtelahdigunakan"
-                        app:layout_constraintBottom_toBottomOf="parent"
+                        android:id="@+id/mttTiketSudahDiguanakan"
+                        android:text="Tiket Belum Digunakan"
+                        android:textColor="#FFF"
+                        android:textSize="24dp"
+                        android:layout_margin="16dp"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
-
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/kanantelah"
-                        android:background="@drawable/ic_keyboard_arrow_right_black_24dp"
-                        android:layout_marginEnd="16dp"
-                        android:layout_marginTop="16dp"
-                        android:layout_marginBottom="16dp"
-                        app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
                         app:layout_constraintBottom_toBottomOf="parent"/>
 
@@ -238,19 +106,266 @@
 
             </android.support.v7.widget.CardView>
 
-            <!-- //Card 3-->
-
-            <!--<ProgressBar-->
-                <!--android:id="@+id/mtProgressBar"-->
-                <!--android:layout_width="wrap_content"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:visibility="gone"-->
-                <!--app:layout_constraintBottom_toBottomOf="parent"-->
-                <!--app:layout_constraintEnd_toEndOf="parent"-->
-                <!--app:layout_constraintStart_toStartOf="parent"-->
-                <!--app:layout_constraintTop_toTopOf="parent" />-->
-
         </android.support.constraint.ConstraintLayout>
 
     </ScrollView>
+
 </FrameLayout>
+
+
+<!--<?xml version="1.0" encoding="utf-8"?>-->
+<!--<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
+    <!--xmlns:app="http://schemas.android.com/apk/res-auto"-->
+    <!--xmlns:tools="http://schemas.android.com/tools"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="match_parent"-->
+    <!--tools:context=".Fragments.MainTiketFragment">-->
+
+    <!--<ScrollView-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent">-->
+
+        <!--<android.support.constraint.ConstraintLayout-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="match_parent">-->
+
+            <!--&lt;!&ndash; Card 1 &ndash;&gt;-->
+
+            <!--<android.support.v7.widget.CardView-->
+                <!--android:id="@+id/mtcvTiketMenungguKonfirmasi"-->
+                <!--android:layout_width="0dp"-->
+                <!--android:layout_height="96dp"-->
+                <!--android:layout_marginStart="16dp"-->
+                <!--android:layout_marginTop="32dp"-->
+                <!--android:layout_marginEnd="16dp"-->
+                <!--android:background="?attr/selectableItemBackgroundBorderless"-->
+                <!--android:clickable="true"-->
+                <!--app:cardBackgroundColor="#ffffff"-->
+                <!--app:cardCornerRadius="8dp"-->
+                <!--app:layout_constraintEnd_toEndOf="parent"-->
+                <!--app:layout_constraintStart_toStartOf="parent"-->
+                <!--app:layout_constraintTop_toTopOf="parent">-->
+
+                <!--<android.support.constraint.ConstraintLayout-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="match_parent"-->
+                    <!--android:background="?attr/selectableItemBackgroundBorderless">-->
+
+                    <!--<ImageView-->
+                        <!--android:id="@+id/imgTunggu"-->
+                        <!--android:layout_width="48dp"-->
+                        <!--android:layout_height="48dp"-->
+                        <!--android:layout_marginStart="16dp"-->
+                        <!--android:layout_marginTop="24dp"-->
+                        <!--android:layout_marginBottom="24dp"-->
+                        <!--android:background="@drawable/ic_payment"-->
+                        <!--app:layout_constraintBottom_toBottomOf="parent"-->
+                        <!--app:layout_constraintStart_toStartOf="parent"-->
+                        <!--app:layout_constraintTop_toTopOf="parent" />-->
+
+                    <!--<TextView-->
+                        <!--android:layout_width="wrap_content"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:layout_marginStart="16dp"-->
+                        <!--android:layout_marginTop="16dp"-->
+                        <!--android:layout_marginBottom="16dp"-->
+                        <!--android:lineHeight="17sp"-->
+                        <!--android:text="Menunggu Konfirmasi"-->
+                        <!--android:textColor="#99000000"-->
+                        <!--android:textSize="14sp"-->
+                        <!--app:layout_constraintBottom_toBottomOf="@id/imgTunggu"-->
+                        <!--app:layout_constraintStart_toEndOf="@id/imgTunggu"-->
+                        <!--app:layout_constraintTop_toTopOf="@id/imgTunggu" />-->
+
+                    <!--<ImageView-->
+                        <!--android:id="@+id/stipTunggu"-->
+                        <!--android:layout_width="8dp"-->
+                        <!--android:layout_height="match_parent"-->
+                        <!--android:background="@drawable/bgtunggukonfirmasi"-->
+                        <!--app:layout_constraintBottom_toBottomOf="parent"-->
+                        <!--app:layout_constraintStart_toStartOf="parent"-->
+                        <!--app:layout_constraintTop_toTopOf="parent" />-->
+
+                    <!--<ImageView-->
+                        <!--android:layout_width="wrap_content"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:id="@+id/kananTunggu"-->
+                        <!--android:background="@drawable/ic_keyboard_arrow_right_black_24dp"-->
+                        <!--android:layout_marginEnd="16dp"-->
+                        <!--android:layout_marginTop="16dp"-->
+                        <!--android:layout_marginBottom="16dp"-->
+                        <!--app:layout_constraintEnd_toEndOf="parent"-->
+                        <!--app:layout_constraintTop_toTopOf="parent"-->
+                        <!--app:layout_constraintBottom_toBottomOf="parent"/>-->
+
+                <!--</android.support.constraint.ConstraintLayout>-->
+
+            <!--</android.support.v7.widget.CardView>-->
+
+            <!--&lt;!&ndash; //Card 1&ndash;&gt;-->
+
+            <!--&lt;!&ndash; Card 2 &ndash;&gt;-->
+
+            <!--<android.support.v7.widget.CardView-->
+                <!--android:id="@+id/mtcvTiketBelumDigunakan"-->
+                <!--android:layout_width="0dp"-->
+                <!--android:layout_height="96dp"-->
+                <!--android:layout_marginStart="16dp"-->
+                <!--android:layout_marginTop="32dp"-->
+                <!--android:layout_marginEnd="16dp"-->
+                <!--android:background="?attr/selectableItemBackgroundBorderless"-->
+                <!--android:clickable="true"-->
+                <!--app:cardBackgroundColor="#ffffff"-->
+                <!--app:cardCornerRadius="8dp"-->
+                <!--app:layout_constraintEnd_toEndOf="parent"-->
+                <!--app:layout_constraintStart_toStartOf="parent"-->
+                <!--app:layout_constraintTop_toBottomOf="@id/mtcvTiketMenungguKonfirmasi">-->
+
+                <!--<android.support.constraint.ConstraintLayout-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="match_parent"-->
+                    <!--android:background="?attr/selectableItemBackgroundBorderless">-->
+
+                    <!--<ImageView-->
+                        <!--android:id="@+id/imgBelumdigunakan"-->
+                        <!--android:layout_width="48dp"-->
+                        <!--android:layout_height="48dp"-->
+                        <!--android:layout_marginStart="16dp"-->
+                        <!--android:layout_marginTop="24dp"-->
+                        <!--android:layout_marginBottom="24dp"-->
+                        <!--android:background="@drawable/tikets_img"-->
+                        <!--app:layout_constraintBottom_toBottomOf="parent"-->
+                        <!--app:layout_constraintStart_toStartOf="parent"-->
+                        <!--app:layout_constraintTop_toTopOf="parent" />-->
+
+                    <!--<TextView-->
+                        <!--android:layout_width="wrap_content"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:layout_marginStart="16dp"-->
+                        <!--android:layout_marginTop="16dp"-->
+                        <!--android:layout_marginBottom="16dp"-->
+                        <!--android:lineHeight="17sp"-->
+                        <!--android:text="Belum Digunakan"-->
+                        <!--android:textColor="#99000000"-->
+                        <!--android:textSize="14sp"-->
+                        <!--app:layout_constraintBottom_toBottomOf="@id/imgBelumdigunakan"-->
+                        <!--app:layout_constraintStart_toEndOf="@id/imgBelumdigunakan"-->
+                        <!--app:layout_constraintTop_toTopOf="@id/imgBelumdigunakan" />-->
+
+                    <!--<ImageView-->
+                        <!--android:id="@+id/stipBelumdigunakan"-->
+                        <!--android:layout_width="8dp"-->
+                        <!--android:layout_height="match_parent"-->
+                        <!--android:background="@drawable/bgbelumdigunakan"-->
+                        <!--app:layout_constraintBottom_toBottomOf="parent"-->
+                        <!--app:layout_constraintStart_toStartOf="parent"-->
+                        <!--app:layout_constraintTop_toTopOf="parent" />-->
+
+                    <!--<ImageView-->
+                        <!--android:layout_width="wrap_content"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:id="@+id/kananbelum"-->
+                        <!--android:background="@drawable/ic_keyboard_arrow_right_black_24dp"-->
+                        <!--android:layout_marginEnd="16dp"-->
+                        <!--android:layout_marginTop="16dp"-->
+                        <!--android:layout_marginBottom="16dp"-->
+                        <!--app:layout_constraintEnd_toEndOf="parent"-->
+                        <!--app:layout_constraintTop_toTopOf="parent"-->
+                        <!--app:layout_constraintBottom_toBottomOf="parent"/>-->
+
+                <!--</android.support.constraint.ConstraintLayout>-->
+
+            <!--</android.support.v7.widget.CardView>-->
+
+            <!--&lt;!&ndash; //Card 2&ndash;&gt;-->
+
+            <!--&lt;!&ndash; Card 3 &ndash;&gt;-->
+
+            <!--<android.support.v7.widget.CardView-->
+                <!--android:id="@+id/mtcvTiketSudahDigunakan"-->
+                <!--android:layout_width="0dp"-->
+                <!--android:layout_height="96dp"-->
+                <!--android:layout_marginStart="16dp"-->
+                <!--android:layout_marginTop="32dp"-->
+                <!--android:layout_marginEnd="16dp"-->
+                <!--android:layout_marginBottom="16dp"-->
+                <!--android:background="?attr/selectableItemBackgroundBorderless"-->
+                <!--android:clickable="true"-->
+                <!--app:cardBackgroundColor="#ffffff"-->
+                <!--app:cardCornerRadius="8dp"-->
+                <!--app:layout_constraintEnd_toEndOf="parent"-->
+                <!--app:layout_constraintStart_toStartOf="parent"-->
+                <!--app:layout_constraintTop_toBottomOf="@id/mtcvTiketBelumDigunakan">-->
+
+                <!--<android.support.constraint.ConstraintLayout-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="match_parent"-->
+                    <!--android:background="?attr/selectableItemBackgroundBorderless">-->
+
+                    <!--<ImageView-->
+                        <!--android:id="@+id/imgTelahDigunakan"-->
+                        <!--android:layout_width="48dp"-->
+                        <!--android:layout_height="48dp"-->
+                        <!--android:layout_marginStart="16dp"-->
+                        <!--android:layout_marginTop="24dp"-->
+                        <!--android:layout_marginBottom="24dp"-->
+                        <!--android:background="@drawable/ic_telah_digunakan"-->
+                        <!--app:layout_constraintBottom_toBottomOf="parent"-->
+                        <!--app:layout_constraintStart_toStartOf="parent"-->
+                        <!--app:layout_constraintTop_toTopOf="parent" />-->
+
+                    <!--<TextView-->
+                        <!--android:layout_width="wrap_content"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:layout_marginStart="16dp"-->
+                        <!--android:layout_marginTop="16dp"-->
+                        <!--android:layout_marginBottom="16dp"-->
+                        <!--android:lineHeight="17sp"-->
+                        <!--android:text="Telah Digunakan"-->
+                        <!--android:textColor="#99000000"-->
+                        <!--android:textSize="14sp"-->
+                        <!--app:layout_constraintBottom_toBottomOf="@id/imgTelahDigunakan"-->
+                        <!--app:layout_constraintStart_toEndOf="@id/imgTelahDigunakan"-->
+                        <!--app:layout_constraintTop_toTopOf="@id/imgTelahDigunakan" />-->
+
+                    <!--<ImageView-->
+                        <!--android:id="@+id/stipTelahDigunakan"-->
+                        <!--android:layout_width="8dp"-->
+                        <!--android:layout_height="match_parent"-->
+                        <!--android:background="@drawable/bgtelahdigunakan"-->
+                        <!--app:layout_constraintBottom_toBottomOf="parent"-->
+                        <!--app:layout_constraintStart_toStartOf="parent"-->
+                        <!--app:layout_constraintTop_toTopOf="parent" />-->
+
+                    <!--<ImageView-->
+                        <!--android:layout_width="wrap_content"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:id="@+id/kanantelah"-->
+                        <!--android:background="@drawable/ic_keyboard_arrow_right_black_24dp"-->
+                        <!--android:layout_marginEnd="16dp"-->
+                        <!--android:layout_marginTop="16dp"-->
+                        <!--android:layout_marginBottom="16dp"-->
+                        <!--app:layout_constraintEnd_toEndOf="parent"-->
+                        <!--app:layout_constraintTop_toTopOf="parent"-->
+                        <!--app:layout_constraintBottom_toBottomOf="parent"/>-->
+
+                <!--</android.support.constraint.ConstraintLayout>-->
+
+            <!--</android.support.v7.widget.CardView>-->
+
+            <!--&lt;!&ndash; //Card 3&ndash;&gt;-->
+
+            <!--&lt;!&ndash;<ProgressBar&ndash;&gt;-->
+                <!--&lt;!&ndash;android:id="@+id/mtProgressBar"&ndash;&gt;-->
+                <!--&lt;!&ndash;android:layout_width="wrap_content"&ndash;&gt;-->
+                <!--&lt;!&ndash;android:layout_height="wrap_content"&ndash;&gt;-->
+                <!--&lt;!&ndash;android:visibility="gone"&ndash;&gt;-->
+                <!--&lt;!&ndash;app:layout_constraintBottom_toBottomOf="parent"&ndash;&gt;-->
+                <!--&lt;!&ndash;app:layout_constraintEnd_toEndOf="parent"&ndash;&gt;-->
+                <!--&lt;!&ndash;app:layout_constraintStart_toStartOf="parent"&ndash;&gt;-->
+                <!--&lt;!&ndash;app:layout_constraintTop_toTopOf="parent" />&ndash;&gt;-->
+
+        <!--</android.support.constraint.ConstraintLayout>-->
+
+    <!--</ScrollView>-->
+<!--</FrameLayout>-->
