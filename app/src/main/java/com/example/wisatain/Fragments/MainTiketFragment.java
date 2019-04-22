@@ -138,7 +138,7 @@ public class MainTiketFragment extends Fragment {
         ((MainActivity) getActivity()).getSupportActionBar().setDisplayShowHomeEnabled(false);
 
         cvIntent();
-        
+
         return view;
     }
 
