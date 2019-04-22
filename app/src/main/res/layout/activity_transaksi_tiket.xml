@@ -7,7 +7,7 @@
     tools:context=".Activities.Main.TransaksiTiketActivity">
 
     <ImageView
-        android:id="@+id/bgindomaret"
+        android:id="@+id/cvIndomaret"
         android:layout_width="0dp"
         android:layout_height="56dp"
         android:background="@color/colorPutih"
@@ -19,13 +19,11 @@
         android:id="@+id/ttiIndomaret"
         android:layout_width="70dp"
         android:layout_height="30dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginBottom="16dp"
+        android:layout_margin="16dp"
         android:background="@drawable/logoindomart"
-        app:layout_constraintBottom_toBottomOf="@id/bgindomaret"
-        app:layout_constraintStart_toStartOf="@id/bgindomaret"
-        app:layout_constraintTop_toTopOf="@id/bgindomaret" />
+        app:layout_constraintBottom_toBottomOf="@id/cvIndomaret"
+        app:layout_constraintStart_toStartOf="@id/cvIndomaret"
+        app:layout_constraintTop_toTopOf="@id/cvIndomaret" />
 
     <TextView
         android:id="@+id/tttIndomaret"
@@ -49,9 +47,9 @@
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="16dp"
         android:background="@drawable/ic_keyboard_arrow_right_black_24dp"
-        app:layout_constraintBottom_toBottomOf="@id/bgindomaret"
-        app:layout_constraintEnd_toEndOf="@id/bgindomaret"
-        app:layout_constraintTop_toTopOf="@id/bgindomaret" />
+        app:layout_constraintBottom_toBottomOf="@id/cvIndomaret"
+        app:layout_constraintEnd_toEndOf="@id/cvIndomaret"
+        app:layout_constraintTop_toTopOf="@id/cvIndomaret" />
 
     <ImageView
         android:id="@+id/garisIndomaret"
@@ -60,10 +58,10 @@
         android:background="#f5f5f5"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/bgindomaret" />
+        app:layout_constraintTop_toBottomOf="@id/cvIndomaret" />
 
     <ImageView
-        android:id="@+id/bgbca"
+        android:id="@+id/cvBCA"
         android:layout_width="0dp"
         android:layout_height="56dp"
         android:background="@color/colorPutih"
@@ -80,10 +78,10 @@
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="16dp"
         android:background="@drawable/bca"
-        app:layout_constraintBottom_toBottomOf="@id/bgbca"
+        app:layout_constraintBottom_toBottomOf="@id/cvBCA"
         app:layout_constraintEnd_toEndOf="@id/ttiIndomaret"
         app:layout_constraintStart_toStartOf="@id/ttiIndomaret"
-        app:layout_constraintTop_toTopOf="@id/bgbca" />
+        app:layout_constraintTop_toTopOf="@id/cvBCA" />
 
     <TextView
         android:id="@+id/tttBCA"
@@ -106,9 +104,9 @@
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="16dp"
         android:background="@drawable/ic_keyboard_arrow_right_black_24dp"
-        app:layout_constraintBottom_toBottomOf="@id/bgbca"
-        app:layout_constraintEnd_toEndOf="@id/bgbca"
-        app:layout_constraintTop_toTopOf="@id/bgbca" />
+        app:layout_constraintBottom_toBottomOf="@id/cvBCA"
+        app:layout_constraintEnd_toEndOf="@id/cvBCA"
+        app:layout_constraintTop_toTopOf="@id/cvBCA" />
 
     <ImageView
         android:id="@+id/garisBca"
@@ -117,10 +115,10 @@
         android:background="#f5f5f5"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/bgbca" />
+        app:layout_constraintTop_toBottomOf="@id/cvBCA" />
 
     <ImageView
-        android:id="@+id/bgbni"
+        android:id="@+id/cvBNI"
         android:layout_width="0dp"
         android:layout_height="56dp"
         android:background="@color/colorPutih"
@@ -131,27 +129,28 @@
     <ImageView
         android:id="@+id/ttiBNI"
         android:layout_width="70dp"
-        android:layout_height="28dp"
+        android:layout_height="18dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:layout_marginBottom="16dp"
         android:background="@drawable/bni"
-        app:layout_constraintBottom_toBottomOf="@id/bgbni"
-        app:layout_constraintStart_toStartOf="@id/bgbni"
-        app:layout_constraintTop_toTopOf="@id/bgbni" />
+        app:layout_constraintBottom_toBottomOf="@id/cvBNI"
+        app:layout_constraintStart_toStartOf="@id/cvBNI"
+        app:layout_constraintTop_toTopOf="@id/cvBNI" />
 
     <TextView
         android:id="@+id/tttBNI"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:layout_marginBottom="16dp"
         android:text="BNI"
         android:textColor="@color/colorGelap"
         android:textSize="14sp"
-        app:layout_constraintBottom_toBottomOf="@id/bgbni"
-        app:layout_constraintStart_toStartOf="@id/tttIndomaret"
-        app:layout_constraintTop_toTopOf="@id/bgbni" />
+        app:layout_constraintBottom_toBottomOf="@id/ttiBNI"
+        app:layout_constraintStart_toEndOf="@id/ttiBNI"
+        app:layout_constraintTop_toTopOf="@id/ttiBNI" />
 
     <ImageView
         android:id="@+id/tttHiasanBNI"
@@ -161,8 +160,8 @@
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="16dp"
         android:background="@drawable/ic_keyboard_arrow_right_black_24dp"
-        app:layout_constraintBottom_toBottomOf="@id/bgbni"
-        app:layout_constraintEnd_toEndOf="@id/bgbni"
-        app:layout_constraintTop_toTopOf="@id/bgbni" />
+        app:layout_constraintBottom_toBottomOf="@id/cvBNI"
+        app:layout_constraintEnd_toEndOf="@id/cvBNI"
+        app:layout_constraintTop_toTopOf="@id/cvBNI" />
 
 </android.support.constraint.ConstraintLayout>
