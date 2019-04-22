@@ -15,6 +15,7 @@ import android.widget.GridView;
 import android.widget.ListAdapter;
 
 import com.bumptech.glide.Glide;
+import com.example.wisatain.Activities.Main.MainActivity;
 import com.example.wisatain.Adapters.MainHomeAdapter;
 import com.example.wisatain.Items.Wisata;
 import com.example.wisatain.R;
@@ -69,7 +70,11 @@ public class MainHomeFragment extends Fragment {
         mDatabase = FirebaseDatabase.getInstance();
         mWisata = mDatabase.getReference().child("Wisata");
 
+        recyclerView.setNestedScrollingEnabled(false);
         recyclerView.setHasFixedSize(true);
+
+        ((MainActivity) getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(false);
+        ((MainActivity) getActivity()).getSupportActionBar().setDisplayShowHomeEnabled(false);
 
         loadData();
 

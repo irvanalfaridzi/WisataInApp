@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -32,8 +33,14 @@ public class ProfilWisataUserActivity extends AppCompatActivity {
     @BindView(R.id.pwuiGambarWisata)
     ImageView gambarWisata;
 
-    @BindView(R.id.pwutNamadanKotaWisata)
-    TextView namadanKotaWisata;
+//    @BindView(R.id.pwutNamadanKotaWisata)
+//    TextView namadanKotaWisata;
+
+    @BindView(R.id.namaWisata)
+    TextView namaWisata;
+
+    @BindView(R.id.kotaWisata)
+    TextView kotaWisata;
 
     @BindView(R.id.pwutDeskripsiWisata)
     TextView deskripsiWisata;
@@ -71,6 +78,12 @@ public class ProfilWisataUserActivity extends AppCompatActivity {
         setContentView(R.layout.activity_profil_wisata_user);
         ButterKnife.bind(this);
 
+
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+
         Intent intent = getIntent();
         intentKey = intent.getStringExtra("intent");
         Log.d("getKey", "onCreate: " + intentKey);
@@ -106,9 +119,10 @@ public class ProfilWisataUserActivity extends AppCompatActivity {
 
                 if (getkey != null) {
                     Glide.with(getApplicationContext()).load(getGambarWisataURL).into(gambarWisata);
-                    namadanKotaWisata.setText(getNamaWisata + ", " + getKotaWisata);
+                    namaWisata.setText(getNamaWisata);
+                    kotaWisata.setText(getKotaWisata);
                     deskripsiWisata.setText(getDeksripsiWisata);
-                    jamOperasional.setText("Jam Operasional : " + getJamOperasionalWisata);
+                    jamOperasional.setText(getJamOperasionalWisata);
                     cocokUntuk.setText(getCocokUntukWisata);
                     detailLokasi.setText(getDetailLokasiWisata + ", " + getKotaWisata);
                     if (getHargaTiketWisata.toString().equals("0")) {
@@ -128,6 +142,7 @@ public class ProfilWisataUserActivity extends AppCompatActivity {
         });
 
     }
+
 
     public void loadDataFav() {
 
@@ -189,4 +204,11 @@ public class ProfilWisataUserActivity extends AppCompatActivity {
             buttonFavorite.setBackgroundDrawable(ContextCompat.getDrawable(getApplicationContext(), R.drawable.ic_favorite_border_red_100dp));
         }
     }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
+    }
+
 }

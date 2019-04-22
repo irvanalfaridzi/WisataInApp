@@ -6,18 +6,29 @@
     android:layout_height="match_parent"
     tools:context=".Activities.Main.ProfilWisataUserActivity">
 
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:title="Detail Wisata"/>
+
+
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/bgBeliTiket"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar">
 
         <android.support.constraint.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="0dp">
 
             <ImageView
                 android:id="@+id/pwuiGambarWisata"
                 android:layout_width="match_parent"
-                android:layout_height="200dp"
+                android:layout_height="217dp"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
                 android:layout_marginEnd="16dp"
@@ -27,34 +38,67 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
+            <!--<TextView-->
+            <!--android:id="@+id/pwutNamadanKotaWisata"-->
+            <!--android:layout_width="0dp"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_marginStart="16dp"-->
+            <!--android:layout_marginTop="24dp"-->
+            <!--android:layout_marginEnd="16dp"-->
+            <!--android:lineHeight="24sp"-->
+            <!--android:text="Stikom Surabaya, Surabaya"-->
+            <!--android:textColor="#000000"-->
+            <!--android:textSize="20sp"-->
+            <!--android:textStyle="bold"-->
+            <!--app:layout_constraintEnd_toStartOf="@id/pwuBtnFavorite"-->
+            <!--app:layout_constraintStart_toStartOf="parent"-->
+            <!--app:layout_constraintTop_toBottomOf="@id/pwuiGambarWisata" />-->
+
+
             <TextView
-                android:id="@+id/pwutNamadanKotaWisata"
+                android:id="@+id/namaWisata"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
-                android:layout_marginTop="24dp"
                 android:layout_marginEnd="16dp"
-                android:lineHeight="24sp"
-                android:text="Stikom Surabaya, Surabaya"
-                android:textColor="#000000"
+                android:fontFamily="sans-serif-medium"
+                android:letterSpacing="0.01"
+                android:lineSpacingExtra="4sp"
+                android:text="Gunung Bromo"
+                android:textColor="#de000000"
                 android:textSize="20sp"
-                android:textStyle="bold"
+                android:textStyle="normal"
                 app:layout_constraintEnd_toStartOf="@id/pwuBtnFavorite"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/pwuiGambarWisata" />
+                app:layout_constraintTop_toBottomOf="@+id/pwuiGambarWisata" />
+
+            <TextView
+                android:id="@+id/kotaWisata"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:fontFamily="sans-serif-medium"
+                android:letterSpacing="0.01"
+                android:lineSpacingExtra="3sp"
+                android:text="Pasuruan, Jawa Timur"
+                android:textColor="@color/colorButton"
+                android:textSize="14sp"
+                android:textStyle="normal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/namaWisata" />
 
             <ToggleButton
                 android:id="@+id/pwuBtnFavorite"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_marginTop="16dp"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
                 android:layout_marginEnd="16dp"
-                android:layout_marginBottom="16dp"
                 android:textOff=" "
                 android:textOn=" "
-                app:layout_constraintBottom_toBottomOf="@id/pwutNamadanKotaWisata"
+                app:layout_constraintBottom_toBottomOf="@id/namaWisata"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="@id/pwutNamadanKotaWisata" />
+                app:layout_constraintTop_toTopOf="@id/namaWisata" />
 
             <TextView
                 android:id="@+id/pwutDeskripsiWisata"
@@ -64,14 +108,14 @@
                 android:layout_marginTop="16dp"
                 android:layout_marginEnd="16dp"
                 android:text="blablablablablablablablablablablablablablablablablablablablablablablablablablablablablabla"
-                android:textColor="@color/colorButton"
+                android:textColor="#90000000"
                 android:textSize="14sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/pwutNamadanKotaWisata" />
+                app:layout_constraintTop_toBottomOf="@id/kotaWisata" />
 
             <TextView
-                android:id="@+id/pwutJamOperasional"
+                android:id="@+id/tvPukul"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
@@ -88,12 +132,12 @@
                 android:layout_height="24dp"
                 android:layout_marginRight="16dp"
                 android:background="@drawable/ic_access_time_black_24dp"
-                app:layout_constraintBottom_toBottomOf="@id/tvPukul"
+                app:layout_constraintBottom_toBottomOf="@id/pwutJamOperasional"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="@id/pwutJamOperasional" />
+                app:layout_constraintTop_toTopOf="@id/tvPukul" />
 
             <TextView
-                android:id="@+id/tvPukul"
+                android:id="@+id/pwutJamOperasional"
                 android:layout_width="wrap_content"
                 android:layout_height="0dp"
                 android:layout_marginLeft="16dp"
@@ -103,7 +147,7 @@
                 android:textColor="@color/colorButton"
                 android:textSize="14sp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/pwutJamOperasional" />
+                app:layout_constraintTop_toBottomOf="@id/tvPukul" />
 
             <TextView
                 android:id="@+id/tvGarisJam"
@@ -114,7 +158,7 @@
                 android:background="#44000000"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tvPukul" />
+                app:layout_constraintTop_toBottomOf="@id/pwutJamOperasional" />
 
             <TextView
                 android:id="@+id/pwutCocokUntuk"
@@ -171,7 +215,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="24dp"
-                android:text="Detail Lokasi"
+                android:text="Alamat"
                 android:textColor="#000000"
                 android:textSize="18dp"
                 android:textStyle="bold"
@@ -189,19 +233,6 @@
                 app:layout_constraintBottom_toBottomOf="@id/pwutDetailLokasiKeterangan"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="@id/pwutDetailLokasi" />
-
-            <Button
-                android:id="@+id/pwuBtnBukaMaps"
-                android:layout_width="182dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="16dp"
-                android:background="@drawable/bgmasuk"
-                android:text="  Buka Lewat Maps  "
-                android:textColor="#ffffff"
-                android:textSize="12dp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/pwutDetailLokasiKeterangan" />
 
             <TextView
                 android:id="@+id/pwutDetailLokasiKeterangan"
@@ -230,64 +261,75 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/pwutDetailLokasiKeterangan" />
 
-            <ImageView
-                android:id="@+id/bgBeliTiket"
-                android:layout_width="0dp"
-                android:layout_height="72dp"
-                android:layout_marginTop="16dp"
-                android:background="@color/colorButton"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/pwuBtnBukaMaps" />
-
             <Button
-                android:id="@+id/pwuBtnBeliTiket"
+                android:id="@+id/pwuBtnBukaMaps"
                 android:layout_width="182dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="16dp"
-                android:layout_marginBottom="8dp"
-                android:background="@drawable/bgbelitiket"
-                android:text="Beli Tiket"
-                android:textColor="@color/colorGelap"
-                android:textSize="14sp"
-                app:layout_constraintBottom_toBottomOf="@id/bgBeliTiket"
-                app:layout_constraintEnd_toEndOf="@id/bgBeliTiket"
-                app:layout_constraintTop_toTopOf="@id/bgBeliTiket" />
-
-            <TextView
-                android:id="@+id/tvHargaTiketKet"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:text="Harga Tiket"
-                android:textColor="@color/colorPutih"
-                android:textSize="12sp"
                 android:layout_marginStart="16dp"
-                android:layout_marginTop="8dp"
-                app:layout_constraintStart_toStartOf="@id/bgBeliTiket"
-                app:layout_constraintTop_toTopOf="@id/bgBeliTiket"
-                app:layout_constraintBottom_toTopOf="@id/pwutHargaTiketKeterangan"
-                />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/pwutHargaTiketKeterangan"
-                android:text="Rp 300.000"
-                android:textColor="@color/colorPutih"
-                android:textSize="14sp"
-                android:layout_marginStart="16dp"
-                android:layout_marginBottom="8dp"
-                app:layout_constraintStart_toStartOf="@id/bgBeliTiket"
-                app:layout_constraintTop_toBottomOf="@id/tvHargaTiketKet"
-                app:layout_constraintBottom_toBottomOf="@id/bgBeliTiket"
-                />
-
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="32dp"
+                android:background="@drawable/bgmaps"
+                android:text="  Buka Maps  "
+                android:textColor="#ffffff"
+                android:textSize="12dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/pwutDetailLokasiKeterangan" />
 
 
         </android.support.constraint.ConstraintLayout>
 
     </ScrollView>
+
+    <ImageView
+        android:id="@+id/bgBeliTiket"
+        android:layout_width="0dp"
+        android:layout_height="72dp"
+        android:layout_marginTop="16dp"
+        android:background="@color/colorButton"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/pwuBtnBeliTiket"
+        android:layout_width="182dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="8dp"
+        android:background="@drawable/bgbelitiket"
+        android:text="Beli Tiket"
+        android:textColor="@color/colorGelap"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="@id/bgBeliTiket"
+        app:layout_constraintEnd_toEndOf="@id/bgBeliTiket"
+        app:layout_constraintTop_toTopOf="@id/bgBeliTiket" />
+
+    <TextView
+        android:id="@+id/tvHargaTiketKet"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:text="Harga Tiket"
+        android:textColor="@color/colorPutih"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toTopOf="@id/pwutHargaTiketKeterangan"
+        app:layout_constraintStart_toStartOf="@id/bgBeliTiket"
+        app:layout_constraintTop_toTopOf="@id/bgBeliTiket" />
+
+    <TextView
+        android:id="@+id/pwutHargaTiketKeterangan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="8dp"
+        android:text="Rp 300.000"
+        android:textColor="@color/colorPutih"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="@id/bgBeliTiket"
+        app:layout_constraintStart_toStartOf="@id/bgBeliTiket"
+        app:layout_constraintTop_toBottomOf="@id/tvHargaTiketKet" />
 
 </android.support.constraint.ConstraintLayout>

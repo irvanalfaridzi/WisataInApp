@@ -16,6 +16,7 @@ import android.widget.Toast;
 import com.bumptech.glide.Glide;
 import com.example.wisatain.Activities.Login.LoginActivity;
 import com.example.wisatain.Activities.Main.EditProfileActivity;
+import com.example.wisatain.Activities.Main.MainActivity;
 import com.example.wisatain.Activities.Main.ProfilWisataNullActivity;
 import com.example.wisatain.Activities.Main.ProfilWisataOwnerActivity;
 import com.example.wisatain.R;
@@ -26,6 +27,8 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+
+import java.util.Objects;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -59,7 +62,13 @@ public class MainAkunFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_main_akun, container, false);
+
+        Objects.requireNonNull(getActivity()).setTitle("Profil");
+
         ButterKnife.bind(this, view);
+
+        ((MainActivity) getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(false);
+        ((MainActivity) getActivity()).getSupportActionBar().setDisplayShowHomeEnabled(false);
 
         mAuth = FirebaseAuth.getInstance();
         mUser = mAuth.getCurrentUser();
