@@ -9,20 +9,20 @@
     <ImageView
         android:id="@+id/bgTiketAtas"
         android:layout_width="match_parent"
-        android:layout_height="114dp"
-        android:background="@color/colorbgTiketAtas"
+        android:layout_height="56dp"
+        android:background="#00c853"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/imgTiket"
-        android:layout_width="56dp"
-        android:layout_height="56dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:layout_marginBottom="16dp"
-        android:background="@drawable/ic_telah_digunakan"
+        android:background="@drawable/ic_barcodeputih"
         app:layout_constraintBottom_toBottomOf="@id/bgTiketAtas"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@id/bgTiketAtas" />
@@ -31,59 +31,48 @@
         android:id="@+id/tvDaftarTiket"
         android:layout_width="158dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:layout_marginBottom="16dp"
         android:fontFamily="sans-serif-medium"
-        android:lineHeight="24sp"
-        android:text="Telah Digunakan"
+        android:lineHeight="17sp"
+        android:text="Sudah Discan"
         android:textColor="@color/colorPutih"
-        android:textSize="20sp"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="@id/imgTiket"
         app:layout_constraintStart_toEndOf="@id/imgTiket"
-        app:layout_constraintTop_toTopOf="@id/imgTiket"
-        app:layout_constraintBottom_toBottomOf="@id/imgTiket"/>
-
-
-    <ImageView
-        android:id="@+id/tvGarisAtas"
-        android:layout_width="match_parent"
-        android:layout_height="16dp"
-        android:layout_marginLeft="0dp"
-        android:layout_marginTop="0dp"
-        android:layout_marginRight="0dp"
-        android:layout_marginBottom="0dp"
-        android:background="#f5f5f5"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/bgTiketAtas" />
+        app:layout_constraintTop_toTopOf="@id/imgTiket" />
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvGarisAtas">
+        app:layout_constraintTop_toBottomOf="@id/bgTiketAtas">
 
         <android.support.constraint.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
             <android.support.v7.widget.RecyclerView
+                android:id="@+id/ttdRecyclerView"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:id="@+id/ttdRecyclerView">
-            </android.support.v7.widget.RecyclerView>
+                android:layout_height="match_parent"></android.support.v7.widget.RecyclerView>
         </android.support.constraint.ConstraintLayout>
 
     </ScrollView>
 
     <ProgressBar
+        android:id="@+id/ttdProgressBar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/ttdProgressBar"
         android:visibility="gone"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"/>
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </android.support.constraint.ConstraintLayout>
