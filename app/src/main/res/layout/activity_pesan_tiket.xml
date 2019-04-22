@@ -26,178 +26,230 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-        <ImageView
-            android:id="@+id/ptiGambarWisata"
-            android:layout_width="160dp"
-            android:layout_height="160dp"
-            android:layout_marginHorizontal="16dp"
-            android:layout_marginVertical="16dp"
-            android:background="@drawable/profile_user"
-            android:scaleType="centerCrop"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            <ImageView
+                android:id="@+id/ptiGambarWisata"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginVertical="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:background="@drawable/profile_user"
+                android:scaleType="centerCrop"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_chainStyle="packed" />
 
-        <TextView
-            android:id="@+id/pttHargaTiket"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="56dp"
-            android:layout_marginEnd="16dp"
-            android:text="Harga Tiket"
-            android:textColor="#000000"
-            android:textSize="20sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/ptiGambarWisata"
-            app:layout_constraintTop_toTopOf="@id/ptiGambarWisata" />
+            <TextView
+                android:id="@+id/pttNama"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:fontFamily="sans-serif-medium"
+                android:letterSpacing="0.01"
+                android:lineSpacingExtra="4sp"
+                android:text="Gunung Bromo"
+                android:textColor="#de000000"
+                android:textSize="20sp"
+                android:textStyle="normal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/ptiGambarWisata"
+                app:layout_constraintTop_toTopOf="@+id/ptiGambarWisata" />
 
-        <TextView
-            android:id="@+id/pttHargaTiketKeterangan"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="0dp"
-            android:layout_marginEnd="16dp"
-            android:text="Rp 100000"
-            android:textColor="@color/colorButton"
-            android:textSize="16sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/ptiGambarWisata"
-            app:layout_constraintTop_toBottomOf="@id/pttHargaTiket" />
+            <TextView
+                android:id="@+id/pttKotaWisata"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
+                android:fontFamily="sans-serif-medium"
+                android:letterSpacing="0.01"
+                android:lineSpacingExtra="3sp"
+                android:text="Pasuruan, Jawa Timur"
+                android:textColor="@color/colorButton"
+                android:textSize="14sp"
+                android:textStyle="normal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/ptiGambarWisata"
+                app:layout_constraintTop_toBottomOf="@+id/pttNama" />
 
-        <ImageView
-            android:id="@+id/garisAtas"
-            android:layout_width="0dp"
-            android:layout_height="16dp"
-            android:layout_marginStart="0dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="0dp"
-            android:background="#f5f5f5"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/ptiGambarWisata" />
+            <TextView
+                android:id="@+id/hargatiket"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:fontFamily="sans-serif"
+                android:letterSpacing="0.02"
+                android:lineSpacingExtra="2sp"
+                android:text="Harga Tiket"
+                android:textColor="#000000"
+                android:textSize="12sp"
+                android:textStyle="normal"
+                app:layout_constraintStart_toEndOf="@+id/ptiGambarWisata"
+                app:layout_constraintTop_toBottomOf="@+id/pttKotaWisata" />
 
-        <TextView
-            android:id="@+id/pttNamadanKotaWisata"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="16dp"
-            android:text="Stikom Surabaya, Surabaya"
-            android:textColor="#000000"
-            android:textSize="20sp"
-            app:layout_constraintTop_toBottomOf="@id/garisAtas" />
+            <TextView
+                android:id="@+id/pttHargaTiketKeterangan"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginEnd="8dp"
+                android:fontFamily="sans-serif-medium"
+                android:letterSpacing="0.01"
+                android:lineSpacingExtra="3sp"
+                android:textColor="#000000"
+                android:textSize="14sp"
+                android:textStyle="normal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/ptiGambarWisata"
+                app:layout_constraintTop_toBottomOf="@+id/hargatiket"
+                tools:text="Rp 300.000" />
 
-        <ImageView
-            android:id="@+id/bgTiket"
-            android:layout_width="0dp"
-            android:layout_height="56dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="16dp"
-            android:background="@drawable/bgtext"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/pttNamadanKotaWisata" />
+            <ImageView
+                android:id="@+id/line-1"
+                android:layout_width="match_parent"
+                android:layout_height="16dp"
+                android:layout_marginTop="24dp"
+                android:background="#f5f5f5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/pttHargaTiketKeterangan" />
 
-        <ImageView
-            android:id="@+id/logoTiket"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginBottom="16dp"
-            android:background="@drawable/ic_tiket_jumlah"
-            app:layout_constraintBottom_toBottomOf="@id/bgTiket"
-            app:layout_constraintStart_toStartOf="@id/bgTiket"
-            app:layout_constraintTop_toTopOf="@id/bgTiket" />
+            <TextView
+                android:id="@+id/pemesanantiket"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="24dp"
+                android:fontFamily="sans-serif-medium"
+                android:letterSpacing="0.01"
+                android:lineSpacingExtra="3sp"
+                android:text="Pemesanan Tiket"
+                android:textColor="#000000"
+                android:textSize="14sp"
+                android:textStyle="normal"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/line-1" />
 
-        <EditText
-            android:id="@+id/ptetJumlahTiket"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginBottom="16dp"
-            android:background="@android:color/transparent"
-            android:hint="Masukan Jumlah Tiket"
-            android:paddingTop="16dp"
-            android:paddingBottom="16dp"
-            app:layout_constraintBottom_toBottomOf="@id/bgTiket"
-            app:layout_constraintEnd_toEndOf="@id/bgTiket"
-            app:layout_constraintStart_toEndOf="@id/logoTiket"
-            app:layout_constraintTop_toTopOf="@id/bgTiket" />
 
-        <ImageView
-            android:id="@+id/bgTtl"
-            android:layout_width="0dp"
-            android:layout_height="56dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="16dp"
-            android:background="@drawable/bgtext"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/bgTiket" />
+            <!--Jumlah Tiket-->
 
-        <ImageView
-            android:id="@+id/logoTtl"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginBottom="16dp"
-            android:background="@drawable/ic_cake"
-            app:layout_constraintBottom_toBottomOf="@id/bgTtl"
-            app:layout_constraintStart_toStartOf="@id/bgTtl"
-            app:layout_constraintTop_toTopOf="@id/bgTtl" />
+            <ImageView
+                android:id="@+id/bgTiket"
+                android:layout_width="0dp"
+                android:layout_height="56dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:background="@drawable/bgtext"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/pemesanantiket" />
 
-        <EditText
-            android:id="@+id/ptetTanggalPesan"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="0dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginBottom="0dp"
-            android:background="@android:color/transparent"
-            android:hint="Masukan tanggal pesan"
-            android:paddingTop="16dp"
-            android:paddingBottom="16dp"
-            app:layout_constraintBottom_toBottomOf="@id/bgTtl"
-            app:layout_constraintEnd_toStartOf="@id/ptBtnTanggalPesan"
-            app:layout_constraintStart_toEndOf="@id/logoTtl"
-            app:layout_constraintTop_toTopOf="@id/bgTtl" />
+            <ImageView
+                android:id="@+id/logoTiket"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp"
+                android:background="@drawable/ic_tiket_jumlah"
+                app:layout_constraintBottom_toBottomOf="@id/bgTiket"
+                app:layout_constraintStart_toStartOf="@id/bgTiket"
+                app:layout_constraintTop_toTopOf="@id/bgTiket" />
 
-        <Button
-            android:id="@+id/ptBtnTanggalPesan"
-            android:layout_width="45dp"
-            android:layout_height="45dp"
-            android:layout_marginStart="0dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginBottom="16dp"
-            android:text="..."
-            app:layout_constraintBottom_toBottomOf="@id/bgTtl"
-            app:layout_constraintEnd_toEndOf="@id/bgTtl"
-            app:layout_constraintTop_toTopOf="@id/bgTtl" />
+            <EditText
+                android:id="@+id/ptetJumlahTiket"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="16dp"
+                android:background="@android:color/transparent"
+                android:hint="Jumlah Tiket"
+                android:paddingTop="16dp"
+                android:paddingBottom="16dp"
+                app:layout_constraintBottom_toBottomOf="@id/bgTiket"
+                app:layout_constraintEnd_toEndOf="@id/bgTiket"
+                app:layout_constraintStart_toEndOf="@id/logoTiket"
+                app:layout_constraintTop_toTopOf="@id/bgTiket" />
 
-        <Button
-            android:id="@+id/ptBtnBeliTiket"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="32dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginBottom="16dp"
-            android:background="@drawable/bgbelitiket"
-            android:text="Beli Tiket"
-            android:textColor="#ffffff"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/bgTtl" />
+
+            <!--Tanggal Kunjungan-->
+            <ImageView
+                android:id="@+id/bgTtl"
+                android:layout_width="0dp"
+                android:layout_height="56dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:background="@drawable/bgtext"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/bgTiket" />
+
+            <ImageView
+                android:id="@+id/logoTtl"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp"
+                android:background="@drawable/ic_date_range_black_24dp"
+                app:layout_constraintBottom_toBottomOf="@id/bgTtl"
+                app:layout_constraintStart_toStartOf="@id/bgTtl"
+                app:layout_constraintTop_toTopOf="@id/bgTtl" />
+
+            <EditText
+                android:id="@+id/ptetTanggalPesan"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="0dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="0dp"
+                android:background="@android:color/transparent"
+                android:hint="Tanggal Kunjungan"
+                android:paddingTop="16dp"
+                android:paddingBottom="16dp"
+                app:layout_constraintBottom_toBottomOf="@id/bgTtl"
+                app:layout_constraintEnd_toStartOf="@id/ptBtnTanggalPesan"
+                app:layout_constraintStart_toEndOf="@id/logoTtl"
+                app:layout_constraintTop_toTopOf="@id/bgTtl" />
+
+            <Button
+                android:id="@+id/ptBtnTanggalPesan"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:layout_marginStart="0dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="16dp"
+                android:text="..."
+                app:layout_constraintBottom_toBottomOf="@id/bgTtl"
+                app:layout_constraintEnd_toEndOf="@id/bgTtl"
+                app:layout_constraintTop_toTopOf="@id/bgTtl" />
+
+            <!--Button Beli-->
+            <Button
+                android:id="@+id/ptBtnBeliTiket"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="32dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="16dp"
+                android:background="@drawable/bgbelitiket"
+                android:text="Beli Tiket"
+                android:textColor="#000"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/bgTtl" />
+
 
         </android.support.constraint.ConstraintLayout>
 
