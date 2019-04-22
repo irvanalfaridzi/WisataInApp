@@ -105,11 +105,11 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="16dp"
+            android:paddingBottom="8dp"
             app:layout_constraintBottom_toBottomOf="@id/tvPassword"
             app:layout_constraintEnd_toEndOf="@id/tvPassword"
             app:layout_constraintStart_toEndOf="@id/logoPassword"
             app:layout_constraintTop_toTopOf="@id/tvPassword"
-            android:paddingBottom="8dp"
             app:passwordToggleDrawable="@drawable/ic_remove"
             app:passwordToggleEnabled="true">
 
@@ -144,7 +144,6 @@
             android:background="@drawable/bgmasuk"
             android:text="Masuk"
             android:textColor="#ffffff"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/cbIngat" />
@@ -158,13 +157,13 @@
             android:fontFamily="sans-serif-medium"
             android:letterSpacing="0.01"
             android:lineSpacingExtra="3sp"
+            android:text="Belum memiliki akun ?"
             android:textColor="#99000000"
             android:textSize="14sp"
             android:textStyle="normal"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/lbtnLogin"
-            android:text="Belum memiliki akun ?" />
+            app:layout_constraintTop_toBottomOf="@+id/lbtnLogin" />
 
         <TextView
             android:id="@+id/lbtnCrtAccount"
@@ -173,17 +172,19 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="4dp"
             android:layout_marginEnd="16dp"
+            android:layout_marginBottom="32dp"
             android:fontFamily="sans-serif-medium"
             android:gravity="center_horizontal"
             android:letterSpacing="0.01"
             android:lineSpacingExtra="3sp"
+            android:text="Daftar Sekarang"
             android:textColor="@color/colorPrimary"
             android:textSize="14sp"
             android:textStyle="normal"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/txtblm"
-            android:text="Daftar Sekarang" />
+            app:layout_constraintTop_toBottomOf="@+id/txtblm" />
 
         <ProgressBar
             android:id="@+id/lProgressBar"

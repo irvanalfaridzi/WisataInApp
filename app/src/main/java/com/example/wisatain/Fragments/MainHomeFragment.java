@@ -69,6 +69,7 @@ public class MainHomeFragment extends Fragment {
         mDatabase = FirebaseDatabase.getInstance();
         mWisata = mDatabase.getReference().child("Wisata");
 
+        recyclerView.setNestedScrollingEnabled(false);
         recyclerView.setHasFixedSize(true);
 
         loadData();

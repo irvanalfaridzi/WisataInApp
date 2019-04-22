@@ -32,8 +32,14 @@ public class ProfilWisataUserActivity extends AppCompatActivity {
     @BindView(R.id.pwuiGambarWisata)
     ImageView gambarWisata;
 
-    @BindView(R.id.pwutNamadanKotaWisata)
-    TextView namadanKotaWisata;
+//    @BindView(R.id.pwutNamadanKotaWisata)
+//    TextView namadanKotaWisata;
+
+    @BindView(R.id.namaWisata)
+    TextView namaWisata;
+
+    @BindView(R.id.kotaWisata)
+    TextView kotaWisata;
 
     @BindView(R.id.pwutDeskripsiWisata)
     TextView deskripsiWisata;
@@ -106,9 +112,10 @@ public class ProfilWisataUserActivity extends AppCompatActivity {
 
                 if (getkey != null) {
                     Glide.with(getApplicationContext()).load(getGambarWisataURL).into(gambarWisata);
-                    namadanKotaWisata.setText(getNamaWisata + ", " + getKotaWisata);
+                    namaWisata.setText(getNamaWisata);
+                    kotaWisata.setText(getKotaWisata);
                     deskripsiWisata.setText(getDeksripsiWisata);
-                    jamOperasional.setText("Jam Operasional : " + getJamOperasionalWisata);
+                    jamOperasional.setText(getJamOperasionalWisata);
                     cocokUntuk.setText(getCocokUntukWisata);
                     detailLokasi.setText(getDetailLokasiWisata + ", " + getKotaWisata);
                     if (getHargaTiketWisata.toString().equals("0")) {

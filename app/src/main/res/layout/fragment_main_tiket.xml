@@ -4,13 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorPutih"
     tools:context=".Fragments.MainTiketFragment">
 
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <android.support.constraint.ConstraintLayout
+     <android.support.constraint.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
@@ -20,6 +17,7 @@
                 android:layout_height="112dp"
                 android:background="@color/colorbgTiketAtas"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -37,15 +35,19 @@
 
             <TextView
                 android:id="@+id/tvDaftarTiket"
-                android:layout_width="158dp"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="24dp"
+                android:layout_marginStart="24dp"
                 android:layout_marginTop="32dp"
+                android:layout_marginBottom="16dp"
                 android:fontFamily="sans-serif-medium"
                 android:lineHeight="24sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginEnd="16dp"
                 android:text="Daftar tiket yang sudah dibeli"
                 android:textColor="@color/colorPutih"
                 android:textSize="20sp"
+                app:layout_constraintBottom_toBottomOf="@+id/bgTiketAtas"
                 app:layout_constraintStart_toEndOf="@id/imgTiket"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -55,13 +57,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="16dp"
                 android:layout_marginLeft="0dp"
-                android:layout_marginTop="16dp"
                 android:layout_marginRight="0dp"
                 android:layout_marginBottom="0dp"
                 android:background="#f5f5f5"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tvDaftarTiket" />
+                app:layout_constraintTop_toBottomOf="@id/bgTiketAtas" />
 
             <TextView
                 android:id="@+id/tvRiwayat"
@@ -126,7 +127,7 @@
             <android.support.v7.widget.RecyclerView
                 android:id="@+id/mtRecyclerView"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="0dp"
                 android:layout_marginTop="16dp"
                 android:layout_marginBottom="24dp"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -146,6 +147,4 @@
 
         </android.support.constraint.ConstraintLayout>
 
-
-    </ScrollView>
 </FrameLayout>

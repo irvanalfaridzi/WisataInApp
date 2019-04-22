@@ -26,6 +26,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -67,6 +68,9 @@ public class MainFavoriteFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_main_favorite, container, false);
+
+        Objects.requireNonNull(getActivity()).setTitle("Favorit");
+
         // Inflate the layout for this fragment
         ButterKnife.bind(this, view);
 
