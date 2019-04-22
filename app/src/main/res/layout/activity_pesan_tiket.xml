@@ -107,7 +107,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/ptiGambarWisata"
                 app:layout_constraintTop_toBottomOf="@+id/hargatiket"
-                tools:text="Rp 300.000" />
+                android:text="Rp 300.000" />
 
             <ImageView
                 android:id="@+id/line-1"
