@@ -108,6 +108,8 @@ public class DetailTiketActivity extends AppCompatActivity {
                 }
             });
             menungguKonfirmasi();
+        } else {
+
         }
 
     }
@@ -138,23 +140,8 @@ public class DetailTiketActivity extends AppCompatActivity {
                     totalHarga.setText(getTotalHarga);
                     statusTiket.setText(getStatusTiket);
 
-                    if (intentTiketStatus.equals("Menunggu Konfirmasi")) {
+                    Glide.with(getBaseContext()).load(R.drawable.ic_add_a_photo_black_128dp).into(gambarActivity);
 
-                        Glide.with(getBaseContext()).load(R.drawable.ic_add_a_photo_black_128dp).into(gambarActivity);
-
-                    } else {
-
-                        try {
-                            MultiFormatWriter multiFormatWriter = new MultiFormatWriter();
-                            BitMatrix bitMatrix = multiFormatWriter.encode(intentTiketKey, BarcodeFormat.QR_CODE, 500, 500);
-                            BarcodeEncoder barcodeEncoder = new BarcodeEncoder();
-                            Bitmap bitmap = barcodeEncoder.createBitmap(bitMatrix);
-                            gambarActivity.setImageBitmap(bitmap);
-                        } catch (WriterException e) {
-                            e.printStackTrace();
-                        }
-
-                    }
 
                 }
             }
@@ -164,6 +151,20 @@ public class DetailTiketActivity extends AppCompatActivity {
 
             }
         });
+
+    }
+
+    public void sementara() {
+
+        try {
+            MultiFormatWriter multiFormatWriter = new MultiFormatWriter();
+            BitMatrix bitMatrix = multiFormatWriter.encode(intentTiketKey, BarcodeFormat.QR_CODE, 500, 500);
+            BarcodeEncoder barcodeEncoder = new BarcodeEncoder();
+            Bitmap bitmap = barcodeEncoder.createBitmap(bitMatrix);
+            gambarActivity.setImageBitmap(bitmap);
+        } catch (WriterException e) {
+            e.printStackTrace();
+        }
 
     }
 
@@ -195,7 +196,7 @@ public class DetailTiketActivity extends AppCompatActivity {
     }
 
     private void uploadImage() {
-        mBuktiRef = FirebaseStorage.getInstance().getReference().child("Buktipembayaran/" +System.currentTimeMillis() +".jpg");
+        mBuktiRef = FirebaseStorage.getInstance().getReference().child("Buktipembayaran/" + System.currentTimeMillis() + ".jpg");
         if (uriBuktiPembayaran != null) {
             progressBar.setVisibility(View.VISIBLE);
             findViewById(R.id.bwBtnSave).setEnabled(false);

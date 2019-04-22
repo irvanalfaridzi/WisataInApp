@@ -123,7 +123,7 @@ public class TiketTelahDigunakanActivity extends AppCompatActivity {
             }
         };
 
-        GridLayoutManager gridLayoutManager = new GridLayoutManager(this, 2);
+        GridLayoutManager gridLayoutManager = new GridLayoutManager(this, 1);
         recyclerView.setLayoutManager(gridLayoutManager);
         adapter.startListening();
         recyclerView.setAdapter(adapter);
