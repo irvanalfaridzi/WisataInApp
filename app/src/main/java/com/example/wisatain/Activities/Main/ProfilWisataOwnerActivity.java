@@ -177,6 +177,12 @@ public class ProfilWisataOwnerActivity extends AppCompatActivity {
         integrator.initiateScan();
     }
 
+    @OnClick(R.id.pwoBtnKonfirmasiTiket)
+    public void konfirmasiTiket() {
+        Intent intent = new Intent(ProfilWisataOwnerActivity.this, KonfirmasiTiketActivity.class);
+        startActivity(intent);
+    }
+
     @OnClick(R.id.pwoBtnEditWisata)
     public void editWisata() {
         Intent intent = new Intent(ProfilWisataOwnerActivity.this, EditWisataActivity.class);
