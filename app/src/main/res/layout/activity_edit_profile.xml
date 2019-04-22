@@ -89,6 +89,7 @@
             android:paddingBottom="16dp"
             android:background="@android:color/transparent"
             android:hint="Nomor Telepon"
+            android:inputType="phone"
             app:layout_constraintStart_toEndOf="@id/logoNomor"
             app:layout_constraintTop_toTopOf="@id/tvNomor"
             app:layout_constraintEnd_toEndOf="@id/tvNomor"
