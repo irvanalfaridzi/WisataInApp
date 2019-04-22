@@ -8,7 +8,7 @@
 
     <ImageView
         android:layout_width="match_parent"
-        android:layout_height="208dp"
+        android:layout_height="256dp"
         android:id="@+id/bgTiketAtas"
         android:background="@color/colorButton"
         app:layout_constraintStart_toStartOf="parent"
@@ -30,19 +30,32 @@
         app:layout_constraintTop_toTopOf="@id/bgTiketAtas"
         app:layout_constraintEnd_toEndOf="parent"/>
 
-    <TextView
+    <ImageView
         android:layout_width="116dp"
-        android:layout_height="wrap_content"
+        android:layout_height="116dp"
         android:id="@+id/dtiGambarActivity"
-        android:textColor="@color/colorPutih"
-        android:text="Silahkan upload bukti pembayaran"
-        android:textAlignment="center"
+        android:background="@drawable/profile_user"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="24sp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
         app:layout_constraintTop_toBottomOf="@id/dttLokasiWisataKeterangan"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
+
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Sentuh gambar di atas untuk mengupload bukti pembayaran"
+        android:textColor="@color/colorPutih"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/dtiGambarActivity"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/bgTiketAtas"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -230,7 +243,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/dttTotalharga"
-        android:text="Total Harga : "
+        android:text="Total Harga"
         android:textColor="#99000000"
         android:textSize="14sp"
         android:textStyle="normal"
@@ -268,24 +281,41 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/dttStatusTiket"
-        android:text="Status Tiket : "
-        android:textColor="#000"
-        android:textSize="16dp"
-        android:textStyle="bold"
-        android:layout_marginVertical="4dp"
-        android:layout_marginHorizontal="16dp"
+        android:text="Status Tiket"
+        android:textColor="#99000000"
+        android:textSize="14sp"
+        android:textStyle="normal"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/dttTotalharga"/>
+        app:layout_constraintTop_toBottomOf="@id/tvGarisTotal"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/dttStatusTiketKeterangan"
         android:text="Sudah Digunakan"
-        android:textColor="#000"
-        android:textSize="16dp"
-        app:layout_constraintStart_toEndOf="@id/dttStatusTiket"
-        app:layout_constraintTop_toTopOf="@id/dttStatusTiket"/>
+        android:textColor="#99000000"
+        android:textSize="14sp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/tvGarisTotal"/>
+
+    <TextView
+        android:id="@+id/tvGarisStatus"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="0dp"
+        android:layout_marginBottom="0dp"
+        android:background="#f5f5f5"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/dttStatusTiket" />
 
     <ProgressBar
         android:layout_width="wrap_content"
