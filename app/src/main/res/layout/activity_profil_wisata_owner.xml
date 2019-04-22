@@ -94,7 +94,8 @@
                 android:textColor="@color/colorPutih"
                 app:layout_constraintStart_toEndOf="@id/pwoBtnKonfirmasi"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/garisAtas"/>
+                app:layout_constraintTop_toBottomOf="@id/garisAtas"
+                app:layout_constraintBottom_toTopOf="@id/garisHarga"/>
 
             <ImageView
                 android:id="@+id/garisHarga"
