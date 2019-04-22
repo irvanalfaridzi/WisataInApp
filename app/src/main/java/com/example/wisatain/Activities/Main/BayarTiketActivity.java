@@ -108,15 +108,14 @@ public class BayarTiketActivity extends AppCompatActivity {
                         intentJumlahTiket,
                         intentTanggalPesanTiket,
                         String.valueOf(Integer.parseInt(getHargaTiket)*Integer.parseInt(intentJumlahTiket)),
-                        "Siap Digunakan"
+                        "Menunggu Konfirmasi"
                 );
 
                 final String pushKey = mDatabase.getReference("Tiket").push().getKey();
-                mTiket.child(pushKey).setValue(tiket).addOnCompleteListener(new OnCompleteListener<Void>() {
+                mTiket.child("MenungguKonfirmasi").child(pushKey).setValue(tiket).addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
                         if (task.isSuccessful()) {
-                            mUsers.child(getUID).child("Tiket").child(pushKey).setValue(pushKey);
                             Intent intent = new Intent(BayarTiketActivity.this, MainActivity.class);
                             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                             startActivity(intent);

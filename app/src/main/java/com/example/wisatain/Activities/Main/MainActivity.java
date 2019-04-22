@@ -25,7 +25,6 @@ public class MainActivity extends AppCompatActivity {
     @BindView(R.id.mBottomNav)
     BottomNavigationView bottomNavigationView;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

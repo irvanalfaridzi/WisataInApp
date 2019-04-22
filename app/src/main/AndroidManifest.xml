@@ -22,9 +22,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Activities.Main.KunjunganWisataActivity"></activity>
-        <activity android:name=".Activities.Main.TIketSudahAccActivity" />
-        <activity android:name=".Activities.Main.TIketBelumAccActivity" />
+        <activity android:name=".Activities.Main.TiketTelahDigunakanActivity"></activity>
+        <activity android:name=".Activities.Main.TiketBelumDigunakanActivity" />
+        <activity android:name=".Activities.Main.TiketMenungguKonfirmasiActivity" />
         <activity android:name=".Activities.Main.OwnerResultScanActivity" />
         <activity android:name=".Activities.Main.DetailTiketActivity" />
         <activity android:name=".Activities.Main.BayarTiketActivity" />

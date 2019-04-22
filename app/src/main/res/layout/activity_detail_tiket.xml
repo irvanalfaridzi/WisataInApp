@@ -33,7 +33,7 @@
     <ImageView
         android:layout_width="200dp"
         android:layout_height="200dp"
-        android:id="@+id/dtiGambarQRCode"
+        android:id="@+id/dtiGambarActivity"
         android:layout_marginStart="16dp"
         android:layout_marginTop="24sp"
         android:layout_marginEnd="16dp"
@@ -261,5 +261,38 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/dttTotalharga" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/dttStatusTiket"
+        android:text="Status Tiket : "
+        android:textColor="#000"
+        android:textSize="16dp"
+        android:textStyle="bold"
+        android:layout_marginVertical="4dp"
+        android:layout_marginHorizontal="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/dttTotalharga"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/dttStatusTiketKeterangan"
+        android:text="Sudah Digunakan"
+        android:textColor="#000"
+        android:textSize="16dp"
+        app:layout_constraintStart_toEndOf="@id/dttStatusTiket"
+        app:layout_constraintTop_toTopOf="@id/dttStatusTiket"/>
+
+    <ProgressBar
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/dtProgressBar"
+        android:visibility="gone"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
 
 </android.support.constraint.ConstraintLayout>
