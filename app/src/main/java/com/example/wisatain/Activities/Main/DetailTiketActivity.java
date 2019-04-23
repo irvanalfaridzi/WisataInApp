@@ -40,6 +40,7 @@ import java.io.IOException;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 import static com.example.wisatain.Activities.Login.BiodataAkunActivity.PICK_IMAGE_REQUEST;
 
@@ -76,14 +77,15 @@ public class DetailTiketActivity extends AppCompatActivity {
     ProgressBar progressBar;
 
     FirebaseDatabase mDatabase;
-    DatabaseReference mTiket;
+    DatabaseReference mTiketMenunggu;
+    DatabaseReference mTiketKonfirmasi;
     StorageReference mBuktiRef;
 
     Uri uriBuktiPembayaran;
-    Uri buktiPembayaranURL;
+    public Uri buktiPembayaranURL;
 
-    String intentTiketKey, intentTiketStatus;
-    String getRefTransaksi, getTanggalTransaksi, getNamaWisata, getLokasiwisata, getJumlahTiket, getTanggalPenggunaan, getTotalHarga, getStatusTiket;
+    public String intentTiketKey, intentTiketStatus;
+    public String getUIDUser, getRefTransaksi, getTanggalTransaksi, getNamaWisata, getWilayahWisata, getLokasiwisata, getJumlahTiket, getTanggalPenggunaan, getTotalHarga, getStatusTiket;
 
     UploadTask uploadTask;
 
@@ -98,7 +100,8 @@ public class DetailTiketActivity extends AppCompatActivity {
         intentTiketStatus = getintent.getStringExtra("status");
 
         mDatabase = FirebaseDatabase.getInstance();
-        mTiket = mDatabase.getReference().child("Tiket");
+        mTiketMenunggu = mDatabase.getReference().child("Tiket").child("MenungguKonfirmasi");
+        mTiketKonfirmasi = mDatabase.getReference().child("Tiket").child("TelahKonfirmasi");
 
         if (intentTiketStatus.equals("Menunggu Konfirmasi")) {
             gambarActivity.setOnClickListener(new View.OnClickListener() {
@@ -108,22 +111,25 @@ public class DetailTiketActivity extends AppCompatActivity {
                 }
             });
             menungguKonfirmasi();
+//            findViewById(R.id.dtBtnUploadBukti).setVisibility(View.VISIBLE);
         } else {
-
+//            findViewById(R.id.dtBtnUploadBukti).setVisibility(View.GONE);
         }
 
     }
 
     public void menungguKonfirmasi() {
 
-        mTiket.child("MenungguKonfirmasi").child(intentTiketKey).addValueEventListener(new ValueEventListener() {
+        mTiketMenunggu.child(intentTiketKey).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 String key = dataSnapshot.getKey();
+                getUIDUser = dataSnapshot.child("UIDUser").getValue(String.class);
                 getRefTransaksi = dataSnapshot.child("RefTransaksi").getValue(String.class);
                 getTanggalTransaksi = dataSnapshot.child("TanggalPembelian").getValue(String.class);
                 getNamaWisata = dataSnapshot.child("NamaWisata").getValue(String.class);
-                getLokasiwisata = dataSnapshot.child("WilayahWisata").getValue(String.class);
+                getWilayahWisata = dataSnapshot.child("WilayahWisata").getValue(String.class);
+                getLokasiwisata = dataSnapshot.child("LokasiWisata").getValue(String.class);
                 getJumlahTiket = dataSnapshot.child("Jumlah").getValue(String.class);
                 getTanggalPenggunaan = dataSnapshot.child("TanggalKunjungan").getValue(String.class);
                 getTotalHarga = dataSnapshot.child("TotalHarga").getValue(String.class);
@@ -137,7 +143,7 @@ public class DetailTiketActivity extends AppCompatActivity {
                     lokasiWisata.setText(getLokasiwisata);
                     jumlahTiket.setText(getJumlahTiket);
                     tanggalPenggunaan.setText(getTanggalPenggunaan);
-                    totalHarga.setText(getTotalHarga);
+                    totalHarga.setText("Rp" + getTotalHarga);
                     statusTiket.setText(getStatusTiket);
 
                     Glide.with(getBaseContext()).load(R.drawable.ic_add_a_photo_black_128dp).into(gambarActivity);
@@ -168,7 +174,45 @@ public class DetailTiketActivity extends AppCompatActivity {
 
     }
 
-    public void saveData() {
+    public void uploadBuktiTransaksi() {
+
+        TiketDet detailTiket = new TiketDet(
+                getUIDUser,
+                getRefTransaksi,
+                getTanggalTransaksi,
+                getNamaWisata,
+                getLokasiwisata,
+                getWilayahWisata,
+                getJumlahTiket,
+                getTanggalPenggunaan,
+                getTotalHarga,
+                buktiPembayaranURL.toString(),
+                "Telah Konfirmasi"
+        );
+
+        mTiketKonfirmasi.child(intentTiketKey).setValue(detailTiket).addOnCompleteListener(new OnCompleteListener<Void>() {
+            @Override
+            public void onComplete(@NonNull Task<Void> task) {
+                if (task.isSuccessful()) {
+
+                    mTiketMenunggu.child(intentTiketKey).removeValue().addOnCompleteListener(new OnCompleteListener<Void>() {
+                        @Override
+                        public void onComplete(@NonNull Task<Void> task) {
+                            if (task.isSuccessful()) {
+                                Intent intent = new Intent(DetailTiketActivity.this, TiketMenungguKonfirmasiActivity.class);
+                                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                                startActivity(intent);
+                                finish();
+                            } else {
+                                Toast.makeText(DetailTiketActivity.this, task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                            }
+                        }
+                    });
+                } else {
+                    Toast.makeText(DetailTiketActivity.this, task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
 
     }
 
@@ -199,7 +243,7 @@ public class DetailTiketActivity extends AppCompatActivity {
         mBuktiRef = FirebaseStorage.getInstance().getReference().child("Buktipembayaran/" + System.currentTimeMillis() + ".jpg");
         if (uriBuktiPembayaran != null) {
             progressBar.setVisibility(View.VISIBLE);
-            findViewById(R.id.bwBtnSave).setEnabled(false);
+            findViewById(R.id.dtBtnUploadBukti).setEnabled(false);
             uploadTask = mBuktiRef.putFile(uriBuktiPembayaran);
             Task<Uri> urlTask = uploadTask.continueWithTask(new Continuation<UploadTask.TaskSnapshot, Task<Uri>>() {
                 @Override
@@ -214,15 +258,43 @@ public class DetailTiketActivity extends AppCompatActivity {
                 public void onComplete(@NonNull Task<Uri> task) {
                     if (task.isSuccessful()) {
                         progressBar.setVisibility(View.GONE);
-                        findViewById(R.id.bwBtnSave).setEnabled(true);
+                        findViewById(R.id.dtBtnUploadBukti).setEnabled(true);
                         buktiPembayaranURL = task.getResult();
                     } else {
                         progressBar.setVisibility(View.GONE);
-                        findViewById(R.id.bwBtnSave).setEnabled(true);
+                        findViewById(R.id.dtBtnUploadBukti).setEnabled(true);
                     }
                 }
             });
         }
+    }
+
+    public class TiketDet {
+        public String UIDUser, RefTransaksi, TanggalPembelian, NamaWisata, LokasiWisata, WilayahWisata, Jumlah, TanggalKunjungan, TotalHarga, BuktiPembayaranURL, TiketStatus;
+
+        public TiketDet(String UIDUser, String refTransaksi, String tanggalPembelian, String namaWisata, String lokasiWisata, String wilayahWisata, String jumlah, String tanggalKunjungan, String totalHarga, String buktiPembayaranURL, String tiketStatus) {
+            this.UIDUser = UIDUser;
+            RefTransaksi = refTransaksi;
+            TanggalPembelian = tanggalPembelian;
+            NamaWisata = namaWisata;
+            LokasiWisata = lokasiWisata;
+            WilayahWisata = wilayahWisata;
+            Jumlah = jumlah;
+            TanggalKunjungan = tanggalKunjungan;
+            TotalHarga = totalHarga;
+            BuktiPembayaranURL = buktiPembayaranURL;
+            TiketStatus = tiketStatus;
+        }
+    }
+
+    @OnClick(R.id.dtBtnUploadBukti)
+    public void uploadBukti() {
+        if (uriBuktiPembayaran == null) {
+            Toast.makeText(this, "Masukan Bukti Pembayaran", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        uploadBuktiTransaksi();
+
     }
 
 }

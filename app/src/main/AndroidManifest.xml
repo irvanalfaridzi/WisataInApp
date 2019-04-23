@@ -16,7 +16,6 @@
     <uses-permission android:name="android.permission.VIBRATE" />
 
     <application
-        android:screenOrientation="portrait"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -67,7 +66,7 @@
         </activity>
         <activity android:name=".Activities.Login.VerifikasiSandiActivity" />
         <activity android:name=".Activities.Login.LupaPasswordActivity" />
-        <activity android:name=".Activities.Main.MainActivity" />
+        <activity android:name=".Activities.Main.MainActivity" android:screenOrientation="portrait"/>
         <activity android:name=".Activities.Login.BuatAkunActivity" />
 
         <meta-data

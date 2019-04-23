@@ -88,6 +88,8 @@ public class TiketTelahDigunakanActivity extends AppCompatActivity {
                     arrayTanggalKunjungan.add(getTanggalKunjungan);
                     arrayJumlahTiket.add(getJumlahTiket);
                     arrayTotalHarga.add(getTotalHarga);
+
+                    showData();
                 }
             }
 
@@ -97,6 +99,10 @@ public class TiketTelahDigunakanActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    public void showData() {
+
         options = new FirebaseRecyclerOptions.Builder<Tiket>()
                 .setQuery(mTiket, Tiket.class).build();
 
@@ -104,13 +110,13 @@ public class TiketTelahDigunakanActivity extends AppCompatActivity {
             @Override
             protected void onBindViewHolder(@NonNull MainTiketAdapter holder, int position, @NonNull Tiket model) {
 
-                holder.wisataKey = arrayTiketKey.get(position);
-                holder.tiketStatus = "Telah Digunakan";
                 holder.namaWisata.setText(arrayNamaWisata.get(position));
                 holder.wilayahWisata.setText(arrayWilayahWisata.get(position));
                 holder.tanggalKunjungan.setText(arrayTanggalKunjungan.get(position));
                 holder.jumlahTiket.setText(arrayJumlahTiket.get(position));
                 holder.totalHarga.setText(arrayTotalHarga.get(position));
+                holder.wisataKey = arrayTiketKey.get(position);
+                holder.tiketStatus = "Telah Digunakan";
             }
 
             @NonNull

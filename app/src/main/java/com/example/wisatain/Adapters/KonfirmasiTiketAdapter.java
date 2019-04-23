@@ -13,13 +13,14 @@ import android.widget.TextView;
 import com.example.wisatain.Fragments.DetailKonfirmasiTiketFragment;
 import com.example.wisatain.R;
 
-public class KonfrimasiTiketAdapter extends RecyclerView.ViewHolder implements View.OnClickListener {
+public class KonfirmasiTiketAdapter extends RecyclerView.ViewHolder implements View.OnClickListener {
 
     public TextView refTransaksi, namaUser, jumlahTiket, totalHarga, tanggalKunjungan;
     public ImageView gambarBukti;
+    public String key;
     private Context context;
 
-    public KonfrimasiTiketAdapter(@NonNull View itemView) {
+    public KonfirmasiTiketAdapter(@NonNull View itemView) {
         super(itemView);
 
         refTransaksi = itemView.findViewById(R.id.ikttRefTransaksi);

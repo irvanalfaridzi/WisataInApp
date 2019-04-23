@@ -28,6 +28,7 @@ import java.util.ArrayList;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 public class TiketMenungguKonfirmasiActivity extends AppCompatActivity {
 
@@ -43,7 +44,7 @@ public class TiketMenungguKonfirmasiActivity extends AppCompatActivity {
     FirebaseRecyclerAdapter<Tiket, MainTiketAdapter> adapter;
 
     String getUID;
-    String getTiketKey, getNamaWisata, getWilayahWisata, getTanggalKunjungan, getJumlahTiket, getTotalHarga;
+    String getTiketKey, getNamaWisata, getWilayahWisata, getTanggalKunjungan, getJumlahTiket, getTotalHarga, getTiketStatus;
 
     ArrayList<String> arrayTiketKey = new ArrayList<>();
     ArrayList<String> arrayNamaWisata = new ArrayList<>();
@@ -51,6 +52,7 @@ public class TiketMenungguKonfirmasiActivity extends AppCompatActivity {
     ArrayList<String> arrayTanggalKunjungan = new ArrayList<>();
     ArrayList<String> arrayJumlahTiket = new ArrayList<>();
     ArrayList<String> arrayTotalHarga = new ArrayList<>();
+    ArrayList<String> arrayTiketStatus = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,7 +69,7 @@ public class TiketMenungguKonfirmasiActivity extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
         mUser = mAuth.getCurrentUser();
         mDatabase = FirebaseDatabase.getInstance();
-        mTiket = mDatabase.getReference().child("Tiket");
+        mTiket = mDatabase.getReference().child("Tiket").child("MenungguKonfirmasi");
         mUsers = mDatabase.getReference().child("Users");
 
         getUID = mUser.getUid();
@@ -77,16 +79,17 @@ public class TiketMenungguKonfirmasiActivity extends AppCompatActivity {
 
     public void loadData() {
 
-        mTiket.child("MenungguKonfirmasi").orderByChild("UIDUser").equalTo(getUID).addValueEventListener(new ValueEventListener() {
+        mTiket.orderByChild("UIDUser").equalTo(getUID).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 for (DataSnapshot ds : dataSnapshot.getChildren()) {
                     getTiketKey = ds.getKey();
                     getNamaWisata = ds.child("NamaWisata").getValue(String.class);
-                    getWilayahWisata = ds.child("WilayahWIsata").getValue(String.class);
+                    getWilayahWisata = ds.child("WilayahWisata").getValue(String.class);
                     getTanggalKunjungan = ds.child("TanggalKunjungan").getValue(String.class);
                     getJumlahTiket = ds.child("Jumlah").getValue(String.class);
                     getTotalHarga = ds.child("TotalHarga").getValue(String.class);
+                    getTiketStatus = ds.child("TiketStatus").getValue(String.class);
                     Log.d("testkey", "onDataChange: " + getTiketKey + " " + getNamaWisata);
 
                     arrayTiketKey.add(getTiketKey);
@@ -95,6 +98,7 @@ public class TiketMenungguKonfirmasiActivity extends AppCompatActivity {
                     arrayTanggalKunjungan.add(getTanggalKunjungan);
                     arrayJumlahTiket.add(getJumlahTiket);
                     arrayTotalHarga.add(getTotalHarga);
+                    arrayTiketStatus.add(getTiketStatus);
                 }
             }
 
@@ -112,12 +116,13 @@ public class TiketMenungguKonfirmasiActivity extends AppCompatActivity {
             protected void onBindViewHolder(@NonNull MainTiketAdapter holder, int position, @NonNull Tiket model) {
 
                 holder.wisataKey = arrayTiketKey.get(position);
-                holder.tiketStatus = "Menunggu Konfirmasi";
+                holder.tiketStatus = arrayTiketStatus.get(position);
                 holder.namaWisata.setText(arrayNamaWisata.get(position));
                 holder.wilayahWisata.setText(arrayWilayahWisata.get(position));
                 holder.tanggalKunjungan.setText(arrayTanggalKunjungan.get(position));
                 holder.jumlahTiket.setText(arrayJumlahTiket.get(position));
-                holder.totalHarga.setText(arrayTotalHarga.get(position));
+                holder.totalHarga.setText("Rp" + arrayTotalHarga.get(position));
+
             }
 
             @NonNull
