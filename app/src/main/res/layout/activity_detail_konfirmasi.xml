@@ -7,33 +7,72 @@
     tools:context=".Activities.Main.DetailKonfirmasiActivity">
 
     <ImageView
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="0dp"
         android:id="@+id/dkiGambarBukti"
-        android:layout_marginHorizontal="16dp"
-        android:layout_marginVertical="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/bgKonfirmasi"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <ImageView
+        android:layout_width="0dp"
+        android:layout_height="80dp"
+        android:background="@color/colorButton"
+        android:id="@+id/bgKonfirmasi"
+        android:layout_marginTop="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/JudulTransaksi"
+        android:text="Ref Transaksi"
+        android:textColor="@color/colorPutih"
+        android:textSize="12sp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintStart_toStartOf="@id/bgKonfirmasi"
+        app:layout_constraintTop_toTopOf="@id/bgKonfirmasi"
         app:layout_constraintBottom_toTopOf="@id/dktRefTransaksi"/>
 
     <TextView
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:id="@+id/dktRefTransaksi"
-        android:text="Ref Transaksi : "
-        android:textAlignment="center"
-        android:textColor="#000"
-        android:textStyle="bold"
-        android:layout_margin="16dp"
+        android:text="r1313423r3"
+        android:textColor="@color/colorPutih"
+        android:textStyle="normal"
+        android:textSize="14sp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/dkBtnKonfirmasi"/>
+        app:layout_constraintTop_toBottomOf="@id/JudulTransaksi"
+        app:layout_constraintBottom_toBottomOf="@id/bgKonfirmasi"
+        app:layout_constraintEnd_toStartOf="@id/dkBtnKonfirmasi"/>
 
     <Button
-        android:layout_width="match_parent"
+        android:layout_width="182dp"
         android:layout_height="wrap_content"
         android:id="@+id/dkBtnKonfirmasi"
         android:text="Konfirmasi Tiket"
-        android:layout_margin="16dp"
-        app:layout_constraintBottom_toBottomOf="parent"/>
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/bgbelitiket"
+        android:textColor="@color/colorGelap"
+        app:layout_constraintEnd_toEndOf="@id/bgKonfirmasi"
+        app:layout_constraintTop_toTopOf="@id/JudulTransaksi"
+        app:layout_constraintBottom_toBottomOf="@id/dktRefTransaksi"/>
 
 </android.support.constraint.ConstraintLayout>
