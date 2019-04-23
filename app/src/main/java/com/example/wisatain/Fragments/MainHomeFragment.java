@@ -38,7 +38,6 @@ import butterknife.ButterKnife;
  */
 public class MainHomeFragment extends Fragment {
 
-
     @BindView(R.id.mhRecyclerView)
     RecyclerView recyclerView;
 
@@ -130,7 +129,6 @@ public class MainHomeFragment extends Fragment {
 
 
         GridLayoutManager gridLayoutManager = new GridLayoutManager(getContext(), 2);
-
         recyclerView.setLayoutManager(gridLayoutManager);
         adapter.startListening();
         recyclerView.setAdapter(adapter);

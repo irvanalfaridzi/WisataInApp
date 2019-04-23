@@ -1,16 +1,14 @@
 package com.example.wisatain.Adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
-import android.support.v4.app.FragmentManager;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
-import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.wisatain.Fragments.DetailKonfirmasiTiketFragment;
+import com.example.wisatain.Activities.Main.DetailKonfirmasiActivity;
 import com.example.wisatain.R;
 
 public class KonfirmasiTiketAdapter extends RecyclerView.ViewHolder implements View.OnClickListener {
@@ -36,7 +34,10 @@ public class KonfirmasiTiketAdapter extends RecyclerView.ViewHolder implements V
 
     @Override
     public void onClick(View v) {
-        FragmentManager fragmentManager = ((AppCompatActivity)context).getSupportFragmentManager();
-        fragmentManager.beginTransaction().replace(R.id.ktFrameLayout, new DetailKonfirmasiTiketFragment()).commit();
+
+        Intent intent = new Intent(itemView.getContext(), DetailKonfirmasiActivity.class);
+        intent.putExtra("key", key);
+        itemView.getContext().startActivity(intent);
+
     }
 }

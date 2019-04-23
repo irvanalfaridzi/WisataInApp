@@ -22,7 +22,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Activities.Main.KonfirmasiTiketActivity"></activity>
+        <activity android:name=".Activities.Main.DetailKonfirmasiActivity"></activity>
+        <activity android:name=".Activities.Main.KonfirmasiTiketActivity" />
         <activity android:name=".Activities.Main.TiketTelahDigunakanActivity" />
         <activity android:name=".Activities.Main.TiketBelumDigunakanActivity" />
         <activity android:name=".Activities.Main.TiketMenungguKonfirmasiActivity" />
@@ -66,7 +67,9 @@
         </activity>
         <activity android:name=".Activities.Login.VerifikasiSandiActivity" />
         <activity android:name=".Activities.Login.LupaPasswordActivity" />
-        <activity android:name=".Activities.Main.MainActivity" android:screenOrientation="portrait"/>
+        <activity
+            android:name=".Activities.Main.MainActivity"
+            android:screenOrientation="portrait" />
         <activity android:name=".Activities.Login.BuatAkunActivity" />
 
         <meta-data

@@ -54,7 +54,6 @@ public class BayarTiketActivity extends AppCompatActivity {
         mDatabase = FirebaseDatabase.getInstance();
         mUsers = mDatabase.getReference().child("Users");
         mWisata = mDatabase.getReference().child("Wisata");
-        mTiket = mDatabase.getReference().child("Tiket");
 
         getUID = mUser.getUid();
 
@@ -113,8 +112,6 @@ public class BayarTiketActivity extends AppCompatActivity {
                 Log.d("test123", "saveData: " + getHargaTiket + " " + intentJumlahTiket);
 
                 Tiket tiket = new Tiket(
-                        getUID,
-                        getNamaUser,
                         refTransaksi,
                         getCurrentDateandTime,
                         getNamaWisata,
@@ -127,22 +124,17 @@ public class BayarTiketActivity extends AppCompatActivity {
                 );
 
                 final String pushKey = mDatabase.getReference("Tiket").push().getKey();
-                mTiket.child("MenungguKonfirmasi").child(pushKey).setValue(tiket).addOnCompleteListener(new OnCompleteListener<Void>() {
+                mUsers.child(getUID).child("Tiket").child("MenungguKonfirmasi").child(pushKey).setValue(tiket).addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
                         if (task.isSuccessful()) {
-
                             Intent intent = new Intent(BayarTiketActivity.this, MainActivity.class);
-                            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
                             startActivity(intent);
                             finish();
-
-                        } else {
-                            Toast.makeText(BayarTiketActivity.this, task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                         }
                     }
                 });
-
             }
 
             @Override
@@ -154,11 +146,9 @@ public class BayarTiketActivity extends AppCompatActivity {
     }
 
     public class Tiket {
-        public String UIDUser, NamaUser, RefTransaksi, TanggalPembelian, NamaWisata, LokasiWisata, WilayahWisata, Jumlah, TanggalKunjungan, TotalHarga, TiketStatus;
+        public String RefTransaksi, TanggalPembelian, NamaWisata, LokasiWisata, WilayahWisata, Jumlah, TanggalKunjungan, TotalHarga, TiketStatus;
 
-        public Tiket(String UIDUser, String namaUser, String refTransaksi, String tanggalPembelian, String namaWisata, String lokasiWisata, String wilayahWisata, String jumlah, String tanggalKunjungan, String totalHarga, String tiketStatus) {
-            this.UIDUser = UIDUser;
-            NamaUser = namaUser;
+        public Tiket(String refTransaksi, String tanggalPembelian, String namaWisata, String lokasiWisata, String wilayahWisata, String jumlah, String tanggalKunjungan, String totalHarga, String tiketStatus) {
             RefTransaksi = refTransaksi;
             TanggalPembelian = tanggalPembelian;
             NamaWisata = namaWisata;

@@ -11,6 +11,8 @@ import android.widget.TextView;
 import com.example.wisatain.Activities.Main.ProfilWisataUserActivity;
 import com.example.wisatain.R;
 
+import butterknife.OnClick;
+
 public class MainHomeAdapter extends RecyclerView.ViewHolder implements View.OnClickListener {
     public TextView judul, kota;
     public ImageView foto;
@@ -24,7 +26,7 @@ public class MainHomeAdapter extends RecyclerView.ViewHolder implements View.OnC
         kota = itemView.findViewById(R.id.iwtKotaWisata);
         foto = itemView.findViewById(R.id.iwiGambarWisata);
         button = itemView.findViewById(R.id.btnLihat);
-        itemView.setOnClickListener(this);
+        button.setOnClickListener(this);
 
     }
 
@@ -34,4 +36,5 @@ public class MainHomeAdapter extends RecyclerView.ViewHolder implements View.OnC
         intent.putExtra("intent", key);
         itemView.getContext().startActivity(intent);
     }
+
 }

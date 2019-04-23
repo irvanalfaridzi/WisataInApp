@@ -76,7 +76,10 @@ public class DetailTiketActivity extends AppCompatActivity {
     @BindView(R.id.dtProgressBar)
     ProgressBar progressBar;
 
+    FirebaseAuth mAuth;
+    FirebaseUser mUser;
     FirebaseDatabase mDatabase;
+    DatabaseReference mUsers;
     DatabaseReference mTiketMenunggu;
     DatabaseReference mTiketKonfirmasi;
     StorageReference mBuktiRef;
@@ -84,8 +87,9 @@ public class DetailTiketActivity extends AppCompatActivity {
     Uri uriBuktiPembayaran;
     public Uri buktiPembayaranURL;
 
+    public String getUIDUser, getNamaUser, getIDWisata;
     public String intentTiketKey, intentTiketStatus;
-    public String getUIDUser, getNamaUser, getRefTransaksi, getTanggalTransaksi, getNamaWisata, getWilayahWisata, getLokasiwisata, getJumlahTiket, getTanggalPenggunaan, getTotalHarga, getStatusTiket;
+    public String getRefTransaksi, getTanggalTransaksi, getNamaWisata, getWilayahWisata, getLokasiwisata, getJumlahTiket, getTanggalPenggunaan, getTotalHarga, getStatusTiket;
 
     UploadTask uploadTask;
 
@@ -99,9 +103,18 @@ public class DetailTiketActivity extends AppCompatActivity {
         intentTiketKey = getintent.getStringExtra("key");
         intentTiketStatus = getintent.getStringExtra("status");
 
+        mAuth = FirebaseAuth.getInstance();
+        mUser = mAuth.getCurrentUser();
+
+        getUIDUser = mUser.getUid();
+
         mDatabase = FirebaseDatabase.getInstance();
-        mTiketMenunggu = mDatabase.getReference().child("Tiket");
-        mTiketKonfirmasi = mDatabase.getReference().child("Tiket").child("TelahKonfirmasi");
+        mUsers = mDatabase.getReference().child("Users").child(getUIDUser);
+        mTiketMenunggu = mUsers.child("Tiket").child("MenungguKonfirmasi");
+
+        loadUser();
+
+        mTiketKonfirmasi = mDatabase.getReference().child("Wisata");
 
         if (intentTiketStatus.equals("Menunggu Konfirmasi")) {
             gambarActivity.setOnClickListener(new View.OnClickListener() {
@@ -118,14 +131,29 @@ public class DetailTiketActivity extends AppCompatActivity {
 
     }
 
+    public void loadUser() {
+
+        mUsers.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                getNamaUser = dataSnapshot.child("Nama").getValue(String.class);
+                getIDWisata = dataSnapshot.child("Wisata").getValue(String.class);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+
+    }
+
     public void menungguKonfirmasi() {
 
-        mTiketMenunggu.child("MenungguKonfirmasi").child(intentTiketKey).addValueEventListener(new ValueEventListener() {
+        mTiketMenunggu.child(intentTiketKey).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 String key = dataSnapshot.getKey();
-                getUIDUser = dataSnapshot.child("User").child("UIDUser").getValue(String.class);
-                getNamaUser = dataSnapshot.child("User").child("NamaUser").getValue(String.class);
                 getRefTransaksi = dataSnapshot.child("RefTransaksi").getValue(String.class);
                 getTanggalTransaksi = dataSnapshot.child("TanggalPembelian").getValue(String.class);
                 getNamaWisata = dataSnapshot.child("NamaWisata").getValue(String.class);
@@ -135,7 +163,6 @@ public class DetailTiketActivity extends AppCompatActivity {
                 getTanggalPenggunaan = dataSnapshot.child("TanggalKunjungan").getValue(String.class);
                 getTotalHarga = dataSnapshot.child("TotalHarga").getValue(String.class);
                 getStatusTiket = dataSnapshot.child("TiketStatus").getValue(String.class);
-                Log.d("dtcek", "onDataChange: " + getRefTransaksi + " " + getNamaWisata);
 
                 refTransaksi.setText(getRefTransaksi);
                 tanggalTransaksi.setText(getTanggalTransaksi);
@@ -173,7 +200,11 @@ public class DetailTiketActivity extends AppCompatActivity {
 
     public void uploadBuktiTransaksi() {
 
+        loadUser();
+
         TiketDet detailTiket = new TiketDet(
+                getUIDUser,
+                getNamaUser,
                 getRefTransaksi,
                 getTanggalTransaksi,
                 getNamaWisata,
@@ -186,29 +217,15 @@ public class DetailTiketActivity extends AppCompatActivity {
                 "Telah Konfirmasi"
         );
 
-        final insertUser user = new insertUser(
-                getUIDUser,
-                getNamaUser
-        );
-
-        mTiketKonfirmasi.child(intentTiketKey).setValue(detailTiket).addOnCompleteListener(new OnCompleteListener<Void>() {
+        mTiketKonfirmasi.child(getIDWisata).child("Tiket").child("TelahKonfirmasi").child(intentTiketKey).setValue(detailTiket).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
                 if (task.isSuccessful()) {
-                    mTiketKonfirmasi.child(intentTiketKey).child("User").setValue(user).addOnCompleteListener(new OnCompleteListener<Void>() {
-                        @Override
-                        public void onComplete(@NonNull Task<Void> task) {
-                            if (task.isSuccessful()) {
-                                Intent intent = new Intent(DetailTiketActivity.this, TiketMenungguKonfirmasiActivity.class);
-                                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                                startActivity(intent);
-                                finish();
-                                mTiketMenunggu.child("MenungguKonfirmasi").child(intentTiketKey).removeValue();
-                            } else {
-                                Toast.makeText(DetailTiketActivity.this, task.getException().getMessage(), Toast.LENGTH_SHORT).show();
-                            }
-                        }
-                    });
+                    Intent intent = new Intent(DetailTiketActivity.this, TiketMenungguKonfirmasiActivity.class);
+                    intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                    startActivity(intent);
+                    finish();
+                    mTiketMenunggu.child(intentTiketKey).removeValue();
                 } else {
                     Toast.makeText(DetailTiketActivity.this, task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                 }
@@ -271,9 +288,11 @@ public class DetailTiketActivity extends AppCompatActivity {
     }
 
     public class TiketDet {
-        public String RefTransaksi, TanggalPembelian, NamaWisata, LokasiWisata, WilayahWisata, Jumlah, TanggalKunjungan, TotalHarga, BuktiPembayaranURL, TiketStatus;
+        public String UIDUser, NamaUser, RefTransaksi, TanggalPembelian, NamaWisata, LokasiWisata, WilayahWisata, Jumlah, TanggalKunjungan, TotalHarga, BuktiPembayaranURL, TiketStatus;
 
-        public TiketDet(String refTransaksi, String tanggalPembelian, String namaWisata, String lokasiWisata, String wilayahWisata, String jumlah, String tanggalKunjungan, String totalHarga, String buktiPembayaranURL, String tiketStatus) {
+        public TiketDet(String UIDUser, String namaUser, String refTransaksi, String tanggalPembelian, String namaWisata, String lokasiWisata, String wilayahWisata, String jumlah, String tanggalKunjungan, String totalHarga, String buktiPembayaranURL, String tiketStatus) {
+            this.UIDUser = UIDUser;
+            NamaUser = namaUser;
             RefTransaksi = refTransaksi;
             TanggalPembelian = tanggalPembelian;
             NamaWisata = namaWisata;

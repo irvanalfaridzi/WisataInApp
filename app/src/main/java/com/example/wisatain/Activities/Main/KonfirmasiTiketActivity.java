@@ -62,23 +62,23 @@ public class KonfirmasiTiketActivity extends AppCompatActivity {
         setContentView(R.layout.activity_konfirmasi_tiket);
         ButterKnife.bind(this);
 
-        mAuth = FirebaseAuth.getInstance();
-        mUser = mAuth.getCurrentUser();
-        mDatabase = FirebaseDatabase.getInstance();
-        mTiket = mDatabase.getReference().child("Tiket");
-        mUsers = mDatabase.getReference().child("Users");
-
         Intent getintent = getIntent();
         intentKey = getintent.getStringExtra("key");
         intentWisata = getintent.getStringExtra("nama");
         Log.d("keywisata", "onCreate: " + intentKey + " " + intentWisata);
+
+        mAuth = FirebaseAuth.getInstance();
+        mUser = mAuth.getCurrentUser();
+        mDatabase = FirebaseDatabase.getInstance();
+        mTiket = mDatabase.getReference().child("Wisata").child(intentKey).child("Tiket").child("TelahKonfirmasi");
+        mUsers = mDatabase.getReference().child("Users");
 
         loadData();
     }
 
     public void loadData() {
 
-        mTiket.child("TelahKonfirmasi").orderByChild("NamaWisata").equalTo(intentWisata).addValueEventListener(new ValueEventListener() {
+        mTiket.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 for (DataSnapshot ds : dataSnapshot.getChildren()) {
@@ -98,23 +98,6 @@ public class KonfirmasiTiketActivity extends AppCompatActivity {
                     arrayTotalHarga.add(getTotalHarga);
                     arrayBuktiURL.add(getBuktiURL);
                     arrayTanggalKunjungan.add(getTanggalKunjungan);
-
-                    for (int x = 0; x < arrayUIDUser.size(); x++) {
-
-                        mUsers.child(arrayUIDUser.get(x)).addValueEventListener(new ValueEventListener() {
-                            @Override
-                            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                                getNamaUser = dataSnapshot.child("Nama").getValue(String.class);
-                                arrayNamaUser.add(getNamaUser);
-                            }
-
-                            @Override
-                            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-                            }
-                        });
-
-                    }
 
                 }
             }

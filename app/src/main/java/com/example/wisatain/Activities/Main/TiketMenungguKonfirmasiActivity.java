@@ -69,11 +69,10 @@ public class TiketMenungguKonfirmasiActivity extends AppCompatActivity {
 
         mAuth = FirebaseAuth.getInstance();
         mUser = mAuth.getCurrentUser();
-        mDatabase = FirebaseDatabase.getInstance();
-        mTiket = mDatabase.getReference().child("Tiket");
-        mUsers = mDatabase.getReference().child("Users");
-
         getUID = mUser.getUid();
+        mDatabase = FirebaseDatabase.getInstance();
+        mUsers = mDatabase.getReference().child("Users").child(getUID);
+        mTiket = mUsers.child("Tiket");
 
         loadData();
 
@@ -81,7 +80,7 @@ public class TiketMenungguKonfirmasiActivity extends AppCompatActivity {
 
     public void loadData() {
 
-        mTiket.child("MenungguKonfirmasi").orderByChild("UIDUser").equalTo(getUID).addListenerForSingleValueEvent(new ValueEventListener() {
+        mTiket.child("MenungguKonfirmasi").addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 for (DataSnapshot ds : dataSnapshot.getChildren()) {
