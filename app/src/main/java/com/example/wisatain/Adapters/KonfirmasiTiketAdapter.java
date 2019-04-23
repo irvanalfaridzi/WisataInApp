@@ -29,6 +29,8 @@ public class KonfirmasiTiketAdapter extends RecyclerView.ViewHolder implements V
         totalHarga = itemView.findViewById(R.id.ikttTotalHarga);
         tanggalKunjungan = itemView.findViewById(R.id.ikttTanggalKunjungan);
         gambarBukti = itemView.findViewById(R.id.iktiGambarBukti);
+
+        itemView.setOnClickListener(this);
     }
 
 

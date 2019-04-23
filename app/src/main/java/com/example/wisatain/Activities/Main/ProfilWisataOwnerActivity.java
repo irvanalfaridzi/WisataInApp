@@ -65,8 +65,8 @@ public class ProfilWisataOwnerActivity extends AppCompatActivity {
     DatabaseReference mUsers;
 
     String getNamaUser, getGambarUserURL, getWisataUser;
-    String key;
-    String getHargaTiket, getNamaWisata, getKotaWisata, getGambarWisataURL, getDeskripsiWisata, getJamOperasional, getKategoriWisata, getLokasiWisata;
+    public String key, getNamaWisata;
+    String getHargaTiket, getKotaWisata, getGambarWisataURL, getDeskripsiWisata, getJamOperasional, getKategoriWisata, getLokasiWisata;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -180,6 +180,8 @@ public class ProfilWisataOwnerActivity extends AppCompatActivity {
     @OnClick(R.id.pwoBtnKonfirmasiTiket)
     public void konfirmasiTiket() {
         Intent intent = new Intent(ProfilWisataOwnerActivity.this, KonfirmasiTiketActivity.class);
+        intent.putExtra("key", key);
+        intent.putExtra("nama", getNamaWisata);
         startActivity(intent);
     }
 

@@ -25,6 +25,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -69,17 +70,18 @@ public class TiketMenungguKonfirmasiActivity extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
         mUser = mAuth.getCurrentUser();
         mDatabase = FirebaseDatabase.getInstance();
-        mTiket = mDatabase.getReference().child("Tiket").child("MenungguKonfirmasi");
+        mTiket = mDatabase.getReference().child("Tiket");
         mUsers = mDatabase.getReference().child("Users");
 
         getUID = mUser.getUid();
 
         loadData();
+
     }
 
     public void loadData() {
 
-        mTiket.orderByChild("UIDUser").equalTo(getUID).addValueEventListener(new ValueEventListener() {
+        mTiket.child("MenungguKonfirmasi").orderByChild("UIDUser").equalTo(getUID).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 for (DataSnapshot ds : dataSnapshot.getChildren()) {
@@ -90,7 +92,7 @@ public class TiketMenungguKonfirmasiActivity extends AppCompatActivity {
                     getJumlahTiket = ds.child("Jumlah").getValue(String.class);
                     getTotalHarga = ds.child("TotalHarga").getValue(String.class);
                     getTiketStatus = ds.child("TiketStatus").getValue(String.class);
-                    Log.d("testkey", "onDataChange: " + getTiketKey + " " + getNamaWisata);
+                    Log.d("testkeykey", "onDataChange: " + getTiketKey + " " + getNamaWisata);
 
                     arrayTiketKey.add(getTiketKey);
                     arrayNamaWisata.add(getNamaWisata);
@@ -99,6 +101,10 @@ public class TiketMenungguKonfirmasiActivity extends AppCompatActivity {
                     arrayJumlahTiket.add(getJumlahTiket);
                     arrayTotalHarga.add(getTotalHarga);
                     arrayTiketStatus.add(getTiketStatus);
+
+//                    for (int x = 0; x < arrayTiketKey.size(); x++) {
+                        Log.d("tiketkey", "onDataChange: " + arrayTiketKey);
+//                    }
                 }
             }
 
@@ -108,32 +114,43 @@ public class TiketMenungguKonfirmasiActivity extends AppCompatActivity {
             }
         });
 
-        options = new FirebaseRecyclerOptions.Builder<Tiket>()
-                .setQuery(mTiket, Tiket.class).build();
 
-        adapter = new FirebaseRecyclerAdapter<Tiket, MainTiketAdapter>(options) {
-            @Override
-            protected void onBindViewHolder(@NonNull MainTiketAdapter holder, int position, @NonNull Tiket model) {
+            options = new FirebaseRecyclerOptions.Builder<Tiket>()
+                    .setQuery(mTiket, Tiket.class).build();
 
-                holder.wisataKey = arrayTiketKey.get(position);
-                holder.tiketStatus = arrayTiketStatus.get(position);
-                holder.namaWisata.setText(arrayNamaWisata.get(position));
-                holder.wilayahWisata.setText(arrayWilayahWisata.get(position));
-                holder.tanggalKunjungan.setText(arrayTanggalKunjungan.get(position));
-                holder.jumlahTiket.setText(arrayJumlahTiket.get(position));
-                holder.totalHarga.setText("Rp" + arrayTotalHarga.get(position));
+            adapter = new FirebaseRecyclerAdapter<Tiket, MainTiketAdapter>(options) {
+                @Override
+                protected void onBindViewHolder(@NonNull MainTiketAdapter holder, int position, @NonNull Tiket model) {
 
-            }
+                    holder.wisataKey = arrayTiketKey.get(position);
+                    holder.tiketStatus = arrayTiketStatus.get(position);
+                    holder.namaWisata.setText(arrayNamaWisata.get(position));
+                    holder.wilayahWisata.setText(arrayWilayahWisata.get(position));
+                    holder.tanggalKunjungan.setText(arrayTanggalKunjungan.get(position));
+                    holder.jumlahTiket.setText(arrayJumlahTiket.get(position));
+                    holder.totalHarga.setText("Rp" + arrayTotalHarga.get(position));
+//
+//                    holder.wisataKey = "test";
+//                    holder.tiketStatus = "test";
+//                    holder.namaWisata.setText("test");
+//                    holder.wilayahWisata.setText("test");
+//                    holder.tanggalKunjungan.setText("test");
+//                    holder.jumlahTiket.setText("test");
+//                    holder.totalHarga.setText("test");
 
-            @NonNull
-            @Override
-            public MainTiketAdapter onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
+                }
 
-                View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.item_tiket, viewGroup, false);
+                @NonNull
+                @Override
+                public MainTiketAdapter onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
 
-                return new MainTiketAdapter(view);
-            }
-        };
+                    View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.item_tiket, viewGroup, false);
+
+                    return new MainTiketAdapter(view);
+                }
+            };
+
+
 
         GridLayoutManager gridLayoutManager = new GridLayoutManager(this, 1);
         recyclerView.setLayoutManager(gridLayoutManager);

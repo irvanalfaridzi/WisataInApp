@@ -40,7 +40,7 @@ public class BayarTiketActivity extends AppCompatActivity {
     DatabaseReference mUsers;
     DatabaseReference mTiket;
 
-    String getUID;
+    public String getUID, getNamaUser;
     String getNamaWisata, getLokasiWisata, getWilayahWisata, getHargaTiket;
 
     @Override
@@ -72,9 +72,23 @@ public class BayarTiketActivity extends AppCompatActivity {
             metodePembayaran.setText("BNI");
         }
 
+        loadData();
+
     }
 
     public void loadData() {
+
+        mUsers.child(getUID).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                getNamaUser = dataSnapshot.child("Nama").getValue(String.class);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
 
     }
 
@@ -100,6 +114,7 @@ public class BayarTiketActivity extends AppCompatActivity {
 
                 Tiket tiket = new Tiket(
                         getUID,
+                        getNamaUser,
                         refTransaksi,
                         getCurrentDateandTime,
                         getNamaWisata,
@@ -116,10 +131,12 @@ public class BayarTiketActivity extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
                         if (task.isSuccessful()) {
+
                             Intent intent = new Intent(BayarTiketActivity.this, MainActivity.class);
                             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                             startActivity(intent);
                             finish();
+
                         } else {
                             Toast.makeText(BayarTiketActivity.this, task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                         }
@@ -137,10 +154,11 @@ public class BayarTiketActivity extends AppCompatActivity {
     }
 
     public class Tiket {
-        public String UIDUser, RefTransaksi, TanggalPembelian, NamaWisata, LokasiWisata, WilayahWisata, Jumlah, TanggalKunjungan, TotalHarga, TiketStatus;
+        public String UIDUser, NamaUser, RefTransaksi, TanggalPembelian, NamaWisata, LokasiWisata, WilayahWisata, Jumlah, TanggalKunjungan, TotalHarga, TiketStatus;
 
-        public Tiket(String UIDUser, String refTransaksi, String tanggalPembelian, String namaWisata, String lokasiWisata, String wilayahWisata, String jumlah, String tanggalKunjungan, String totalHarga, String tiketStatus) {
+        public Tiket(String UIDUser, String namaUser, String refTransaksi, String tanggalPembelian, String namaWisata, String lokasiWisata, String wilayahWisata, String jumlah, String tanggalKunjungan, String totalHarga, String tiketStatus) {
             this.UIDUser = UIDUser;
+            NamaUser = namaUser;
             RefTransaksi = refTransaksi;
             TanggalPembelian = tanggalPembelian;
             NamaWisata = namaWisata;

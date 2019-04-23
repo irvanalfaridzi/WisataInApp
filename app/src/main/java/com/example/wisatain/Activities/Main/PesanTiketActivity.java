@@ -5,13 +5,23 @@ import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.example.wisatain.R;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.Calendar;
 
@@ -27,8 +37,24 @@ public class PesanTiketActivity extends AppCompatActivity {
     @BindView(R.id.ptetTanggalPesan)
     EditText tanggalPesan;
 
+    @BindView(R.id.ptiGambarWisata)
+    ImageView gambarWisata;
+
+    @BindView(R.id.pttNamaWisata)
+    TextView namaWisata;
+
+    @BindView(R.id.pttKotaWisata)
+    TextView wilayahWisata;
+
+    @BindView(R.id.pttHargaTiketKeterangan)
+    TextView hargaTiket;
+
     public DatePickerDialog.OnDateSetListener tglPesanSetListener;
 
+    FirebaseDatabase mDatabase;
+    DatabaseReference mWisata;
+
+    String getGambarWisata, getNamaWisata, getWilayahWisata, getHargaTiket;
     String wisataKey;
 
     @Override
@@ -42,9 +68,42 @@ public class PesanTiketActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
 
+        mDatabase = FirebaseDatabase.getInstance();
+        mWisata = mDatabase.getReference().child("Wisata");
+
         Intent intent = getIntent();
         wisataKey = intent.getStringExtra("key");
+        Log.d("wisataKey", "onCreate: " + wisataKey);
         tanggalPesan.setEnabled(false);
+
+        loadData();
+    }
+
+    public void loadData() {
+
+        mWisata.child(wisataKey).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                String key = dataSnapshot.getKey();
+                getGambarWisata = dataSnapshot.child("FotoWisataURL").getValue(String.class);
+                getNamaWisata = dataSnapshot.child("NamaWisata").getValue(String.class);
+                getWilayahWisata = dataSnapshot.child("WilayahWisata").getValue(String.class);
+                getHargaTiket = dataSnapshot.child("HargaWisata").getValue(String.class);
+                Log.d("keynamawisata", "onDataChange: " + key + " " + getNamaWisata);
+
+                if (!key.isEmpty() && !getNamaWisata.isEmpty()) {
+                    Glide.with(getBaseContext()).load(getGambarWisata).into(gambarWisata);
+                    namaWisata.setText(getNamaWisata);
+                    wilayahWisata.setText(getWilayahWisata);
+                    hargaTiket.setText(getHargaTiket);
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
 
     }
 

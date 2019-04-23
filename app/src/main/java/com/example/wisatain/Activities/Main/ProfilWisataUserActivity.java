@@ -69,7 +69,7 @@ public class ProfilWisataUserActivity extends AppCompatActivity {
     ArrayList<String> favoriteArrayList = new ArrayList<>();
 
     String intentKey;
-    String getkey, getGambarWisataURL, getNamaWisata, getDeksripsiWisata, getJamOperasionalWisata, getCocokUntukWisata, getDetailLokasiWisata, getHargaTiketWisata, getKotaWisata;
+    public String getkey, getGambarWisataURL, getNamaWisata, getDeksripsiWisata, getJamOperasionalWisata, getCocokUntukWisata, getDetailLokasiWisata, getHargaTiketWisata, getKotaWisata;
     String getUID;
 
     @Override
@@ -188,7 +188,7 @@ public class ProfilWisataUserActivity extends AppCompatActivity {
     @OnClick(R.id.pwuBtnBeliTiket)
     public void beliTiket() {
         Intent intent = new Intent(ProfilWisataUserActivity.this, PesanTiketActivity.class);
-        intent.putExtra("key", intentKey);
+        intent.putExtra("key", getkey);
         startActivity(intent);
     }
 

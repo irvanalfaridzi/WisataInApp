@@ -1,10 +1,12 @@
 package com.example.wisatain.Activities.Main;
 
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -42,6 +44,7 @@ public class KonfirmasiTiketActivity extends AppCompatActivity {
     FirebaseRecyclerOptions<Tiket> options;
     FirebaseRecyclerAdapter<Tiket, KonfirmasiTiketAdapter> adapter;
 
+    String intentKey, intentWisata;
     String getKey, getUIDUser, getNamaUser, getRefTransaksi, getJumlahTiket, getTotalHarga, getBuktiURL, getTanggalKunjungan;
 
     ArrayList<String> arrayTiketKey = new ArrayList<>();
@@ -64,11 +67,18 @@ public class KonfirmasiTiketActivity extends AppCompatActivity {
         mDatabase = FirebaseDatabase.getInstance();
         mTiket = mDatabase.getReference().child("Tiket");
         mUsers = mDatabase.getReference().child("Users");
+
+        Intent getintent = getIntent();
+        intentKey = getintent.getStringExtra("key");
+        intentWisata = getintent.getStringExtra("nama");
+        Log.d("keywisata", "onCreate: " + intentKey + " " + intentWisata);
+
+        loadData();
     }
 
     public void loadData() {
 
-        mTiket.child("TelahKonfirmasi").addValueEventListener(new ValueEventListener() {
+        mTiket.child("TelahKonfirmasi").orderByChild("NamaWisata").equalTo(intentWisata).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 for (DataSnapshot ds : dataSnapshot.getChildren()) {
@@ -77,8 +87,9 @@ public class KonfirmasiTiketActivity extends AppCompatActivity {
                     getRefTransaksi = ds.child("RefTransaksi").getValue(String.class);
                     getJumlahTiket = ds.child("Jumlah").getValue(String.class);
                     getTotalHarga = ds.child("TotalHarga").getValue(String.class);
-                    getBuktiURL = ds.child("GambarBuktiURL").getValue(String.class);
+                    getBuktiURL = ds.child("BuktiPembayaranURL").getValue(String.class);
                     getTanggalKunjungan = ds.child("TanggalKunjungan").getValue(String.class);
+                    Log.d("uidkey", "onDataChange: " + getKey + " " + getUIDUser);
 
                     arrayTiketKey.add(getKey);
                     arrayUIDUser.add(getUIDUser);
@@ -122,12 +133,19 @@ public class KonfirmasiTiketActivity extends AppCompatActivity {
             protected void onBindViewHolder(@NonNull KonfirmasiTiketAdapter holder, int position, @NonNull Tiket model) {
 
                 holder.key = arrayTiketKey.get(position);
-                Glide.with(getBaseContext()).load(arrayBuktiURL.get(position)).into(holder.gambarBukti);
+                Glide.with(getApplicationContext()).load(arrayBuktiURL.get(position)).into(holder.gambarBukti);
                 holder.jumlahTiket.setText(arrayJumlahTiket.get(position));
-                holder.namaUser.setText(arrayNamaUser.get(position));
+//                holder.namaUser.setText(arrayNamaUser.get(position));
                 holder.refTransaksi.setText(arrayRefTransaksi.get(position));
                 holder.tanggalKunjungan.setText(arrayTanggalKunjungan.get(position));
                 holder.totalHarga.setText(arrayTotalHarga.get(position));
+
+//                holder.key = "keykey";
+//                holder.namaUser.setText("Amrizal");
+//                holder.jumlahTiket.setText("1000 Tiket");
+//                holder.refTransaksi.setText("REF. TRANSAKSI");
+//                holder.tanggalKunjungan.setText("Hari Ini");
+//                holder.totalHarga.setText("Rp100000");
 
             }
 

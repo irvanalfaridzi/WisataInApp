@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.CardView;
 import android.view.View;
+import android.widget.ImageView;
 
 import com.example.wisatain.R;
 
@@ -14,13 +15,13 @@ import butterknife.ButterKnife;
 public class TransaksiTiketActivity extends AppCompatActivity {
 
     @BindView(R.id.cvIndomaret)
-    CardView indomaret;
+    ImageView indomaret;
 
     @BindView(R.id.cvBCA)
-    CardView bca;
+    ImageView bca;
 
     @BindView(R.id.cvBNI)
-    CardView bni;
+    ImageView bni;
 
     String bayar;
 

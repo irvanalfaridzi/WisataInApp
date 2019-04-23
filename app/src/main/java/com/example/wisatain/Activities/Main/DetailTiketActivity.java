@@ -85,7 +85,7 @@ public class DetailTiketActivity extends AppCompatActivity {
     public Uri buktiPembayaranURL;
 
     public String intentTiketKey, intentTiketStatus;
-    public String getUIDUser, getRefTransaksi, getTanggalTransaksi, getNamaWisata, getWilayahWisata, getLokasiwisata, getJumlahTiket, getTanggalPenggunaan, getTotalHarga, getStatusTiket;
+    public String getUIDUser, getNamaUser, getRefTransaksi, getTanggalTransaksi, getNamaWisata, getWilayahWisata, getLokasiwisata, getJumlahTiket, getTanggalPenggunaan, getTotalHarga, getStatusTiket;
 
     UploadTask uploadTask;
 
@@ -100,7 +100,7 @@ public class DetailTiketActivity extends AppCompatActivity {
         intentTiketStatus = getintent.getStringExtra("status");
 
         mDatabase = FirebaseDatabase.getInstance();
-        mTiketMenunggu = mDatabase.getReference().child("Tiket").child("MenungguKonfirmasi");
+        mTiketMenunggu = mDatabase.getReference().child("Tiket");
         mTiketKonfirmasi = mDatabase.getReference().child("Tiket").child("TelahKonfirmasi");
 
         if (intentTiketStatus.equals("Menunggu Konfirmasi")) {
@@ -120,11 +120,12 @@ public class DetailTiketActivity extends AppCompatActivity {
 
     public void menungguKonfirmasi() {
 
-        mTiketMenunggu.child(intentTiketKey).addValueEventListener(new ValueEventListener() {
+        mTiketMenunggu.child("MenungguKonfirmasi").child(intentTiketKey).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 String key = dataSnapshot.getKey();
-                getUIDUser = dataSnapshot.child("UIDUser").getValue(String.class);
+                getUIDUser = dataSnapshot.child("User").child("UIDUser").getValue(String.class);
+                getNamaUser = dataSnapshot.child("User").child("NamaUser").getValue(String.class);
                 getRefTransaksi = dataSnapshot.child("RefTransaksi").getValue(String.class);
                 getTanggalTransaksi = dataSnapshot.child("TanggalPembelian").getValue(String.class);
                 getNamaWisata = dataSnapshot.child("NamaWisata").getValue(String.class);
@@ -136,20 +137,16 @@ public class DetailTiketActivity extends AppCompatActivity {
                 getStatusTiket = dataSnapshot.child("TiketStatus").getValue(String.class);
                 Log.d("dtcek", "onDataChange: " + getRefTransaksi + " " + getNamaWisata);
 
-                if (!getNamaWisata.isEmpty() && !getRefTransaksi.isEmpty()) {
-                    refTransaksi.setText(getRefTransaksi);
-                    tanggalTransaksi.setText(getTanggalTransaksi);
-                    namaWisata.setText(getNamaWisata);
-                    lokasiWisata.setText(getLokasiwisata);
-                    jumlahTiket.setText(getJumlahTiket);
-                    tanggalPenggunaan.setText(getTanggalPenggunaan);
-                    totalHarga.setText("Rp" + getTotalHarga);
-                    statusTiket.setText(getStatusTiket);
+                refTransaksi.setText(getRefTransaksi);
+                tanggalTransaksi.setText(getTanggalTransaksi);
+                namaWisata.setText(getNamaWisata);
+                lokasiWisata.setText(getLokasiwisata);
+                jumlahTiket.setText(getJumlahTiket);
+                tanggalPenggunaan.setText(getTanggalPenggunaan);
+                totalHarga.setText("Rp" + getTotalHarga);
+                statusTiket.setText(getStatusTiket);
+                Glide.with(getBaseContext()).load(R.drawable.ic_add_a_photo_black_128dp).into(gambarActivity);
 
-                    Glide.with(getBaseContext()).load(R.drawable.ic_add_a_photo_black_128dp).into(gambarActivity);
-
-
-                }
             }
 
             @Override
@@ -177,7 +174,6 @@ public class DetailTiketActivity extends AppCompatActivity {
     public void uploadBuktiTransaksi() {
 
         TiketDet detailTiket = new TiketDet(
-                getUIDUser,
                 getRefTransaksi,
                 getTanggalTransaksi,
                 getNamaWisata,
@@ -190,12 +186,16 @@ public class DetailTiketActivity extends AppCompatActivity {
                 "Telah Konfirmasi"
         );
 
+        final insertUser user = new insertUser(
+                getUIDUser,
+                getNamaUser
+        );
+
         mTiketKonfirmasi.child(intentTiketKey).setValue(detailTiket).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
                 if (task.isSuccessful()) {
-
-                    mTiketMenunggu.child(intentTiketKey).removeValue().addOnCompleteListener(new OnCompleteListener<Void>() {
+                    mTiketKonfirmasi.child(intentTiketKey).child("User").setValue(user).addOnCompleteListener(new OnCompleteListener<Void>() {
                         @Override
                         public void onComplete(@NonNull Task<Void> task) {
                             if (task.isSuccessful()) {
@@ -203,6 +203,7 @@ public class DetailTiketActivity extends AppCompatActivity {
                                 intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
                                 startActivity(intent);
                                 finish();
+                                mTiketMenunggu.child("MenungguKonfirmasi").child(intentTiketKey).removeValue();
                             } else {
                                 Toast.makeText(DetailTiketActivity.this, task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                             }
@@ -270,10 +271,9 @@ public class DetailTiketActivity extends AppCompatActivity {
     }
 
     public class TiketDet {
-        public String UIDUser, RefTransaksi, TanggalPembelian, NamaWisata, LokasiWisata, WilayahWisata, Jumlah, TanggalKunjungan, TotalHarga, BuktiPembayaranURL, TiketStatus;
+        public String RefTransaksi, TanggalPembelian, NamaWisata, LokasiWisata, WilayahWisata, Jumlah, TanggalKunjungan, TotalHarga, BuktiPembayaranURL, TiketStatus;
 
-        public TiketDet(String UIDUser, String refTransaksi, String tanggalPembelian, String namaWisata, String lokasiWisata, String wilayahWisata, String jumlah, String tanggalKunjungan, String totalHarga, String buktiPembayaranURL, String tiketStatus) {
-            this.UIDUser = UIDUser;
+        public TiketDet(String refTransaksi, String tanggalPembelian, String namaWisata, String lokasiWisata, String wilayahWisata, String jumlah, String tanggalKunjungan, String totalHarga, String buktiPembayaranURL, String tiketStatus) {
             RefTransaksi = refTransaksi;
             TanggalPembelian = tanggalPembelian;
             NamaWisata = namaWisata;
@@ -284,6 +284,16 @@ public class DetailTiketActivity extends AppCompatActivity {
             TotalHarga = totalHarga;
             BuktiPembayaranURL = buktiPembayaranURL;
             TiketStatus = tiketStatus;
+        }
+    }
+
+    public class insertUser {
+
+        public String UIDUser, NamaUser;
+
+        public insertUser(String UIDUser, String namaUser) {
+            this.UIDUser = UIDUser;
+            NamaUser = namaUser;
         }
     }
 

@@ -41,7 +41,7 @@
                 app:layout_constraintVertical_chainStyle="packed" />
 
             <TextView
-                android:id="@+id/pttNama"
+                android:id="@+id/pttNamaWisata"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
@@ -73,7 +73,7 @@
                 android:textStyle="normal"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/ptiGambarWisata"
-                app:layout_constraintTop_toBottomOf="@+id/pttNama" />
+                app:layout_constraintTop_toBottomOf="@+id/pttNamaWisata" />
 
             <TextView
                 android:id="@+id/hargatiket"
