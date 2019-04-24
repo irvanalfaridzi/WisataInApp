@@ -109,10 +109,10 @@ public class MainAkunFragment extends Fragment {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 getStatus = dataSnapshot.child("Status").getValue(String.class);
                 if (getStatus.equalsIgnoreCase("Pemilik Wisata")) {
-                    Intent intent = new Intent(getActivity(), ProfilWisataOwnerActivity.class);
+                    Intent intent = new Intent(getContext(), ProfilWisataOwnerActivity.class);
                     startActivity(intent);
                 } else {
-                    Intent intent = new Intent(getActivity(), ProfilWisataNullActivity.class);
+                    Intent intent = new Intent(getContext(), ProfilWisataNullActivity.class);
                     startActivity(intent);
                 }
             }

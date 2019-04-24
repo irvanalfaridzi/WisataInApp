@@ -173,7 +173,7 @@ public class BiodataWisataActivity extends AppCompatActivity {
                             mUsers.child(getUID).child("Wisata").setValue(key);
                             Toast.makeText(BiodataWisataActivity.this, "Wisata telah dibuat", Toast.LENGTH_SHORT).show();
                             FirebaseDatabase.getInstance().getReference().child("Users").child(getUID).child("Status").setValue(status);
-                            Intent intent = new Intent(BiodataWisataActivity.this, LoginActivity.class);
+                            Intent intent = new Intent(BiodataWisataActivity.this, ProfilWisataOwnerActivity.class);
                             intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
                             startActivity(intent);
                             finish();

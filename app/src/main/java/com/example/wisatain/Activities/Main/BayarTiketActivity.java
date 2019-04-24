@@ -5,9 +5,11 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.example.wisatain.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -30,6 +32,9 @@ public class BayarTiketActivity extends AppCompatActivity {
 
     @BindView(R.id.bttMetodePembayaran)
     TextView metodePembayaran;
+
+    @BindView(R.id.imgIndomaret)
+    ImageView logoImage;
 
     String intentTanggalPesanTiket, intentJumlahTiket, metodeBayar, wisataKey;
 
@@ -64,10 +69,13 @@ public class BayarTiketActivity extends AppCompatActivity {
         wisataKey = getintent.getStringExtra("key");
 
         if (metodeBayar.equals("indomaret")) {
+            Glide.with(getBaseContext()).load(R.drawable.logoindomart).into(logoImage);
             metodePembayaran.setText("INDOMARET");
         } else if (metodeBayar.equals("bca")) {
+            Glide.with(getBaseContext()).load(R.drawable.bca).into(logoImage);
             metodePembayaran.setText("BCA");
         } else if (metodeBayar.equals("bni")) {
+            Glide.with(getBaseContext()).load(R.drawable.bni).into(logoImage);
             metodePembayaran.setText("BNI");
         }
 

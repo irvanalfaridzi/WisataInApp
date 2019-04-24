@@ -6,4 +6,10 @@
     android:layout_height="match_parent"
     tools:context=".Activities.Login.StartUpActivity">
 
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/image1"
+        android:background="@drawable/ic_tampilan_1"/>
+
 </android.support.constraint.ConstraintLayout>
