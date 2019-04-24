@@ -45,6 +45,7 @@
     <TextView
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:id="@+id/dtKeteranganInputGambar"
         android:text="Sentuh gambar di atas untuk mengupload bukti pembayaran"
         android:textColor="@color/colorPutih"
         android:layout_marginStart="16dp"

@@ -42,7 +42,7 @@ public class TiketBelumDigunakanActivity extends AppCompatActivity {
     FirebaseRecyclerAdapter<Tiket, MainTiketAdapter> adapter;
 
     String getUID;
-    String getTiketKey, getNamaWisata, getWilayahWisata, getTanggalKunjungan, getJumlahTiket, getTotalHarga;
+    String getTiketKey, getNamaWisataTiket, getWilayahWisata, getTanggalKunjungan, getJumlahTiket, getTotalHarga;
 
     ArrayList<String> arrayTiketKey = new ArrayList<>();
     ArrayList<String> arrayNamaWisata = new ArrayList<>();
@@ -59,37 +59,35 @@ public class TiketBelumDigunakanActivity extends AppCompatActivity {
 
         mAuth = FirebaseAuth.getInstance();
         mUser = mAuth.getCurrentUser();
-        mDatabase = FirebaseDatabase.getInstance();
-        mTiket = mDatabase.getReference().child("Tiket");
-        mUsers = mDatabase.getReference().child("Users");
-
         getUID = mUser.getUid();
+        mDatabase = FirebaseDatabase.getInstance();
+        mUsers = mDatabase.getReference().child("Users");
+        mTiket = mUsers.child(getUID).child("Tiket").child("BelumDigunakan");
 
         loadData();
     }
 
     public void loadData() {
 
-        mTiket.child("BelumDigunakan").orderByChild("UIDUser").equalTo(getUID).addValueEventListener(new ValueEventListener() {
+        mTiket.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 for (DataSnapshot ds : dataSnapshot.getChildren()) {
                     getTiketKey = ds.getKey();
-                    getNamaWisata = ds.child("NamaWisata").getValue(String.class);
-                    getWilayahWisata = ds.child("WilayahWIsata").getValue(String.class);
+                    getNamaWisataTiket = ds.child("NamaWisata").getValue(String.class);
+                    getWilayahWisata = ds.child("WilayahWisata").getValue(String.class);
                     getTanggalKunjungan = ds.child("TanggalKunjungan").getValue(String.class);
                     getJumlahTiket = ds.child("Jumlah").getValue(String.class);
                     getTotalHarga = ds.child("TotalHarga").getValue(String.class);
-                    Log.d("testkey", "onDataChange: " + getTiketKey + " " + getNamaWisata);
+                    Log.d("testkey", "onDataChange: " + getTiketKey + " " + getNamaWisataTiket + " " + getWilayahWisata);
 
                     arrayTiketKey.add(getTiketKey);
-                    arrayNamaWisata.add(getNamaWisata);
+                    arrayNamaWisata.add(getNamaWisataTiket);
                     arrayWilayahWisata.add(getWilayahWisata);
                     arrayTanggalKunjungan.add(getTanggalKunjungan);
                     arrayJumlahTiket.add(getJumlahTiket);
                     arrayTotalHarga.add(getTotalHarga);
 
-                    showData();
                 }
             }
 
@@ -98,10 +96,6 @@ public class TiketBelumDigunakanActivity extends AppCompatActivity {
 
             }
         });
-
-    }
-
-    public void showData() {
 
         options = new FirebaseRecyclerOptions.Builder<Tiket>()
                 .setQuery(mTiket, Tiket.class).build();
@@ -117,6 +111,14 @@ public class TiketBelumDigunakanActivity extends AppCompatActivity {
                 holder.totalHarga.setText(arrayTotalHarga.get(position));
                 holder.wisataKey = arrayTiketKey.get(position);
                 holder.tiketStatus = "Belum Digunakan";
+
+//                holder.namaWisata.setText("Nama wisata");
+//                holder.wilayahWisata.setText("Wilayah anjing");
+//                holder.tanggalKunjungan.setText("tanggal kunjungan");
+//                holder.jumlahTiket.setText("jumlah tiket");
+//                holder.totalHarga.setText("total harga");
+//                holder.wisataKey = arrayTiketKey.get(position);
+//                holder.tiketStatus = "Belum Digunakan";
             }
 
             @NonNull
@@ -135,4 +137,5 @@ public class TiketBelumDigunakanActivity extends AppCompatActivity {
         recyclerView.setAdapter(adapter);
 
     }
+
 }

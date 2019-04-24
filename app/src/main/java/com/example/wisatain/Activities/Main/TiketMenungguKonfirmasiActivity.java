@@ -72,7 +72,7 @@ public class TiketMenungguKonfirmasiActivity extends AppCompatActivity {
         getUID = mUser.getUid();
         mDatabase = FirebaseDatabase.getInstance();
         mUsers = mDatabase.getReference().child("Users").child(getUID);
-        mTiket = mUsers.child("Tiket");
+        mTiket = mUsers.child("Tiket").child("MenungguKonfirmasi");
 
         loadData();
 
@@ -80,7 +80,7 @@ public class TiketMenungguKonfirmasiActivity extends AppCompatActivity {
 
     public void loadData() {
 
-        mTiket.child("MenungguKonfirmasi")/*.orderByChild("TiketStatus").equalTo("Menunggu Konfirmasi")*/.addValueEventListener(new ValueEventListener() {
+        mTiket./*orderByChild("TiketStatus").equalTo("Menunggu Konfirmasi").*/addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 for (DataSnapshot ds : dataSnapshot.getChildren()) {
@@ -110,6 +110,12 @@ public class TiketMenungguKonfirmasiActivity extends AppCompatActivity {
 
             }
         });
+
+       // Log.d("asd", "loadData: " + arrayTiketKey);
+
+        for (int x = 0; x < arrayTiketKey.size(); x++){
+            Log.d("array", "loadData: " + arrayTiketKey.get(x));
+        }
 
 
         options = new FirebaseRecyclerOptions.Builder<Tiket>()
@@ -164,14 +170,14 @@ public class TiketMenungguKonfirmasiActivity extends AppCompatActivity {
 //        arrayJumlahTiket.clear();
 //        arrayTotalHarga.clear();
 //        arrayTiketStatus.clear();
-
-        arrayTiketKey = null;
-        arrayNamaWisata = null;
-        arrayWilayahWisata = null;
-        arrayTanggalKunjungan = null;
-        arrayJumlahTiket = null;
-        arrayTotalHarga = null;
-        arrayTiketStatus = null;
+//
+//        arrayTiketKey = null;
+//        arrayNamaWisata = null;
+//        arrayWilayahWisata = null;
+//        arrayTanggalKunjungan = null;
+//        arrayJumlahTiket = null;
+//        arrayTotalHarga = null;
+//        arrayTiketStatus = null;
 
 
     }
@@ -185,26 +191,26 @@ public class TiketMenungguKonfirmasiActivity extends AppCompatActivity {
     @Override
     protected void onPause() {
         super.onPause();
-        arrayTiketKey = null;
-        arrayNamaWisata = null;
-        arrayWilayahWisata = null;
-        arrayTanggalKunjungan = null;
-        arrayJumlahTiket = null;
-        arrayTotalHarga = null;
-        arrayTiketStatus = null;
+//        arrayTiketKey = null;
+//        arrayNamaWisata = null;
+//        arrayWilayahWisata = null;
+//        arrayTanggalKunjungan = null;
+//        arrayJumlahTiket = null;
+//        arrayTotalHarga = null;
+//        arrayTiketStatus = null;
     }
 
     @Override
     protected void onPostResume() {
         super.onPostResume();
-        mAuth = FirebaseAuth.getInstance();
-        mUser = mAuth.getCurrentUser();
-        getUID = mUser.getUid();
-        mDatabase = FirebaseDatabase.getInstance();
-        mUsers = mDatabase.getReference().child("Users").child(getUID);
-        mTiket = mUsers.child("Tiket");
-
-        loadData();
+//        mAuth = FirebaseAuth.getInstance();
+//        mUser = mAuth.getCurrentUser();
+//        getUID = mUser.getUid();
+//        mDatabase = FirebaseDatabase.getInstance();
+//        mUsers = mDatabase.getReference().child("Users").child(getUID);
+//        mTiket = mUsers.child("Tiket");
+//
+//        loadData();
     }
 
     @Override
