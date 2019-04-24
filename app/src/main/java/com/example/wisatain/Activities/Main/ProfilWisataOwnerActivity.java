@@ -147,34 +147,10 @@ public class ProfilWisataOwnerActivity extends AppCompatActivity {
 
     }
 
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-
-        IntentResult intentResult = IntentIntegrator.parseActivityResult(requestCode, resultCode, data);
-        if (intentResult != null) {
-            if (intentResult.getContents() == null) {
-                Toast.makeText(this, "Membatalkan", Toast.LENGTH_SHORT).show();
-            } else {
-                Intent intent = new Intent(ProfilWisataOwnerActivity.this, OwnerResultScanActivity.class);
-                intent.putExtra("scan", intentResult.getContents());
-                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                startActivity(intent);
-                finish();
-            }
-        } else {
-            super.onActivityResult(requestCode, resultCode, data);
-        }
-    }
-
     @OnClick(R.id.pwoBtnScan)
     public void scan() {
-        IntentIntegrator integrator = new IntentIntegrator(this);
-        integrator.setDesiredBarcodeFormats(IntentIntegrator.QR_CODE_TYPES);
-        integrator.setPrompt("Scan");
-        integrator.setCameraId(0);
-        integrator.setBeepEnabled(false);
-        integrator.setBarcodeImageEnabled(false);
-        integrator.initiateScan();
+        Intent intent = new Intent(ProfilWisataOwnerActivity.this, OwnerResultScanActivity.class);
+        startActivity(intent);
     }
 
     @OnClick(R.id.pwoBtnKonfirmasiTiket)
