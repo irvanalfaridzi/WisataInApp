@@ -54,7 +54,7 @@
             <EditText
                 android:id="@+id/biaetNamaLengkap"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="0dp"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="0dp"
                 android:layout_marginEnd="16dp"
@@ -95,7 +95,7 @@
             <EditText
                 android:id="@+id/biaetNomorPonsel"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="0dp"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="0dp"
                 android:layout_marginEnd="16dp"
