@@ -11,6 +11,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:layout_marginBottom="16dp"
+        app:cardCornerRadius="8dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
@@ -27,6 +28,17 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"/>
 
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:id="@+id/bgKonfirm"
+                android:background="@drawable/bgtiketkonfirmasi"
+                android:layout_marginStart="16dp"
+                app:layout_constraintStart_toEndOf="@id/iktiGambarBukti"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -35,8 +47,8 @@
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
                 android:layout_marginEnd="16dp"
-                android:textSize="16sp"
-                app:layout_constraintStart_toEndOf="@id/iktiGambarBukti"
+                android:textSize="12sp"
+                app:layout_constraintStart_toStartOf="@id/bgKonfirm"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"/>
 
@@ -49,7 +61,8 @@
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="16dp"
                 android:textSize="16sp"
-                app:layout_constraintStart_toEndOf="@id/iktiGambarBukti"
+                android:textColor="@color/colorGelap"
+                app:layout_constraintStart_toStartOf="@id/bgKonfirm"
                 app:layout_constraintTop_toBottomOf="@id/ikttRefTransaksi"
                 app:layout_constraintEnd_toEndOf="parent"/>
 
@@ -62,7 +75,8 @@
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="16dp"
                 android:textSize="16sp"
-                app:layout_constraintStart_toEndOf="@id/iktiGambarBukti"
+                android:textColor="@color/colorButton"
+                app:layout_constraintStart_toStartOf="@id/bgKonfirm"
                 app:layout_constraintTop_toBottomOf="@id/ikttNamaUser"
                 app:layout_constraintEnd_toStartOf="@id/ikttTotalHarga"/>
 
@@ -75,6 +89,7 @@
                 android:layout_marginTop="8dp"
                 android:layout_marginStart="16dp"
                 android:textSize="16sp"
+                android:textColor="@color/colorButton"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/ikttNamaUser"
                 app:layout_constraintStart_toEndOf="@id/ikttJumlahTiket"/>
@@ -87,20 +102,10 @@
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="16dp"
-                android:textSize="16sp"
+                android:textSize="12sp"
                 app:layout_constraintTop_toBottomOf="@id/ikttJumlahTiket"
-                app:layout_constraintStart_toEndOf="@id/iktiGambarBukti"
+                app:layout_constraintStart_toStartOf="@id/bgKonfirm"
                 app:layout_constraintEnd_toEndOf="parent"/>
-
-            <ImageView
-                android:layout_width="0dp"
-                android:layout_height="1dp"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="16dp"
-                android:background="#e3e3e3"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@id/iktiGambarBukti"
-                app:layout_constraintTop_toBottomOf="@id/ikttTanggalKunjungan" />
 
         </android.support.constraint.ConstraintLayout>
 
