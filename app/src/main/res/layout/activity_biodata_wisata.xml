@@ -102,45 +102,334 @@
                 app:layout_constraintTop_toTopOf="@id/tvNamaWisata" />
 
             <TextView
-                android:id="@+id/tvKategori"
-                android:layout_width="match_parent"
-                android:layout_height="56dp"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="32dp"
-                android:layout_marginEnd="16dp"
-                android:background="@drawable/bgtext"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tvNamaWisata" />
-
-            <ImageView
-                android:id="@+id/logoKategori"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="16dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginBottom="16dp"
-                android:background="@drawable/ic_category"
-                app:layout_constraintBottom_toBottomOf="@id/tvKategori"
-                app:layout_constraintStart_toStartOf="@id/tvKategori"
-                app:layout_constraintTop_toTopOf="@id/tvKategori" />
-
-            <EditText
-                android:id="@+id/bwetKategori"
+                android:id="@+id/tvKategoriWisata"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
-                android:layout_marginTop="0dp"
+                android:layout_marginTop="32dp"
+                android:text="Kategori Wisata"
+                android:textColor="@color/colorGelap"
+                android:textSize="14sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvNamaWisata" />
+
+            <!-- Card 1 -->
+
+            <android.support.v7.widget.CardView
+                android:id="@+id/cardPedesaan"
+                android:layout_width="172dp"
+                android:layout_height="96dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="24dp"
                 android:layout_marginEnd="16dp"
-                android:layout_marginBottom="0dp"
-                android:background="@android:color/transparent"
-                android:hint="Kategori Wisata"
-                android:paddingTop="16dp"
-                android:paddingBottom="16dp"
-                app:layout_constraintBottom_toBottomOf="@id/tvKategori"
-                app:layout_constraintEnd_toEndOf="@id/tvKategori"
-                app:layout_constraintStart_toEndOf="@id/logoKategori"
-                app:layout_constraintTop_toTopOf="@id/tvKategori" />
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:clickable="true"
+                app:cardBackgroundColor="#ffffff"
+                app:cardCornerRadius="8dp"
+                app:layout_constraintEnd_toStartOf="@id/cardPantai"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvKategoriWisata">
+
+                <android.support.constraint.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+
+                    >
+
+                    <ImageView
+                        android:id="@+id/imgPedesaan"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:layout_marginLeft="16dp"
+                        android:layout_marginTop="24dp"
+                        android:layout_marginBottom="24dp"
+                        android:background="@drawable/ic_pedesaan"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/textPedesaan"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="8dp"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginBottom="16dp"
+                        android:lineHeight="17sp"
+                        android:text="Pedesaan"
+                        android:textColor="#99000000"
+                        android:textSize="14sp"
+                        app:layout_constraintBottom_toBottomOf="@id/imgPedesaan"
+                        app:layout_constraintStart_toEndOf="@id/imgPedesaan"
+                        app:layout_constraintTop_toTopOf="@id/imgPedesaan" />
+
+                    <ToggleButton
+                        android:id="@+id/tgBtnPedesaan"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginEnd="8dp"
+                        android:layout_marginBottom="16dp"
+                        android:textOff=" "
+                        android:textOn=" "
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@id/textPedesaan"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/stipPedesaan"
+                        android:layout_width="8dp"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/strippedesaan"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                </android.support.constraint.ConstraintLayout>
+
+            </android.support.v7.widget.CardView>
+
+            <!-- //Card 1-->
+
+            <!-- Card 2 -->
+
+            <android.support.v7.widget.CardView
+                android:id="@+id/cardPantai"
+                android:layout_width="172dp"
+                android:layout_height="96dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginEnd="16dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:clickable="true"
+                app:cardBackgroundColor="#ffffff"
+                app:cardCornerRadius="8dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/cardPedesaan"
+                app:layout_constraintTop_toBottomOf="@id/tvKategoriWisata">
+
+                <android.support.constraint.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="?attr/selectableItemBackgroundBorderless">
+
+                    <ImageView
+                        android:id="@+id/imgPantai"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:layout_marginLeft="16dp"
+                        android:layout_marginTop="24dp"
+                        android:layout_marginBottom="24dp"
+                        android:background="@drawable/ic_pantai"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/textPantai"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="8dp"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginBottom="16dp"
+                        android:lineHeight="17sp"
+                        android:text="Pantai"
+                        android:textColor="#99000000"
+                        android:textSize="14sp"
+                        app:layout_constraintBottom_toBottomOf="@id/imgPantai"
+                        app:layout_constraintStart_toEndOf="@id/imgPantai"
+                        app:layout_constraintTop_toTopOf="@id/imgPantai" />
+
+                    <ToggleButton
+                        android:id="@+id/tgBtnPantai"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginEnd="8dp"
+                        android:layout_marginBottom="16dp"
+                        android:textOff=" "
+                        android:textOn=" "
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@id/textPantai"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/stipPantai"
+                        android:layout_width="8dp"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/strippantai"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                </android.support.constraint.ConstraintLayout>
+
+            </android.support.v7.widget.CardView>
+
+            <!-- //Card 2-->
+
+            <!-- Card 3 -->
+
+            <android.support.v7.widget.CardView
+                android:id="@+id/cardKuliner"
+                android:layout_width="172dp"
+                android:layout_height="96dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="32dp"
+                android:layout_marginEnd="16dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:clickable="true"
+                app:cardBackgroundColor="#ffffff"
+                app:cardCornerRadius="8dp"
+                app:layout_constraintEnd_toStartOf="@id/cardPerkebunan"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/cardPedesaan">
+
+                <android.support.constraint.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="?attr/selectableItemBackgroundBorderless">
+
+                    <ImageView
+                        android:id="@+id/imgKuliner"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:layout_marginLeft="16dp"
+                        android:layout_marginTop="24dp"
+                        android:layout_marginBottom="24dp"
+                        android:background="@drawable/ic_kuliner"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/textKuliner"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="8dp"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginBottom="16dp"
+                        android:lineHeight="17sp"
+                        android:text="Kuliner"
+                        android:textColor="#99000000"
+                        android:textSize="14sp"
+                        app:layout_constraintBottom_toBottomOf="@id/imgKuliner"
+                        app:layout_constraintStart_toEndOf="@id/imgKuliner"
+                        app:layout_constraintTop_toTopOf="@id/imgKuliner" />
+
+                    <ToggleButton
+                        android:id="@+id/tgBtnKuliner"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginEnd="8dp"
+                        android:layout_marginBottom="16dp"
+                        android:textOff=" "
+                        android:textOn=" "
+                        app:layout_constraintStart_toEndOf="@id/textKuliner"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/stripKUliner"
+                        android:layout_width="8dp"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/stripkuliner"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                </android.support.constraint.ConstraintLayout>
+
+            </android.support.v7.widget.CardView>
+
+            <!-- //Card 3 -->
+
+            <!-- Card 4 -->
+
+            <android.support.v7.widget.CardView
+                android:id="@+id/cardPerkebunan"
+                android:layout_width="172dp"
+                android:layout_height="96dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="32dp"
+                android:layout_marginEnd="16dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:clickable="true"
+                app:cardBackgroundColor="#ffffff"
+                app:cardCornerRadius="8dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/cardKuliner"
+                app:layout_constraintTop_toBottomOf="@id/cardPantai">
+
+                <android.support.constraint.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="?attr/selectableItemBackgroundBorderless">
+
+                    <ImageView
+                        android:id="@+id/imgPerkebunan"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:layout_marginLeft="16dp"
+                        android:layout_marginTop="24dp"
+                        android:layout_marginBottom="24dp"
+                        android:background="@drawable/ic_perkebunan"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/textPerkebunan"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="8dp"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginBottom="16dp"
+                        android:lineHeight="17sp"
+                        android:text="Perkebunan"
+                        android:textColor="#99000000"
+                        android:textSize="14sp"
+                        app:layout_constraintBottom_toBottomOf="@id/imgPerkebunan"
+                        app:layout_constraintStart_toEndOf="@id/imgPerkebunan"
+                        app:layout_constraintTop_toTopOf="@id/imgPerkebunan" />
+
+                    <ToggleButton
+                        android:id="@+id/tgBtnPerkebunan"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginEnd="8dp"
+                        android:layout_marginBottom="16dp"
+                        android:textOff=" "
+                        android:textOn=" "
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@id/textPerkebunan"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/stipPerkebunan"
+                        android:layout_width="8dp"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/stripperkebunan"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                </android.support.constraint.ConstraintLayout>
+
+            </android.support.v7.widget.CardView>
+
+            <!-- //Card 4-->
 
             <TextView
                 android:id="@+id/tvLokasi"
@@ -152,7 +441,7 @@
                 android:background="@drawable/bgtext"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tvKategori" />
+                app:layout_constraintTop_toBottomOf="@id/cardKuliner" />
 
             <ImageView
                 android:id="@+id/logoLokasi"
@@ -299,8 +588,8 @@
                 android:layout_marginEnd="16dp"
                 android:layout_marginBottom="0dp"
                 android:background="@android:color/transparent"
-                android:inputType="time"
                 android:hint="Jam Buka"
+                android:inputType="time"
                 android:paddingTop="16dp"
                 android:paddingBottom="16dp"
                 app:layout_constraintEnd_toEndOf="@id/tvJamBuka"
