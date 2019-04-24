@@ -44,8 +44,8 @@ public class TiketMenungguKonfirmasiActivity extends AppCompatActivity {
     FirebaseRecyclerOptions<Tiket> options;
     FirebaseRecyclerAdapter<Tiket, MainTiketAdapter> adapter;
 
-    String getUID;
-    String getTiketKey, getNamaWisata, getWilayahWisata, getTanggalKunjungan, getJumlahTiket, getTotalHarga, getTiketStatus;
+    public String getUID;
+    public String getTiketKey, getNamaWisata, getWilayahWisata, getTanggalKunjungan, getJumlahTiket, getTotalHarga, getTiketStatus;
 
     ArrayList<String> arrayTiketKey = new ArrayList<>();
     ArrayList<String> arrayNamaWisata = new ArrayList<>();
@@ -80,7 +80,7 @@ public class TiketMenungguKonfirmasiActivity extends AppCompatActivity {
 
     public void loadData() {
 
-        mTiket.child("MenungguKonfirmasi").addListenerForSingleValueEvent(new ValueEventListener() {
+        mTiket.child("MenungguKonfirmasi")/*.orderByChild("TiketStatus").equalTo("Menunggu Konfirmasi")*/.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 for (DataSnapshot ds : dataSnapshot.getChildren()) {
@@ -101,10 +101,8 @@ public class TiketMenungguKonfirmasiActivity extends AppCompatActivity {
                     arrayTotalHarga.add(getTotalHarga);
                     arrayTiketStatus.add(getTiketStatus);
 
-//                    for (int x = 0; x < arrayTiketKey.size(); x++) {
-                        Log.d("tiketkey", "onDataChange: " + arrayTiketKey);
-//                    }
                 }
+
             }
 
             @Override
@@ -114,20 +112,20 @@ public class TiketMenungguKonfirmasiActivity extends AppCompatActivity {
         });
 
 
-            options = new FirebaseRecyclerOptions.Builder<Tiket>()
-                    .setQuery(mTiket, Tiket.class).build();
+        options = new FirebaseRecyclerOptions.Builder<Tiket>()
+                .setQuery(mTiket, Tiket.class).build();
 
-            adapter = new FirebaseRecyclerAdapter<Tiket, MainTiketAdapter>(options) {
-                @Override
-                protected void onBindViewHolder(@NonNull MainTiketAdapter holder, int position, @NonNull Tiket model) {
+        adapter = new FirebaseRecyclerAdapter<Tiket, MainTiketAdapter>(options) {
+            @Override
+            protected void onBindViewHolder(@NonNull MainTiketAdapter holder, int position, @NonNull Tiket model) {
 
-                    holder.wisataKey = arrayTiketKey.get(position);
-                    holder.tiketStatus = arrayTiketStatus.get(position);
-                    holder.namaWisata.setText(arrayNamaWisata.get(position));
-                    holder.wilayahWisata.setText(arrayWilayahWisata.get(position));
-                    holder.tanggalKunjungan.setText(arrayTanggalKunjungan.get(position));
-                    holder.jumlahTiket.setText(arrayJumlahTiket.get(position));
-                    holder.totalHarga.setText("Rp" + arrayTotalHarga.get(position));
+                holder.wisataKey = arrayTiketKey.get(position);
+                holder.tiketStatus = arrayTiketStatus.get(position);
+                holder.namaWisata.setText(arrayNamaWisata.get(position));
+                holder.wilayahWisata.setText(arrayWilayahWisata.get(position));
+                holder.tanggalKunjungan.setText(arrayTanggalKunjungan.get(position));
+                holder.jumlahTiket.setText(arrayJumlahTiket.get(position));
+                holder.totalHarga.setText("Rp" + arrayTotalHarga.get(position));
 //
 //                    holder.wisataKey = "test";
 //                    holder.tiketStatus = "test";
@@ -137,18 +135,17 @@ public class TiketMenungguKonfirmasiActivity extends AppCompatActivity {
 //                    holder.jumlahTiket.setText("test");
 //                    holder.totalHarga.setText("test");
 
-                }
+            }
 
-                @NonNull
-                @Override
-                public MainTiketAdapter onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
+            @NonNull
+            @Override
+            public MainTiketAdapter onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
 
-                    View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.item_tiket, viewGroup, false);
+                View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.item_tiket, viewGroup, false);
 
-                    return new MainTiketAdapter(view);
-                }
-            };
-
+                return new MainTiketAdapter(view);
+            }
+        };
 
 
         GridLayoutManager gridLayoutManager = new GridLayoutManager(this, 1);
@@ -158,10 +155,61 @@ public class TiketMenungguKonfirmasiActivity extends AppCompatActivity {
 
     }
 
+    public void clearArray() {
+
+//        arrayTiketKey.clear();
+//        arrayNamaWisata.clear();
+//        arrayWilayahWisata.clear();
+//        arrayTanggalKunjungan.clear();
+//        arrayJumlahTiket.clear();
+//        arrayTotalHarga.clear();
+//        arrayTiketStatus.clear();
+
+        arrayTiketKey = null;
+        arrayNamaWisata = null;
+        arrayWilayahWisata = null;
+        arrayTanggalKunjungan = null;
+        arrayJumlahTiket = null;
+        arrayTotalHarga = null;
+        arrayTiketStatus = null;
+
+
+    }
+
     @Override
     public boolean onSupportNavigateUp() {
         onBackPressed();
         return true;
     }
 
+    @Override
+    protected void onPause() {
+        super.onPause();
+        arrayTiketKey = null;
+        arrayNamaWisata = null;
+        arrayWilayahWisata = null;
+        arrayTanggalKunjungan = null;
+        arrayJumlahTiket = null;
+        arrayTotalHarga = null;
+        arrayTiketStatus = null;
+    }
+
+    @Override
+    protected void onPostResume() {
+        super.onPostResume();
+        mAuth = FirebaseAuth.getInstance();
+        mUser = mAuth.getCurrentUser();
+        getUID = mUser.getUid();
+        mDatabase = FirebaseDatabase.getInstance();
+        mUsers = mDatabase.getReference().child("Users").child(getUID);
+        mTiket = mUsers.child("Tiket");
+
+        loadData();
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        clearArray();
+    }
 }

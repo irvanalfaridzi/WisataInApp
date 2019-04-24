@@ -190,4 +190,11 @@ public class ProfilWisataOwnerActivity extends AppCompatActivity {
         Intent intent = new Intent(ProfilWisataOwnerActivity.this, EditWisataActivity.class);
         startActivity(intent);
     }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Intent intent = new Intent(ProfilWisataOwnerActivity.this, MainActivity.class);
+        startActivity(intent);
+    }
 }

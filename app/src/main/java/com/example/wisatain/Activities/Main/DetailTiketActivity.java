@@ -225,7 +225,7 @@ public class DetailTiketActivity extends AppCompatActivity {
                     intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
                     startActivity(intent);
                     finish();
-                    mTiketMenunggu.child(intentTiketKey).removeValue();
+                    mTiketMenunggu.child(intentTiketKey).child("TiketStatus").setValue("Telah Konfirmasi");
                 } else {
                     Toast.makeText(DetailTiketActivity.this, task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                 }
