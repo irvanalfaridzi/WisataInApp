@@ -78,11 +78,11 @@ public class DetailKonfirmasiActivity extends AppCompatActivity {
                         getNamaUser = dataSnapshot.child("NamaUser").getValue(String.class);
                         getRefTransaksi = dataSnapshot.child("RefTransaksi").getValue(String.class);
                         getTanggalPembelian = dataSnapshot.child("TanggalPembelian").getValue(String.class);
-                        getNamaWisata = getWisata;
+                        getNamaWisata = dataSnapshot.child("NamaWisata").getValue(String.class);
                         getLokasiWisata = dataSnapshot.child("LokasiWisata").getValue(String.class);
                         getWilayahWisata = dataSnapshot.child("WilayahWisata").getValue(String.class);
                         getJumlah = dataSnapshot.child("Jumlah").getValue(String.class);
-                        getTanggalKunjungan = dataSnapshot.child("TanggalKunjunga").getValue(String.class);
+                        getTanggalKunjungan = dataSnapshot.child("TanggalKunjungan").getValue(String.class);
                         getTotalHarga = dataSnapshot.child("TotalHarga").getValue(String.class);
                         getBuktiPembayaranURL = dataSnapshot.child("BuktiPembayaranURL").getValue(String.class);
                         getTiketStatus = dataSnapshot.child("TiketStatus").getValue(String.class);
@@ -135,7 +135,7 @@ public class DetailKonfirmasiActivity extends AppCompatActivity {
                     intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
                     startActivity(intent);
                     finish();
-                    mTiket.child(getWisata).child("Tiket").child("TelahKonfirmasi").child(intentTiketKey).removeValue();
+                    mTiket.child(getWisata).child("Tiket").child("TelahKonfirmasi").child(intentTiketKey).setValue(null);
                 } else {
 
                 }
