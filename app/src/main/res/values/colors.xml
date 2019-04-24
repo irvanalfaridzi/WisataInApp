@@ -10,4 +10,5 @@
     <color name="colorPutih2">#50ffffff</color>
     <color name="colorbgTiketAtas">#75a7ff</color>
     <color name="colorbgjmlTiket">#ffd782</color>
+    <color name="colortextbiasa">#99000000</color>
 </resources>
