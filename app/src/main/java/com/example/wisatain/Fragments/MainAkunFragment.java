@@ -1,7 +1,9 @@
 package com.example.wisatain.Fragments;
 
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
@@ -127,10 +129,15 @@ public class MainAkunFragment extends Fragment {
 
     @OnClick(R.id.mpBtnLogOut)
     public void logOut() {
+        SharedPreferences sharedPreferences = getActivity().getSharedPreferences("autoLogin", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString("UID", null);
+        editor.apply();
         mAuth.signOut();
         Intent intent = new Intent(getActivity(), LoginActivity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(intent);
+        getActivity().finish();
     }
 
     @OnClick(R.id.mpBtnEditProfile)

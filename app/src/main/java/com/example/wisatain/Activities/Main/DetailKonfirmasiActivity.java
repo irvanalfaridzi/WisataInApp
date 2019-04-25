@@ -134,6 +134,7 @@ public class DetailKonfirmasiActivity extends AppCompatActivity {
                     Intent intent = new Intent(DetailKonfirmasiActivity.this, ProfilWisataOwnerActivity.class);
                     intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
                     startActivity(intent);
+                    FirebaseDatabase.getInstance().getReference().child("Tiket").child(intentTiketKey).child("UIDUser").setValue(getUID);
                     finish();
                     mTiket.child(getWisata).child("Tiket").child("TelahKonfirmasi").child(intentTiketKey).setValue(null);
                 } else {

@@ -194,8 +194,6 @@ public class DetailTiketActivity extends AppCompatActivity {
 
     public void belumDigunakan() {
 
-        menungguKonfirmasi();
-
         mTiketBelumDigunakan.child(intentTiketKey).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {

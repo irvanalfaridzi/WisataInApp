@@ -66,7 +66,7 @@ public class OwnerResultScanActivity extends AppCompatActivity {
     DatabaseReference mTiket;
     DatabaseReference mUsers;
 
-    String getUID;
+    String getUID, getUIDUserTiket;
 
     String getQRCode;
     String getKey, getKeteranganTiket, getRefTransaksi, getUIDUser, getNamaUser, getTanggalTransaksi, getNamaWisata, getLokasiWisata, getJumlahTiket, getTanggalPenggunaan, getTotalHarga;
@@ -99,28 +99,29 @@ public class OwnerResultScanActivity extends AppCompatActivity {
 
     public void loadData() {
 
-        mTiket.child(getQRCode).addValueEventListener(new ValueEventListener() {
+        FirebaseDatabase.getInstance().getReference().child("Tiket").child(getQRCode).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                getKey = dataSnapshot.getKey();
-                getKeteranganTiket = dataSnapshot.child("TiketStatus").getValue(String.class);
-                getRefTransaksi = dataSnapshot.child("RefTransaksi").getValue(String.class);
-                getUIDUser = dataSnapshot.child("UIDUser").getValue(String.class);
-                getTanggalTransaksi = dataSnapshot.child("TanggalPembelian").getValue(String.class);
-                getNamaWisata = dataSnapshot.child("NamaWisata").getValue(String.class);
-                getLokasiWisata = dataSnapshot.child("WilayahWisata").getValue(String.class);
-                getJumlahTiket = dataSnapshot.child("Jumlah").getValue(String.class);
-                getTanggalPenggunaan = dataSnapshot.child("TanggalKunjungan").getValue(String.class);
-                getTotalHarga = dataSnapshot.child("TotalHarga").getValue(String.class);
+                getUIDUserTiket = dataSnapshot.child("UIDUser").getValue(String.class);
 
-                mUsers.child(getUIDUser).addValueEventListener(new ValueEventListener() {
+                mDatabase.getReference().child("Users").child(getUIDUserTiket).child("Tiket").child("BelumDigunakan").child(getQRCode).addValueEventListener(new ValueEventListener() {
                     @Override
-                    public void onDataChange(@NonNull DataSnapshot dataSnapshotU) {
-                        getNamaUser = dataSnapshotU.child("Nama").getValue(String.class);
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
-                        if (getKey != null && getNamaUser != null) {
+                        getKey = dataSnapshot.getKey();
+                        getKeteranganTiket = dataSnapshot.child("TiketStatus").getValue(String.class);
+                        getRefTransaksi = dataSnapshot.child("RefTransaksi").getValue(String.class);
+                        getUIDUser = dataSnapshot.child("UIDUser").getValue(String.class);
+                        getTanggalTransaksi = dataSnapshot.child("TanggalPembelian").getValue(String.class);
+                        getNamaWisata = dataSnapshot.child("NamaWisata").getValue(String.class);
+                        getLokasiWisata = dataSnapshot.child("WilayahWisata").getValue(String.class);
+                        getJumlahTiket = dataSnapshot.child("Jumlah").getValue(String.class);
+                        getTanggalPenggunaan = dataSnapshot.child("TanggalKunjungan").getValue(String.class);
+                        getTotalHarga = dataSnapshot.child("TotalHarga").getValue(String.class);
 
-                            if (getKeteranganTiket.equals("Siap Digunakan")) {
+                        if (getKey != null) {
+
+                            if (getKeteranganTiket.equals("Belum Digunakan")) {
                                 Glide.with(getBaseContext()).load(R.drawable.ic_check_green_100dp).into(gambarQRCode);
                                 keteranganTiket.setText("Tiket Valid!");
                                 keteranganTiket.setTextColor(Color.GREEN);
@@ -140,6 +141,21 @@ public class OwnerResultScanActivity extends AppCompatActivity {
 
                         }
 
+                        mUsers.child(getUIDUser).addValueEventListener(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(@NonNull DataSnapshot dataSnapshotU) {
+                                getNamaUser = dataSnapshotU.child("Nama").getValue(String.class);
+
+
+
+                            }
+
+                            @Override
+                            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                            }
+                        });
+
                     }
 
                     @Override
@@ -147,6 +163,17 @@ public class OwnerResultScanActivity extends AppCompatActivity {
 
                     }
                 });
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+
+        mTiket.child(getQRCode).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
             }
 
@@ -174,6 +201,7 @@ public class OwnerResultScanActivity extends AppCompatActivity {
                 Intent intent = new Intent(OwnerResultScanActivity.this, OwnerResultScanActivity.class);
                 intent.putExtra("scan", intentResult.getContents());
                 intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                Toast.makeText(this, intentResult.getContents(), Toast.LENGTH_SHORT).show();
                 startActivity(intent);
                 finish();
             }
