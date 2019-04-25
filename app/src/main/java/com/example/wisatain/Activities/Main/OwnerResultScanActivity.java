@@ -13,6 +13,8 @@ import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.example.wisatain.R;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -57,9 +59,14 @@ public class OwnerResultScanActivity extends AppCompatActivity {
     @BindView(R.id.owstTotalhargaKeterangan)
     TextView totalHarga;
 
+    FirebaseAuth mAuth;
+    FirebaseUser mUser;
+
     FirebaseDatabase mDatabase;
     DatabaseReference mTiket;
     DatabaseReference mUsers;
+
+    String getUID;
 
     String getQRCode;
     String getKey, getKeteranganTiket, getRefTransaksi, getUIDUser, getNamaUser, getTanggalTransaksi, getNamaWisata, getLokasiWisata, getJumlahTiket, getTanggalPenggunaan, getTotalHarga;
@@ -73,11 +80,20 @@ public class OwnerResultScanActivity extends AppCompatActivity {
         Intent getintent = getIntent();
         getQRCode = getintent.getStringExtra("scan");
 
+        mAuth = FirebaseAuth.getInstance();
+        mUser = mAuth.getCurrentUser();
+        getUID = mUser.getUid();
         mDatabase = FirebaseDatabase.getInstance();
-        mTiket = mDatabase.getReference().child("Tiket");
-        mUsers = mDatabase.getReference().child("Users");
+        mUsers = mDatabase.getReference().child("Users").child(getUID);
+        mTiket = mUsers.child("Tiket");
 
-        loadData();
+        if (getQRCode == null) {
+            namaWisata.setText(null);
+            lokasiWisata.setText(null);
+            keteranganTiket.setText(null);
+        } else {
+//            loadData();
+        }
 
     }
 
@@ -144,7 +160,7 @@ public class OwnerResultScanActivity extends AppCompatActivity {
 
     public void saveData() {
 
-        mTiket.child(getQRCode).child("TiketStatus").setValue("Sudah Dipakai");
+        mTiket.child(getQRCode).child("TiketStatus").setValue("Sudah Digunakan");
 
     }
 
@@ -167,8 +183,8 @@ public class OwnerResultScanActivity extends AppCompatActivity {
     }
 
     @OnClick(R.id.owsBtnScan)
-    public void scanAgain() {
-        saveData();
+    public void scanTiket() {
+//        saveData();
         IntentIntegrator integrator = new IntentIntegrator(this);
         integrator.setDesiredBarcodeFormats(IntentIntegrator.QR_CODE_TYPES);
         integrator.setPrompt("Scan");
@@ -181,7 +197,9 @@ public class OwnerResultScanActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-        saveData();
+        if (getQRCode != null) {
+//            saveData();
+        }
         Intent intent = new Intent(OwnerResultScanActivity.this, ProfilWisataOwnerActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(intent);

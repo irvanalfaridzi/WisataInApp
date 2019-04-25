@@ -40,7 +40,7 @@
         app:layout_constraintTop_toTopOf="@id/imgIndomaret" />
 
     <TextView
-        android:id="@+id/owstDetailTiket"
+        android:id="@+id/bttDetailTiket"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -53,7 +53,7 @@
         app:layout_constraintTop_toBottomOf="@id/bgIndo" />
 
     <TextView
-        android:id="@+id/owstRefTransaksi"
+        android:id="@+id/bttRefTransaksi"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -63,10 +63,10 @@
         android:textSize="14sp"
         android:textStyle="normal"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/owstDetailTiket" />
+        app:layout_constraintTop_toBottomOf="@id/bttDetailTiket" />
 
     <TextView
-        android:id="@+id/owstRefTransaksiKeterangan"
+        android:id="@+id/bttRefTransaksiKeterangan"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
@@ -75,7 +75,7 @@
         android:textColor="#99000000"
         android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/owstDetailTiket" />
+        app:layout_constraintTop_toBottomOf="@id/bttDetailTiket" />
 
     <TextView
         android:id="@+id/tvGarisNo"
@@ -88,10 +88,10 @@
         android:background="#f5f5f5"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/owstRefTransaksi" />
+        app:layout_constraintTop_toBottomOf="@id/bttRefTransaksi" />
 
     <TextView
-        android:id="@+id/owsNamaUser"
+        android:id="@+id/bttNamaUser"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -101,10 +101,10 @@
         android:textSize="14sp"
         android:textStyle="normal"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvGarisNo" />
+        app:layout_constraintTop_toBottomOf="@id/tvGarisNo" />
 
     <TextView
-        android:id="@+id/owsNamaUserKeterangan"
+        android:id="@+id/bttNamaUserKeterangan"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
@@ -126,10 +126,10 @@
         android:background="#f5f5f5"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/owsNamaUser" />
+        app:layout_constraintTop_toBottomOf="@id/bttNamaUser" />
 
     <TextView
-        android:id="@+id/owstTanggalTransaksi"
+        android:id="@+id/bttTanggalTransaksi"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -139,10 +139,10 @@
         android:textSize="14sp"
         android:textStyle="normal"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvGarisNama" />
+        app:layout_constraintTop_toBottomOf="@id/tvGarisNama" />
 
     <TextView
-        android:id="@+id/owstTanggalTransaksiKeterangan"
+        android:id="@+id/bttTanggalTransaksiKeterangan"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
@@ -164,7 +164,7 @@
         android:background="#f5f5f5"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/owstTanggalTransaksi" />
+        app:layout_constraintTop_toBottomOf="@id/bttTanggalTransaksi" />
 
     <TextView
         android:id="@+id/tvGarisJMlTiket"
@@ -177,10 +177,10 @@
         android:background="#f5f5f5"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/owstJumlahTiket" />
+        app:layout_constraintTop_toBottomOf="@id/bttJumlahTiket" />
 
     <TextView
-        android:id="@+id/owstJumlahTiket"
+        android:id="@+id/bttJumlahTiket"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -193,7 +193,7 @@
         app:layout_constraintTop_toBottomOf="@id/tvGarisTglTrans" />
 
     <TextView
-        android:id="@+id/owstJumlahTiketKeterangan"
+        android:id="@+id/bttJumlahTiketKeterangan"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
@@ -205,7 +205,7 @@
         app:layout_constraintTop_toBottomOf="@id/tvGarisTglTrans" />
 
     <TextView
-        android:id="@+id/owstTanggalPenggunaan"
+        android:id="@+id/bttTanggalPenggunaan"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -218,7 +218,7 @@
         app:layout_constraintTop_toBottomOf="@id/tvGarisJMlTiket" />
 
     <TextView
-        android:id="@+id/owstTanggalPenggunaanKeterangan"
+        android:id="@+id/bttTanggalPenggunaanKeterangan"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
@@ -240,10 +240,10 @@
         android:background="#f5f5f5"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/owstTanggalPenggunaanKeterangan" />
+        app:layout_constraintTop_toBottomOf="@id/bttTanggalPenggunaanKeterangan" />
 
     <TextView
-        android:id="@+id/owstTotalharga"
+        android:id="@+id/bttTotalharga"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -256,7 +256,7 @@
         app:layout_constraintTop_toBottomOf="@id/tvGarisTglPenggunaan" />
 
     <TextView
-        android:id="@+id/owstTotalhargaKeterangan"
+        android:id="@+id/bttTotalhargaKeterangan"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
@@ -279,6 +279,6 @@
         android:textColor="@color/colorGelap"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/owstTotalharga" />
+        app:layout_constraintTop_toBottomOf="@id/bttTotalharga" />
 
 </android.support.constraint.ConstraintLayout>

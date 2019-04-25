@@ -33,6 +33,24 @@ public class BayarTiketActivity extends AppCompatActivity {
     @BindView(R.id.bttMetodePembayaran)
     TextView metodePembayaran;
 
+    @BindView(R.id.bttRefTransaksiKeterangan)
+    TextView refTransaksi;
+
+    @BindView(R.id.bttNamaUserKeterangan)
+    TextView namaUser;
+
+    @BindView(R.id.bttTanggalTransaksiKeterangan)
+    TextView tanggalTransaksi;
+
+    @BindView(R.id.bttJumlahTiketKeterangan)
+    TextView jumlahTiket;
+
+    @BindView(R.id.bttTanggalPenggunaanKeterangan)
+    TextView tanggalPenggunaan;
+
+    @BindView(R.id.bttTotalhargaKeterangan)
+    TextView totalHarga;
+
     @BindView(R.id.imgIndomaret)
     ImageView logoImage;
 
@@ -46,7 +64,8 @@ public class BayarTiketActivity extends AppCompatActivity {
     DatabaseReference mTiket;
 
     public String getUID, getNamaUser;
-    String getNamaWisata, getLokasiWisata, getWilayahWisata, getHargaTiket;
+    public String getCurrentDateandTime, setrefTransaksi;
+    public String getNamaWisata, getLokasiWisata, getWilayahWisata, getHargaTiket;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -89,6 +108,38 @@ public class BayarTiketActivity extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 getNamaUser = dataSnapshot.child("Nama").getValue(String.class);
+
+                mWisata.child(wisataKey).addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                        String key = dataSnapshot.getKey();
+                        getNamaWisata = dataSnapshot.child("NamaWisata").getValue(String.class);
+                        getLokasiWisata = dataSnapshot.child("LokasiWisata").getValue(String.class);
+                        getWilayahWisata = dataSnapshot.child("WilayahWisata").getValue(String.class);
+                        getHargaTiket = dataSnapshot.child("HargaWisata").getValue(String.class);
+
+                        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+                        getCurrentDateandTime = simpleDateFormat.format(new Date());
+
+                        setrefTransaksi = getNamaWisata + "/" + getWilayahWisata + "/" + intentJumlahTiket + "/" + System.currentTimeMillis() + "/";
+
+                        Log.d("test123", "saveData: " + getHargaTiket + " " + intentJumlahTiket);
+
+                        refTransaksi.setText(setrefTransaksi);
+                        namaUser.setText(getNamaUser);
+                        tanggalTransaksi.setText(getCurrentDateandTime);
+                        jumlahTiket.setText(intentJumlahTiket);
+                        tanggalPenggunaan.setText(intentTanggalPesanTiket);
+                        totalHarga.setText(String.valueOf(Integer.parseInt(getHargaTiket)*Integer.parseInt(intentJumlahTiket)));
+
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                    }
+                });
+
             }
 
             @Override
@@ -101,53 +152,28 @@ public class BayarTiketActivity extends AppCompatActivity {
 
     public void saveData() {
 
-        mWisata.child(wisataKey).addValueEventListener(new ValueEventListener() {
+        Tiket tiket = new Tiket(
+                setrefTransaksi,
+                getCurrentDateandTime,
+                getNamaWisata,
+                getLokasiWisata,
+                getWilayahWisata,
+                intentJumlahTiket,
+                intentTanggalPesanTiket,
+                String.valueOf(Integer.parseInt(getHargaTiket)*Integer.parseInt(intentJumlahTiket)),
+                "Menunggu Konfirmasi"
+        );
+
+        final String pushKey = mDatabase.getReference("Tiket").push().getKey();
+        mUsers.child(getUID).child("Tiket").child("MenungguKonfirmasi").child(pushKey).setValue(tiket).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                String key = dataSnapshot.getKey();
-                getNamaWisata = dataSnapshot.child("NamaWisata").getValue(String.class);
-                getLokasiWisata = dataSnapshot.child("LokasiWisata").getValue(String.class);
-                getWilayahWisata = dataSnapshot.child("WilayahWisata").getValue(String.class);
-                getHargaTiket = dataSnapshot.child("HargaWisata").getValue(String.class);
-
-                SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
-                String getCurrentDateandTime = simpleDateFormat.format(new Date());
-
-                loadData();
-
-                final String refTransaksi = getNamaWisata + "/" + getWilayahWisata + "/" + intentJumlahTiket + "/" + System.currentTimeMillis() + "/";
-
-                Log.d("test123", "saveData: " + getHargaTiket + " " + intentJumlahTiket);
-
-                Tiket tiket = new Tiket(
-                        refTransaksi,
-                        getCurrentDateandTime,
-                        getNamaWisata,
-                        getLokasiWisata,
-                        getWilayahWisata,
-                        intentJumlahTiket,
-                        intentTanggalPesanTiket,
-                        String.valueOf(Integer.parseInt(getHargaTiket)*Integer.parseInt(intentJumlahTiket)),
-                        "Menunggu Konfirmasi"
-                );
-
-                final String pushKey = mDatabase.getReference("Tiket").push().getKey();
-                mUsers.child(getUID).child("Tiket").child("MenungguKonfirmasi").child(pushKey).setValue(tiket).addOnCompleteListener(new OnCompleteListener<Void>() {
-                    @Override
-                    public void onComplete(@NonNull Task<Void> task) {
-                        if (task.isSuccessful()) {
-                            Intent intent = new Intent(BayarTiketActivity.this, MainActivity.class);
-                            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                            startActivity(intent);
-                            finish();
-                        }
-                    }
-                });
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
+            public void onComplete(@NonNull Task<Void> task) {
+                if (task.isSuccessful()) {
+                    Intent intent = new Intent(BayarTiketActivity.this, MainActivity.class);
+                    intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                    startActivity(intent);
+                    finish();
+                }
             }
         });
 
