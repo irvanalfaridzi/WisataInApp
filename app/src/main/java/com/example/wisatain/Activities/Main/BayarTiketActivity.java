@@ -97,6 +97,7 @@ public class BayarTiketActivity extends AppCompatActivity {
             Glide.with(getBaseContext()).load(R.drawable.bni).into(logoImage);
             metodePembayaran.setText("BNI");
         }
+        Log.d("cekkey", "onCreate: " + wisataKey);
 
         loadData();
 
@@ -155,6 +156,7 @@ public class BayarTiketActivity extends AppCompatActivity {
         Tiket tiket = new Tiket(
                 setrefTransaksi,
                 getCurrentDateandTime,
+                wisataKey,
                 getNamaWisata,
                 getLokasiWisata,
                 getWilayahWisata,
@@ -180,11 +182,12 @@ public class BayarTiketActivity extends AppCompatActivity {
     }
 
     public class Tiket {
-        public String RefTransaksi, TanggalPembelian, NamaWisata, LokasiWisata, WilayahWisata, Jumlah, TanggalKunjungan, TotalHarga, TiketStatus;
+        public String RefTransaksi, TanggalPembelian, WisataID, NamaWisata, LokasiWisata, WilayahWisata, Jumlah, TanggalKunjungan, TotalHarga, TiketStatus;
 
-        public Tiket(String refTransaksi, String tanggalPembelian, String namaWisata, String lokasiWisata, String wilayahWisata, String jumlah, String tanggalKunjungan, String totalHarga, String tiketStatus) {
+        public Tiket(String refTransaksi, String tanggalPembelian, String wisataID, String namaWisata, String lokasiWisata, String wilayahWisata, String jumlah, String tanggalKunjungan, String totalHarga, String tiketStatus) {
             RefTransaksi = refTransaksi;
             TanggalPembelian = tanggalPembelian;
+            WisataID = wisataID;
             NamaWisata = namaWisata;
             LokasiWisata = lokasiWisata;
             WilayahWisata = wilayahWisata;
