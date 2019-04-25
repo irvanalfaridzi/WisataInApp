@@ -93,7 +93,7 @@ public class DetailTiketActivity extends AppCompatActivity {
 
     public String getUIDUser, getNamaUser, getIDWisata;
     public String intentTiketKey, intentTiketStatus;
-    public String getRefTransaksi, getTanggalTransaksi, getNamaWisata, getWilayahWisata, getLokasiwisata, getJumlahTiket, getTanggalPenggunaan, getTotalHarga, getStatusTiket;
+    public String getRefTransaksi, getTanggalTransaksi, getWisataID, getNamaWisata, getWilayahWisata, getLokasiwisata, getJumlahTiket, getTanggalPenggunaan, getTotalHarga, getStatusTiket;
 
     UploadTask uploadTask;
 
@@ -163,6 +163,7 @@ public class DetailTiketActivity extends AppCompatActivity {
                 String key = dataSnapshot.getKey();
                 getRefTransaksi = dataSnapshot.child("RefTransaksi").getValue(String.class);
                 getTanggalTransaksi = dataSnapshot.child("TanggalPembelian").getValue(String.class);
+                getWisataID = dataSnapshot.child("WisataID").getValue(String.class);
                 getNamaWisata = dataSnapshot.child("NamaWisata").getValue(String.class);
                 getWilayahWisata = dataSnapshot.child("WilayahWisata").getValue(String.class);
                 getLokasiwisata = dataSnapshot.child("LokasiWisata").getValue(String.class);
@@ -192,6 +193,8 @@ public class DetailTiketActivity extends AppCompatActivity {
     }
 
     public void belumDigunakan() {
+
+        menungguKonfirmasi();
 
         mTiketBelumDigunakan.child(intentTiketKey).addValueEventListener(new ValueEventListener() {
             @Override
@@ -243,6 +246,7 @@ public class DetailTiketActivity extends AppCompatActivity {
                 getNamaUser,
                 getRefTransaksi,
                 getTanggalTransaksi,
+                getWisataID,
                 getNamaWisata,
                 getLokasiwisata,
                 getWilayahWisata,
@@ -253,7 +257,7 @@ public class DetailTiketActivity extends AppCompatActivity {
                 "Telah Konfirmasi"
         );
 
-        mTiketKonfirmasi.child(getIDWisata).child("Tiket").child("TelahKonfirmasi").child(intentTiketKey).setValue(detailTiket).addOnCompleteListener(new OnCompleteListener<Void>() {
+        mTiketKonfirmasi.child(getWisataID).child("Tiket").child("TelahKonfirmasi").child(intentTiketKey).setValue(detailTiket).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
                 if (task.isSuccessful()) {
@@ -325,13 +329,14 @@ public class DetailTiketActivity extends AppCompatActivity {
     }
 
     public class TiketDet {
-        public String UIDUser, NamaUser, RefTransaksi, TanggalPembelian, NamaWisata, LokasiWisata, WilayahWisata, Jumlah, TanggalKunjungan, TotalHarga, BuktiPembayaranURL, TiketStatus;
+        public String UIDUser, NamaUser, RefTransaksi, TanggalPembelian, WisataID, NamaWisata, LokasiWisata, WilayahWisata, Jumlah, TanggalKunjungan, TotalHarga, BuktiPembayaranURL, TiketStatus;
 
-        public TiketDet(String UIDUser, String namaUser, String refTransaksi, String tanggalPembelian, String namaWisata, String lokasiWisata, String wilayahWisata, String jumlah, String tanggalKunjungan, String totalHarga, String buktiPembayaranURL, String tiketStatus) {
+        public TiketDet(String UIDUser, String namaUser, String refTransaksi, String tanggalPembelian, String wisataID, String namaWisata, String lokasiWisata, String wilayahWisata, String jumlah, String tanggalKunjungan, String totalHarga, String buktiPembayaranURL, String tiketStatus) {
             this.UIDUser = UIDUser;
             NamaUser = namaUser;
             RefTransaksi = refTransaksi;
             TanggalPembelian = tanggalPembelian;
+            WisataID = wisataID;
             NamaWisata = namaWisata;
             LokasiWisata = lokasiWisata;
             WilayahWisata = wilayahWisata;
