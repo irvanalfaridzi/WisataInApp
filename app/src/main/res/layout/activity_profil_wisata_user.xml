@@ -324,7 +324,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/pwutDetailLokasiKeterangan" />
 
-            <TextView
+            <ImageView
                 android:id="@+id/tvGarisMaps"
                 android:layout_width="match_parent"
                 android:layout_height="16dp"
@@ -351,6 +351,18 @@
                 app:layout_constraintTop_toBottomOf="@id/tvGarisMaps" />
 
             <ImageView
+                android:id="@+id/tvGarisRate"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:background="#f5f5f5"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/ratingStar" />
+
+            <ImageView
                 android:id="@+id/imgProfile"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
@@ -358,7 +370,7 @@
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/ratingStar"
+                app:layout_constraintTop_toBottomOf="@id/tvGarisRate"
                 />
 
             <TextView
@@ -388,6 +400,20 @@
                 app:layout_constraintTop_toBottomOf="@id/imgProfile"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"/>
+
+            <Button
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/btnUlasan"
+                android:layout_marginEnd="16dp"
+                android:layout_marginTop="1dp"
+                android:layout_marginBottom="16dp"
+                android:background="@drawable/bgtextext"
+                android:text="Kirim"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/txtInputUlasan"
+                app:layout_constraintBottom_toBottomOf="parent"
+                />
 
         </android.support.constraint.ConstraintLayout>
 
