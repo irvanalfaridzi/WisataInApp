@@ -8,11 +8,11 @@
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:title="Detail Wisata"/>
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:title="Detail Wisata" />
 
 
     <ScrollView
@@ -54,12 +54,75 @@
             <!--app:layout_constraintStart_toStartOf="parent"-->
             <!--app:layout_constraintTop_toBottomOf="@id/pwuiGambarWisata" />-->
 
+            <ImageView
+                android:id="@+id/star1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/ic_star_isi"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/pwuiGambarWisata" />
+
+            <ImageView
+                android:id="@+id/star2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/ic_star_isi"
+                app:layout_constraintStart_toEndOf="@id/star1"
+                app:layout_constraintTop_toBottomOf="@id/pwuiGambarWisata" />
+
+            <ImageView
+                android:id="@+id/star3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/ic_star_isi"
+                app:layout_constraintStart_toEndOf="@id/star2"
+                app:layout_constraintTop_toBottomOf="@id/pwuiGambarWisata" />
+
+            <ImageView
+                android:id="@+id/star4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/ic_star_isi"
+                app:layout_constraintStart_toEndOf="@id/star3"
+                app:layout_constraintTop_toBottomOf="@id/pwuiGambarWisata" />
+
+            <ImageView
+                android:id="@+id/star5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/ic_star_tidak"
+                app:layout_constraintStart_toEndOf="@id/star4"
+                app:layout_constraintTop_toBottomOf="@id/pwuiGambarWisata" />
+
+            <TextView
+                android:id="@+id/txtUlasan"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:lineHeight="14sp"
+                android:text="12 Ulasan"
+                android:textColor="@color/colortextbiasa"
+                android:textSize="14sp"
+                app:layout_constraintBottom_toBottomOf="@id/star5"
+                app:layout_constraintStart_toEndOf="@id/star5"
+                app:layout_constraintTop_toTopOf="@id/star5" />
 
             <TextView
                 android:id="@+id/namaWisata"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
                 android:layout_marginEnd="16dp"
                 android:fontFamily="sans-serif-medium"
                 android:letterSpacing="0.01"
@@ -70,7 +133,7 @@
                 android:textStyle="normal"
                 app:layout_constraintEnd_toStartOf="@id/pwuBtnFavorite"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/pwuiGambarWisata" />
+                app:layout_constraintTop_toBottomOf="@id/star1" />
 
             <TextView
                 android:id="@+id/kotaWisata"
@@ -248,34 +311,83 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/pwutDetailLokasi" />
 
-            <TextView
-                android:id="@+id/pwutHargaTiket"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="16dp"
-                android:layout_marginTop="24dp"
-                android:text="Harga Tiket :"
-                android:textColor="#000000"
-                android:textSize="18dp"
-                android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/pwutDetailLokasiKeterangan" />
-
             <Button
                 android:id="@+id/pwuBtnBukaMaps"
                 android:layout_width="182dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
-                android:layout_marginBottom="32dp"
                 android:background="@drawable/bgmaps"
                 android:text="  Buka Maps  "
                 android:textColor="#ffffff"
                 android:textSize="12dp"
-                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/pwutDetailLokasiKeterangan" />
 
+            <TextView
+                android:id="@+id/tvGarisMaps"
+                android:layout_width="match_parent"
+                android:layout_height="16dp"
+                android:layout_marginTop="16dp"
+                android:background="#f5f5f5"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/pwuBtnBukaMaps" />
+
+            <RatingBar
+                android:id="@+id/ratingStar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:numStars="5"
+                android:rating="0"
+                android:stepSize="1"
+                android:progressTint="#FBC038"
+                android:secondaryProgressTint="#E3E3E3"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvGarisMaps" />
+
+            <ImageView
+                android:id="@+id/imgProfile"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="@drawable/profile_user"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/ratingStar"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/textUsername"
+                android:text="Irvan Alfaridzi"
+                android:textSize="14sp"
+                android:textColor="@color/colorGelap"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp"
+                app:layout_constraintStart_toEndOf="@id/imgProfile"
+                app:layout_constraintTop_toTopOf="@id/imgProfile"
+                app:layout_constraintBottom_toBottomOf="@id/imgProfile"/>
+
+            <EditText
+                android:id="@+id/txtInputUlasan"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:hint="Masukkan ulasan"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="16dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/imgProfile"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"/>
 
         </android.support.constraint.ConstraintLayout>
 

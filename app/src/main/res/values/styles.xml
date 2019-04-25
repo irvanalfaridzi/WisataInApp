@@ -17,4 +17,9 @@
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
+    <style name="star" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorControlNormal">#E3E3E3</item>
+        <item name="colorControlActivated">#FBC038</item>
+    </style>
+
 </resources>
