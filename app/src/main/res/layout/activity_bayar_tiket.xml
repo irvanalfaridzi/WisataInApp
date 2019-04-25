@@ -63,7 +63,7 @@
         android:textSize="14sp"
         android:textStyle="normal"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/bttDetailTiket" />
+        app:layout_constraintTop_toBottomOf="@id/bttDetailTiket" />
 
     <TextView
         android:id="@+id/bttRefTransaksiKeterangan"
@@ -101,7 +101,7 @@
         android:textSize="14sp"
         android:textStyle="normal"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvGarisNo" />
+        app:layout_constraintTop_toBottomOf="@id/tvGarisNo" />
 
     <TextView
         android:id="@+id/bttNamaUserKeterangan"
@@ -139,7 +139,7 @@
         android:textSize="14sp"
         android:textStyle="normal"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvGarisNama" />
+        app:layout_constraintTop_toBottomOf="@id/tvGarisNama" />
 
     <TextView
         android:id="@+id/bttTanggalTransaksiKeterangan"
