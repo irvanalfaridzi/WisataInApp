@@ -72,7 +72,7 @@
                 android:layout_marginTop="16dp"
                 android:layout_marginEnd="16dp"
                 android:lineHeight="17sp"
-                android:text="NO. Transaksi"
+                android:text="Ref. Transaksi"
                 android:textColor="@color/colortextbiasa"
                 android:textSize="14sp"
                 app:layout_constraintEnd_toStartOf="@id/dktRefTransaksi"
