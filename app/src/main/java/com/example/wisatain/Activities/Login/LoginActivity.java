@@ -2,6 +2,7 @@ package com.example.wisatain.Activities.Login;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -81,8 +82,18 @@ public class LoginActivity extends AppCompatActivity {
                             Toast.makeText(getApplicationContext(), "Selamat Datang", Toast.LENGTH_SHORT).show();
                             Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                            finish();
+
+                            mUser = mAuth.getCurrentUser();
+                            getUID = mUser.getUid();
+
+                            SharedPreferences sharedPreferences = getSharedPreferences("autoLogin", Context.MODE_PRIVATE);
+                            SharedPreferences.Editor editor = sharedPreferences.edit();
+                            editor.putString("UID", getUID);
+                            editor.apply();
+                            Log.d("loginuid", "onComplete: " + getUID);
+
                             startActivity(intent);
+                            finish();
 
                         } else {
                             findViewById(R.id.lbtnLogin).setEnabled(true);

@@ -15,7 +15,7 @@
             android:layout_height="match_parent">
 
             <ImageView
-                android:id="@+id/bwiGambarWisata"
+                android:id="@+id/ewiGambarWisata"
                 android:layout_width="128dp"
                 android:layout_height="128dp"
                 android:layout_marginStart="16dp"
@@ -28,17 +28,17 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <ProgressBar
-                android:id="@+id/bwProgressBar"
+                android:id="@+id/ewProgressBar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:visibility="gone"
-                app:layout_constraintBottom_toBottomOf="@id/bwiGambarWisata"
-                app:layout_constraintEnd_toEndOf="@id/bwiGambarWisata"
-                app:layout_constraintStart_toStartOf="@id/bwiGambarWisata"
-                app:layout_constraintTop_toTopOf="@id/bwiGambarWisata" />
+                app:layout_constraintBottom_toBottomOf="@id/ewiGambarWisata"
+                app:layout_constraintEnd_toEndOf="@id/ewiGambarWisata"
+                app:layout_constraintStart_toStartOf="@id/ewiGambarWisata"
+                app:layout_constraintTop_toTopOf="@id/ewiGambarWisata" />
 
             <TextView
-                android:id="@+id/bwtKeteranganGambar"
+                android:id="@+id/ewtKeteranganGambar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
@@ -47,7 +47,7 @@
                 android:text="Masukan Gambar wisata dengan mengklik gambar diatas"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/bwiGambarWisata" />
+                app:layout_constraintTop_toBottomOf="@+id/ewiGambarWisata" />
 
             <TextView
                 android:id="@+id/tvBatas"
@@ -59,7 +59,7 @@
                 android:background="#f5f5f5"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/bwtKeteranganGambar" />
+                app:layout_constraintTop_toBottomOf="@id/ewtKeteranganGambar" />
 
             <TextView
                 android:id="@+id/tvNamaWisata"
@@ -86,7 +86,7 @@
                 app:layout_constraintTop_toTopOf="@id/tvNamaWisata" />
 
             <EditText
-                android:id="@+id/bwetNamaWisata"
+                android:id="@+id/ewetNamaWisata"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
@@ -126,7 +126,7 @@
                 app:layout_constraintTop_toTopOf="@id/tvKategori" />
 
             <EditText
-                android:id="@+id/bwetKategori"
+                android:id="@+id/ewetKategori"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
@@ -167,7 +167,7 @@
                 app:layout_constraintTop_toTopOf="@id/tvLokasi" />
 
             <EditText
-                android:id="@+id/bwetLokasi"
+                android:id="@+id/ewetLokasi"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
@@ -208,7 +208,7 @@
                 app:layout_constraintTop_toTopOf="@id/tvKota" />
 
             <EditText
-                android:id="@+id/bwetKota"
+                android:id="@+id/ewetKota"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
@@ -249,7 +249,7 @@
                 app:layout_constraintTop_toTopOf="@id/tvTelepon" />
 
             <EditText
-                android:id="@+id/bwetNomorTelepon"
+                android:id="@+id/ewetNomorTelepon"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
@@ -290,7 +290,7 @@
                 app:layout_constraintTop_toTopOf="@id/tvJamBuka" />
 
             <EditText
-                android:id="@+id/bwetJamOperasionalBuka"
+                android:id="@+id/ewetJamOperasionalBuka"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
@@ -330,7 +330,7 @@
                 app:layout_constraintTop_toTopOf="@id/tvJamTutup" />
 
             <EditText
-                android:id="@+id/bwetJamOperasionalTutup"
+                android:id="@+id/ewetJamOperasionalTutup"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
@@ -371,7 +371,7 @@
                 app:layout_constraintTop_toTopOf="@id/tvHarga" />
 
             <EditText
-                android:id="@+id/bwetHarga"
+                android:id="@+id/ewetHarga"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
@@ -411,7 +411,7 @@
                 app:layout_constraintTop_toTopOf="@id/tvDeskripsi" />
 
             <EditText
-                android:id="@+id/bwetDeskripsi"
+                android:id="@+id/ewetDeskripsi"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
@@ -427,7 +427,7 @@
                 app:layout_constraintTop_toTopOf="@id/tvDeskripsi" />
 
             <Button
-                android:id="@+id/bwBtnSave"
+                android:id="@+id/ewBtnSave"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"

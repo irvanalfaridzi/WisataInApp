@@ -7,12 +7,15 @@ import android.os.Bundle;
 import android.provider.MediaStore;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.CardView;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.Toast;
+import android.widget.ToggleButton;
 
 import com.example.wisatain.Activities.Login.LoginActivity;
 import com.example.wisatain.R;
@@ -46,8 +49,29 @@ public class BiodataWisataActivity extends AppCompatActivity {
     @BindView(R.id.bwetNamaWisata)
     EditText namaWisata;
 
-    @BindView(R.id.bwetKategori)
-    EditText kategoriWisata;
+    @BindView(R.id.cardPedesaan)
+    CardView cPedesaan;
+
+    @BindView(R.id.cardKuliner)
+    CardView cKuliner;
+
+    @BindView(R.id.cardPantai)
+    CardView cPantai;
+
+    @BindView(R.id.cardPerkebunan)
+    CardView cPerkebunan;
+
+    @BindView(R.id.tgBtnPedesaan)
+    ToggleButton tPedesaan;
+
+    @BindView(R.id.tgBtnKuliner)
+    ToggleButton tKuliner;
+
+    @BindView(R.id.tgBtnPantai)
+    ToggleButton tPantai;
+
+    @BindView(R.id.tgBtnPerkebunan)
+    ToggleButton tPerkebunan;
 
     @BindView(R.id.bwetLokasi)
     EditText lokasiWisata;
@@ -85,6 +109,7 @@ public class BiodataWisataActivity extends AppCompatActivity {
     Uri uriFotoWisata;
     Uri fotoWisataURL;
 
+    String kategoriWisata;
     String getNamaWisata;
     String getUID, getNama, getNomorTelepon;
     String verifikasi;
@@ -102,6 +127,8 @@ public class BiodataWisataActivity extends AppCompatActivity {
         mUser = mAuth.getCurrentUser();
         mDatabase = FirebaseDatabase.getInstance();
         mUsers = mDatabase.getReference().child("Users");
+
+        pilihKategori();
 
         getUID = mUser.getUid();
         Toast.makeText(this, getUID, Toast.LENGTH_SHORT).show();
@@ -129,7 +156,6 @@ public class BiodataWisataActivity extends AppCompatActivity {
         getNamaWisata = intent.getStringExtra("namawisata");
 
         namaWisata.setText(getNamaWisata);
-        kategoriWisata.setText("horror");
         lokasiWisata.setText("Babatan Pilang XIV f1 nomor 6");
         kotaWisata.setText("surabaya");
         jamBukaWisata.setText("16.00");
@@ -150,7 +176,7 @@ public class BiodataWisataActivity extends AppCompatActivity {
         wisata wisataAkun = new wisata(
                 namaWisata.getText().toString().trim(),
                 getUID,
-                kategoriWisata.getText().toString().trim(),
+                kategoriWisata,
                 lokasiWisata.getText().toString().trim(),
                 kotaWisata.getText().toString().trim(),
                 nomorTelepon.getText().toString().trim(),
@@ -264,6 +290,102 @@ public class BiodataWisataActivity extends AppCompatActivity {
         }
     }
 
+    public void pilihKategori() {
+        tPedesaan.setChecked(false);
+        tKuliner.setChecked(false);
+        tPantai.setChecked(false);
+        tPerkebunan.setChecked(false);
+        tPedesaan.setBackgroundDrawable(null);
+        tKuliner.setBackgroundDrawable(null);
+        tPantai.setBackgroundDrawable(null);
+        tPerkebunan.setBackgroundDrawable(null);
+
+        cPedesaan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (!tPedesaan.isChecked()) {
+                    tPedesaan.setChecked(true);
+                    tPedesaan.setBackgroundDrawable(ContextCompat.getDrawable(getApplicationContext(), R.drawable.ic_check_green_50dp));
+                    kategoriWisata = "Pedesaan";
+                    cKuliner.setEnabled(false);
+                    cPantai.setEnabled(false);
+                    cPerkebunan.setEnabled(false);
+                } else {
+                    tPedesaan.setChecked(false);
+                    tPedesaan.setBackgroundDrawable(null);
+                    kategoriWisata = "";
+                    cKuliner.setEnabled(true);
+                    cPantai.setEnabled(true);
+                    cPerkebunan.setEnabled(true);
+                }
+            }
+        });
+
+        cKuliner.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (!tKuliner.isChecked()) {
+                    tKuliner.setChecked(true);
+                    tKuliner.setBackgroundDrawable(ContextCompat.getDrawable(getApplicationContext(), R.drawable.ic_check_green_50dp));
+                    kategoriWisata = "Kuliner";
+                    cPedesaan.setEnabled(false);
+                    cPantai.setEnabled(false);
+                    cPerkebunan.setEnabled(false);
+                } else {
+                    tKuliner.setChecked(false);
+                    tKuliner.setBackgroundDrawable(null);
+                    kategoriWisata = "";
+                    cPedesaan.setEnabled(true);
+                    cPantai.setEnabled(true);
+                    cPerkebunan.setEnabled(true);
+                }
+            }
+        });
+
+        cPantai.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (!tPantai.isChecked()) {
+                    tPantai.setChecked(true);
+                    tPantai.setBackgroundDrawable(ContextCompat.getDrawable(getApplicationContext(), R.drawable.ic_check_green_50dp));
+                    kategoriWisata = "Pantai";
+                    cPedesaan.setEnabled(false);
+                    cKuliner.setEnabled(false);
+                    cPerkebunan.setEnabled(false);
+                } else {
+                    tPantai.setChecked(false);
+                    tPantai.setBackgroundDrawable(null);
+                    kategoriWisata = "";
+                    cPedesaan.setEnabled(true);
+                    cKuliner.setEnabled(true);
+                    cPerkebunan.setEnabled(true);
+                }
+            }
+        });
+
+        cPerkebunan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (!tPerkebunan.isChecked()) {
+                    tPerkebunan.setChecked(true);
+                    tPerkebunan.setBackgroundDrawable(ContextCompat.getDrawable(getApplicationContext(), R.drawable.ic_check_green_50dp));
+                    kategoriWisata = "Perkebunan";
+                    cPedesaan.setEnabled(false);
+                    cKuliner.setEnabled(false);
+                    cPantai.setEnabled(false);
+                } else {
+                    tPerkebunan.setChecked(false);
+                    tPerkebunan.setBackgroundDrawable(null);
+                    kategoriWisata = "";
+                    cPedesaan.setEnabled(true);
+                    cKuliner.setEnabled(true);
+                    cPantai.setEnabled(true);
+                }
+            }
+        });
+
+    }
+
     @OnClick(R.id.bwBtnSave)
     public void saveWisata() {
         if (namaWisata.getText().toString().isEmpty()) {
@@ -271,9 +393,8 @@ public class BiodataWisataActivity extends AppCompatActivity {
             namaWisata.requestFocus();
             return;
         }
-        if (kategoriWisata.getText().toString().trim().isEmpty()) {
-            kategoriWisata.setError("Masukan Kategori Wisata");
-            kategoriWisata.requestFocus();
+        if (kategoriWisata.isEmpty()) {
+            Toast.makeText(this, "Pilih Kategori Wisata", Toast.LENGTH_SHORT).show();
             return;
         }
         if (lokasiWisata.getText().toString().isEmpty()) {
