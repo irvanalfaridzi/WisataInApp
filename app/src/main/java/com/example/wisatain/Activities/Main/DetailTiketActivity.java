@@ -263,6 +263,8 @@ public class DetailTiketActivity extends AppCompatActivity {
                     intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
                     startActivity(intent);
                     finish();
+                    mDatabase.getReference().child("Tiket").child(intentTiketKey).child("UIDUser").setValue(getUIDUser);
+                    mDatabase.getReference().child("Tiket").child(intentTiketKey).child("TiketStatus").setValue("Telah Konfirmasi");
                     mTiketMenunggu.child(intentTiketKey).setValue(null);
                     Log.d("amam", "onComplete1: ");
                 } else {
