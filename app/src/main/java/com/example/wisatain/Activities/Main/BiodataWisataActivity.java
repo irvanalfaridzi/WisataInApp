@@ -128,6 +128,7 @@ public class BiodataWisataActivity extends AppCompatActivity {
         mDatabase = FirebaseDatabase.getInstance();
         mUsers = mDatabase.getReference().child("Users");
 
+        kategoriWisata = "";
         pilihKategori();
 
         getUID = mUser.getUid();
@@ -173,7 +174,7 @@ public class BiodataWisataActivity extends AppCompatActivity {
 
     public void saveData(){
 
-        wisata wisataAkun = new wisata(
+        final wisata wisataAkun = new wisata(
                 namaWisata.getText().toString().trim(),
                 getUID,
                 kategoriWisata,
@@ -193,12 +194,11 @@ public class BiodataWisataActivity extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
                         if (task.isSuccessful()) {
-                            user userWisata = new user(
-                                key
-                            );
+                            user userWisata = new user(key);
                             mUsers.child(getUID).child("Wisata").setValue(key);
                             Toast.makeText(BiodataWisataActivity.this, "Wisata telah dibuat", Toast.LENGTH_SHORT).show();
                             FirebaseDatabase.getInstance().getReference().child("Users").child(getUID).child("Status").setValue(status);
+                            mDatabase.getReference().child("Kategori").child(kategoriWisata).child(key).setValue(wisataAkun);
                             Intent intent = new Intent(BiodataWisataActivity.this, ProfilWisataOwnerActivity.class);
                             intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
                             startActivity(intent);
