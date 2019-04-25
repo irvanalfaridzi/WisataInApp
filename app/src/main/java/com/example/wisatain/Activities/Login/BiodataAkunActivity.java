@@ -151,6 +151,7 @@ public class BiodataAkunActivity extends AppCompatActivity {
                             user akun = new user(
                                     namalengkap.getText().toString(),
                                     intentEmail,
+                                    intentKataSandi,
                                     nomorponsel.getText().toString(),
                                     tanggallahir.getText().toString(),
                                     alamat.getText().toString(),
@@ -242,15 +243,16 @@ public class BiodataAkunActivity extends AppCompatActivity {
     }
 
     public class user {
-        public String Nama, Email, NomorTelepon, TanggalLahir, Alamat, Status, FotoURL;
+        public String Nama, Email, Password, NomorTelepon, TanggalLahir, Alamat, Status, FotoURL;
 
         public user() {
 
         }
 
-        public user(String nama, String email, String nomorTelepon, String tanggalLahir, String alamat, String status, String fotoURL) {
+        public user(String nama, String email, String password, String nomorTelepon, String tanggalLahir, String alamat, String status, String fotoURL) {
             Nama = nama;
             Email = email;
+            Password = password;
             NomorTelepon = nomorTelepon;
             TanggalLahir = tanggalLahir;
             Alamat = alamat;

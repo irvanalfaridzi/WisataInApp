@@ -22,7 +22,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Activities.Main.DetailKonfirmasiActivity"></activity>
+        <activity android:name=".Activities.Main.ResultPencarianActivity"></activity>
+        <activity android:name=".Activities.Main.DetailKonfirmasiActivity" />
         <activity android:name=".Activities.Main.KonfirmasiTiketActivity" />
         <activity android:name=".Activities.Main.TiketTelahDigunakanActivity" />
         <activity android:name=".Activities.Main.TiketBelumDigunakanActivity" />
@@ -36,7 +37,7 @@
         <activity android:name=".Activities.Main.ProfilWisataOwnerActivity" />
         <activity android:name=".Activities.Main.EditWisataActivity" />
         <activity android:name=".Activities.Main.ProfilWisataUserActivity" />
-        <activity android:name=".Activities.Login.StartUpActivity" />
+        <activity android:name=".Activities.Login.LoginActivity" />
         <activity android:name=".Activities.Main.MapsActivity" />
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
@@ -58,7 +59,7 @@
         <activity android:name=".Activities.Main.EditProfileActivity" />
         <activity android:name=".Activities.Login.VerifikasiAkunActivity" />
         <activity android:name=".Activities.Login.BiodataAkunActivity" />
-        <activity android:name=".Activities.Login.LoginActivity">
+        <activity android:name=".Activities.Login.StartUpActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
