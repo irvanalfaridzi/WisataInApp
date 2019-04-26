@@ -45,6 +45,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
         android:hint="Masukan kata sandi anda"
+        android:inputType="textPassword"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/gstKataSandi" />
 
@@ -64,6 +65,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
         android:hint="Masukan ulang kata sandi anda"
+        android:inputType="textPassword"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/gstKonfirmasiKataSandi" />
 

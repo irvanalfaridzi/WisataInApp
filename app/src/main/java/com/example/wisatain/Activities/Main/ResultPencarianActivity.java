@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -39,6 +40,9 @@ public class ResultPencarianActivity extends AppCompatActivity {
     @BindView(R.id.rpRecyclerView)
     RecyclerView recyclerView;
 
+    @BindView(R.id.toolbar)
+    Toolbar toolbar;
+
     FirebaseAuth mAuth;
     FirebaseUser mUser;
     FirebaseDatabase mDatabase;
@@ -62,6 +66,10 @@ public class ResultPencarianActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_result_pencarian);
         ButterKnife.bind(this);
+
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
 
         Intent getintent = getIntent();
         intentKategori = getintent.getStringExtra("kategori");
