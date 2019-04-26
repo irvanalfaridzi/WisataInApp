@@ -334,20 +334,64 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/pwuBtnBukaMaps" />
 
-            <RatingBar
-                android:id="@+id/ratingStar"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+            <ToggleButton
+                android:id="@+id/inputStar1"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
-                android:layout_marginEnd="16dp"
-                android:numStars="5"
-                android:rating="0"
-                android:stepSize="1"
-                android:progressTint="#FBC038"
-                android:secondaryProgressTint="#E3E3E3"
-                app:layout_constraintEnd_toEndOf="parent"
+                android:textOn=" "
+                android:textOff=" "
+                android:background="@drawable/ic_star_isi"
                 app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvGarisMaps" />
+
+            <ToggleButton
+                android:id="@+id/inputStar2"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="4dp"
+                android:layout_marginTop="16dp"
+                android:textOn=" "
+                android:textOff=" "
+                android:background="@drawable/ic_star_isi"
+                app:layout_constraintStart_toEndOf="@id/inputStar1"
+                app:layout_constraintTop_toBottomOf="@id/tvGarisMaps" />
+
+            <ToggleButton
+                android:id="@+id/inputStar3"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="4dp"
+                android:layout_marginTop="16dp"
+                android:textOn=" "
+                android:textOff=" "
+                android:background="@drawable/ic_star_isi"
+                app:layout_constraintStart_toEndOf="@id/inputStar2"
+                app:layout_constraintTop_toBottomOf="@id/tvGarisMaps" />
+
+            <ToggleButton
+                android:id="@+id/inputStar4"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="4dp"
+                android:layout_marginTop="16dp"
+                android:textOn=" "
+                android:textOff=" "
+                android:background="@drawable/ic_star_isi"
+                app:layout_constraintStart_toEndOf="@id/inputStar3"
+                app:layout_constraintTop_toBottomOf="@id/tvGarisMaps" />
+
+            <ToggleButton
+                android:id="@+id/inputStar5"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="4dp"
+                android:layout_marginTop="16dp"
+                android:textOn=" "
+                android:textOff=" "
+                android:background="@drawable/ic_star_tidak"
+                app:layout_constraintStart_toEndOf="@id/inputStar4"
                 app:layout_constraintTop_toBottomOf="@id/tvGarisMaps" />
 
             <ImageView
@@ -360,7 +404,7 @@
                 android:background="#f5f5f5"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/ratingStar" />
+                app:layout_constraintTop_toBottomOf="@id/inputStar5" />
 
             <ImageView
                 android:id="@+id/imgProfile"

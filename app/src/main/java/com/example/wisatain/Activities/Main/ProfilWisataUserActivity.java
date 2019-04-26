@@ -7,6 +7,7 @@ import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -60,6 +61,12 @@ public class ProfilWisataUserActivity extends AppCompatActivity {
     @BindView(R.id.pwuBtnFavorite)
     ToggleButton buttonFavorite;
 
+    @BindView(R.id.inputStar1) ToggleButton star1;
+    @BindView(R.id.inputStar2) ToggleButton star2;
+    @BindView(R.id.inputStar3) ToggleButton star3;
+    @BindView(R.id.inputStar4) ToggleButton star4;
+    @BindView(R.id.inputStar5) ToggleButton star5;
+
     FirebaseAuth mAuth;
     FirebaseUser mUser;
     FirebaseDatabase mDatabase;
@@ -68,6 +75,7 @@ public class ProfilWisataUserActivity extends AppCompatActivity {
 
     ArrayList<String> favoriteArrayList = new ArrayList<>();
 
+    String inputRating, inputUlasan;
     String intentKey;
     public String getkey, getGambarWisataURL, getNamaWisata, getDeksripsiWisata, getJamOperasionalWisata, getCocokUntukWisata, getDetailLokasiWisata, getHargaTiketWisata, getKotaWisata;
     String getUID;
@@ -83,6 +91,8 @@ public class ProfilWisataUserActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
+
+        setRatingUlasan();
 
         Intent intent = getIntent();
         intentKey = intent.getStringExtra("intent");
@@ -177,6 +187,84 @@ public class ProfilWisataUserActivity extends AppCompatActivity {
 
     }
 
+    public void setRatingUlasan() {
+        star1.setChecked(false);
+        star2.setChecked(false);
+        star3.setChecked(false);
+        star4.setChecked(false);
+        star5.setChecked(false);
+
+        star1.setBackgroundDrawable(ContextCompat.getDrawable(getApplicationContext(), R.drawable.ic_star_tidak));
+        star2.setBackgroundDrawable(ContextCompat.getDrawable(getApplicationContext(), R.drawable.ic_star_tidak));
+        star3.setBackgroundDrawable(ContextCompat.getDrawable(getApplicationContext(), R.drawable.ic_star_tidak));
+        star4.setBackgroundDrawable(ContextCompat.getDrawable(getApplicationContext(), R.drawable.ic_star_tidak));
+        star5.setBackgroundDrawable(ContextCompat.getDrawable(getApplicationContext(), R.drawable.ic_star_tidak));
+
+        star1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                star1.setBackgroundDrawable(ContextCompat.getDrawable(getApplicationContext(), R.drawable.ic_star_isi));
+                star2.setBackgroundDrawable(ContextCompat.getDrawable(getApplicationContext(), R.drawable.ic_star_tidak));
+                star3.setBackgroundDrawable(ContextCompat.getDrawable(getApplicationContext(), R.drawable.ic_star_tidak));
+                star4.setBackgroundDrawable(ContextCompat.getDrawable(getApplicationContext(), R.drawable.ic_star_tidak));
+                star5.setBackgroundDrawable(ContextCompat.getDrawable(getApplicationContext(), R.drawable.ic_star_tidak));
+            }
+        });
+        star2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                star1.setBackgroundDrawable(ContextCompat.getDrawable(getApplicationContext(), R.drawable.ic_star_isi));
+                star2.setBackgroundDrawable(ContextCompat.getDrawable(getApplicationContext(), R.drawable.ic_star_isi));
+                star3.setBackgroundDrawable(ContextCompat.getDrawable(getApplicationContext(), R.drawable.ic_star_tidak));
+                star4.setBackgroundDrawable(ContextCompat.getDrawable(getApplicationContext(), R.drawable.ic_star_tidak));
+                star5.setBackgroundDrawable(ContextCompat.getDrawable(getApplicationContext(), R.drawable.ic_star_tidak));
+            }
+        });
+        star3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                star1.setBackgroundDrawable(ContextCompat.getDrawable(getApplicationContext(), R.drawable.ic_star_isi));
+                star2.setBackgroundDrawable(ContextCompat.getDrawable(getApplicationContext(), R.drawable.ic_star_isi));
+                star3.setBackgroundDrawable(ContextCompat.getDrawable(getApplicationContext(), R.drawable.ic_star_isi));
+                star4.setBackgroundDrawable(ContextCompat.getDrawable(getApplicationContext(), R.drawable.ic_star_tidak));
+                star5.setBackgroundDrawable(ContextCompat.getDrawable(getApplicationContext(), R.drawable.ic_star_tidak));
+            }
+        });
+        star4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                star1.setBackgroundDrawable(ContextCompat.getDrawable(getApplicationContext(), R.drawable.ic_star_isi));
+                star2.setBackgroundDrawable(ContextCompat.getDrawable(getApplicationContext(), R.drawable.ic_star_isi));
+                star3.setBackgroundDrawable(ContextCompat.getDrawable(getApplicationContext(), R.drawable.ic_star_isi));
+                star4.setBackgroundDrawable(ContextCompat.getDrawable(getApplicationContext(), R.drawable.ic_star_isi));
+                star5.setBackgroundDrawable(ContextCompat.getDrawable(getApplicationContext(), R.drawable.ic_star_tidak));
+            }
+        });
+        star5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                star1.setBackgroundDrawable(ContextCompat.getDrawable(getApplicationContext(), R.drawable.ic_star_isi));
+                star2.setBackgroundDrawable(ContextCompat.getDrawable(getApplicationContext(), R.drawable.ic_star_isi));
+                star3.setBackgroundDrawable(ContextCompat.getDrawable(getApplicationContext(), R.drawable.ic_star_isi));
+                star4.setBackgroundDrawable(ContextCompat.getDrawable(getApplicationContext(), R.drawable.ic_star_isi));
+                star5.setBackgroundDrawable(ContextCompat.getDrawable(getApplicationContext(), R.drawable.ic_star_isi));
+            }
+        });
+
+    }
+
+    public void inputRatingUlasan() {
+
+
+
+    }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
+    }
+
     @OnClick(R.id.pwuBtnBukaMaps)
     public void bukaMaps() {
         Intent intent = new Intent(ProfilWisataUserActivity.this, WisataMapsActivity.class);
@@ -205,10 +293,8 @@ public class ProfilWisataUserActivity extends AppCompatActivity {
         }
     }
 
-    @Override
-    public boolean onSupportNavigateUp() {
-        onBackPressed();
-        return true;
+    @OnClick(R.id.btnUlasan)
+    public void ratingUlasan() {
+        inputRatingUlasan();
     }
-
 }
