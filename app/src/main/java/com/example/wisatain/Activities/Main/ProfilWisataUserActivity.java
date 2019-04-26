@@ -86,11 +86,16 @@ public class ProfilWisataUserActivity extends AppCompatActivity {
     @BindView(R.id.pwuRecyclerView)
     RecyclerView recyclerView;
 
-    @BindView(R.id.inputStar1) ToggleButton star1;
-    @BindView(R.id.inputStar2) ToggleButton star2;
-    @BindView(R.id.inputStar3) ToggleButton star3;
-    @BindView(R.id.inputStar4) ToggleButton star4;
-    @BindView(R.id.inputStar5) ToggleButton star5;
+    @BindView(R.id.inputStar1)
+    ToggleButton star1;
+    @BindView(R.id.inputStar2)
+    ToggleButton star2;
+    @BindView(R.id.inputStar3)
+    ToggleButton star3;
+    @BindView(R.id.inputStar4)
+    ToggleButton star4;
+    @BindView(R.id.inputStar5)
+    ToggleButton star5;
 
     FirebaseAuth mAuth;
     FirebaseUser mUser;
@@ -106,8 +111,8 @@ public class ProfilWisataUserActivity extends AppCompatActivity {
     String inputRating;
     String intentKey;
     public String getkey, getGambarWisataURL, getNamaWisata, getDeksripsiWisata, getJamOperasionalWisata, getCocokUntukWisata, getDetailLokasiWisata, getHargaTiketWisata, getKotaWisata;
-    public String getUlasanKey, getGambarProfilUser, getNamaUser, getRatingUser,getUlasanUser;
-    String getUID;
+    public String getUlasanKey, getGambarProfilUser, getNamaUser, getRatingUser, getUlasanUser;
+    public String getUID;
 
     ArrayList<String> arrayUlasanKey = new ArrayList<>();
     ArrayList<String> arrayGambarProfile = new ArrayList<>();
@@ -138,6 +143,8 @@ public class ProfilWisataUserActivity extends AppCompatActivity {
         mWisata = mDatabase.getReference().child("Wisata");
         mUsers = mDatabase.getReference().child("Users");
         mUlasan = mDatabase.getReference().child("Ulasan").child(intentKey);
+
+        buttonFavorite.setBackgroundDrawable(ContextCompat.getDrawable(getApplicationContext(), R.drawable.ic_favorite_border_red_100dp));
 
         getUID = mUser.getUid();
 
@@ -206,26 +213,24 @@ public class ProfilWisataUserActivity extends AppCompatActivity {
 
     public void loadDataFav() {
 
-        mUsers.child(getUID).child("Favorite").addValueEventListener(new ValueEventListener() {
+        mDatabase.getReference().child("Favorit").child(getUID).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                for (DataSnapshot ds : dataSnapshot.getChildren()) {
-                    String check = ds.getValue(String.class);
+                for (DataSnapshot ds123 : dataSnapshot.getChildren()) {
+                    String check = ds123.getKey();
                     favoriteArrayList.add(check);
                     Log.d("pwucheck", "onDataChange: " + check);
 
                     for (int x = 0; x < favoriteArrayList.size(); x++) {
-                        if (intentKey.equals(favoriteArrayList.get(x))) {
+                        if (favoriteArrayList.get(x).equals(intentKey)) {
                             buttonFavorite.setChecked(true);
                             buttonFavorite.setBackgroundDrawable(ContextCompat.getDrawable(getApplicationContext(), R.drawable.ic_favorite_red_100dp));
                             break;
                         } else {
                             buttonFavorite.setChecked(false);
-                            mUsers.child(getUID).child("Favorite").child(intentKey).removeValue();
                             buttonFavorite.setBackgroundDrawable(ContextCompat.getDrawable(getApplicationContext(), R.drawable.ic_favorite_border_red_100dp));
                         }
                     }
-
                 }
             }
 
@@ -234,6 +239,41 @@ public class ProfilWisataUserActivity extends AppCompatActivity {
 
             }
         });
+
+    }
+
+    public class favorite {
+        public String WisataID, NamaWisata, FotoWisataURL, LokasiWisata, WilayahWisata, UIDUser, NamaUser;
+
+        public favorite(String wisataID, String namaWisata, String fotoWisataURL, String lokasiWisata, String wilayahWisata, String UIDUser, String namaUser) {
+            WisataID = wisataID;
+            NamaWisata = namaWisata;
+            FotoWisataURL = fotoWisataURL;
+            LokasiWisata = lokasiWisata;
+            WilayahWisata = wilayahWisata;
+            this.UIDUser = UIDUser;
+            NamaUser = namaUser;
+        }
+    }
+
+    public void inputDataFav() {
+
+        favorite fav = new favorite(
+                getkey,
+                getNamaWisata,
+                getGambarWisataURL,
+                getDetailLokasiWisata,
+                getKotaWisata,
+                getUID,
+                getNamaUser
+        );
+
+        if (buttonFavorite.isChecked()) {
+            mDatabase.getReference().child("Favorit").child(getUID).child(intentKey).setValue(fav);
+        } else {
+            mDatabase.getReference().child("Favorit").child(getUID).child(intentKey).setValue(null);
+        }
+        favoriteArrayList.clear();
 
     }
 
@@ -311,7 +351,7 @@ public class ProfilWisataUserActivity extends AppCompatActivity {
     }
 
     public class uploadRatingUlasan {
-        public String WisataID, NamaWisata, UIDUser, NamaUser,GambarProfilUser, RatingUser,UlasanUser;
+        public String WisataID, NamaWisata, UIDUser, NamaUser, GambarProfilUser, RatingUser, UlasanUser;
 
         public uploadRatingUlasan(String wisataID, String namaWisata, String UIDUser, String namaUser, String gambarProfilUser, String ratingUser, String ulasanUser) {
             WisataID = wisataID;
@@ -340,7 +380,7 @@ public class ProfilWisataUserActivity extends AppCompatActivity {
                         getGambarUserURL,
                         inputRating,
                         inputUlasan.getText().toString().trim()
-                        );
+                );
 
                 final String key = mDatabase.getReference("Ulasan").push().getKey();
                 mUlasan.child(key).setValue(RU).addOnCompleteListener(new OnCompleteListener<Void>() {
@@ -471,12 +511,19 @@ public class ProfilWisataUserActivity extends AppCompatActivity {
         return true;
     }
 
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        inputDataFav();
+    }
+
     @OnClick(R.id.pwuBtnBukaMaps)
     public void bukaMaps() {
         Intent intent = new Intent(ProfilWisataUserActivity.this, WisataMapsActivity.class);
         intent.putExtra("intentlokasi", getDetailLokasiWisata);
         Toast.makeText(this, getDetailLokasiWisata, Toast.LENGTH_SHORT).show();
         startActivity(intent);
+        inputDataFav();
     }
 
     @OnClick(R.id.pwuBtnBeliTiket)
@@ -484,17 +531,16 @@ public class ProfilWisataUserActivity extends AppCompatActivity {
         Intent intent = new Intent(ProfilWisataUserActivity.this, PesanTiketActivity.class);
         intent.putExtra("key", getkey);
         startActivity(intent);
+        inputDataFav();
     }
 
     @OnClick(R.id.pwuBtnFavorite)
     public void favorite() {
         if (buttonFavorite.isChecked()) {
-           // buttonFavorite.setChecked(true);
+            buttonFavorite.setChecked(true);
             buttonFavorite.setBackgroundDrawable(ContextCompat.getDrawable(getApplicationContext(), R.drawable.ic_favorite_red_100dp));
-            mUsers.child(getUID).child("Favorite").child(intentKey).setValue(intentKey);
-        } else  {
-          //  buttonFavorite.setChecked(false);
-            mUsers.child(getUID).child("Favorite").child(intentKey).removeValue();
+        } else {
+            buttonFavorite.setChecked(false);
             buttonFavorite.setBackgroundDrawable(ContextCompat.getDrawable(getApplicationContext(), R.drawable.ic_favorite_border_red_100dp));
         }
     }
@@ -504,7 +550,8 @@ public class ProfilWisataUserActivity extends AppCompatActivity {
         if (inputRating.isEmpty()) {
             Toast.makeText(this, "Masukkan Rating Wisata", Toast.LENGTH_SHORT).show();
             return;
-        } if (inputUlasan.getText().toString().trim().isEmpty()) {
+        }
+        if (inputUlasan.getText().toString().trim().isEmpty()) {
             inputUlasan.setError("Masukan Ulasan anda");
             inputUlasan.requestFocus();
             return;

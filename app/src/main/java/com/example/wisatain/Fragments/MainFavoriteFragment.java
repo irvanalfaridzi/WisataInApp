@@ -14,6 +14,7 @@ import android.view.ViewGroup;
 import com.bumptech.glide.Glide;
 import com.example.wisatain.Activities.Main.MainActivity;
 import com.example.wisatain.Adapters.MainFavoriteAdapter;
+import com.example.wisatain.Adapters.MainHomeAdapter;
 import com.example.wisatain.Items.Wisata;
 import com.example.wisatain.R;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
@@ -43,22 +44,17 @@ public class MainFavoriteFragment extends Fragment {
     FirebaseAuth mAuth;
     FirebaseUser mUser;
     FirebaseDatabase mDatabase;
-    DatabaseReference mWisata;
-    DatabaseReference mUsers;
+    DatabaseReference mFavorit;
     FirebaseRecyclerOptions<Wisata> options;
-    FirebaseRecyclerAdapter<Wisata, MainFavoriteAdapter> adapter;
-
-    ValueEventListener myValueEventListener;
+    FirebaseRecyclerAdapter<Wisata, MainHomeAdapter> adapter;
 
     String getUID;
+    public String getWisataKey, getFotoWisataURL, getNamaWisata, getWilayahWisata;
 
-    ArrayList<String> arrayWisata = new ArrayList<>();
     ArrayList<String> arrayWisataKey = new ArrayList<>();
-
-    ArrayList<String> keywisataarray = new ArrayList<>();
-    ArrayList<String> namawisataarray = new ArrayList<>();
-    ArrayList<String> kotawisataarray = new ArrayList<>();
-    ArrayList<String> fotowisataarray = new ArrayList<>();
+    ArrayList<String> arrayNamaWisata = new ArrayList<>();
+    ArrayList<String> arrayWilayahWisata = new ArrayList<>();
+    ArrayList<String> arrayFotoWisataURL = new ArrayList<>();
 
     public MainFavoriteFragment() {
         // Required empty public constructor
@@ -79,53 +75,35 @@ public class MainFavoriteFragment extends Fragment {
         ((MainActivity) getActivity()).getSupportActionBar().setDisplayShowHomeEnabled(false);
 
         mAuth = FirebaseAuth.getInstance();
-        mDatabase = FirebaseDatabase.getInstance();
         mUser = mAuth.getCurrentUser();
-
         getUID = mUser.getUid();
+        mDatabase = FirebaseDatabase.getInstance();
+        mFavorit = mDatabase.getReference().child("Favorit").child(getUID);
 
-        mUsers = mDatabase.getReference().child("Users").child(getUID).child("Favorite");
-        mWisata = mDatabase.getReference().child("Wisata");
-
-        mUsers.keepSynced(true);
-        mWisata.keepSynced(true);
-
+        recyclerView.setNestedScrollingEnabled(false);
         recyclerView.setHasFixedSize(true);
 
-        myValueEventListener = new ValueEventListener() {
+        loadData();
+
+        return view;
+    }
+
+    public void loadData() {
+
+        mFavorit.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 for (DataSnapshot ds : dataSnapshot.getChildren()) {
-                    String wisataFav = ds.getValue(String.class);
-                    arrayWisata.add(wisataFav);
+                    getWisataKey = ds.getKey();
+                    getNamaWisata = ds.child("NamaWisata").getValue(String.class);
+                    getWilayahWisata = ds.child("WilayahWisata").getValue(String.class);
+                    getFotoWisataURL = ds.child("FotoWisataURL").getValue(String.class);
+                    Log.d("wisatakey", "onDataChange: " + getWisataKey + " " + getNamaWisata);
 
-                    Log.d("mfwisatafav", "onDataChange: " + wisataFav);
-
-                    mWisata.addValueEventListener(new ValueEventListener() {
-                        @Override
-                        public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                            for (DataSnapshot ds : dataSnapshot.getChildren()) {
-                                String wisataKey = ds.getKey();
-                                arrayWisataKey.add(wisataKey);
-                                Log.d("mfwisatakey", "onDataChange: " + wisataKey);
-
-                                String namaWisata = ds.child("NamaWisata").getValue(String.class);
-                                String kotawisata = ds.child("WilayahWisata").getValue(String.class);
-                                String fotowisata = ds.child("FotoWisataURL").getValue(String.class);
-                                namawisataarray.add(namaWisata);
-                                kotawisataarray.add(kotawisata);
-                                fotowisataarray.add(fotowisata);
-
-                                showData();
-
-                            }
-                        }
-
-                        @Override
-                        public void onCancelled(@NonNull DatabaseError databaseError) {
-
-                        }
-                    });
+                    arrayWisataKey.add(getWisataKey);
+                    arrayNamaWisata.add(getNamaWisata);
+                    arrayWilayahWisata.add(getWilayahWisata);
+                    arrayFotoWisataURL.add(getFotoWisataURL);
                 }
             }
 
@@ -133,62 +111,40 @@ public class MainFavoriteFragment extends Fragment {
             public void onCancelled(@NonNull DatabaseError databaseError) {
 
             }
-        };
+        });
 
-        mUsers.addValueEventListener(myValueEventListener);
-
-        return view;
-    }
-
-    public void loadData() {
+        showData();
     }
 
     public void showData() {
 
-        for (int x = 0; x < arrayWisataKey.size(); x++) {
-            for (int y = 0; y < arrayWisata.size(); y++) {
+        options = new FirebaseRecyclerOptions.Builder<Wisata>().setQuery(mFavorit, Wisata.class).build();
 
-                Log.d("mfarraywisata11", "showData: " + arrayWisata.get(y));
+        Log.d("opt123", "showData: " + options);
 
-                if (arrayWisataKey.get(x).equals(arrayWisata.get(y))) {
+        adapter = new FirebaseRecyclerAdapter<Wisata, MainHomeAdapter>(options) {
+            @Override
+            protected void onBindViewHolder(@NonNull MainHomeAdapter holder, int position, @NonNull Wisata model) {
 
-                    Log.d("mfarraywisata1", "showData: " + arrayWisata.get(y));
-
-                    options = new FirebaseRecyclerOptions.Builder<Wisata>()
-                            .setQuery(mWisata, Wisata.class).build();
-
-                    adapter = new FirebaseRecyclerAdapter<Wisata, MainFavoriteAdapter>(options) {
-                        @NonNull
-                        @Override
-                        public MainFavoriteAdapter onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-                            View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.item_favorite, viewGroup, false);
-
-                            return new MainFavoriteAdapter(view);
-                        }
-
-                        @Override
-                        protected void onBindViewHolder(@NonNull MainFavoriteAdapter holder, int position, @NonNull Wisata model) {
-                            Glide.with(getActivity()).load(fotowisataarray.get(position)).into(holder.foto);
-                            holder.judul.setText(namawisataarray.get(position));
-                            holder.kota.setText(kotawisataarray.get(position));
-                            holder.key = arrayWisataKey.get(position);
-
-                        }
-
-                    };
-
-                    GridLayoutManager gridLayoutManager = new GridLayoutManager(getContext(), 2);
-                    recyclerView.setLayoutManager(gridLayoutManager);
-                    adapter.startListening();
-                    recyclerView.setAdapter(adapter);
-
-                } else {
-
-                }
-                Log.d("mfwisataarray1", "loadData: " + arrayWisataKey.get(x));
-                Log.d("mfwisataarray2", "loadData: " + arrayWisata.get(y));
+                holder.key = arrayWisataKey.get(position);
+                holder.judul.setText(arrayNamaWisata.get(position));
+                holder.kota.setText(arrayWilayahWisata.get(position));
+                Glide.with(getActivity()).load(arrayFotoWisataURL.get(position)).into(holder.foto);
             }
-        }
+
+            @NonNull
+            @Override
+            public MainHomeAdapter onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
+                View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.item_wisata, viewGroup, false);
+
+                return new MainHomeAdapter(view);
+            }
+        };
+
+        GridLayoutManager gridLayoutManager = new GridLayoutManager(getContext(), 2);
+        recyclerView.setLayoutManager(gridLayoutManager);
+        adapter.startListening();
+        recyclerView.setAdapter(adapter);
 
     }
 }
