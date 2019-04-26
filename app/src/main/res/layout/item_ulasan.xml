@@ -1,44 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:screenOrientation="portrait">
 
     <android.support.v7.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="16dp"
-        app:layout_constraintTop_toTopOf="parent">
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:clickable="true"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
 
         <android.support.constraint.ConstraintLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?attr/selectableItemBackgroundBorderless">
 
             <ImageView
+                android:id="@+id/iuiGambarUser"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
-                android:layout_margin="16dp"
-                android:id="@+id/iuiGambarUser"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintStart_toStartOf="parent"/>
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
+                android:id="@+id/iutNamaUser"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:id="@+id/iutNamaUser"
-                android:text="Nama User"
-                android:textColor="#000"
                 android:layout_marginStart="16dp"
+                android:textSize="14sp"
+                android:text="Nama User"
+                android:textColor="#99000000"
+                app:layout_constraintBottom_toBottomOf="@id/iuiGambarUser"
                 app:layout_constraintStart_toEndOf="@id/iuiGambarUser"
-                app:layout_constraintTop_toTopOf="@id/iuiGambarUser"
-                app:layout_constraintBottom_toBottomOf="@id/iuiGambarUser"/>
+                app:layout_constraintTop_toTopOf="@id/iuiGambarUser" />
 
             <ImageView
                 android:id="@+id/iuStar1"
                 android:layout_width="20dp"
                 android:layout_height="20dp"
                 android:layout_marginStart="16dp"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="8dp"
                 android:background="@drawable/ic_star_isi"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/iuiGambarUser" />
@@ -47,7 +57,7 @@
                 android:id="@+id/iuStar2"
                 android:layout_width="20dp"
                 android:layout_height="20dp"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="8dp"
                 android:background="@drawable/ic_star_isi"
                 app:layout_constraintStart_toEndOf="@id/iuStar1"
                 app:layout_constraintTop_toBottomOf="@id/iuiGambarUser" />
@@ -56,7 +66,7 @@
                 android:id="@+id/iuStar3"
                 android:layout_width="20dp"
                 android:layout_height="20dp"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="8dp"
                 android:background="@drawable/ic_star_isi"
                 app:layout_constraintStart_toEndOf="@id/iuStar2"
                 app:layout_constraintTop_toBottomOf="@id/iuiGambarUser" />
@@ -65,7 +75,7 @@
                 android:id="@+id/iuStar4"
                 android:layout_width="20dp"
                 android:layout_height="20dp"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="8dp"
                 android:background="@drawable/ic_star_isi"
                 app:layout_constraintStart_toEndOf="@id/iuStar3"
                 app:layout_constraintTop_toBottomOf="@id/iuiGambarUser" />
@@ -74,18 +84,25 @@
                 android:id="@+id/iuStar5"
                 android:layout_width="20dp"
                 android:layout_height="20dp"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="8dp"
                 android:background="@drawable/ic_star_isi"
                 app:layout_constraintStart_toEndOf="@id/iuStar4"
                 app:layout_constraintTop_toBottomOf="@id/iuiGambarUser" />
 
             <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
                 android:id="@+id/iutUlasan"
-                android:text="ajrghpiurgfuishgiusheriguhesiurgiuhergheigrousegrueorugeourgfuowebrofuwehoiurgouwiegioewugoiusgf"
-                android:layout_margin="16dp"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="16dp"
+                android:textColor="#99000000"
+                android:textSize="12sp"
+                android:text="Saya sangat senang sekali bisa datang ke tempat wisata desa Gayungan ini, disamping tempat yang bagus, keindahan alam yang menarik dan sangat bagus sekalui, wah saya puas sekali"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/iuStar1"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"/>
 
         </android.support.constraint.ConstraintLayout>
