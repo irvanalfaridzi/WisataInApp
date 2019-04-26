@@ -10,6 +10,8 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.example.wisatain.Adapters.MainTiketAdapter;
 import com.example.wisatain.Items.Tiket;
@@ -35,6 +37,15 @@ public class TiketMenungguKonfirmasiActivity extends AppCompatActivity {
 
     @BindView(R.id.tmkRecyclerView)
     RecyclerView recyclerView;
+
+    @BindView(R.id.tmkBelumpunyatiket)
+    ImageView keteranganGambar;
+
+    @BindView(R.id.tmkBelummemiliki)
+    TextView keteranganTulisan1;
+
+    @BindView(R.id.tmkBeliTiket)
+    TextView keteranganTulisan2;
 
     FirebaseAuth mAuth;
     FirebaseUser mUser;
@@ -100,6 +111,16 @@ public class TiketMenungguKonfirmasiActivity extends AppCompatActivity {
                     arrayJumlahTiket.add(getJumlahTiket);
                     arrayTotalHarga.add(getTotalHarga);
                     arrayTiketStatus.add(getTiketStatus);
+
+                    if (getTiketKey != null) {
+                        keteranganGambar.setVisibility(View.GONE);
+                        keteranganTulisan1.setVisibility(View.GONE);
+                        keteranganTulisan2.setVisibility(View.GONE);
+                    } else {
+                        keteranganGambar.setVisibility(View.VISIBLE);
+                        keteranganTulisan1.setVisibility(View.VISIBLE);
+                        keteranganTulisan2.setVisibility(View.VISIBLE);
+                    }
 
                 }
 

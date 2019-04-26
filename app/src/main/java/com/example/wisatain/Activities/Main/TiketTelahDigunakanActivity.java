@@ -9,6 +9,8 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.example.wisatain.Adapters.MainTiketAdapter;
 import com.example.wisatain.Items.Tiket;
@@ -32,6 +34,15 @@ public class TiketTelahDigunakanActivity extends AppCompatActivity {
 
     @BindView(R.id.ttdRecyclerView)
     RecyclerView recyclerView;
+
+    @BindView(R.id.ttdBelumpunyatiket)
+    ImageView keteranganGambar;
+
+    @BindView(R.id.ttdBelummemiliki)
+    TextView keteranganTulisan1;
+
+    @BindView(R.id.ttdBeliTiket)
+    TextView keteranganTulisan2;
 
     FirebaseAuth mAuth;
     FirebaseUser mUser;
@@ -59,18 +70,17 @@ public class TiketTelahDigunakanActivity extends AppCompatActivity {
 
         mAuth = FirebaseAuth.getInstance();
         mUser = mAuth.getCurrentUser();
-        mDatabase = FirebaseDatabase.getInstance();
-        mTiket = mDatabase.getReference().child("Tiket");
-        mUsers = mDatabase.getReference().child("Users");
-
         getUID = mUser.getUid();
+        mDatabase = FirebaseDatabase.getInstance();
+        mUsers = mDatabase.getReference().child("Users");
+        mTiket = mUsers.child(getUID).child("Tiket").child("SudahDigunakan");
 
         loadData();
     }
 
     public void loadData() {
 
-        mTiket.child("TelahDigunakan").orderByChild("UIDUser").equalTo(getUID).addValueEventListener(new ValueEventListener() {
+        mTiket.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 for (DataSnapshot ds : dataSnapshot.getChildren()) {
@@ -80,7 +90,7 @@ public class TiketTelahDigunakanActivity extends AppCompatActivity {
                     getTanggalKunjungan = ds.child("TanggalKunjungan").getValue(String.class);
                     getJumlahTiket = ds.child("Jumlah").getValue(String.class);
                     getTotalHarga = ds.child("TotalHarga").getValue(String.class);
-                    Log.d("testkey", "onDataChange: " + getTiketKey + " " + getNamaWisata);
+                    Log.d("ttdtestkey", "onDataChange: " + getTiketKey + " " + getNamaWisata);
 
                     arrayTiketKey.add(getTiketKey);
                     arrayNamaWisata.add(getNamaWisata);
@@ -88,6 +98,16 @@ public class TiketTelahDigunakanActivity extends AppCompatActivity {
                     arrayTanggalKunjungan.add(getTanggalKunjungan);
                     arrayJumlahTiket.add(getJumlahTiket);
                     arrayTotalHarga.add(getTotalHarga);
+
+                    if (getTiketKey != null) {
+                        keteranganGambar.setVisibility(View.GONE);
+                        keteranganTulisan1.setVisibility(View.GONE);
+                        keteranganTulisan2.setVisibility(View.GONE);
+                    } else {
+                        keteranganGambar.setVisibility(View.VISIBLE);
+                        keteranganTulisan1.setVisibility(View.VISIBLE);
+                        keteranganTulisan2.setVisibility(View.VISIBLE);
+                    }
 
                     showData();
                 }

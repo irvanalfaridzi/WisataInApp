@@ -19,8 +19,9 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <android.support.constraint.ConstraintLayout
+            android:id="@+id/ktCoonstraint"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:background="?attr/selectableItemBackgroundBorderless">
 
             <ImageView
@@ -77,6 +78,7 @@
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="16dp"
+                android:layout_marginBottom="16dp"
                 android:text="6 Tiket"
                 android:textColor="@color/colorButton"
                 android:textSize="14sp"
@@ -91,23 +93,15 @@
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="16dp"
+                android:layout_marginBottom="16dp"
                 android:text="Rp 25000"
                 android:textAlignment="textEnd"
                 android:textColor="@color/colorButton"
                 android:textSize="14sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@id/ikttJumlahTiket"
-                app:layout_constraintTop_toBottomOf="@id/ikttNamaUser" />
-
-            <ImageView
-                android:id="@+id/garisBawah"
-                android:layout_width="0dp"
-                android:layout_height="1dp"
-                android:background="#f5f5f5"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="@id/ikttJumlahTiket"
-                app:layout_constraintTop_toBottomOf="@id/ikttJumlahTiket" />
+                app:layout_constraintTop_toBottomOf="@id/ikttNamaUser"
+                app:layout_constraintBottom_toBottomOf="parent"/>
 
         </android.support.constraint.ConstraintLayout>
 
