@@ -77,6 +77,12 @@ public class ProfilWisataUserActivity extends AppCompatActivity {
     @BindView(R.id.txtInputUlasan)
     EditText inputUlasan;
 
+    @BindView(R.id.pwutextUsername)
+    TextView txtUsername;
+
+    @BindView(R.id.pwuimgProfile)
+    ImageView imgGambarProfil;
+
     @BindView(R.id.pwuRecyclerView)
     RecyclerView recyclerView;
 
@@ -172,6 +178,22 @@ public class ProfilWisataUserActivity extends AppCompatActivity {
                     }
                 }
 
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+
+        mUsers.child(getUID).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                String txtNamaUser = dataSnapshot.child("Nama").getValue(String.class);
+                String imgGambarUserURL = dataSnapshot.child("FotoURL").getValue(String.class);
+
+                txtUsername.setText(txtNamaUser);
+                Glide.with(getApplicationContext()).load(imgGambarUserURL).into(imgGambarProfil);
             }
 
             @Override
