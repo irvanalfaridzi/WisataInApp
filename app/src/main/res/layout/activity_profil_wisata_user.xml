@@ -339,8 +339,8 @@
                 android:id="@+id/inputStar1"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
-                android:layout_marginEnd="4dp"
                 android:layout_marginTop="16dp"
+                android:layout_marginEnd="4dp"
                 android:background="@drawable/ic_star_isi"
                 android:textOff=" "
                 android:textOn=" "
@@ -351,8 +351,8 @@
                 android:id="@+id/inputStar2"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
-                android:layout_marginEnd="4dp"
                 android:layout_marginTop="16dp"
+                android:layout_marginEnd="4dp"
                 android:background="@drawable/ic_star_isi"
                 android:textOff=" "
                 android:textOn=" "
@@ -364,14 +364,14 @@
                 android:layout_width="30dp"
                 android:layout_height="30dp"
                 android:layout_marginStart="4dp"
-                android:layout_marginEnd="4dp"
                 android:layout_marginTop="16dp"
+                android:layout_marginEnd="4dp"
                 android:background="@drawable/ic_star_isi"
                 android:textOff=" "
                 android:textOn=" "
-                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/pwuimgProfile"/>
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/pwuimgProfile" />
 
             <ToggleButton
                 android:id="@+id/inputStar4"
@@ -382,9 +382,9 @@
                 android:background="@drawable/ic_star_isi"
                 android:textOff=" "
                 android:textOn=" "
+                app:layout_constraintEnd_toStartOf="@id/inputStar5"
                 app:layout_constraintStart_toEndOf="@id/inputStar3"
-                app:layout_constraintTop_toBottomOf="@id/pwuimgProfile"
-                app:layout_constraintEnd_toStartOf="@id/inputStar5"/>
+                app:layout_constraintTop_toBottomOf="@id/pwuimgProfile" />
 
             <ToggleButton
                 android:id="@+id/inputStar5"
@@ -397,7 +397,7 @@
                 android:textOff=" "
                 android:textOn=" "
                 app:layout_constraintStart_toEndOf="@id/inputStar4"
-                app:layout_constraintTop_toBottomOf="@id/pwuimgProfile"/>
+                app:layout_constraintTop_toBottomOf="@id/pwuimgProfile" />
 
             <ImageView
                 android:id="@+id/pwuimgProfile"
@@ -452,23 +452,22 @@
                 android:id="@+id/garisBtnUlasan"
                 android:layout_width="0dp"
                 android:layout_height="1dp"
-                android:background="#f5f5f5"
                 android:layout_marginStart="16dp"
-                android:layout_marginEnd="16dp"
                 android:layout_marginTop="16dp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/btnUlasan"
+                android:layout_marginEnd="16dp"
+                android:background="#f5f5f5"
                 app:layout_constraintEnd_toEndOf="parent"
-                />
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/btnUlasan" />
 
             <android.support.v7.widget.RecyclerView
+                android:id="@+id/pwuRecyclerView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/pwuRecyclerView"
-                app:layout_constraintTop_toBottomOf="@id/garisBtnUlasan"
-                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"/>
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/garisBtnUlasan" />
 
         </android.support.constraint.ConstraintLayout>
 
