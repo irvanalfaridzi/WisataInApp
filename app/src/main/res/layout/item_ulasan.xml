@@ -36,10 +36,12 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
                 android:textSize="14sp"
                 android:text="Nama User"
                 android:textColor="#99000000"
                 app:layout_constraintBottom_toBottomOf="@id/iuiGambarUser"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@id/iuiGambarUser"
                 app:layout_constraintTop_toTopOf="@id/iuiGambarUser" />
 
