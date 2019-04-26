@@ -99,7 +99,14 @@ public class ProfilWisataUserActivity extends AppCompatActivity {
     String inputRating;
     String intentKey;
     public String getkey, getGambarWisataURL, getNamaWisata, getDeksripsiWisata, getJamOperasionalWisata, getCocokUntukWisata, getDetailLokasiWisata, getHargaTiketWisata, getKotaWisata;
+    public String getUlasanKey, getGambarProfilUser, getNamaUser, getRatingUser,getUlasanUser;
     String getUID;
+
+    ArrayList<String> arrayUlasanKey = new ArrayList<>();
+    ArrayList<String> arrayGambarProfile = new ArrayList<>();
+    ArrayList<String> arrayNamaUser = new ArrayList<>();
+    ArrayList<String> arrayRatingUser = new ArrayList<>();
+    ArrayList<String> arrayUlasanUser = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -315,7 +322,8 @@ public class ProfilWisataUserActivity extends AppCompatActivity {
                         inputUlasan.getText().toString().trim()
                         );
 
-                mUlasan.setValue(RU).addOnCompleteListener(new OnCompleteListener<Void>() {
+                final String key = mDatabase.getReference("Ulasan").push().getKey();
+                mUlasan.child(key).setValue(RU).addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
                         if (task.isSuccessful()) {
@@ -357,7 +365,17 @@ public class ProfilWisataUserActivity extends AppCompatActivity {
                 String jumlahRating = dataSnapshot.child("JumlahRating").getValue(String.class);
 
                 for (DataSnapshot ds : dataSnapshot.getChildren()) {
+                    getUlasanKey = ds.getKey();
+                    getNamaUser = ds.child("NamaUser").getValue(String.class);
+                    getGambarProfilUser = ds.child("GambarProfilrUser").getValue(String.class);
+                    getRatingUser = ds.child("RatingUser").getValue(String.class);
+                    getUlasanUser = ds.child("UlasanUser").getValue(String.class);
 
+                    arrayUlasanKey.add(getUlasanKey);
+                    arrayGambarProfile.add(getGambarProfilUser);
+                    arrayNamaUser.add(getNamaUser);
+                    arrayRatingUser.add(getRatingUser);
+                    arrayUlasanUser.add(getUlasanUser);
                 }
             }
 
@@ -373,6 +391,41 @@ public class ProfilWisataUserActivity extends AppCompatActivity {
         adapter = new FirebaseRecyclerAdapter<Ulasan, UlasanAdapter>(options) {
             @Override
             protected void onBindViewHolder(@NonNull UlasanAdapter holder, int position, @NonNull Ulasan model) {
+
+                holder.NamaUser.setText(arrayNamaUser.get(position));
+                holder.IsiUlasan.setText(arrayUlasanUser.get(position));
+                Glide.with(getApplicationContext()).load(arrayGambarProfile.get(position)).into(holder.GambarUser);
+                if (arrayRatingUser.get(position).equals("1")) {
+                    Glide.with(getApplicationContext()).load(R.drawable.ic_star_isi).into(holder.Star1);
+                    Glide.with(getApplicationContext()).load(R.drawable.ic_star_tidak).into(holder.Star2);
+                    Glide.with(getApplicationContext()).load(R.drawable.ic_star_tidak).into(holder.Star3);
+                    Glide.with(getApplicationContext()).load(R.drawable.ic_star_tidak).into(holder.Star4);
+                    Glide.with(getApplicationContext()).load(R.drawable.ic_star_tidak).into(holder.Star5);
+                } else if (arrayRatingUser.get(position).equals("2")) {
+                    Glide.with(getApplicationContext()).load(R.drawable.ic_star_isi).into(holder.Star1);
+                    Glide.with(getApplicationContext()).load(R.drawable.ic_star_isi).into(holder.Star2);
+                    Glide.with(getApplicationContext()).load(R.drawable.ic_star_tidak).into(holder.Star3);
+                    Glide.with(getApplicationContext()).load(R.drawable.ic_star_tidak).into(holder.Star4);
+                    Glide.with(getApplicationContext()).load(R.drawable.ic_star_tidak).into(holder.Star5);
+                } else if (arrayRatingUser.get(position).equals("3")) {
+                    Glide.with(getApplicationContext()).load(R.drawable.ic_star_isi).into(holder.Star1);
+                    Glide.with(getApplicationContext()).load(R.drawable.ic_star_isi).into(holder.Star2);
+                    Glide.with(getApplicationContext()).load(R.drawable.ic_star_isi).into(holder.Star3);
+                    Glide.with(getApplicationContext()).load(R.drawable.ic_star_tidak).into(holder.Star4);
+                    Glide.with(getApplicationContext()).load(R.drawable.ic_star_tidak).into(holder.Star5);
+                } else if (arrayRatingUser.get(position).equals("4")) {
+                    Glide.with(getApplicationContext()).load(R.drawable.ic_star_isi).into(holder.Star1);
+                    Glide.with(getApplicationContext()).load(R.drawable.ic_star_isi).into(holder.Star2);
+                    Glide.with(getApplicationContext()).load(R.drawable.ic_star_isi).into(holder.Star3);
+                    Glide.with(getApplicationContext()).load(R.drawable.ic_star_isi).into(holder.Star4);
+                    Glide.with(getApplicationContext()).load(R.drawable.ic_star_tidak).into(holder.Star5);
+                } else if (arrayRatingUser.get(position).equals("5")) {
+                    Glide.with(getApplicationContext()).load(R.drawable.ic_star_isi).into(holder.Star1);
+                    Glide.with(getApplicationContext()).load(R.drawable.ic_star_isi).into(holder.Star2);
+                    Glide.with(getApplicationContext()).load(R.drawable.ic_star_isi).into(holder.Star3);
+                    Glide.with(getApplicationContext()).load(R.drawable.ic_star_isi).into(holder.Star4);
+                    Glide.with(getApplicationContext()).load(R.drawable.ic_star_isi).into(holder.Star5);
+                }
 
             }
 
