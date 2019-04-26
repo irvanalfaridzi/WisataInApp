@@ -359,66 +359,6 @@
 
             <!-- //Card 4-->
 
-            <android.support.v7.widget.CardView
-                android:id="@+id/cardGunung"
-                android:layout_width="156dp"
-                android:layout_height="96dp"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="32dp"
-                android:layout_marginEnd="16dp"
-                android:background="?attr/selectableItemBackgroundBorderless"
-                android:clickable="true"
-                app:cardBackgroundColor="#ffffff"
-                app:cardCornerRadius="8dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="@id/cardKuliner"
-                app:layout_constraintTop_toBottomOf="@id/cardKuliner">
-
-                <android.support.constraint.ConstraintLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="?attr/selectableItemBackgroundBorderless">
-
-                    <ImageView
-                        android:id="@+id/imgGunung"
-                        android:layout_width="48dp"
-                        android:layout_height="48dp"
-                        android:layout_marginLeft="16dp"
-                        android:layout_marginTop="24dp"
-                        android:layout_marginBottom="24dp"
-                        android:background="@drawable/profile_user"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="8dp"
-                        android:layout_marginTop="16dp"
-                        android:layout_marginBottom="16dp"
-                        android:lineHeight="17sp"
-                        android:text="Gunung"
-                        android:textColor="#99000000"
-                        android:textSize="14sp"
-                        app:layout_constraintBottom_toBottomOf="@id/imgGunung"
-                        app:layout_constraintStart_toEndOf="@id/imgGunung"
-                        app:layout_constraintTop_toTopOf="@id/imgGunung" />
-
-                    <TextView
-                        android:id="@+id/stipgunung"
-                        android:layout_width="8dp"
-                        android:layout_height="match_parent"
-                        android:background="@drawable/stripperkebunan"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
-
-                </android.support.constraint.ConstraintLayout>
-
-            </android.support.v7.widget.CardView>
-
-
             <Button
                 android:id="@+id/mfBtnMaps"
                 android:layout_width="0dp"
@@ -433,7 +373,7 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/cardGunung" />
+                app:layout_constraintTop_toBottomOf="@id/cardKuliner" />
 
         </android.support.constraint.ConstraintLayout>
 
