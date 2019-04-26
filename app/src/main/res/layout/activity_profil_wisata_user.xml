@@ -345,7 +345,7 @@
                 android:textOff=" "
                 android:textOn=" "
                 app:layout_constraintEnd_toStartOf="@id/inputStar2"
-                app:layout_constraintTop_toBottomOf="@id/tvGarisMaps" />
+                app:layout_constraintTop_toBottomOf="@id/imgProfile" />
 
             <ToggleButton
                 android:id="@+id/inputStar2"
@@ -357,7 +357,7 @@
                 android:textOff=" "
                 android:textOn=" "
                 app:layout_constraintEnd_toStartOf="@id/inputStar3"
-                app:layout_constraintTop_toBottomOf="@id/tvGarisMaps" />
+                app:layout_constraintTop_toBottomOf="@id/imgProfile" />
 
             <ToggleButton
                 android:id="@+id/inputStar3"
@@ -371,7 +371,7 @@
                 android:textOn=" "
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tvGarisMaps"/>
+                app:layout_constraintTop_toBottomOf="@id/imgProfile"/>
 
             <ToggleButton
                 android:id="@+id/inputStar4"
@@ -383,7 +383,7 @@
                 android:textOff=" "
                 android:textOn=" "
                 app:layout_constraintStart_toEndOf="@id/inputStar3"
-                app:layout_constraintTop_toBottomOf="@id/tvGarisMaps"
+                app:layout_constraintTop_toBottomOf="@id/imgProfile"
                 app:layout_constraintEnd_toStartOf="@id/inputStar5"/>
 
             <ToggleButton
@@ -397,19 +397,7 @@
                 android:textOff=" "
                 android:textOn=" "
                 app:layout_constraintStart_toEndOf="@id/inputStar4"
-                app:layout_constraintTop_toBottomOf="@id/tvGarisMaps"/>
-
-            <ImageView
-                android:id="@+id/tvGarisRate"
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginEnd="16dp"
-                android:background="#f5f5f5"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/inputStar5" />
+                app:layout_constraintTop_toBottomOf="@id/imgProfile"/>
 
             <ImageView
                 android:id="@+id/imgProfile"
@@ -419,7 +407,7 @@
                 android:layout_marginTop="16dp"
                 android:background="@drawable/profile_user"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tvGarisRate" />
+                app:layout_constraintTop_toBottomOf="@id/tvGarisMaps" />
 
             <TextView
                 android:id="@+id/textUsername"
@@ -446,7 +434,7 @@
                 android:hint="Masukkan ulasan"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/imgProfile" />
+                app:layout_constraintTop_toBottomOf="@id/inputStar3" />
 
             <Button
                 android:id="@+id/btnUlasan"
