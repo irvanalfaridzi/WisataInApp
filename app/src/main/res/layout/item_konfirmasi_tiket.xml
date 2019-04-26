@@ -33,14 +33,13 @@
 
             <TextView
                 android:id="@+id/ikttRefTransaksi"
-                android:layout_width="0dp"
+                android:layout_width="175dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="24dp"
                 android:layout_marginEnd="16dp"
                 android:text="No transaksi"
                 android:textSize="12sp"
-                app:layout_constraintEnd_toStartOf="@id/ikttTanggalKunjungan"
                 app:layout_constraintStart_toEndOf="@id/iktiGambarBukti"
                 app:layout_constraintTop_toTopOf="parent" />
 
