@@ -10,6 +10,8 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.example.wisatain.Adapters.MainTiketAdapter;
 import com.example.wisatain.Items.Tiket;
@@ -36,6 +38,15 @@ public class TiketBelumDigunakanActivity extends AppCompatActivity {
 
     @BindView(R.id.toolbar)
     Toolbar toolbar;
+
+    @BindView(R.id.tbdBelumpunyatiket)
+    ImageView keteranganGambar;
+
+    @BindView(R.id.tbdBelummemiliki)
+    TextView keteranganTulisan1;
+
+    @BindView(R.id.tbdBeliTiket)
+    TextView keteranganTulisan2;
 
     FirebaseAuth mAuth;
     FirebaseUser mUser;
@@ -95,6 +106,16 @@ public class TiketBelumDigunakanActivity extends AppCompatActivity {
                     arrayTanggalKunjungan.add(getTanggalKunjungan);
                     arrayJumlahTiket.add(getJumlahTiket);
                     arrayTotalHarga.add(getTotalHarga);
+
+                    if (getTiketKey != null) {
+                        keteranganGambar.setVisibility(View.GONE);
+                        keteranganTulisan1.setVisibility(View.GONE);
+                        keteranganTulisan2.setVisibility(View.GONE);
+                    } else {
+                        keteranganGambar.setVisibility(View.VISIBLE);
+                        keteranganTulisan1.setVisibility(View.VISIBLE);
+                        keteranganTulisan2.setVisibility(View.VISIBLE);
+                    }
 
                 }
             }

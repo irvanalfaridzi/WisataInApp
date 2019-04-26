@@ -3,6 +3,7 @@ package com.example.wisatain.Adapters;
 import android.content.Context;
 import android.content.Intent;
 import android.support.annotation.NonNull;
+import android.support.constraint.ConstraintLayout;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ImageView;
@@ -16,6 +17,7 @@ public class KonfirmasiTiketAdapter extends RecyclerView.ViewHolder implements V
     public TextView refTransaksi, namaUser, jumlahTiket, totalHarga, tanggalKunjungan;
     public ImageView gambarBukti;
     public String key;
+    public ConstraintLayout constraintLayout;
     private Context context;
 
     public KonfirmasiTiketAdapter(@NonNull View itemView) {
@@ -27,8 +29,9 @@ public class KonfirmasiTiketAdapter extends RecyclerView.ViewHolder implements V
         totalHarga = itemView.findViewById(R.id.ikttTotalHarga);
         tanggalKunjungan = itemView.findViewById(R.id.ikttTanggalKunjungan);
         gambarBukti = itemView.findViewById(R.id.iktiGambarBukti);
+        constraintLayout = itemView.findViewById(R.id.ktCoonstraint);
 
-        itemView.setOnClickListener(this);
+        constraintLayout.setOnClickListener(this);
     }
 
 

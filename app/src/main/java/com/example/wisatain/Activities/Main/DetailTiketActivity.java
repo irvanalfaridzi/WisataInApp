@@ -86,6 +86,7 @@ public class DetailTiketActivity extends AppCompatActivity {
     DatabaseReference mTiketMenunggu;
     DatabaseReference mTiketKonfirmasi;
     DatabaseReference mTiketBelumDigunakan;
+    DatabaseReference mTiketSudahDigunakan;
     StorageReference mBuktiRef;
 
     Uri uriBuktiPembayaran;
@@ -116,6 +117,7 @@ public class DetailTiketActivity extends AppCompatActivity {
         mUsers = mDatabase.getReference().child("Users").child(getUIDUser);
         mTiketMenunggu = mUsers.child("Tiket").child("MenungguKonfirmasi");
         mTiketBelumDigunakan = mUsers.child("Tiket").child("BelumDigunakan");
+        mTiketSudahDigunakan = mUsers.child("Tiket").child("SudahDigunakan");
 
         loadUser();
 
@@ -134,6 +136,10 @@ public class DetailTiketActivity extends AppCompatActivity {
             findViewById(R.id.dtBtnUploadBukti).setVisibility(View.GONE);
             keteranganInput.setVisibility(View.GONE);
             belumDigunakan();
+        } else if (intentTiketStatus.equals("Telah Digunakan")) {
+            findViewById(R.id.dtBtnUploadBukti).setVisibility(View.GONE);
+            keteranganInput.setVisibility(View.GONE);
+            sudahDigunakan();
         }
 
     }
@@ -227,6 +233,50 @@ public class DetailTiketActivity extends AppCompatActivity {
                     e.printStackTrace();
                 }
 
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+
+    }
+
+    public void sudahDigunakan() {
+
+        mTiketSudahDigunakan.child(intentTiketKey).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                String key = dataSnapshot.getKey();
+                getRefTransaksi = dataSnapshot.child("RefTransaksi").getValue(String.class);
+                getTanggalTransaksi = dataSnapshot.child("TanggalPembelian").getValue(String.class);
+                getNamaWisata = dataSnapshot.child("NamaWisata").getValue(String.class);
+                getWilayahWisata = dataSnapshot.child("WilayahWisata").getValue(String.class);
+                getLokasiwisata = dataSnapshot.child("LokasiWisata").getValue(String.class);
+                getJumlahTiket = dataSnapshot.child("Jumlah").getValue(String.class);
+                getTanggalPenggunaan = dataSnapshot.child("TanggalKunjungan").getValue(String.class);
+                getTotalHarga = dataSnapshot.child("TotalHarga").getValue(String.class);
+                getStatusTiket = dataSnapshot.child("TiketStatus").getValue(String.class);
+
+                refTransaksi.setText(getRefTransaksi);
+                tanggalTransaksi.setText(getTanggalTransaksi);
+                namaWisata.setText(getNamaWisata);
+                lokasiWisata.setText(getLokasiwisata);
+                jumlahTiket.setText(getJumlahTiket);
+                tanggalPenggunaan.setText(getTanggalPenggunaan);
+                totalHarga.setText("Rp" + getTotalHarga);
+                statusTiket.setText(getStatusTiket);
+
+                try {
+                    MultiFormatWriter multiFormatWriter = new MultiFormatWriter();
+                    BitMatrix bitMatrix = multiFormatWriter.encode(intentTiketKey, BarcodeFormat.QR_CODE, 500, 500);
+                    BarcodeEncoder barcodeEncoder = new BarcodeEncoder();
+                    Bitmap bitmap = barcodeEncoder.createBitmap(bitMatrix);
+                    gambarActivity.setImageBitmap(bitmap);
+                } catch (WriterException e) {
+                    e.printStackTrace();
+                }
             }
 
             @Override
