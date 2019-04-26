@@ -201,6 +201,9 @@ public class BiodataWisataActivity extends AppCompatActivity {
                             mDatabase.getReference().child("Kategori").child(kategoriWisata).child(key).setValue(wisataAkun);
                             Intent intent = new Intent(BiodataWisataActivity.this, ProfilWisataOwnerActivity.class);
                             intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                            mDatabase.getReference().child("Ulasan").child(key).child("TotalRating").setValue("0");
+                            mDatabase.getReference().child("Ulasan").child(key).child("RataRataRating").setValue("0");
+                            mDatabase.getReference().child("Ulasan").child(key).child("JumlahRating").setValue("0");
                             startActivity(intent);
                             finish();
                         } else {
