@@ -4,13 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorPutih"
     android:screenOrientation="portrait"
+    android:background="@color/colorPutih"
     tools:context=".Fragments.MainFavoriteFragment">
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content">
 
         <android.support.constraint.ConstraintLayout
             android:layout_width="match_parent"
@@ -19,17 +19,14 @@
             <android.support.v7.widget.RecyclerView
                 android:id="@+id/mfRecyclerView"
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                android:layout_height="match_parent" />
 
             <ImageView
                 android:id="@+id/favGambarBelum"
-                android:layout_width="400dp"
-                android:layout_height="400dp"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
                 android:layout_marginStart="16dp"
+                android:layout_marginTop="56dp"
                 android:layout_marginEnd="16dp"
                 android:src="@drawable/favbelumada"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -44,6 +41,7 @@
                 android:layout_marginEnd="16dp"
                 android:text="Belum ada daftar favorit"
                 android:textColor="@color/colorGelap"
+                android:fontFamily="sans-serif-medium"
                 android:textSize="20sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -54,14 +52,12 @@
                 android:layout_width="224dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
-                android:layout_marginTop="24dp"
+                android:layout_marginTop="32dp"
                 android:layout_marginEnd="16dp"
-                android:layout_marginBottom="16dp"
                 android:text="Silahkan tambahkan tempat wisata favorit /daftar keinginan anda"
                 android:textAlignment="center"
                 android:textColor="#99000000"
                 android:textSize="14sp"
-                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tvBelumada" />
