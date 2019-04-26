@@ -66,16 +66,15 @@
 
             <TextView
                 android:id="@+id/tvTransaksi"
-                android:layout_width="0dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
                 android:layout_marginEnd="16dp"
                 android:lineHeight="17sp"
-                android:text="Ref. Transaksi"
+                android:text="No. Transaksi"
                 android:textColor="@color/colortextbiasa"
                 android:textSize="14sp"
-                app:layout_constraintEnd_toStartOf="@id/dktRefTransaksi"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tvDetail" />
 
@@ -83,7 +82,7 @@
                 android:id="@+id/dktRefTransaksi"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
+                android:layout_marginStart="114dp"
                 android:layout_marginTop="16dp"
                 android:layout_marginEnd="16dp"
                 android:text="r1313423r3"
@@ -91,8 +90,8 @@
                 android:textColor="@color/colortextbiasa"
                 android:textSize="14sp"
                 android:textStyle="normal"
-                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@id/tvTransaksi"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tvDetail" />
 
             <ImageView
