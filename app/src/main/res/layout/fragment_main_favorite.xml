@@ -10,7 +10,7 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent">
 
         <android.support.constraint.ConstraintLayout
             android:layout_width="match_parent"
@@ -19,10 +19,14 @@
             <android.support.v7.widget.RecyclerView
                 android:id="@+id/mfRecyclerView"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" />
+                android:layout_height="0dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <ImageView
-                android:id="@+id/favGambarBelum"
+                android:id="@+id/mfGambarBelum"
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
                 android:layout_marginStart="16dp"
@@ -34,7 +38,7 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/tvBelumada"
+                android:id="@+id/mfBelumada"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
@@ -45,10 +49,10 @@
                 android:textSize="20sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/favGambarBelum" />
+                app:layout_constraintTop_toBottomOf="@id/mfGambarBelum" />
 
             <TextView
-                android:id="@+id/tvSilahkan"
+                android:id="@+id/mfSilahkan"
                 android:layout_width="224dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
@@ -60,7 +64,7 @@
                 android:textSize="14sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tvBelumada" />
+                app:layout_constraintTop_toBottomOf="@id/mfBelumada" />
 
             <ProgressBar
                 android:id="@+id/mfProgressBar"

@@ -10,6 +10,8 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.example.wisatain.Activities.Main.MainActivity;
@@ -40,6 +42,15 @@ public class MainFavoriteFragment extends Fragment {
 
     @BindView(R.id.mfRecyclerView)
     RecyclerView recyclerView;
+
+    @BindView(R.id.mfGambarBelum)
+    ImageView keteranganGambar;
+
+    @BindView(R.id.mfBelumada)
+    TextView keteranganTulisan1;
+
+    @BindView(R.id.mfSilahkan)
+    TextView keteranganTulisan2;
 
     FirebaseAuth mAuth;
     FirebaseUser mUser;
@@ -104,6 +115,16 @@ public class MainFavoriteFragment extends Fragment {
                     arrayNamaWisata.add(getNamaWisata);
                     arrayWilayahWisata.add(getWilayahWisata);
                     arrayFotoWisataURL.add(getFotoWisataURL);
+
+                    if (getWisataKey != null) {
+                        keteranganGambar.setVisibility(View.GONE);
+                        keteranganTulisan1.setVisibility(View.GONE);
+                        keteranganTulisan2.setVisibility(View.GONE);
+                    } else {
+                        keteranganGambar.setVisibility(View.VISIBLE);
+                        keteranganTulisan1.setVisibility(View.VISIBLE);
+                        keteranganTulisan2.setVisibility(View.VISIBLE);
+                    }
                 }
             }
 
