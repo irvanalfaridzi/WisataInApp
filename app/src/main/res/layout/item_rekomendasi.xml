@@ -35,7 +35,7 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <ToggleButton
-                android:id="@+id/inputStar1"
+                android:id="@+id/irkinputStar1"
                 android:layout_width="10dp"
                 android:layout_height="10dp"
                 android:layout_marginStart="8dp"
@@ -47,7 +47,7 @@
                 app:layout_constraintTop_toBottomOf="@id/irkGambarWisata" />
 
             <ToggleButton
-                android:id="@+id/inputStar2"
+                android:id="@+id/irkinputStar2"
                 android:layout_width="10dp"
                 android:layout_height="10dp"
                 android:layout_marginStart="4dp"
@@ -55,11 +55,11 @@
                 android:textOn=" "
                 android:textOff=" "
                 android:background="@drawable/ic_star_isi"
-                app:layout_constraintStart_toEndOf="@id/inputStar1"
+                app:layout_constraintStart_toEndOf="@id/irkinputStar1"
                 app:layout_constraintTop_toBottomOf="@id/irkGambarWisata" />
 
             <ToggleButton
-                android:id="@+id/inputStar3"
+                android:id="@+id/irkinputStar3"
                 android:layout_width="10dp"
                 android:layout_height="10dp"
                 android:layout_marginStart="4dp"
@@ -67,11 +67,11 @@
                 android:textOn=" "
                 android:textOff=" "
                 android:background="@drawable/ic_star_isi"
-                app:layout_constraintStart_toEndOf="@id/inputStar2"
+                app:layout_constraintStart_toEndOf="@id/irkinputStar2"
                 app:layout_constraintTop_toBottomOf="@id/irkGambarWisata" />
 
             <ToggleButton
-                android:id="@+id/inputStar4"
+                android:id="@+id/irkinputStar4"
                 android:layout_width="10dp"
                 android:layout_height="10dp"
                 android:layout_marginStart="4dp"
@@ -79,11 +79,11 @@
                 android:textOn=" "
                 android:textOff=" "
                 android:background="@drawable/ic_star_isi"
-                app:layout_constraintStart_toEndOf="@id/inputStar3"
+                app:layout_constraintStart_toEndOf="@id/irkinputStar3"
                 app:layout_constraintTop_toBottomOf="@id/irkGambarWisata" />
 
             <ToggleButton
-                android:id="@+id/inputStar5"
+                android:id="@+id/irkinputStar5"
                 android:layout_width="10dp"
                 android:layout_height="10dp"
                 android:layout_marginStart="4dp"
@@ -91,7 +91,7 @@
                 android:textOn=" "
                 android:textOff=" "
                 android:background="@drawable/ic_star_tidak"
-                app:layout_constraintStart_toEndOf="@id/inputStar4"
+                app:layout_constraintStart_toEndOf="@id/irkinputStar4"
                 app:layout_constraintTop_toBottomOf="@id/irkGambarWisata" />
 
             <TextView
@@ -110,7 +110,7 @@
                 android:textStyle="normal"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/inputStar1"
+                app:layout_constraintTop_toBottomOf="@id/irkinputStar1"
                 tools:text="Gungung Bromo"/>
 
             <TextView
