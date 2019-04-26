@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorPutih"
+    android:screenOrientation="portrait"
     tools:context=".Activities.Main.PesanTiketActivity">
 
 
@@ -101,13 +102,13 @@
                 android:fontFamily="sans-serif-medium"
                 android:letterSpacing="0.01"
                 android:lineSpacingExtra="3sp"
+                android:text="Rp 300.000"
                 android:textColor="#000000"
                 android:textSize="14sp"
                 android:textStyle="normal"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/ptiGambarWisata"
-                app:layout_constraintTop_toBottomOf="@+id/hargatiket"
-                android:text="Rp 300.000" />
+                app:layout_constraintTop_toBottomOf="@+id/hargatiket" />
 
             <ImageView
                 android:id="@+id/line-1"

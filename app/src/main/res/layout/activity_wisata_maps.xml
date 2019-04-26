@@ -3,21 +3,26 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:screenOrientation="portrait">
 
     <fragment xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
         android:id="@+id/wmfmap"
+        android:name="com.google.android.gms.maps.SupportMapFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:name="com.google.android.gms.maps.SupportMapFragment"
-        tools:context=".Activities.Main.WisataMapsActivity"/>
+        tools:context=".Activities.Main.WisataMapsActivity" />
 
     <Button
         android:id="@+id/wmBtnSearch"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/bgmasuk"
         android:text="SEARCH"
+        android:textColor="@color/colorPutih"
         android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="@id/wmfmap"
         app:layout_constraintEnd_toEndOf="@id/wmfmap"
@@ -25,14 +30,14 @@
         app:layout_constraintTop_toTopOf="@id/wmfmap" />
 
     <ProgressBar
+        android:id="@+id/wmProgressBar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/wmProgressBar"
         android:visibility="gone"
-        app:layout_constraintStart_toStartOf="@id/wmfmap"
+        app:layout_constraintBottom_toBottomOf="@id/wmfmap"
         app:layout_constraintEnd_toEndOf="@id/wmfmap"
-        app:layout_constraintTop_toTopOf="@id/wmfmap"
-        app:layout_constraintBottom_toBottomOf="@id/wmfmap"/>
+        app:layout_constraintStart_toStartOf="@id/wmfmap"
+        app:layout_constraintTop_toTopOf="@id/wmfmap" />
 
 </android.support.constraint.ConstraintLayout>
 

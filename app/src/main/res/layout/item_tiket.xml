@@ -6,7 +6,8 @@
     android:layout_marginStart="16dp"
     android:layout_marginTop="16dp"
     android:layout_marginBottom="16dp"
-    android:background="@color/colorPutih">
+    android:background="@color/colorPutih"
+    android:screenOrientation="portrait">
 
     <ImageView
         android:id="@+id/bgjmltiket"

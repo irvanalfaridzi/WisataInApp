@@ -4,76 +4,77 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:screenOrientation="portrait"
     tools:context=".Activities.Login.GantiSandiActivity">
 
     <TextView
+        android:id="@+id/gstKeterangan1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/gstKeterangan1"
-        android:text="Ganti Kata Sandi"
-        android:textSize="24dp"
-        android:textColor="#000000"
-        android:layout_marginTop="64dp"
         android:layout_marginStart="16dp"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"/>
+        android:layout_marginTop="64dp"
+        android:text="Ganti Kata Sandi"
+        android:textColor="#000000"
+        android:textSize="24dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
+        android:id="@+id/gstKeterangan2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/gstKeterangan2"
-        android:text="Selamat, kode sandi yang anda masukan benar! sekarang anda dapat memasukan kata sandi yang baru dengan mengisi dua kolom dibawah ini"
         android:layout_margin="16dp"
-        app:layout_constraintStart_toStartOf="parent"
+        android:text="Selamat, kode sandi yang anda masukan benar! sekarang anda dapat memasukan kata sandi yang baru dengan mengisi dua kolom dibawah ini"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/gstKeterangan1" />
 
     <TextView
+        android:id="@+id/gstKataSandi"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/gstKataSandi"
+        android:layout_margin="16dp"
         android:text="Kata sandi :"
         android:textColor="#000000"
-        android:layout_margin="16dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/gstKeterangan2" />
 
     <EditText
+        android:id="@+id/gsetKataSandi"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/gsetKataSandi"
-        android:hint="Masukan kata sandi anda"
         android:layout_margin="16dp"
+        android:hint="Masukan kata sandi anda"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/gstKataSandi"/>
+        app:layout_constraintTop_toBottomOf="@+id/gstKataSandi" />
 
     <TextView
+        android:id="@+id/gstKonfirmasiKataSandi"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/gstKonfirmasiKataSandi"
+        android:layout_margin="16dp"
         android:text="Kata sandi :"
         android:textColor="#000000"
-        android:layout_margin="16dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/gsetKataSandi" />
 
     <EditText
+        android:id="@+id/gsetKonfirmasiKataSandi"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/gsetKonfirmasiKataSandi"
-        android:hint="Masukan ulang kata sandi anda"
         android:layout_margin="16dp"
+        android:hint="Masukan ulang kata sandi anda"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/gstKonfirmasiKataSandi"/>
+        app:layout_constraintTop_toBottomOf="@+id/gstKonfirmasiKataSandi" />
 
     <Button
+        android:id="@+id/gsbtnGantiKataSandi"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/gsbtnGantiKataSandi"
-        android:text="Ganti Kata Sandi"
         android:layout_margin="16dp"
-        app:layout_constraintTop_toBottomOf="@+id/gsetKonfirmasiKataSandi"
+        android:text="Ganti Kata Sandi"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:layout_constraintTop_toBottomOf="@+id/gsetKonfirmasiKataSandi" />
 
 </android.support.constraint.ConstraintLayout>

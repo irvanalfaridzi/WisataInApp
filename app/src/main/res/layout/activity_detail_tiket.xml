@@ -4,98 +4,96 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:screenOrientation="portrait"
     tools:context=".Activities.Main.DetailTiketActivity">
 
     <ImageView
+        android:id="@+id/bgTiketAtas"
         android:layout_width="match_parent"
         android:layout_height="256dp"
-        android:id="@+id/bgTiketAtas"
         android:background="@color/colorButton"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
+        android:id="@+id/dttNamaWisataKeterangan"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/dttNamaWisataKeterangan"
-        android:text="Wisataku"
-        android:textColor="@color/colorPutih"
-        android:textSize="20sp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="24dp"
         android:layout_marginEnd="16dp"
+        android:text="Wisataku"
+        android:textColor="@color/colorPutih"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@id/bgTiketAtas"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:layout_constraintTop_toTopOf="@id/bgTiketAtas" />
 
     <ImageView
+        android:id="@+id/dtiGambarActivity"
         android:layout_width="116dp"
         android:layout_height="116dp"
-        android:id="@+id/dtiGambarActivity"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="16dp"
-        app:layout_constraintTop_toBottomOf="@id/dttLokasiWisataKeterangan"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:layout_constraintTop_toBottomOf="@id/dttLokasiWisataKeterangan" />
 
     <TextView
+        android:id="@+id/dtKeteranganInputGambar"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:id="@+id/dtKeteranganInputGambar"
-        android:text="Sentuh gambar di atas untuk mengupload bukti pembayaran"
-        android:textColor="@color/colorPutih"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="16dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/dtiGambarActivity"
+        android:text="Sentuh gambar di atas untuk mengupload bukti pembayaran"
+        android:textColor="@color/colorPutih"
+        app:layout_constraintBottom_toBottomOf="@id/bgTiketAtas"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="@id/bgTiketAtas"/>
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/dtiGambarActivity" />
 
     <TextView
+        android:id="@+id/tvDetail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/tvDetail"
-        android:text="Detail"
-        android:textSize="20sp"
-        android:lineHeight="24sp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
+        android:lineHeight="24sp"
+        android:text="Detail"
         android:textColor="@color/colorGelap"
+        android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/bgTiketAtas"
-        />
+        app:layout_constraintTop_toBottomOf="@id/bgTiketAtas" />
 
     <TextView
+        android:id="@+id/dttRefTransaksi"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/dttRefTransaksi"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
         android:text="No Transaksi"
         android:textColor="#99000000"
         android:textSize="14sp"
         android:textStyle="normal"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvDetail"
-        />
+        app:layout_constraintTop_toBottomOf="@id/tvDetail" />
 
     <TextView
+        android:id="@+id/dttRefTransaksiKeterangan"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/dttRefTransaksiKeterangan"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
         android:text="My Ref"
         android:textColor="#99000000"
         android:textSize="14sp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvDetail"/>
+        app:layout_constraintTop_toBottomOf="@id/tvDetail" />
 
     <TextView
         android:id="@+id/tvGarisNo"
@@ -111,29 +109,29 @@
         app:layout_constraintTop_toBottomOf="@id/dttRefTransaksiKeterangan" />
 
     <TextView
+        android:id="@+id/dttTanggalTransaksi"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/dttTanggalTransaksi"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
         android:text="Tanggal Transaksi"
         android:textColor="#99000000"
         android:textSize="14sp"
         android:textStyle="normal"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvGarisNo"/>
+        app:layout_constraintTop_toBottomOf="@+id/tvGarisNo" />
 
     <TextView
+        android:id="@+id/dttTanggalTransaksiKeterangan"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/dttTanggalTransaksiKeterangan"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
         android:text="Waktu Beli"
         android:textColor="#99000000"
         android:textSize="14dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvGarisNo"/>
+        app:layout_constraintTop_toBottomOf="@id/tvGarisNo" />
 
     <TextView
         android:id="@+id/tvGarisTgl"
@@ -149,43 +147,43 @@
         app:layout_constraintTop_toBottomOf="@id/dttTanggalTransaksi" />
 
     <TextView
+        android:id="@+id/dttLokasiWisataKeterangan"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/dttLokasiWisataKeterangan"
-        android:text="Surabaya"
-        android:textColor="@color/colorPutih"
-        android:textSize="14sp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="4dp"
         android:layout_marginEnd="16dp"
+        android:text="Surabaya"
+        android:textColor="@color/colorPutih"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/dttNamaWisataKeterangan"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:layout_constraintTop_toBottomOf="@id/dttNamaWisataKeterangan" />
 
     <TextView
+        android:id="@+id/dttJumlahTiket"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/dttJumlahTiket"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
         android:text="Jumlah Tiket"
         android:textColor="#99000000"
         android:textSize="14sp"
         android:textStyle="normal"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvGarisTgl"/>
+        app:layout_constraintTop_toBottomOf="@+id/tvGarisTgl" />
 
     <TextView
+        android:id="@+id/dttJumlahTiketKeterangan"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/dttJumlahTiketKeterangan"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
         android:text="100"
         android:textColor="#99000000"
         android:textSize="14sp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginTop="16dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@id/tvGarisTgl"/>
+        app:layout_constraintTop_toTopOf="@id/tvGarisTgl" />
 
     <TextView
         android:id="@+id/tvGarisJml"
@@ -201,30 +199,29 @@
         app:layout_constraintTop_toBottomOf="@id/dttJumlahTiketKeterangan" />
 
     <TextView
+        android:id="@+id/dttTanggalPenggunaan"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/dttTanggalPenggunaan"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
         android:text="Tanggal Penggunaan"
         android:textColor="#99000000"
         android:textSize="14sp"
         android:textStyle="normal"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvGarisJml"/>
+        app:layout_constraintTop_toBottomOf="@+id/tvGarisJml" />
 
     <TextView
+        android:id="@+id/dttTanggalPenggunaanKeterangan"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/dttTanggalPenggunaanKeterangan"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
         android:text="Tanggal Tiket"
         android:textColor="#99000000"
         android:textSize="14sp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginTop="16dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvGarisJml"
-        />
+        app:layout_constraintTop_toBottomOf="@id/tvGarisJml" />
 
     <TextView
         android:id="@+id/tvGarisTglPenggunaan"
@@ -240,29 +237,29 @@
         app:layout_constraintTop_toBottomOf="@id/dttTanggalPenggunaan" />
 
     <TextView
+        android:id="@+id/dttTotalharga"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/dttTotalharga"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
         android:text="Total Harga"
         android:textColor="#99000000"
         android:textSize="14sp"
         android:textStyle="normal"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvGarisTglPenggunaan"/>
+        app:layout_constraintTop_toBottomOf="@+id/tvGarisTglPenggunaan" />
 
     <TextView
+        android:id="@+id/dttTotalhargaKeterangan"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/dttTotalhargaKeterangan"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
         android:text="Rp 100000"
         android:textColor="#99000000"
         android:textSize="14sp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginTop="16dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvGarisTglPenggunaan"/>
+        app:layout_constraintTop_toBottomOf="@id/tvGarisTglPenggunaan" />
 
     <TextView
         android:id="@+id/tvGarisTotal"
@@ -278,31 +275,31 @@
         app:layout_constraintTop_toBottomOf="@id/dttTotalharga" />
 
     <TextView
+        android:id="@+id/dttStatusTiket"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/dttStatusTiket"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
         android:text="Status Tiket"
         android:textColor="#99000000"
         android:textSize="14sp"
         android:textStyle="normal"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginBottom="16dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvGarisTotal"/>
+        app:layout_constraintTop_toBottomOf="@id/tvGarisTotal" />
 
     <TextView
+        android:id="@+id/dttStatusTiketKeterangan"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/dttStatusTiketKeterangan"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
         android:text="Sudah Digunakan"
         android:textColor="#99000000"
         android:textSize="14sp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginBottom="16dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@id/tvGarisTotal"/>
+        app:layout_constraintTop_toTopOf="@id/tvGarisTotal" />
 
     <TextView
         android:id="@+id/tvGarisStatus"
@@ -318,21 +315,21 @@
         app:layout_constraintTop_toBottomOf="@id/dttStatusTiket" />
 
     <ProgressBar
+        android:id="@+id/dtProgressBar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/dtProgressBar"
         android:visibility="gone"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"/>
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
+        android:id="@+id/dtBtnUploadBukti"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/dtBtnUploadBukti"
-        android:text="Upload Bukti Transaksi"
         android:layout_margin="16dp"
+        android:text="Upload Bukti Transaksi"
         app:layout_constraintBottom_toBottomOf="parent" />
 
 </android.support.constraint.ConstraintLayout>

@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:screenOrientation="portrait"
     tools:context=".Activities.Main.ProfilWisataUserActivity">
 
     <android.support.v7.widget.Toolbar
@@ -340,9 +341,9 @@
                 android:layout_height="30dp"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
-                android:textOn=" "
-                android:textOff=" "
                 android:background="@drawable/ic_star_isi"
+                android:textOff=" "
+                android:textOn=" "
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tvGarisMaps" />
 
@@ -352,9 +353,9 @@
                 android:layout_height="30dp"
                 android:layout_marginStart="4dp"
                 android:layout_marginTop="16dp"
-                android:textOn=" "
-                android:textOff=" "
                 android:background="@drawable/ic_star_isi"
+                android:textOff=" "
+                android:textOn=" "
                 app:layout_constraintStart_toEndOf="@id/inputStar1"
                 app:layout_constraintTop_toBottomOf="@id/tvGarisMaps" />
 
@@ -364,9 +365,9 @@
                 android:layout_height="30dp"
                 android:layout_marginStart="4dp"
                 android:layout_marginTop="16dp"
-                android:textOn=" "
-                android:textOff=" "
                 android:background="@drawable/ic_star_isi"
+                android:textOff=" "
+                android:textOn=" "
                 app:layout_constraintStart_toEndOf="@id/inputStar2"
                 app:layout_constraintTop_toBottomOf="@id/tvGarisMaps" />
 
@@ -376,9 +377,9 @@
                 android:layout_height="30dp"
                 android:layout_marginStart="4dp"
                 android:layout_marginTop="16dp"
-                android:textOn=" "
-                android:textOff=" "
                 android:background="@drawable/ic_star_isi"
+                android:textOff=" "
+                android:textOn=" "
                 app:layout_constraintStart_toEndOf="@id/inputStar3"
                 app:layout_constraintTop_toBottomOf="@id/tvGarisMaps" />
 
@@ -388,9 +389,9 @@
                 android:layout_height="30dp"
                 android:layout_marginStart="4dp"
                 android:layout_marginTop="16dp"
-                android:textOn=" "
-                android:textOff=" "
                 android:background="@drawable/ic_star_tidak"
+                android:textOff=" "
+                android:textOn=" "
                 app:layout_constraintStart_toEndOf="@id/inputStar4"
                 app:layout_constraintTop_toBottomOf="@id/tvGarisMaps" />
 
@@ -410,54 +411,52 @@
                 android:id="@+id/imgProfile"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
-                android:background="@drawable/profile_user"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
+                android:background="@drawable/profile_user"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tvGarisRate"
-                />
+                app:layout_constraintTop_toBottomOf="@id/tvGarisRate" />
 
             <TextView
+                android:id="@+id/textUsername"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/textUsername"
-                android:text="Irvan Alfaridzi"
-                android:textSize="14sp"
-                android:textColor="@color/colorGelap"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
                 android:layout_marginBottom="16dp"
+                android:text="Irvan Alfaridzi"
+                android:textColor="@color/colorGelap"
+                android:textSize="14sp"
+                app:layout_constraintBottom_toBottomOf="@id/imgProfile"
                 app:layout_constraintStart_toEndOf="@id/imgProfile"
-                app:layout_constraintTop_toTopOf="@id/imgProfile"
-                app:layout_constraintBottom_toBottomOf="@id/imgProfile"/>
+                app:layout_constraintTop_toTopOf="@id/imgProfile" />
 
             <EditText
                 android:id="@+id/txtInputUlasan"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:hint="Masukkan ulasan"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="16dp"
                 android:layout_marginBottom="16dp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/imgProfile"
+                android:hint="Masukkan ulasan"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"/>
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/imgProfile" />
 
             <Button
+                android:id="@+id/btnUlasan"
                 android:layout_width="100dp"
                 android:layout_height="wrap_content"
-                android:id="@+id/btnUlasan"
-                android:layout_marginEnd="16dp"
                 android:layout_marginTop="1dp"
+                android:layout_marginEnd="16dp"
                 android:layout_marginBottom="16dp"
                 android:background="@drawable/bgtextext"
                 android:text="Kirim"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/txtInputUlasan"
                 app:layout_constraintBottom_toBottomOf="parent"
-                />
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/txtInputUlasan" />
 
         </android.support.constraint.ConstraintLayout>
 

@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:screenOrientation="portrait"
     tools:context=".Activities.Main.EditProfileActivity">
 
     <android.support.constraint.ConstraintLayout
@@ -18,10 +19,9 @@
             android:layout_marginTop="32dp"
             android:layout_marginEnd="16dp"
             android:background="@drawable/bgtext"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
             android:id="@+id/logoUser"
@@ -43,14 +43,14 @@
             android:layout_marginTop="0dp"
             android:layout_marginEnd="16dp"
             android:layout_marginBottom="0dp"
+            android:background="@android:color/transparent"
+            android:hint="Nama Pengguna"
             android:paddingTop="16dp"
             android:paddingBottom="16dp"
-            android:hint="Nama Pengguna"
-            android:background="@android:color/transparent"
-            app:layout_constraintStart_toEndOf="@id/logoUser"
-            app:layout_constraintTop_toTopOf="@id/tvNamaLengkap"
+            app:layout_constraintBottom_toBottomOf="@id/tvNamaLengkap"
             app:layout_constraintEnd_toEndOf="@id/tvNamaLengkap"
-            app:layout_constraintBottom_toBottomOf="@id/tvNamaLengkap"/>
+            app:layout_constraintStart_toEndOf="@id/logoUser"
+            app:layout_constraintTop_toTopOf="@id/tvNamaLengkap" />
 
         <TextView
             android:id="@+id/tvNomor"
@@ -60,10 +60,9 @@
             android:layout_marginTop="32dp"
             android:layout_marginEnd="16dp"
             android:background="@drawable/bgtext"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvNamaLengkap"
             app:layout_constraintEnd_toEndOf="parent"
-            />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvNamaLengkap" />
 
         <ImageView
             android:id="@+id/logoNomor"
@@ -85,15 +84,15 @@
             android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
             android:layout_marginBottom="16dp"
-            android:paddingTop="16dp"
-            android:paddingBottom="16dp"
             android:background="@android:color/transparent"
             android:hint="Nomor Telepon"
             android:inputType="phone"
-            app:layout_constraintStart_toEndOf="@id/logoNomor"
-            app:layout_constraintTop_toTopOf="@id/tvNomor"
+            android:paddingTop="16dp"
+            android:paddingBottom="16dp"
+            app:layout_constraintBottom_toBottomOf="@id/tvNomor"
             app:layout_constraintEnd_toEndOf="@id/tvNomor"
-            app:layout_constraintBottom_toBottomOf="@id/tvNomor"/>
+            app:layout_constraintStart_toEndOf="@id/logoNomor"
+            app:layout_constraintTop_toTopOf="@id/tvNomor" />
 
         <TextView
             android:id="@+id/tvTtl"
@@ -103,10 +102,9 @@
             android:layout_marginTop="32dp"
             android:layout_marginEnd="16dp"
             android:background="@drawable/bgtext"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvNomor"
             app:layout_constraintEnd_toEndOf="parent"
-            />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvNomor" />
 
         <ImageView
             android:id="@+id/logoTtl"
@@ -128,14 +126,14 @@
             android:layout_marginTop="0dp"
             android:layout_marginEnd="16dp"
             android:layout_marginBottom="0dp"
-            android:paddingTop="16dp"
-            android:paddingBottom="16dp"
             android:background="@android:color/transparent"
             android:hint="Tempat Tanggal Lahir"
-            app:layout_constraintStart_toEndOf="@id/logoTtl"
-            app:layout_constraintTop_toTopOf="@id/tvTtl"
+            android:paddingTop="16dp"
+            android:paddingBottom="16dp"
+            app:layout_constraintBottom_toBottomOf="@id/tvTtl"
             app:layout_constraintEnd_toEndOf="@id/tvTtl"
-            app:layout_constraintBottom_toBottomOf="@id/tvTtl"/>
+            app:layout_constraintStart_toEndOf="@id/logoTtl"
+            app:layout_constraintTop_toTopOf="@id/tvTtl" />
 
         <TextView
             android:id="@+id/tvAlamat"
@@ -145,10 +143,9 @@
             android:layout_marginTop="32dp"
             android:layout_marginEnd="16dp"
             android:background="@drawable/bgtext"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvTtl"
             app:layout_constraintEnd_toEndOf="parent"
-            />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvTtl" />
 
         <ImageView
             android:id="@+id/logoAlamat"
@@ -170,29 +167,29 @@
             android:layout_marginTop="0dp"
             android:layout_marginEnd="16dp"
             android:layout_marginBottom="0dp"
-            android:paddingTop="16dp"
-            android:paddingBottom="16dp"
             android:background="@android:color/transparent"
             android:hint="Alamat"
-            app:layout_constraintStart_toEndOf="@id/logoAlamat"
-            app:layout_constraintTop_toTopOf="@id/tvAlamat"
+            android:paddingTop="16dp"
+            android:paddingBottom="16dp"
+            app:layout_constraintBottom_toBottomOf="@id/tvAlamat"
             app:layout_constraintEnd_toEndOf="@id/tvAlamat"
-            app:layout_constraintBottom_toBottomOf="@id/tvAlamat"/>
+            app:layout_constraintStart_toEndOf="@id/logoAlamat"
+            app:layout_constraintTop_toTopOf="@id/tvAlamat" />
 
         <Button
             android:id="@+id/epbtnSave"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="Simpan"
             android:layout_marginStart="16dp"
             android:layout_marginTop="32dp"
             android:layout_marginEnd="16dp"
             android:layout_marginBottom="32dp"
             android:background="@drawable/bgmasuk"
+            android:text="Simpan"
             android:textColor="@color/colorPutih"
-            app:layout_constraintTop_toBottomOf="@id/tvAlamat"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvAlamat" />
 
     </android.support.constraint.ConstraintLayout>
 

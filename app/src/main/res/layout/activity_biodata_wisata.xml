@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:screenOrientation="portrait"
     tools:context=".Activities.Main.BiodataWisataActivity">
 
     <ScrollView
@@ -332,9 +333,9 @@
                         android:layout_marginBottom="16dp"
                         android:textOff=" "
                         android:textOn=" "
-                        app:layout_constraintStart_toEndOf="@id/textKuliner"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@id/textKuliner"
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <TextView

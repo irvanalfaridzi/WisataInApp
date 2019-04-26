@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:screenOrientation="portrait"
     tools:context=".Activities.Main.OwnerResultScanActivity">
 
     <ScrollView
@@ -307,19 +308,19 @@
                 app:layout_constraintTop_toBottomOf="@id/tvGarisTglPenggunaan" />
 
             <Button
+                android:id="@+id/owsBtnScan"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:id="@+id/owsBtnScan"
-                android:text="Scan Tiket"
-                android:background="@drawable/bgbelitiket"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="24dp"
                 android:layout_marginEnd="16dp"
                 android:layout_marginBottom="16dp"
-                app:layout_constraintTop_toBottomOf="@id/owstTotalharga"
+                android:background="@drawable/bgbelitiket"
+                android:text="Scan Tiket"
                 app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"/>
+                app:layout_constraintTop_toBottomOf="@id/owstTotalharga" />
 
 
         </android.support.constraint.ConstraintLayout>

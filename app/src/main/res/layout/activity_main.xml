@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:screenOrientation="portrait"
     tools:context=".Activities.Main.MainActivity">
 
     <android.support.v7.widget.Toolbar
@@ -11,30 +12,29 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="#fff"
-        app:titleTextColor="#000"
         android:minHeight="?attr/actionBarSize"
         android:theme="?attr/actionBarTheme"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent"
+        app:titleTextColor="#000" />
 
     <FrameLayout
+        android:id="@+id/mFragments"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:id="@+id/mFragments"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar"
-        app:layout_constraintBottom_toTopOf="@+id/mBottomNav">
-    </FrameLayout>
+        app:layout_constraintBottom_toTopOf="@+id/mBottomNav"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar"></FrameLayout>
 
     <android.support.design.widget.BottomNavigationView
-        android:background="@color/colorPrimary"
+        android:id="@+id/mBottomNav"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/mBottomNav"
-        app:menu="@menu/menu_main_navbar"
+        android:background="@color/colorPrimary"
         app:itemIconTint="@color/selector_bottomnav"
         app:itemTextColor="@color/selector_bottomnav"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"/>
+        app:menu="@menu/menu_main_navbar" />
 
 </android.support.constraint.ConstraintLayout>
