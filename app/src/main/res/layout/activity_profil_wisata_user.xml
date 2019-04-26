@@ -339,39 +339,39 @@
                 android:id="@+id/inputStar1"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
-                android:layout_marginEnd="4dp"
                 android:layout_marginTop="16dp"
+                android:layout_marginEnd="4dp"
                 android:background="@drawable/ic_star_isi"
                 android:textOff=" "
                 android:textOn=" "
                 app:layout_constraintEnd_toStartOf="@id/inputStar2"
-                app:layout_constraintTop_toBottomOf="@id/imgProfile" />
+                app:layout_constraintTop_toBottomOf="@id/pwuimgProfile" />
 
             <ToggleButton
                 android:id="@+id/inputStar2"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
-                android:layout_marginEnd="4dp"
                 android:layout_marginTop="16dp"
+                android:layout_marginEnd="4dp"
                 android:background="@drawable/ic_star_isi"
                 android:textOff=" "
                 android:textOn=" "
                 app:layout_constraintEnd_toStartOf="@id/inputStar3"
-                app:layout_constraintTop_toBottomOf="@id/imgProfile" />
+                app:layout_constraintTop_toBottomOf="@id/pwuimgProfile" />
 
             <ToggleButton
                 android:id="@+id/inputStar3"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
                 android:layout_marginStart="4dp"
-                android:layout_marginEnd="4dp"
                 android:layout_marginTop="16dp"
+                android:layout_marginEnd="4dp"
                 android:background="@drawable/ic_star_isi"
                 android:textOff=" "
                 android:textOn=" "
-                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/imgProfile"/>
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/pwuimgProfile" />
 
             <ToggleButton
                 android:id="@+id/inputStar4"
@@ -382,9 +382,9 @@
                 android:background="@drawable/ic_star_isi"
                 android:textOff=" "
                 android:textOn=" "
+                app:layout_constraintEnd_toStartOf="@id/inputStar5"
                 app:layout_constraintStart_toEndOf="@id/inputStar3"
-                app:layout_constraintTop_toBottomOf="@id/imgProfile"
-                app:layout_constraintEnd_toStartOf="@id/inputStar5"/>
+                app:layout_constraintTop_toBottomOf="@id/pwuimgProfile" />
 
             <ToggleButton
                 android:id="@+id/inputStar5"
@@ -397,10 +397,10 @@
                 android:textOff=" "
                 android:textOn=" "
                 app:layout_constraintStart_toEndOf="@id/inputStar4"
-                app:layout_constraintTop_toBottomOf="@id/imgProfile"/>
+                app:layout_constraintTop_toBottomOf="@id/pwuimgProfile" />
 
             <ImageView
-                android:id="@+id/imgProfile"
+                android:id="@+id/pwuimgProfile"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:layout_marginStart="16dp"
@@ -410,7 +410,7 @@
                 app:layout_constraintTop_toBottomOf="@id/tvGarisMaps" />
 
             <TextView
-                android:id="@+id/textUsername"
+                android:id="@+id/pwutextUsername"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
@@ -419,9 +419,9 @@
                 android:text="Irvan Alfaridzi"
                 android:textColor="@color/colorGelap"
                 android:textSize="14sp"
-                app:layout_constraintBottom_toBottomOf="@id/imgProfile"
-                app:layout_constraintStart_toEndOf="@id/imgProfile"
-                app:layout_constraintTop_toTopOf="@id/imgProfile" />
+                app:layout_constraintBottom_toBottomOf="@id/pwuimgProfile"
+                app:layout_constraintStart_toEndOf="@id/pwuimgProfile"
+                app:layout_constraintTop_toTopOf="@id/pwuimgProfile" />
 
             <EditText
                 android:id="@+id/txtInputUlasan"
@@ -452,23 +452,22 @@
                 android:id="@+id/garisBtnUlasan"
                 android:layout_width="0dp"
                 android:layout_height="1dp"
-                android:background="#f5f5f5"
                 android:layout_marginStart="16dp"
-                android:layout_marginEnd="16dp"
                 android:layout_marginTop="16dp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/btnUlasan"
+                android:layout_marginEnd="16dp"
+                android:background="#f5f5f5"
                 app:layout_constraintEnd_toEndOf="parent"
-                />
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/btnUlasan" />
 
             <android.support.v7.widget.RecyclerView
+                android:id="@+id/pwuRecyclerView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/pwuRecyclerView"
-                app:layout_constraintTop_toBottomOf="@id/garisBtnUlasan"
-                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"/>
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/garisBtnUlasan" />
 
         </android.support.constraint.ConstraintLayout>
 
