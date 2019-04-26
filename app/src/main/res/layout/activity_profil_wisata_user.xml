@@ -339,37 +339,39 @@
                 android:id="@+id/inputStar1"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
-                android:layout_marginStart="16dp"
+                android:layout_marginEnd="4dp"
                 android:layout_marginTop="16dp"
                 android:background="@drawable/ic_star_isi"
                 android:textOff=" "
                 android:textOn=" "
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tvGarisMaps" />
+                app:layout_constraintEnd_toStartOf="@id/inputStar2"
+                app:layout_constraintTop_toBottomOf="@id/imgProfile" />
 
             <ToggleButton
                 android:id="@+id/inputStar2"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
-                android:layout_marginStart="4dp"
+                android:layout_marginEnd="4dp"
                 android:layout_marginTop="16dp"
                 android:background="@drawable/ic_star_isi"
                 android:textOff=" "
                 android:textOn=" "
-                app:layout_constraintStart_toEndOf="@id/inputStar1"
-                app:layout_constraintTop_toBottomOf="@id/tvGarisMaps" />
+                app:layout_constraintEnd_toStartOf="@id/inputStar3"
+                app:layout_constraintTop_toBottomOf="@id/imgProfile" />
 
             <ToggleButton
                 android:id="@+id/inputStar3"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
                 android:layout_marginStart="4dp"
+                android:layout_marginEnd="4dp"
                 android:layout_marginTop="16dp"
                 android:background="@drawable/ic_star_isi"
                 android:textOff=" "
                 android:textOn=" "
-                app:layout_constraintStart_toEndOf="@id/inputStar2"
-                app:layout_constraintTop_toBottomOf="@id/tvGarisMaps" />
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/imgProfile"/>
 
             <ToggleButton
                 android:id="@+id/inputStar4"
@@ -381,7 +383,8 @@
                 android:textOff=" "
                 android:textOn=" "
                 app:layout_constraintStart_toEndOf="@id/inputStar3"
-                app:layout_constraintTop_toBottomOf="@id/tvGarisMaps" />
+                app:layout_constraintTop_toBottomOf="@id/imgProfile"
+                app:layout_constraintEnd_toStartOf="@id/inputStar5"/>
 
             <ToggleButton
                 android:id="@+id/inputStar5"
@@ -389,23 +392,12 @@
                 android:layout_height="30dp"
                 android:layout_marginStart="4dp"
                 android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
                 android:background="@drawable/ic_star_tidak"
                 android:textOff=" "
                 android:textOn=" "
                 app:layout_constraintStart_toEndOf="@id/inputStar4"
-                app:layout_constraintTop_toBottomOf="@id/tvGarisMaps" />
-
-            <ImageView
-                android:id="@+id/tvGarisRate"
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginEnd="16dp"
-                android:background="#f5f5f5"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/inputStar5" />
+                app:layout_constraintTop_toBottomOf="@id/imgProfile"/>
 
             <ImageView
                 android:id="@+id/imgProfile"
@@ -415,7 +407,7 @@
                 android:layout_marginTop="16dp"
                 android:background="@drawable/profile_user"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tvGarisRate" />
+                app:layout_constraintTop_toBottomOf="@id/tvGarisMaps" />
 
             <TextView
                 android:id="@+id/textUsername"
@@ -440,10 +432,9 @@
                 android:layout_marginEnd="16dp"
                 android:layout_marginBottom="16dp"
                 android:hint="Masukkan ulasan"
-                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/imgProfile" />
+                app:layout_constraintTop_toBottomOf="@id/inputStar3" />
 
             <Button
                 android:id="@+id/btnUlasan"
@@ -454,16 +445,30 @@
                 android:layout_marginBottom="16dp"
                 android:background="@drawable/bgtextext"
                 android:text="Kirim"
-                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/txtInputUlasan" />
+
+            <ImageView
+                android:id="@+id/garisBtnUlasan"
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:background="#f5f5f5"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginTop="16dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/btnUlasan"
+                app:layout_constraintEnd_toEndOf="parent"
+                />
 
             <android.support.v7.widget.RecyclerView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/pwuRecyclerView"
-                android:layout_margin="16dp"
-                app:layout_constraintTop_toBottomOf="@id/btnUlasan"/>
+                app:layout_constraintTop_toBottomOf="@id/garisBtnUlasan"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"/>
 
         </android.support.constraint.ConstraintLayout>
 
