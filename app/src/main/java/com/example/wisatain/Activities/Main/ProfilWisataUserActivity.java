@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
@@ -114,14 +115,12 @@ public class ProfilWisataUserActivity extends AppCompatActivity {
         setContentView(R.layout.activity_profil_wisata_user);
         ButterKnife.bind(this);
 
+        setRatingUlasan();
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
-
-        setRatingUlasan();
-        loadRating();
 
         Intent intent = getIntent();
         intentKey = intent.getStringExtra("intent");
@@ -136,8 +135,8 @@ public class ProfilWisataUserActivity extends AppCompatActivity {
 
         getUID = mUser.getUid();
 
+        loadRating();
         loadData();
-
         loadDataFav();
     }
 
@@ -182,7 +181,6 @@ public class ProfilWisataUserActivity extends AppCompatActivity {
         });
 
     }
-
 
     public void loadDataFav() {
 
@@ -360,16 +358,14 @@ public class ProfilWisataUserActivity extends AppCompatActivity {
         mUlasan.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                String totalRating = dataSnapshot.child("TotalRating").getValue(String.class);
-                String rataRating = dataSnapshot.child("RataRataRating").getValue(String.class);
-                String jumlahRating = dataSnapshot.child("JumlahRating").getValue(String.class);
-
                 for (DataSnapshot ds : dataSnapshot.getChildren()) {
                     getUlasanKey = ds.getKey();
                     getNamaUser = ds.child("NamaUser").getValue(String.class);
-                    getGambarProfilUser = ds.child("GambarProfilrUser").getValue(String.class);
+                    getGambarProfilUser = ds.child("GambarProfilUser").getValue(String.class);
                     getRatingUser = ds.child("RatingUser").getValue(String.class);
                     getUlasanUser = ds.child("UlasanUser").getValue(String.class);
+                    Log.d("ulasanuser", "onDataChange: " + getUlasanKey + " " + getNamaUser + " " + getGambarProfilUser +
+                            " " + getRatingUser + " " + getRatingUser);
 
                     arrayUlasanKey.add(getUlasanKey);
                     arrayGambarProfile.add(getGambarProfilUser);
@@ -392,39 +388,41 @@ public class ProfilWisataUserActivity extends AppCompatActivity {
             @Override
             protected void onBindViewHolder(@NonNull UlasanAdapter holder, int position, @NonNull Ulasan model) {
 
-                holder.NamaUser.setText(arrayNamaUser.get(position));
-                holder.IsiUlasan.setText(arrayUlasanUser.get(position));
-                Glide.with(getApplicationContext()).load(arrayGambarProfile.get(position)).into(holder.GambarUser);
-                if (arrayRatingUser.get(position).equals("1")) {
-                    Glide.with(getApplicationContext()).load(R.drawable.ic_star_isi).into(holder.Star1);
-                    Glide.with(getApplicationContext()).load(R.drawable.ic_star_tidak).into(holder.Star2);
-                    Glide.with(getApplicationContext()).load(R.drawable.ic_star_tidak).into(holder.Star3);
-                    Glide.with(getApplicationContext()).load(R.drawable.ic_star_tidak).into(holder.Star4);
-                    Glide.with(getApplicationContext()).load(R.drawable.ic_star_tidak).into(holder.Star5);
-                } else if (arrayRatingUser.get(position).equals("2")) {
-                    Glide.with(getApplicationContext()).load(R.drawable.ic_star_isi).into(holder.Star1);
-                    Glide.with(getApplicationContext()).load(R.drawable.ic_star_isi).into(holder.Star2);
-                    Glide.with(getApplicationContext()).load(R.drawable.ic_star_tidak).into(holder.Star3);
-                    Glide.with(getApplicationContext()).load(R.drawable.ic_star_tidak).into(holder.Star4);
-                    Glide.with(getApplicationContext()).load(R.drawable.ic_star_tidak).into(holder.Star5);
-                } else if (arrayRatingUser.get(position).equals("3")) {
-                    Glide.with(getApplicationContext()).load(R.drawable.ic_star_isi).into(holder.Star1);
-                    Glide.with(getApplicationContext()).load(R.drawable.ic_star_isi).into(holder.Star2);
-                    Glide.with(getApplicationContext()).load(R.drawable.ic_star_isi).into(holder.Star3);
-                    Glide.with(getApplicationContext()).load(R.drawable.ic_star_tidak).into(holder.Star4);
-                    Glide.with(getApplicationContext()).load(R.drawable.ic_star_tidak).into(holder.Star5);
-                } else if (arrayRatingUser.get(position).equals("4")) {
-                    Glide.with(getApplicationContext()).load(R.drawable.ic_star_isi).into(holder.Star1);
-                    Glide.with(getApplicationContext()).load(R.drawable.ic_star_isi).into(holder.Star2);
-                    Glide.with(getApplicationContext()).load(R.drawable.ic_star_isi).into(holder.Star3);
-                    Glide.with(getApplicationContext()).load(R.drawable.ic_star_isi).into(holder.Star4);
-                    Glide.with(getApplicationContext()).load(R.drawable.ic_star_tidak).into(holder.Star5);
-                } else if (arrayRatingUser.get(position).equals("5")) {
-                    Glide.with(getApplicationContext()).load(R.drawable.ic_star_isi).into(holder.Star1);
-                    Glide.with(getApplicationContext()).load(R.drawable.ic_star_isi).into(holder.Star2);
-                    Glide.with(getApplicationContext()).load(R.drawable.ic_star_isi).into(holder.Star3);
-                    Glide.with(getApplicationContext()).load(R.drawable.ic_star_isi).into(holder.Star4);
-                    Glide.with(getApplicationContext()).load(R.drawable.ic_star_isi).into(holder.Star5);
+                if (arrayNamaUser.get(position) != null && arrayRatingUser.get(position) != null) {
+                    holder.NamaUser.setText(arrayNamaUser.get(position));
+                    holder.IsiUlasan.setText(arrayUlasanUser.get(position));
+                    Glide.with(getApplicationContext()).load(arrayGambarProfile.get(position)).into(holder.GambarUser);
+                    if (arrayRatingUser.get(position).equals("1")) {
+                        Glide.with(getApplicationContext()).load(R.drawable.ic_star_isi).into(holder.Star1);
+                        Glide.with(getApplicationContext()).load(R.drawable.ic_star_tidak).into(holder.Star2);
+                        Glide.with(getApplicationContext()).load(R.drawable.ic_star_tidak).into(holder.Star3);
+                        Glide.with(getApplicationContext()).load(R.drawable.ic_star_tidak).into(holder.Star4);
+                        Glide.with(getApplicationContext()).load(R.drawable.ic_star_tidak).into(holder.Star5);
+                    } else if (arrayRatingUser.get(position).equals("2")) {
+                        Glide.with(getApplicationContext()).load(R.drawable.ic_star_isi).into(holder.Star1);
+                        Glide.with(getApplicationContext()).load(R.drawable.ic_star_isi).into(holder.Star2);
+                        Glide.with(getApplicationContext()).load(R.drawable.ic_star_tidak).into(holder.Star3);
+                        Glide.with(getApplicationContext()).load(R.drawable.ic_star_tidak).into(holder.Star4);
+                        Glide.with(getApplicationContext()).load(R.drawable.ic_star_tidak).into(holder.Star5);
+                    } else if (arrayRatingUser.get(position).equals("3")) {
+                        Glide.with(getApplicationContext()).load(R.drawable.ic_star_isi).into(holder.Star1);
+                        Glide.with(getApplicationContext()).load(R.drawable.ic_star_isi).into(holder.Star2);
+                        Glide.with(getApplicationContext()).load(R.drawable.ic_star_isi).into(holder.Star3);
+                        Glide.with(getApplicationContext()).load(R.drawable.ic_star_tidak).into(holder.Star4);
+                        Glide.with(getApplicationContext()).load(R.drawable.ic_star_tidak).into(holder.Star5);
+                    } else if (arrayRatingUser.get(position) == "4") {
+                        Glide.with(getApplicationContext()).load(R.drawable.ic_star_isi).into(holder.Star1);
+                        Glide.with(getApplicationContext()).load(R.drawable.ic_star_isi).into(holder.Star2);
+                        Glide.with(getApplicationContext()).load(R.drawable.ic_star_isi).into(holder.Star3);
+                        Glide.with(getApplicationContext()).load(R.drawable.ic_star_isi).into(holder.Star4);
+                        Glide.with(getApplicationContext()).load(R.drawable.ic_star_tidak).into(holder.Star5);
+                    } else if (arrayRatingUser.get(position) == "5") {
+                        Glide.with(getApplicationContext()).load(R.drawable.ic_star_isi).into(holder.Star1);
+                        Glide.with(getApplicationContext()).load(R.drawable.ic_star_isi).into(holder.Star2);
+                        Glide.with(getApplicationContext()).load(R.drawable.ic_star_isi).into(holder.Star3);
+                        Glide.with(getApplicationContext()).load(R.drawable.ic_star_isi).into(holder.Star4);
+                        Glide.with(getApplicationContext()).load(R.drawable.ic_star_isi).into(holder.Star5);
+                    }
                 }
 
             }
@@ -437,6 +435,11 @@ public class ProfilWisataUserActivity extends AppCompatActivity {
                 return new UlasanAdapter(view);
             }
         };
+
+        GridLayoutManager gridLayoutManager = new GridLayoutManager(this, 1);
+        recyclerView.setLayoutManager(gridLayoutManager);
+        adapter.startListening();
+        recyclerView.setAdapter(adapter);
 
     }
 
@@ -485,5 +488,10 @@ public class ProfilWisataUserActivity extends AppCompatActivity {
             return;
         }
         inputRatingUlasan();
+        arrayGambarProfile.clear();
+        arrayNamaUser.clear();
+        arrayRatingUser.clear();
+        arrayUlasanKey.clear();
+        arrayUlasanUser.clear();
     }
 }

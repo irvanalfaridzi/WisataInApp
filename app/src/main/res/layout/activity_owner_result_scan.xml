@@ -107,11 +107,12 @@
 
             <TextView
                 android:id="@+id/owstRefTransaksiKeterangan"
-                android:layout_width="wrap_content"
+                android:layout_width="175dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:layout_marginEnd="16dp"
                 android:text="No. Transaksi"
+                android:textAlignment="textEnd"
                 android:textColor="#99000000"
                 android:textSize="14sp"
                 app:layout_constraintEnd_toEndOf="parent"

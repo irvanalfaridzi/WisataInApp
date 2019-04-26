@@ -12,4 +12,8 @@ public class Ulasan {
         RatingUser = ratingUser;
         UlasanUser = ulasanUser;
     }
+
+    public Ulasan() {
+
+    }
 }
