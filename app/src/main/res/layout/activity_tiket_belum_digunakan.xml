@@ -7,47 +7,22 @@
     android:screenOrientation="portrait"
     tools:context=".Activities.Main.TiketBelumDigunakanActivity">
 
-    <ImageView
-        android:id="@+id/bgTiketAtas"
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="56dp"
+        android:layout_height="wrap_content"
         android:background="@color/colorButton"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <ImageView
-        android:id="@+id/imgTiket"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginBottom="16dp"
-        android:background="@drawable/ic_barcodeputih"
-        app:layout_constraintBottom_toBottomOf="@id/bgTiketAtas"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@id/bgTiketAtas" />
-
-    <TextView
-        android:id="@+id/tvDaftarTiket"
-        android:layout_width="158dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginBottom="16dp"
-        android:lineHeight="17sp"
-        android:text="Belum Discan"
-        android:textColor="@color/colorPutih"
-        android:textSize="14sp"
-        app:layout_constraintBottom_toBottomOf="@id/imgTiket"
-        app:layout_constraintStart_toEndOf="@id/imgTiket"
-        app:layout_constraintTop_toTopOf="@id/imgTiket" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:title="Belum Discan"
+        android:theme="@style/ToolbarColoredBackArrowLight"
+        app:titleTextColor="@color/colorPutih" />
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/bgTiketAtas">
+        app:layout_constraintTop_toBottomOf="@id/toolbar">
 
         <android.support.constraint.ConstraintLayout
             android:layout_width="match_parent"
@@ -60,7 +35,7 @@
             <android.support.v7.widget.RecyclerView
                 android:id="@+id/tbdRecyclerView"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"></android.support.v7.widget.RecyclerView>
+                android:layout_height="match_parent" />
 
         </android.support.constraint.ConstraintLayout>
 
