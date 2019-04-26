@@ -89,6 +89,7 @@ public class KonfirmasiTiketActivity extends AppCompatActivity {
                     getTotalHarga = ds.child("TotalHarga").getValue(String.class);
                     getBuktiURL = ds.child("BuktiPembayaranURL").getValue(String.class);
                     getTanggalKunjungan = ds.child("TanggalKunjungan").getValue(String.class);
+                    getNamaUser = ds.child("NamaUser").getValue(String.class);
                     Log.d("uidkey", "onDataChange: " + getKey + " " + getUIDUser);
 
                     arrayTiketKey.add(getKey);
@@ -98,6 +99,7 @@ public class KonfirmasiTiketActivity extends AppCompatActivity {
                     arrayTotalHarga.add(getTotalHarga);
                     arrayBuktiURL.add(getBuktiURL);
                     arrayTanggalKunjungan.add(getTanggalKunjungan);
+                    arrayNamaUser.add(getNamaUser);
 
                 }
             }
@@ -118,7 +120,7 @@ public class KonfirmasiTiketActivity extends AppCompatActivity {
                 holder.key = arrayTiketKey.get(position);
                 Glide.with(getApplicationContext()).load(arrayBuktiURL.get(position)).into(holder.gambarBukti);
                 holder.jumlahTiket.setText(arrayJumlahTiket.get(position));
-//                holder.namaUser.setText(arrayNamaUser.get(position));
+                holder.namaUser.setText(arrayNamaUser.get(position));
                 holder.refTransaksi.setText(arrayRefTransaksi.get(position));
                 holder.tanggalKunjungan.setText(arrayTanggalKunjungan.get(position));
                 holder.totalHarga.setText(arrayTotalHarga.get(position));

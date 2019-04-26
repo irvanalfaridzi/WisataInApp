@@ -32,6 +32,21 @@ public class DetailKonfirmasiActivity extends AppCompatActivity {
     @BindView(R.id.dktRefTransaksi)
     TextView refTransaksi;
 
+    @BindView(R.id.dktNamaUser)
+    TextView namaUser;
+
+    @BindView(R.id.dktTglPesan)
+    TextView tanggalTransaksi;
+
+    @BindView(R.id.dktJmlTiket)
+    TextView jumlahTiket;
+
+    @BindView(R.id.dktTglKunjungan)
+    TextView tanggalKunjungan;
+
+    @BindView(R.id.dktTotal)
+    TextView totalHarga;
+
     FirebaseAuth mAuth;
     FirebaseUser mUser;
     FirebaseDatabase mDatabase;
@@ -88,7 +103,12 @@ public class DetailKonfirmasiActivity extends AppCompatActivity {
                         getTiketStatus = dataSnapshot.child("TiketStatus").getValue(String.class);
 
                         Glide.with(getBaseContext()).load(getBuktiPembayaranURL).into(buktiGambar);
-                        refTransaksi.setText("Ref. Transaksi : " + getRefTransaksi);
+                        refTransaksi.setText(getRefTransaksi);
+                        namaUser.setText(getNamaUser);
+                        tanggalTransaksi.setText(getTanggalPembelian);
+                        jumlahTiket.setText(getJumlah);
+                        tanggalKunjungan.setText(getTanggalKunjungan);
+                        totalHarga.setText(getTotalHarga);
 
                     }
 
