@@ -35,65 +35,25 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <ToggleButton
-                android:id="@+id/irkinputStar1"
+            <ImageView
+                android:id="@+id/irStar"
                 android:layout_width="10dp"
                 android:layout_height="10dp"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
                 android:background="@drawable/ic_star_isi"
-                android:textOff=" "
-                android:textOn=" "
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/irkGambarWisata" />
 
-            <ToggleButton
-                android:id="@+id/irkinputStar2"
-                android:layout_width="10dp"
-                android:layout_height="10dp"
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/irtStarKeterangan"
+                android:text="3.6"
+                android:textSize="8dp"
                 android:layout_marginStart="4dp"
-                android:layout_marginTop="8dp"
-                android:background="@drawable/ic_star_isi"
-                android:textOff=" "
-                android:textOn=" "
-                app:layout_constraintStart_toEndOf="@id/irkinputStar1"
-                app:layout_constraintTop_toBottomOf="@id/irkGambarWisata" />
-
-            <ToggleButton
-                android:id="@+id/irkinputStar3"
-                android:layout_width="10dp"
-                android:layout_height="10dp"
-                android:layout_marginStart="4dp"
-                android:layout_marginTop="8dp"
-                android:background="@drawable/ic_star_isi"
-                android:textOff=" "
-                android:textOn=" "
-                app:layout_constraintStart_toEndOf="@id/irkinputStar2"
-                app:layout_constraintTop_toBottomOf="@id/irkGambarWisata" />
-
-            <ToggleButton
-                android:id="@+id/irkinputStar4"
-                android:layout_width="10dp"
-                android:layout_height="10dp"
-                android:layout_marginStart="4dp"
-                android:layout_marginTop="8dp"
-                android:background="@drawable/ic_star_isi"
-                android:textOff=" "
-                android:textOn=" "
-                app:layout_constraintStart_toEndOf="@id/irkinputStar3"
-                app:layout_constraintTop_toBottomOf="@id/irkGambarWisata" />
-
-            <ToggleButton
-                android:id="@+id/irkinputStar5"
-                android:layout_width="10dp"
-                android:layout_height="10dp"
-                android:layout_marginStart="4dp"
-                android:layout_marginTop="8dp"
-                android:background="@drawable/ic_star_tidak"
-                android:textOff=" "
-                android:textOn=" "
-                app:layout_constraintStart_toEndOf="@id/irkinputStar4"
-                app:layout_constraintTop_toBottomOf="@id/irkGambarWisata" />
+                app:layout_constraintTop_toTopOf="@id/irStar"
+                app:layout_constraintStart_toEndOf="@+id/irStar"/>
 
             <TextView
                 android:id="@+id/irkJudulWisata"
@@ -111,7 +71,7 @@
                 android:textStyle="normal"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/irkinputStar1"
+                app:layout_constraintTop_toBottomOf="@id/irStar"
                 tools:text="Gungung Bromo" />
 
             <TextView

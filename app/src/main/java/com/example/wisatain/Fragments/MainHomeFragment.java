@@ -2,6 +2,7 @@ package com.example.wisatain.Fragments;
 
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
@@ -16,6 +17,7 @@ import android.widget.ListAdapter;
 
 import com.bumptech.glide.Glide;
 import com.example.wisatain.Activities.Main.MainActivity;
+import com.example.wisatain.Activities.Main.ResultPencarianActivity;
 import com.example.wisatain.Adapters.MainHomeAdapter;
 import com.example.wisatain.Items.Wisata;
 import com.example.wisatain.R;
@@ -32,6 +34,7 @@ import java.util.Objects;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -160,6 +163,13 @@ public class MainHomeFragment extends Fragment {
         if (adapter != null) {
             adapter.stopListening();
         }
+    }
+
+    @OnClick(R.id.btnRekomendasi)
+    public void rekomendasi() {
+        Intent intent = new Intent(getActivity(), ResultPencarianActivity.class);
+        startActivity(intent);
+        getActivity().finish();
     }
 
 }
