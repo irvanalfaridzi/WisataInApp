@@ -114,6 +114,8 @@ public class BiodataWisataActivity extends AppCompatActivity {
     String getUID, getNama, getNomorTelepon;
     String verifikasi;
     String setStatus, status;
+    int totalRating, jumlahRating;
+    double rataRating;
 
     UploadTask uploadTask;
 
@@ -130,6 +132,10 @@ public class BiodataWisataActivity extends AppCompatActivity {
 
         kategoriWisata = "";
         pilihKategori();
+
+        totalRating = 0;
+        jumlahRating = 0;
+        rataRating = 0;
 
         getUID = mUser.getUid();
         Toast.makeText(this, getUID, Toast.LENGTH_SHORT).show();
@@ -201,9 +207,9 @@ public class BiodataWisataActivity extends AppCompatActivity {
                             mDatabase.getReference().child("Kategori").child(kategoriWisata).child(key).setValue(wisataAkun);
                             Intent intent = new Intent(BiodataWisataActivity.this, ProfilWisataOwnerActivity.class);
                             intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                            mDatabase.getReference().child("Wisata").child(key).child("Ulasan").child("TotalRating").setValue("0");
-                            mDatabase.getReference().child("Wisata").child(key).child("Ulasan").child("RataRataRating").setValue("0");
-                            mDatabase.getReference().child("Wisata").child(key).child("Ulasan").child("JumlahRating").setValue("0");
+                            mDatabase.getReference().child("Wisata").child(key).child("Ulasan").child("TotalRating").setValue(totalRating);
+                            mDatabase.getReference().child("Wisata").child(key).child("Ulasan").child("RataRataRating").setValue(rataRating);
+                            mDatabase.getReference().child("Wisata").child(key).child("Ulasan").child("JumlahRating").setValue(jumlahRating);
                             startActivity(intent);
                             finish();
                         } else {

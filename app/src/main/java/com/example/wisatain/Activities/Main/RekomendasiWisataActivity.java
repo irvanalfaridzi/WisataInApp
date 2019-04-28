@@ -3,9 +3,15 @@ package com.example.wisatain.Activities.Main;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 
+import com.bumptech.glide.Glide;
+import com.example.wisatain.Adapters.KonfirmasiTiketAdapter;
 import com.example.wisatain.Adapters.RekomendasiAdapter;
 import com.example.wisatain.Items.Wisata;
 import com.example.wisatain.R;
@@ -18,6 +24,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -57,15 +64,15 @@ public class RekomendasiWisataActivity extends AppCompatActivity {
 
     public void loadData() {
 
-        mWisata.addValueEventListener(new ValueEventListener() {
+        mWisata.orderByChild("Ulasan/RataRataRating").endAt("Ulasan/RataRataRating").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 for (DataSnapshot ds : dataSnapshot.getChildren()) {
                     getWisataKey = ds.getKey();
                     getNamaWisata = ds.child("NamaWisata").getValue(String.class);
                     getWilayahWisata = ds.child("WilayahWisata").getValue(String.class);
-                    getRataRataRating = ds.child("").getValue(String.class);
-                    getGambarWisataURL = ds.child("GambarWisataURL").getValue(String.class);
+                    getRataRataRating = String.valueOf(ds.child("Ulasan").child("RataRataRating").getValue(double.class));
+                    getGambarWisataURL = ds.child("FotoWisataURL").getValue(String.class);
                     Log.d("rekomendasidata", "onDataChange: " + getWisataKey + " " + getNamaWisata);
 
                     arrayWisataKey.add(getWisataKey);
@@ -74,6 +81,12 @@ public class RekomendasiWisataActivity extends AppCompatActivity {
                     arrayRataRataRating.add(getRataRataRating);
                     arrayGambarWisataURL.add(getGambarWisataURL);
                 }
+
+                Collections.sort(arrayWisataKey,Collections.<String>reverseOrder());
+                Collections.sort(arrayNamaWisata,Collections.<String>reverseOrder());
+                Collections.sort(arrayWilayahWisata,Collections.<String>reverseOrder());
+                Collections.sort(arrayRataRataRating,Collections.<String>reverseOrder());
+                Collections.sort(arrayGambarWisataURL,Collections.<String>reverseOrder());
             }
 
             @Override
@@ -81,6 +94,33 @@ public class RekomendasiWisataActivity extends AppCompatActivity {
 
             }
         });
+
+        options = new FirebaseRecyclerOptions.Builder<Wisata>().setQuery(mWisata.orderByChild("Ulasan/RataRataRating"), Wisata.class).build();
+
+        adapter = new FirebaseRecyclerAdapter<Wisata, RekomendasiAdapter>(options) {
+            @Override
+            protected void onBindViewHolder(@NonNull RekomendasiAdapter holder, int position, @NonNull Wisata model) {
+                holder.namaWisata.setText(arrayNamaWisata.get(position));
+                holder.wilayahWisata.setText(arrayWilayahWisata.get(position));
+                Glide.with(getApplicationContext()).load(arrayGambarWisataURL.get(position)).into(holder.gambarWisata);
+                Glide.with(getApplicationContext()).load(R.drawable.ic_star_isi).into(holder.keteranganRatingImg);
+                holder.keteranganRatingText.setText(arrayRataRataRating.get(position));
+                holder.key = arrayWisataKey.get(position);
+            }
+
+            @NonNull
+            @Override
+            public RekomendasiAdapter onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
+                View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.item_rekomendasi, viewGroup, false);
+
+                return new RekomendasiAdapter(view);
+            }
+        };
+
+        GridLayoutManager gridLayoutManager = new GridLayoutManager(this, 2);
+        recyclerView.setLayoutManager(gridLayoutManager);
+        adapter.startListening();
+        recyclerView.setAdapter(adapter);
 
     }
 }

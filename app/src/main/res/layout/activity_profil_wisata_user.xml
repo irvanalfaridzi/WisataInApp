@@ -56,7 +56,7 @@
             <!--app:layout_constraintTop_toBottomOf="@id/pwuiGambarWisata" />-->
 
             <ImageView
-                android:id="@+id/star1"
+                android:id="@+id/imgStar1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
@@ -66,43 +66,43 @@
                 app:layout_constraintTop_toBottomOf="@id/pwuiGambarWisata" />
 
             <ImageView
-                android:id="@+id/star2"
+                android:id="@+id/imgStar2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="4dp"
                 android:layout_marginTop="16dp"
                 android:background="@drawable/ic_star_isi"
-                app:layout_constraintStart_toEndOf="@id/star1"
+                app:layout_constraintStart_toEndOf="@id/imgStar1"
                 app:layout_constraintTop_toBottomOf="@id/pwuiGambarWisata" />
 
             <ImageView
-                android:id="@+id/star3"
+                android:id="@+id/imgStar3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="4dp"
                 android:layout_marginTop="16dp"
                 android:background="@drawable/ic_star_isi"
-                app:layout_constraintStart_toEndOf="@id/star2"
+                app:layout_constraintStart_toEndOf="@id/imgStar2"
                 app:layout_constraintTop_toBottomOf="@id/pwuiGambarWisata" />
 
             <ImageView
-                android:id="@+id/star4"
+                android:id="@+id/imgStar4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="4dp"
                 android:layout_marginTop="16dp"
                 android:background="@drawable/ic_star_isi"
-                app:layout_constraintStart_toEndOf="@id/star3"
+                app:layout_constraintStart_toEndOf="@id/imgStar3"
                 app:layout_constraintTop_toBottomOf="@id/pwuiGambarWisata" />
 
             <ImageView
-                android:id="@+id/star5"
+                android:id="@+id/imgStar5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="4dp"
                 android:layout_marginTop="16dp"
                 android:background="@drawable/ic_star_tidak"
-                app:layout_constraintStart_toEndOf="@id/star4"
+                app:layout_constraintStart_toEndOf="@id/imgStar4"
                 app:layout_constraintTop_toBottomOf="@id/pwuiGambarWisata" />
 
             <TextView
@@ -114,9 +114,9 @@
                 android:text="12 Ulasan"
                 android:textColor="@color/colortextbiasa"
                 android:textSize="14sp"
-                app:layout_constraintBottom_toBottomOf="@id/star5"
-                app:layout_constraintStart_toEndOf="@id/star5"
-                app:layout_constraintTop_toTopOf="@id/star5" />
+                app:layout_constraintBottom_toBottomOf="@id/imgStar5"
+                app:layout_constraintStart_toEndOf="@id/imgStar5"
+                app:layout_constraintTop_toTopOf="@id/imgStar5" />
 
             <TextView
                 android:id="@+id/namaWisata"
@@ -134,7 +134,7 @@
                 android:textStyle="normal"
                 app:layout_constraintEnd_toStartOf="@id/pwuBtnFavorite"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/star1" />
+                app:layout_constraintTop_toBottomOf="@id/imgStar1" />
 
             <TextView
                 android:id="@+id/kotaWisata"

@@ -97,6 +97,20 @@ public class ProfilWisataUserActivity extends AppCompatActivity {
     @BindView(R.id.inputStar5)
     ToggleButton star5;
 
+    @BindView(R.id.imgStar1)
+    ImageView imgstar1;
+    @BindView(R.id.imgStar2)
+    ImageView imgstar2;
+    @BindView(R.id.imgStar3)
+    ImageView imgstar3;
+    @BindView(R.id.imgStar4)
+    ImageView imgstar4;
+    @BindView(R.id.imgStar5)
+    ImageView imgstar5;
+
+    @BindView(R.id.txtUlasan)
+    TextView txtUlasan;
+
     FirebaseAuth mAuth;
     FirebaseUser mUser;
     FirebaseDatabase mDatabase;
@@ -114,6 +128,10 @@ public class ProfilWisataUserActivity extends AppCompatActivity {
     public String getUlasanKey, getGambarProfilUser, getNamaUser, getRatingUser, getUlasanUser;
     public String getUID;
 
+    int totalRatingUser;
+    int totalUlasanUser;
+    double rataRatingUser;
+
     ArrayList<String> arrayUlasanKey = new ArrayList<>();
     ArrayList<String> arrayGambarProfile = new ArrayList<>();
     ArrayList<String> arrayNamaUser = new ArrayList<>();
@@ -125,6 +143,19 @@ public class ProfilWisataUserActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profil_wisata_user);
         ButterKnife.bind(this);
+
+        totalRatingUser = 0;
+        totalUlasanUser = 0;
+        rataRatingUser = 0;
+
+        if (totalUlasanUser == 0 && totalRatingUser == 0) {
+            Glide.with(getApplicationContext()).load(R.drawable.ic_star_tidak).into(imgstar1);
+            Glide.with(getApplicationContext()).load(R.drawable.ic_star_tidak).into(imgstar2);
+            Glide.with(getApplicationContext()).load(R.drawable.ic_star_tidak).into(imgstar3);
+            Glide.with(getApplicationContext()).load(R.drawable.ic_star_tidak).into(imgstar4);
+            Glide.with(getApplicationContext()).load(R.drawable.ic_star_tidak).into(imgstar5);
+            txtUlasan.setText(totalUlasanUser + " Ulasan");
+        }
 
         setRatingUlasan();
 
@@ -434,6 +465,57 @@ public class ProfilWisataUserActivity extends AppCompatActivity {
                     arrayNamaUser.add(getNamaUser);
                     arrayRatingUser.add(getRatingUser);
                     arrayUlasanUser.add(getUlasanUser);
+
+                    for (int x = 0; x < arrayRatingUser.size(); x++) {
+                        totalRatingUser += Integer.parseInt(arrayRatingUser.get(x));
+                    }
+                    totalUlasanUser = arrayUlasanKey.size();
+                    rataRatingUser = totalRatingUser / totalUlasanUser;
+
+                    Log.d("rataRating", "onDataChange: " + rataRatingUser);
+
+                    mDatabase.getReference().child("Wisata").child(intentKey).child("Ulasan").child("JumlahRating").setValue(totalUlasanUser);
+                    mDatabase.getReference().child("Wisata").child(intentKey).child("Ulasan").child("RataRataRating").setValue(rataRatingUser);
+                    mDatabase.getReference().child("Wisata").child(intentKey).child("Ulasan").child("TotalRating").setValue(totalRatingUser);
+
+                    txtUlasan.setText(totalUlasanUser + " Ulasan");
+                    if (rataRatingUser < 1) {
+                        Glide.with(getApplicationContext()).load(R.drawable.ic_star_tidak).into(imgstar1);
+                        Glide.with(getApplicationContext()).load(R.drawable.ic_star_tidak).into(imgstar2);
+                        Glide.with(getApplicationContext()).load(R.drawable.ic_star_tidak).into(imgstar3);
+                        Glide.with(getApplicationContext()).load(R.drawable.ic_star_tidak).into(imgstar4);
+                        Glide.with(getApplicationContext()).load(R.drawable.ic_star_tidak).into(imgstar5);
+                    } else if (rataRatingUser < 2) {
+                        Glide.with(getApplicationContext()).load(R.drawable.ic_star_isi).into(imgstar1);
+                        Glide.with(getApplicationContext()).load(R.drawable.ic_star_tidak).into(imgstar2);
+                        Glide.with(getApplicationContext()).load(R.drawable.ic_star_tidak).into(imgstar3);
+                        Glide.with(getApplicationContext()).load(R.drawable.ic_star_tidak).into(imgstar4);
+                        Glide.with(getApplicationContext()).load(R.drawable.ic_star_tidak).into(imgstar5);
+                    } else if (rataRatingUser < 3) {
+                        Glide.with(getApplicationContext()).load(R.drawable.ic_star_isi).into(imgstar1);
+                        Glide.with(getApplicationContext()).load(R.drawable.ic_star_isi).into(imgstar2);
+                        Glide.with(getApplicationContext()).load(R.drawable.ic_star_tidak).into(imgstar3);
+                        Glide.with(getApplicationContext()).load(R.drawable.ic_star_tidak).into(imgstar4);
+                        Glide.with(getApplicationContext()).load(R.drawable.ic_star_tidak).into(imgstar5);
+                    } else if (rataRatingUser < 4) {
+                        Glide.with(getApplicationContext()).load(R.drawable.ic_star_isi).into(imgstar1);
+                        Glide.with(getApplicationContext()).load(R.drawable.ic_star_isi).into(imgstar2);
+                        Glide.with(getApplicationContext()).load(R.drawable.ic_star_isi).into(imgstar3);
+                        Glide.with(getApplicationContext()).load(R.drawable.ic_star_tidak).into(imgstar4);
+                        Glide.with(getApplicationContext()).load(R.drawable.ic_star_tidak).into(imgstar5);
+                    } else if (rataRatingUser < 5) {
+                        Glide.with(getApplicationContext()).load(R.drawable.ic_star_isi).into(imgstar1);
+                        Glide.with(getApplicationContext()).load(R.drawable.ic_star_isi).into(imgstar2);
+                        Glide.with(getApplicationContext()).load(R.drawable.ic_star_isi).into(imgstar3);
+                        Glide.with(getApplicationContext()).load(R.drawable.ic_star_isi).into(imgstar4);
+                        Glide.with(getApplicationContext()).load(R.drawable.ic_star_tidak).into(imgstar5);
+                    } else if (rataRatingUser < 6) {
+                        Glide.with(getApplicationContext()).load(R.drawable.ic_star_isi).into(imgstar1);
+                        Glide.with(getApplicationContext()).load(R.drawable.ic_star_isi).into(imgstar2);
+                        Glide.with(getApplicationContext()).load(R.drawable.ic_star_isi).into(imgstar3);
+                        Glide.with(getApplicationContext()).load(R.drawable.ic_star_isi).into(imgstar4);
+                        Glide.with(getApplicationContext()).load(R.drawable.ic_star_isi).into(imgstar5);
+                    }
                 }
             }
 

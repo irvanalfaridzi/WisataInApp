@@ -1,7 +1,12 @@
 package com.example.wisatain.Activities.Main;
 
 import android.Manifest;
+import android.app.Dialog;
 import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.location.Address;
 import android.location.Geocoder;
 import android.location.Location;
@@ -10,13 +15,18 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.Window;
+import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.example.wisatain.Items.Wisata;
 import com.example.wisatain.R;
 import com.google.android.gms.common.ConnectionResult;
@@ -44,14 +54,21 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import butterknife.BindDrawable;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class WisataMapsActivity extends AppCompatActivity implements OnMapReadyCallback, GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener, LocationListener {
+public class WisataMapsActivity extends AppCompatActivity implements OnMapReadyCallback, GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener, LocationListener, GoogleMap.OnMarkerClickListener {
 
     @BindView(R.id.wmProgressBar)
     ProgressBar progressBar;
+
+    @BindView(R.id.wmBtnSearch)
+    Button wmBtnSearch;
+
+    @BindDrawable(R.drawable.bca)
+    Drawable bca;
 
     private static final int REQUEST_PERMISSION_CODE = 55;
 
@@ -71,12 +88,15 @@ public class WisataMapsActivity extends AppCompatActivity implements OnMapReadyC
 
     ArrayList<String> arrayLocation = new ArrayList<String>();
     ArrayList<String> arrayWisata = new ArrayList<String>();
+    ArrayList<String> arrayFotoWisata = new ArrayList<String>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_wisata_maps);
         ButterKnife.bind(this);
+
+        wmBtnSearch.setVisibility(View.GONE);
 
         mAuth = FirebaseAuth.getInstance();
         mUser = mAuth.getCurrentUser();
@@ -94,7 +114,7 @@ public class WisataMapsActivity extends AppCompatActivity implements OnMapReadyC
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.wmfmap);
         mapFragment.getMapAsync(this);
 
-        loadData();
+        //loadData();
 
     }
 
@@ -120,6 +140,9 @@ public class WisataMapsActivity extends AppCompatActivity implements OnMapReadyC
                             String dataNama = dskey.child("NamaWisata").getValue(String.class);
                             Log.d("wisata1data", "onDataChange: " + dataNama);
                             arrayWisata.add(dataNama);
+                            String dataFoto = dskey.child("FotoWisataURL").getValue(String.class);
+                            Log.d("wisata1data", "onDataChange: " + dataFoto);
+                            arrayFotoWisata.add(dataFoto);
                         }
                     }
 
@@ -148,15 +171,32 @@ public class WisataMapsActivity extends AppCompatActivity implements OnMapReadyC
                     e.printStackTrace();
                 }
 
-                for (int y = 0; y < addressList.size(); y++) {
+                for (int y = 0 ; y < addressList.size(); y++) {
+                   // Bitmap icon = BitmapFactory.decodeResource(WisataMapsActivity.this.getResources(), R.drawable.bni);
                     Address address = addressList.get(y);
                     LatLng latLng = new LatLng(address.getLatitude(), address.getLongitude());
                     markerOptions.position(latLng);
+                   // markerOptions.icon(BitmapDescriptorFactory.fromResource(R.drawable.bni));
                     markerOptions.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_ORANGE));
                     markerOptions.title(arrayWisata.get(y));
+                    markerOptions.snippet(arrayLocation.get(y));
+                    Marker marker = mMap.addMarker(markerOptions);
+                    marker.setTag(markerOptions);
                     mMap.addMarker(markerOptions);
                     mMap.animateCamera(CameraUpdateFactory.newLatLng(latLng));
                     Log.d("asdzxc", "onDataChange: " + arrayWisata.get(y));
+
+                    final String tes = arrayFotoWisata.get(y);
+
+                    mMap.setOnMarkerClickListener(new GoogleMap.OnMarkerClickListener() {
+                        @Override
+                        public boolean onMarkerClick(Marker marker) {
+                           // Toast.makeText(WisataMapsActivity.this,marker.getTitle(),Toast.LENGTH_SHORT).show();
+
+                            showImageView(marker.getTitle(), tes);
+                            return false;
+                        }
+                    });
                 }
 
             } else {
@@ -166,6 +206,21 @@ public class WisataMapsActivity extends AppCompatActivity implements OnMapReadyC
             }
             Log.d("asdzxc", "onDataChange: " + arrayWisata.get(x));
         }
+
+    }
+
+    public void showImageView(String namaWisata, String link){
+        final Dialog dialog = new Dialog(WisataMapsActivity.this);
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialog.setContentView(R.layout.dialog_image_preview_map);
+
+
+        ImageView imageView = dialog.findViewById(R.id.imageView);
+
+        Glide.with(WisataMapsActivity.this).load(link).into(imageView);
+
+        dialog.show();
+
 
     }
 
@@ -234,16 +289,18 @@ public class WisataMapsActivity extends AppCompatActivity implements OnMapReadyC
         LatLng latLng = new LatLng(location.getLatitude(), location.getLongitude());
         // LatLng latLng = new LatLng(-34, 151);
 
-        MarkerOptions markerOptions = new MarkerOptions();
+      /*  MarkerOptions markerOptions = new MarkerOptions();
         markerOptions.position(latLng);
         markerOptions.title("Choose Location");
         markerOptions.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_BLUE));
         // markerOptions.icon(BitmapDescriptorFactory.fromResource(R.drawable.logo));
 
-        marker = mMap.addMarker(markerOptions);
+        marker = mMap.addMarker(markerOptions);*/
 
         mMap.moveCamera(CameraUpdateFactory.newLatLng(latLng));
         mMap.animateCamera(CameraUpdateFactory.zoomBy(10));
+
+        loadData();
 
         if (googleApiClient != null) {
             LocationServices.FusedLocationApi.removeLocationUpdates(googleApiClient, this);
@@ -277,5 +334,11 @@ public class WisataMapsActivity extends AppCompatActivity implements OnMapReadyC
     @OnClick(R.id.wmBtnSearch)
     public void mapsSearch(){
         loadData();
+    }
+
+    @Override
+    public boolean onMarkerClick(Marker marker) {
+
+        return true;
     }
 }

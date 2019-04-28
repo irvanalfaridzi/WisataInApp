@@ -17,6 +17,7 @@ import android.widget.ListAdapter;
 
 import com.bumptech.glide.Glide;
 import com.example.wisatain.Activities.Main.MainActivity;
+import com.example.wisatain.Activities.Main.RekomendasiWisataActivity;
 import com.example.wisatain.Activities.Main.ResultPencarianActivity;
 import com.example.wisatain.Adapters.MainHomeAdapter;
 import com.example.wisatain.Items.Wisata;
@@ -167,9 +168,8 @@ public class MainHomeFragment extends Fragment {
 
     @OnClick(R.id.btnRekomendasi)
     public void rekomendasi() {
-        Intent intent = new Intent(getActivity(), ResultPencarianActivity.class);
+        Intent intent = new Intent(getActivity(), RekomendasiWisataActivity.class);
         startActivity(intent);
-        getActivity().finish();
     }
 
 }
