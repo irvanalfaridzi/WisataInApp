@@ -7,203 +7,205 @@
     android:screenOrientation="portrait"
     tools:context=".Activities.Main.EditProfileActivity">
 
-    <android.support.constraint.ConstraintLayout
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/epToolbar"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:title="Edit Profil" />
 
-        <TextView
-            android:id="@+id/tvNamaLengkap"
-            android:layout_width="match_parent"
-            android:layout_height="56dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="32dp"
-            android:layout_marginEnd="16dp"
-            android:background="@drawable/bgtext"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+    <TextView
+        android:id="@+id/tvNamaLengkap"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/bgtext"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/epToolbar" />
 
-        <ImageView
-            android:id="@+id/logoUser"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginBottom="16dp"
-            android:background="@drawable/ic_username"
-            app:layout_constraintBottom_toBottomOf="@id/tvNamaLengkap"
-            app:layout_constraintStart_toStartOf="@id/tvNamaLengkap"
-            app:layout_constraintTop_toTopOf="@id/tvNamaLengkap" />
+    <ImageView
+        android:id="@+id/logoUser"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/ic_username"
+        app:layout_constraintBottom_toBottomOf="@id/tvNamaLengkap"
+        app:layout_constraintStart_toStartOf="@id/tvNamaLengkap"
+        app:layout_constraintTop_toTopOf="@id/tvNamaLengkap" />
 
-        <EditText
-            android:id="@+id/epetNama"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="0dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginBottom="0dp"
-            android:background="@android:color/transparent"
-            android:hint="Nama Pengguna"
-            android:paddingTop="16dp"
-            android:paddingBottom="16dp"
-            app:layout_constraintBottom_toBottomOf="@id/tvNamaLengkap"
-            app:layout_constraintEnd_toEndOf="@id/tvNamaLengkap"
-            app:layout_constraintStart_toEndOf="@id/logoUser"
-            app:layout_constraintTop_toTopOf="@id/tvNamaLengkap" />
+    <EditText
+        android:id="@+id/epetNama"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="0dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="0dp"
+        android:background="@android:color/transparent"
+        android:hint="Nama Pengguna"
+        android:paddingTop="16dp"
+        android:paddingBottom="16dp"
+        app:layout_constraintBottom_toBottomOf="@id/tvNamaLengkap"
+        app:layout_constraintEnd_toEndOf="@id/tvNamaLengkap"
+        app:layout_constraintStart_toEndOf="@id/logoUser"
+        app:layout_constraintTop_toTopOf="@id/tvNamaLengkap" />
 
-        <TextView
-            android:id="@+id/tvNomor"
-            android:layout_width="match_parent"
-            android:layout_height="56dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="32dp"
-            android:layout_marginEnd="16dp"
-            android:background="@drawable/bgtext"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvNamaLengkap" />
+    <TextView
+        android:id="@+id/tvNomor"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/bgtext"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvNamaLengkap" />
 
-        <ImageView
-            android:id="@+id/logoNomor"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginBottom="16dp"
-            android:background="@drawable/ic_telepon"
-            app:layout_constraintBottom_toBottomOf="@id/tvNomor"
-            app:layout_constraintStart_toStartOf="@id/tvNomor"
-            app:layout_constraintTop_toTopOf="@id/tvNomor" />
+    <ImageView
+        android:id="@+id/logoNomor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/ic_telepon"
+        app:layout_constraintBottom_toBottomOf="@id/tvNomor"
+        app:layout_constraintStart_toStartOf="@id/tvNomor"
+        app:layout_constraintTop_toTopOf="@id/tvNomor" />
 
-        <EditText
-            android:id="@+id/epetNomorTelepon"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginBottom="16dp"
-            android:background="@android:color/transparent"
-            android:hint="Nomor Telepon"
-            android:inputType="phone"
-            android:paddingTop="16dp"
-            android:paddingBottom="16dp"
-            app:layout_constraintBottom_toBottomOf="@id/tvNomor"
-            app:layout_constraintEnd_toEndOf="@id/tvNomor"
-            app:layout_constraintStart_toEndOf="@id/logoNomor"
-            app:layout_constraintTop_toTopOf="@id/tvNomor" />
+    <EditText
+        android:id="@+id/epetNomorTelepon"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:background="@android:color/transparent"
+        android:hint="Nomor Telepon"
+        android:inputType="phone"
+        android:paddingTop="16dp"
+        android:paddingBottom="16dp"
+        app:layout_constraintBottom_toBottomOf="@id/tvNomor"
+        app:layout_constraintEnd_toEndOf="@id/tvNomor"
+        app:layout_constraintStart_toEndOf="@id/logoNomor"
+        app:layout_constraintTop_toTopOf="@id/tvNomor" />
 
-        <TextView
-            android:id="@+id/tvTtl"
-            android:layout_width="match_parent"
-            android:layout_height="56dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="32dp"
-            android:layout_marginEnd="16dp"
-            android:background="@drawable/bgtext"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvNomor" />
+    <TextView
+        android:id="@+id/tvTtl"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/bgtext"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvNomor" />
 
-        <ImageView
-            android:id="@+id/logoTtl"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginBottom="16dp"
-            android:background="@drawable/ic_cake"
-            app:layout_constraintBottom_toBottomOf="@id/tvTtl"
-            app:layout_constraintStart_toStartOf="@id/tvTtl"
-            app:layout_constraintTop_toTopOf="@id/tvTtl" />
+    <ImageView
+        android:id="@+id/logoTtl"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/ic_cake"
+        app:layout_constraintBottom_toBottomOf="@id/tvTtl"
+        app:layout_constraintStart_toStartOf="@id/tvTtl"
+        app:layout_constraintTop_toTopOf="@id/tvTtl" />
 
-        <EditText
-            android:id="@+id/epetTanggalLahir"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="0dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginBottom="0dp"
-            android:background="@android:color/transparent"
-            android:hint="Tempat Tanggal Lahir"
-            android:paddingTop="16dp"
-            android:paddingBottom="16dp"
-            app:layout_constraintBottom_toBottomOf="@id/tvTtl"
-            app:layout_constraintEnd_toStartOf="@id/biaBtnTanggalLahir"
-            app:layout_constraintStart_toEndOf="@id/logoTtl"
-            app:layout_constraintTop_toTopOf="@id/tvTtl" />
+    <EditText
+        android:id="@+id/epetTanggalLahir"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="0dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="0dp"
+        android:background="@android:color/transparent"
+        android:hint="Tempat Tanggal Lahir"
+        android:paddingTop="16dp"
+        android:paddingBottom="16dp"
+        app:layout_constraintBottom_toBottomOf="@id/tvTtl"
+        app:layout_constraintEnd_toStartOf="@id/biaBtnTanggalLahir"
+        app:layout_constraintStart_toEndOf="@id/logoTtl"
+        app:layout_constraintTop_toTopOf="@id/tvTtl" />
 
-        <Button
-            android:id="@+id/biaBtnTanggalLahir"
-            android:layout_width="45dp"
-            android:layout_height="45dp"
-            android:layout_marginStart="0dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginBottom="16dp"
-            android:text="..."
-            app:layout_constraintBottom_toBottomOf="@+id/tvTtl"
-            app:layout_constraintEnd_toEndOf="@id/tvTtl"
-            app:layout_constraintTop_toTopOf="@+id/tvTtl" />
+    <Button
+        android:id="@+id/biaBtnTanggalLahir"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:text="..."
+        app:layout_constraintBottom_toBottomOf="@+id/tvTtl"
+        app:layout_constraintEnd_toEndOf="@id/tvTtl"
+        app:layout_constraintTop_toTopOf="@+id/tvTtl" />
 
-        <TextView
-            android:id="@+id/tvAlamat"
-            android:layout_width="match_parent"
-            android:layout_height="56dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="32dp"
-            android:layout_marginEnd="16dp"
-            android:background="@drawable/bgtext"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvTtl" />
+    <TextView
+        android:id="@+id/tvAlamat"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/bgtext"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvTtl" />
 
-        <ImageView
-            android:id="@+id/logoAlamat"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginBottom="16dp"
-            android:background="@drawable/ic_location"
-            app:layout_constraintBottom_toBottomOf="@id/tvAlamat"
-            app:layout_constraintStart_toStartOf="@id/tvAlamat"
-            app:layout_constraintTop_toTopOf="@id/tvAlamat" />
+    <ImageView
+        android:id="@+id/logoAlamat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/ic_location"
+        app:layout_constraintBottom_toBottomOf="@id/tvAlamat"
+        app:layout_constraintStart_toStartOf="@id/tvAlamat"
+        app:layout_constraintTop_toTopOf="@id/tvAlamat" />
 
-        <EditText
-            android:id="@+id/epetAlamat"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="0dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginBottom="0dp"
-            android:background="@android:color/transparent"
-            android:hint="Alamat"
-            android:paddingTop="16dp"
-            android:paddingBottom="16dp"
-            app:layout_constraintBottom_toBottomOf="@id/tvAlamat"
-            app:layout_constraintEnd_toEndOf="@id/tvAlamat"
-            app:layout_constraintStart_toEndOf="@id/logoAlamat"
-            app:layout_constraintTop_toTopOf="@id/tvAlamat" />
+    <EditText
+        android:id="@+id/epetAlamat"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="0dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="0dp"
+        android:background="@android:color/transparent"
+        android:hint="Alamat"
+        android:paddingTop="16dp"
+        android:paddingBottom="16dp"
+        app:layout_constraintBottom_toBottomOf="@id/tvAlamat"
+        app:layout_constraintEnd_toEndOf="@id/tvAlamat"
+        app:layout_constraintStart_toEndOf="@id/logoAlamat"
+        app:layout_constraintTop_toTopOf="@id/tvAlamat" />
 
-        <Button
-            android:id="@+id/epbtnSave"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="32dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginBottom="32dp"
-            android:background="@drawable/bgmasuk"
-            android:text="Simpan"
-            android:textColor="@color/colorPutih"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvAlamat" />
-
-    </android.support.constraint.ConstraintLayout>
+    <Button
+        android:id="@+id/epbtnSave"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="32dp"
+        android:background="@drawable/bgmasuk"
+        android:text="Simpan"
+        android:textColor="@color/colorPutih"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvAlamat" />
 
 </android.support.constraint.ConstraintLayout>

@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -34,6 +35,9 @@ public class RekomendasiWisataActivity extends AppCompatActivity {
     @BindView(R.id.rwRecyclerView)
     RecyclerView recyclerView;
 
+    @BindView(R.id.rwToolbar)
+    Toolbar toolbar;
+
     FirebaseDatabase mDatabase;
     DatabaseReference mWisata;
     FirebaseRecyclerOptions<Wisata> options;
@@ -52,6 +56,10 @@ public class RekomendasiWisataActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_rekomendasi_wisata);
         ButterKnife.bind(this);
+
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
 
         mDatabase = FirebaseDatabase.getInstance();
         mWisata = mDatabase.getReference().child("Wisata");
@@ -122,5 +130,12 @@ public class RekomendasiWisataActivity extends AppCompatActivity {
         adapter.startListening();
         recyclerView.setAdapter(adapter);
 
+    }
+
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
     }
 }

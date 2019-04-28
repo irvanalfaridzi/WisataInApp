@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -31,6 +32,9 @@ public class EditProfileActivity extends AppCompatActivity {
     DatabaseReference mDatabase;
     FirebaseUser mUser;
 
+    @BindView(R.id.epToolbar)
+    Toolbar toolbar;
+
     ArrayList<Users> namaku = new ArrayList<>();
 
     @BindView(R.id.epetNama)
@@ -53,6 +57,10 @@ public class EditProfileActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_profile);
         ButterKnife.bind(this);
+
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
 
         mDatabase = FirebaseDatabase.getInstance().getReference();
         mUser = FirebaseAuth.getInstance().getCurrentUser();
@@ -129,6 +137,12 @@ public class EditProfileActivity extends AppCompatActivity {
     @OnClick(R.id.epbtnSave)
     public void saveData() {
         saveDataUser();
+    }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
     }
 
 }
