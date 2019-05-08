@@ -106,8 +106,6 @@ public class BiodataAkunActivity extends AppCompatActivity {
 
         tanggallahir.setEnabled(false);
         namalengkap.setText(intentNamaLengkap);
-        nomorponsel.setText("081");
-        alamat.setText("test");
 
         fotoprofil.setOnClickListener(new View.OnClickListener() {
             @Override

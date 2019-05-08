@@ -163,12 +163,8 @@ public class BiodataWisataActivity extends AppCompatActivity {
         getNamaWisata = intent.getStringExtra("namawisata");
 
         namaWisata.setText(getNamaWisata);
-        lokasiWisata.setText("Babatan Pilang XIV f1 nomor 6");
-        kotaWisata.setText("surabaya");
-        jamBukaWisata.setText("16.00");
-        jamTutupWisata.setText("17.00");
-        hargaWisata.setText("0");
-        deskripsiWisata.setText("Luar Biasa");
+        jamBukaWisata.setText("00.00");
+        jamTutupWisata.setText("23.59");
 
         fotoWisata.setOnClickListener(new View.OnClickListener() {
             @Override

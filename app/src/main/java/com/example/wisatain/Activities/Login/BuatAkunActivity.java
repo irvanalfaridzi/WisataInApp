@@ -46,11 +46,6 @@ public class BuatAkunActivity extends AppCompatActivity {
         ButterKnife.bind(this);
 
         mAuth = FirebaseAuth.getInstance();
-
-        namalengkap.setText("testtest");
-        email.setText("test@test.test");
-        katasandi.setText("testtest");
-        konfirmasisandi.setText("testtest");
     }
 
     private void saveMetaData() {

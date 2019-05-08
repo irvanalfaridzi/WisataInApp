@@ -86,6 +86,8 @@ public class WisataMapsActivity extends AppCompatActivity implements OnMapReadyC
 
     String getUID;
 
+    List<Address> addressList = null;
+
     ArrayList<String> arrayLocation = new ArrayList<String>();
     ArrayList<String> arrayWisata = new ArrayList<String>();
     ArrayList<String> arrayFotoWisata = new ArrayList<String>();
@@ -135,14 +137,68 @@ public class WisataMapsActivity extends AppCompatActivity implements OnMapReadyC
                             String key = dskey.getKey();
                             Log.d("wisata1key", "onDataChange: " + key);
                             String dataLokasi = dskey.child("LokasiWisata").getValue(String.class);
-                            Log.d("wisata1data", "onDataChange: " + dataLokasi);
-                            arrayLocation.add(dataLokasi);
                             String dataNama = dskey.child("NamaWisata").getValue(String.class);
-                            Log.d("wisata1data", "onDataChange: " + dataNama);
-                            arrayWisata.add(dataNama);
                             String dataFoto = dskey.child("FotoWisataURL").getValue(String.class);
-                            Log.d("wisata1data", "onDataChange: " + dataFoto);
+
+
+                            Log.d("wisata1datalok", "onDataChange: " + dataLokasi);
+                            arrayLocation.add(dataLokasi);
+                            Log.d("wisata1datanama", "onDataChange: " + dataNama);
+                            arrayWisata.add(dataNama);
+                            Log.d("wisata1datafoto", "onDataChange: " + dataFoto);
                             arrayFotoWisata.add(dataFoto);
+
+                            for (int x = 0; x < arrayLocation.size(); x++) {
+
+                                Log.d("arrayLocation", "loadData: " +arrayLocation.get(x));
+
+                                MarkerOptions markerOptions = new MarkerOptions();
+
+                                if (true) {
+                                    progressBar.setVisibility(View.GONE);
+                                    Geocoder geocoder = new Geocoder(WisataMapsActivity.this);
+
+                                    try {
+                                        addressList = geocoder.getFromLocationName(arrayLocation.get(x), 5);
+                                    } catch (IOException e) {
+                                        e.printStackTrace();
+                                    }
+
+                                    for (int y = 0 ; y < addressList.size(); y++) {
+                                        // Bitmap icon = BitmapFactory.decodeResource(WisataMapsActivity.this.getResources(), R.drawable.bni);
+                                        Address address = addressList.get(y);
+                                        LatLng latLng = new LatLng(address.getLatitude(), address.getLongitude());
+                                        markerOptions.position(latLng);
+                                        // markerOptions.icon(BitmapDescriptorFactory.fromResource(R.drawable.bni));
+                                        markerOptions.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_ORANGE));
+                                        markerOptions.title(arrayWisata.get(y));
+                                        markerOptions.snippet(arrayLocation.get(y));
+                                        Marker marker = mMap.addMarker(markerOptions);
+                                        marker.setTag(markerOptions);
+                                        mMap.addMarker(markerOptions);
+                                        mMap.animateCamera(CameraUpdateFactory.newLatLng(latLng));
+                                        Log.d("asdzxc", "onDataChange: " + arrayWisata.get(y));
+
+                                        final String tes = arrayFotoWisata.get(y);
+
+                                        mMap.setOnMarkerClickListener(new GoogleMap.OnMarkerClickListener() {
+                                            @Override
+                                            public boolean onMarkerClick(Marker marker) {
+                                                // Toast.makeText(WisataMapsActivity.this,marker.getTitle(),Toast.LENGTH_SHORT).show();
+
+                                                showImageView(marker.getTitle(), tes);
+                                                return false;
+                                            }
+                                        });
+                                    }
+
+                                } else {
+                                    progressBar.setVisibility(View.GONE);
+                                    Log.d("asdzxc", "onDataChange: " + "false");
+
+                                }
+                                Log.d("asdzxc", "onDataChange: " + arrayWisata.get(x));
+                            }
                         }
                     }
 
@@ -152,60 +208,9 @@ public class WisataMapsActivity extends AppCompatActivity implements OnMapReadyC
                     }
                 });
 
+    }
 
-        List<Address> addressList = null;
-
-        for (int x = 0; x < arrayLocation.size(); x++) {
-
-            Log.d("arrayLocation", "loadData: " +arrayLocation.get(x));
-
-            MarkerOptions markerOptions = new MarkerOptions();
-
-            if (true) {
-                progressBar.setVisibility(View.GONE);
-                Geocoder geocoder = new Geocoder(WisataMapsActivity.this);
-
-                try {
-                    addressList = geocoder.getFromLocationName(arrayLocation.get(x), 5);
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-
-                for (int y = 0 ; y < addressList.size(); y++) {
-                   // Bitmap icon = BitmapFactory.decodeResource(WisataMapsActivity.this.getResources(), R.drawable.bni);
-                    Address address = addressList.get(y);
-                    LatLng latLng = new LatLng(address.getLatitude(), address.getLongitude());
-                    markerOptions.position(latLng);
-                   // markerOptions.icon(BitmapDescriptorFactory.fromResource(R.drawable.bni));
-                    markerOptions.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_ORANGE));
-                    markerOptions.title(arrayWisata.get(y));
-                    markerOptions.snippet(arrayLocation.get(y));
-                    Marker marker = mMap.addMarker(markerOptions);
-                    marker.setTag(markerOptions);
-                    mMap.addMarker(markerOptions);
-                    mMap.animateCamera(CameraUpdateFactory.newLatLng(latLng));
-                    Log.d("asdzxc", "onDataChange: " + arrayWisata.get(y));
-
-                    final String tes = arrayFotoWisata.get(y);
-
-                    mMap.setOnMarkerClickListener(new GoogleMap.OnMarkerClickListener() {
-                        @Override
-                        public boolean onMarkerClick(Marker marker) {
-                           // Toast.makeText(WisataMapsActivity.this,marker.getTitle(),Toast.LENGTH_SHORT).show();
-
-                            showImageView(marker.getTitle(), tes);
-                            return false;
-                        }
-                    });
-                }
-
-            } else {
-                progressBar.setVisibility(View.GONE);
-                Log.d("asdzxc", "onDataChange: " + "false");
-
-            }
-            Log.d("asdzxc", "onDataChange: " + arrayWisata.get(x));
-        }
+    public void showMap() {
 
     }
 
@@ -220,7 +225,6 @@ public class WisataMapsActivity extends AppCompatActivity implements OnMapReadyC
         Glide.with(WisataMapsActivity.this).load(link).into(imageView);
 
         dialog.show();
-
 
     }
 
